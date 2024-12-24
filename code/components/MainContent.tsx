@@ -1,7 +1,11 @@
+import Image from "next/image";
+import Intro from "./Intro";
+
 // components/MainContent.tsx
 const MainContent = () => {
   return (
     <div>
+      <Intro />
     </div>
   );
 };
