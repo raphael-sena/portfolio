@@ -7,9 +7,6 @@ import { Language, translations } from "@/services/translations";
 const Header = () => {
   const [language, setLanguage] = useState<Language>("en");
 
-  const welcomeText = translations[language].welcome;
-
-
   useEffect(() => {
     const savedLanguage =
       (localStorage.getItem("language") as Language) || "en";
