@@ -1,20 +1,21 @@
 "use client";
 
+import { translations } from '@/services/translations';
 import { useState, useEffect } from 'react';
 
-const ThemeToggle = () => {
-  const [theme, setTheme] = useState<string>('light');
+const ThemeToggle = ({ language }: { language: keyof typeof translations }) => {
+  const [theme, setTheme] = useState<string>("light");
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') || 'light';
+    const savedTheme = localStorage.getItem("theme") || "light";
     setTheme(savedTheme);
     document.documentElement.classList.add(savedTheme);
   }, []);
 
   const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
+    const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
+    localStorage.setItem("theme", newTheme);
 
     document.documentElement.classList.remove(theme);
     document.documentElement.classList.add(newTheme);
@@ -23,9 +24,20 @@ const ThemeToggle = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="p-2 shadow-md bg-black text-slate-50 dark:bg-slate-50 dark:text-black rounded-md text-sm"
+      className="p-2 shadow-md bg-black text-slate-50 dark:bg-slate-50 dark:text-black rounded-md text-sm flex items-center space-x-2"
     >
-      {theme === 'light' ? '🌙 Dark Mode' : '☀️ Light Mode'}
+      {/* Ícones de lua e sol com base no tema */}
+      {theme === "light" ? (
+        <>
+          <span>🌙</span>
+          <span>{translations[language].theme}</span>
+        </>
+      ) : (
+        <>
+          <span>☀️</span>
+          <span>{translations[language].theme}</span>
+        </>
+      )}
     </button>
   );
 };
