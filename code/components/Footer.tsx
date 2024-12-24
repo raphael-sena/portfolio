@@ -1,7 +1,6 @@
 "use client";
 
 import { Language, translations } from "@/services/translations";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const Footer = () => {
