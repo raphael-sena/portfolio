@@ -2,6 +2,7 @@
 
 import { Language, translations } from "@/services/translations";
 import Image from "next/image";
+import React from "react";
 import { useEffect, useState } from "react";
 
 const Intro = () => {
@@ -19,26 +20,26 @@ const Intro = () => {
   const secondPart = introText.slice(periodIndex).trim();
 
   return (
-    <div className="sm:flex sm:gap-2 mb-8">
+    <div className="sm:flex sm:gap-2 mb-12">
       <div className="shadow-lg rounded-md mb-2 sm:mb-0 sm:w-1/3">
         <Image
-          className="w-full h-full rounded-md"
+          className="w-full h-full rounded-lg"
           width={400}
           height={400}
           src="/images/profile_photo.JPEG"
           alt="Picture of me"
         />
       </div>
-      <div className="text-lg bg-black dark:bg-slate-50 text-slate-50 dark:text-black p-4 rounded-md shadow sm:w-2/3">
+      <div className="text-lg bg-black dark:bg-slate-50 text-slate-50 dark:text-black p-4 rounded-lg shadow sm:w-2/3">
         <p>
           {firstPart.split("Raphael Sena").map((part, index) =>
             index === 0 ? (
               part
             ) : (
-              <>
+              <React.Fragment key={index}>
                 <strong>Raphael Sena</strong>
                 {part}
-              </>
+              </React.Fragment>
             )
           )}
         </p>
