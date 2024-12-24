@@ -24,16 +24,19 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className="bg-gradient-to-b from-slate-300 to-slate-50 text-gray-900 dark:bg-gray-900 dark:from-black dark:to-darkBlue bg-cover bg-center dark:text-slate-50">
-        <header className="p-4 flex justify-between items-center">
-          <div className="w-full flex justify-between space-x-4">
-            <ThemeToggle language={language}/>
-            <LanguageToggle />
-          </div>
-        </header>
-        <main>{children}</main>
-        <SpeedInsights />
-      </body>
-    </html>
+  <body className="min-h-screen md:px-20 lg:px-32 lg:mx-12 flex flex-col justify-center items-center bg-gradient-to-b from-slate-300 to-slate-50 text-gray-900 dark:bg-gray-900 dark:from-black dark:to-darkBlue bg-cover bg-center dark:text-slate-50">
+    <header className="text-lg p-4 flex justify-between items-center w-full">
+      <div className="w-full flex justify-between space-x-4">
+        <ThemeToggle language={language}/>
+        <LanguageToggle />
+      </div>
+    </header>
+    <main className="flex-grow w-full flex justify-center items-center">
+      {children}
+    </main>
+    <SpeedInsights />
+  </body>
+</html>
+
   );
 }

@@ -19,7 +19,7 @@ const Intro = () => {
   const secondPart = introText.slice(periodIndex).trim();
 
   return (
-    <div className="sm:flex sm:gap-2">
+    <div className="sm:flex sm:gap-2 mb-8">
       <div className="shadow-lg rounded-md mb-2 sm:mb-0 sm:w-1/3">
         <Image
           className="w-full h-full rounded-md"
