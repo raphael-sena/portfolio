@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from 'next/image'
 
 const translations = {
   en: {
@@ -27,7 +28,13 @@ const Header = () => {
 
   return (
     <header className="w-full flex justify-start items-center mb-2">
-      <img className="rounded-full w-12 mr-2" src="images/avatar.png" alt="" />
+      <Image 
+        className="rounded-full mr-2" 
+        width={48}
+        height={48}
+        src="/images/avatar.png" 
+        alt="" 
+      />
       <h2 className="text-xl mb-2 font-semibold relative max-w-full overflow-hidden before:absolute before:inset-0 before:animate-typewriter before:bg-gradient-to-b before:from-[#CFD8E3] before:to-[#D1DAE4] after:absolute after:inset-0 after:w-[0.125em] after:animate-caret after:bg-black">
         {translations[language].title}
       </h2>
