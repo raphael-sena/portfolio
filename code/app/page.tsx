@@ -1,5 +1,6 @@
 // app/page.tsx
 import Header from '@/components/Header';
+import MainContent from '@/components/MainContent';
 
 const Page = () => {
   return (
@@ -8,6 +9,7 @@ const Page = () => {
         <div>
           <div className="min-h-screen w-full">
             <Header />
+            <MainContent />
           </div>
         </div>
       </div>

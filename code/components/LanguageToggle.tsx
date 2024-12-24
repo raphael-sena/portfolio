@@ -22,7 +22,7 @@ const LanguageToggle = () => {
         <button
           key={lang}
           onClick={() => changeLanguage(lang)}
-          className={`px-2 py-1 rounded-md text-sm shadow-md ${
+          className={`px-2 py-1 rounded-md text-sm shadow-lg ${
             language === lang
               ? "bg-black text-slate-50 dark:bg-slate-50 dark:text-black"
               : "bg-slate-50 dark:bg-gray-500 text-black dark:text-white"
