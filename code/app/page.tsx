@@ -1,10 +1,16 @@
 // app/page.tsx
-import MainContent from '../components/MainContent';
+import Header from '@/components/Header';
 
 const Page = () => {
   return (
-    <div>
-      <MainContent />
+    <div className="p-4">
+      <div className="">
+        <div>
+          <div className="min-h-screen w-full">
+            <Header />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
