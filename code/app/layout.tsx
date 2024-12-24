@@ -5,6 +5,7 @@ import { ReactNode, useEffect, useState } from "react";
 import "./globals.css"; 
 import ThemeToggle from "@/components/ThemeToggle";
 import LanguageToggle from "@/components/LanguageToggle";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 interface LayoutProps {
   children: ReactNode;
@@ -31,6 +32,7 @@ export default function RootLayout({
           </div>
         </header>
         <main>{children}</main>
+        <SpeedInsights />
       </body>
     </html>
   );
