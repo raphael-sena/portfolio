@@ -14,9 +14,9 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="w-full flex justify-start items-center mb-8 rounded-full bg-black dark:bg-slate-50 px-2 py-2 shadow-lg">
+    <header className="w-full flex justify-start items-center mb-8 rounded-full bg-black dark:bg-slate-50 px-2 py-2 transform transition-transform duration-300 hover:scale-105">
       <Image
-        className="rounded-full mr-2"
+        className="rounded-full mr-2 transform transition-transform duration-300 hover:scale-110"
         width={45}
         height={45}
         src="/images/avatar.png"
