@@ -39,7 +39,7 @@ const Experience = () => {
       : [];
 
     return (
-      <div className="ml-4">
+      <div className="ml-4 text-sm">
         <p>{intro}:</p>
         {listItems.length > 0 && (
           <ul className="list-disc pl-5">
@@ -54,9 +54,9 @@ const Experience = () => {
 
   return (
     <div className="space-y-2">
-      <div className="glass-card bg-black dark:bg-slate-50 sm:gap-2 px-6 py-4 rounded-lg text-slate-50 dark:text-black opacity-60 hover:opacity-100 transition-opacity duration-300">
+      <div className="glass-card bg-black dark:bg-slate-50 sm:gap-2 px-6 py-4 rounded-lg text-slate-50 dark:text-black lg:opacity-60 lg:hover:opacity-100 lg:transition-opacity lg:duration-300">
         <div className="flex">
-          <div className="w-full text-lg flex items-center mr-2">
+          <div className="w-full text-lg flex items-center mr-4 md:mr-2">
             <Image
               className="rounded-full mr-2 transform transition-transform duration-300 hover:scale-110"
               width={45}
@@ -64,7 +64,10 @@ const Experience = () => {
               src="/images/experience/agencia_de_software.png"
               alt="Agência Experimental de Software"
             />
-            <h1 className="font-bold">Agência Experimental de Software</h1>
+            <div>
+              <h1 className="text-md font-bold tracking-tighter">Agência Experimental de Software</h1>
+              <h2 className="text-sm font-semibold">09/2024 - {translations[language].currently}</h2>
+            </div>
           </div>
           <div className="flex items-center gap-1 justify-end">
             <Link
@@ -77,10 +80,13 @@ const Experience = () => {
           </div>
         </div>
         <div className="ml-2">
-          <h2 className="mb-1 font-semibold">Projects</h2>
+          <h2 className="mb-1 font-semibold text-md">Projects</h2>
           <div>
-            <div className="items-center">
-              <h2 className="mr-2 font-semibold">Cuido Bem</h2>
+            <div className="items-center ml-2">
+              <div className="flex justify-between items-center w-full">
+                <h2 className="mr-2 font-semibold text-md">Cuido Bem</h2>
+                <h2 className="text-xs font-semibold">09/2024 - {translations[language].currently}</h2>
+              </div>
               {renderCuidoBem()}
             </div>
           </div>
