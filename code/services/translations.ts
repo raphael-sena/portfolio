@@ -25,6 +25,9 @@ export const translations = {
     intern_text: "Service Desk intern.",
     avaso: "I diagnosed, researched, and solved issues with computers and systems. I monitored and updated ServiceDesk tickets to ensure compliance with responses and feedback on the solutions provided. I performed installation, configuration, and support for computers, laptops, virtual machines, smartphones, VOIP devices, servers, backup systems, and other devices. Additionally, I handled requests through a ticket system used for time tracking and recording the activities performed.",
     education: "Education",
+    kogarah: "High School exchange in Sydney, Australia.",
+    bh: "📍 Belo Horizonte/MG - Brazil",
+    sydney: "📍 Sydney/NSW - Australia"
   },
 
   pt: {
@@ -50,7 +53,10 @@ export const translations = {
     intern: "Information Technology Intern",
     intern_text: "Estagiário de Service Desk.",
     avaso: "Diagnostiquei, pesquisei e solucionei problemas em computadores e sistemas. Monitorei e atualizei chamados de ServiceDesk para assegurar conformidade nas respostas e feedbacks sobre as soluções apresentadas. Realizei a instalação, configuração e suporte de computadores, notebooks, máquinas virtuais, smartphones, dispositivos VOIP, servidores, sistemas de backup e outros dispositivos. Além disso, atendi demandas por meio de um sistema de tickets, utilizado para o controle de horas e registro das atividades realizadas.",
-    education: "Educação"
+    education: "Educação",
+    kogarah: "Intercâmbio do ensino médio em Sydney, Austrália.",
+    bh: "📍 Belo Horizonte/MG - Brasil",
+    sydney: "📍 Sydney/NGS - Austrália"
   },
 
   de: {
@@ -76,6 +82,9 @@ export const translations = {
     intern: "IT-Praktikant",
     intern_text: "Praktikant am Service Desk.",
     avaso: "Ich habe Probleme mit Computern und Systemen diagnostiziert, recherchiert und gelöst. Ich habe ServiceDesk-Tickets überwacht und aktualisiert, um die Einhaltung der Antworten und das Feedback zu den vorgeschlagenen Lösungen sicherzustellen. Ich habe die Installation, Konfiguration und Unterstützung von Computern, Notebooks, virtuellen Maschinen, Smartphones, VOIP-Geräten, Servern, Backup-Systemen und anderen Geräten durchgeführt. Außerdem habe ich Anfragen über ein Ticketsystem bearbeitet, das für die Zeiterfassung und die Dokumentation der durchgeführten Aktivitäten verwendet wurde.",
-    education: "Bildung"
+    education: "Bildung",
+    kogarah: "Highschool-Austausch in Sydney, Australien.",
+    bh: "📍 Belo Horizonte/MG - Brasilien",
+    sydney: "📍 Sydney/NSW - Australien"
   },
 };

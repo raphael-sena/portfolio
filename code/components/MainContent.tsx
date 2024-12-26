@@ -6,6 +6,7 @@ import Footer from "./Footer";
 import Intro from "./Intro";
 import { Language, translations } from "@/services/translations";
 import Experience from "./Experience";
+import Education from "./Education";
 
 const MainContent = () => {
   const [language, setLanguage] = useState<Language>("en");
@@ -46,6 +47,7 @@ const MainContent = () => {
             <h2 className="text-2xl font-bold text-start mb-2">
               {translations[language].education}
             </h2>
+            <Education />
           </section>
 
           <section id="featured-projects" className="lg:w-full mb-10">
