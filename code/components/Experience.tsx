@@ -4,7 +4,7 @@ import { Language, translations } from "@/services/translations";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { FaGithub, FaLink, FaLinkedinIn } from "react-icons/fa";
+import { FaLinkedinIn } from "react-icons/fa";
 
 const Experience = () => {
   const [language, setLanguage] = useState<Language>("en");
@@ -14,13 +14,6 @@ const Experience = () => {
       (localStorage.getItem("language") as Language) || "en";
     setLanguage(savedLanguage);
   }, []);
-
-  const formatTextAsList = (text: string) => {
-    return text
-      .split(" - ") // Divide os itens da lista com base no hífen
-      .map((item) => item.trim()) // Remove espaços em branco
-      .filter(Boolean); // Remove entradas vazias
-  };
 
   const renderCuidoBem = () => {
     const text = translations[language].cuido_bem;
