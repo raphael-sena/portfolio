@@ -20,7 +20,7 @@ const Header = () => {
         width={45}
         height={45}
         src="/images/avatar.png"
-        alt=""
+        alt="Profile Pic"
       />
       <h2 className="text-md font-semibold text-slate-50 dark:text-black relative max-w-full overflow-hidden before:absolute before:inset-0 before:animate-typewriter before:bg-black dark:before:bg-slate-50 after:absolute after:inset-0 after:w-[0.125em] after:animate-caret after:bg-slate-50 dark:after:bg-black">
         {translations[language].welcome}

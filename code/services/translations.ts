@@ -13,6 +13,8 @@ export const translations = {
     about: "About",
     about_text: "I am a Software Engineering student, and throughout my journey, I have had the opportunity to work on diverse projects, such as developing a management software for the 'Renata Senna' store and collaborating as a back-end developer on the 'Cuido Bem' project at the Experimental Software Agency at PUC Minas. These experiences allowed me to explore modern tools such as Spring Boot, Next.js, TailwindCSS, and React, as well as enhance my skills in problem-solving and delivering practical and efficient solutions. My goal is to create robust and intuitive systems that generate positive impact, valuing both technical aspects and user experience. Beyond the technical field, I aim to grow by learning new skills, such as the German language, and exploring different ways to balance my academic and professional journey with my personal life.",
     experience: "Experience",
+    cuido_bem: "In this role, I contribute by leading the back-end development team and participating in various projects as needed. My contributions to the 'Cuido Bem' project so far include: - Reviewing colleagues' code and suggesting improvements; - Writing unit tests for the MVC structure; - Implementing a GlobalExceptionHandler to effectively manage back-end exceptions.",
+    cuido_bem_projects: "Projects",
     education: "Education",
   },
 
@@ -28,9 +30,11 @@ export const translations = {
     about: "Sobre",
     about_text: "Sou estudante de Engenharia de Software e durante minha caminhada, tive a oportunidade de trabalhar em projetos diversificados, como o desenvolvimento de um software de gestão para a loja 'Renata Senna' e minha colaboração como desenvolvedor back-end no projeto 'Cuido Bem' da Agência Experimental de Software da PUC Minas. Essas experiências me permitiram explorar ferramentas modernas como Spring Boot, Next.js, TailwindCSS e React, além de aprimorar minhas habilidades em resolver problemas e entregar soluções práticas e eficientes. Meu objetivo é criar sistemas robustos e intuitivos que gerem impacto positivo, valorizando tanto o aspecto técnico quanto a experiência do usuário. Fora do campo técnico, busco me desenvolver aprendendo novas habilidades, como o idioma alemão, e explorando diferentes formas de equilibrar minha jornada acadêmica e profissional com meu lado pessoal.",
     experience: "Experiência",
+    cuido_bem: "Neste papel, contribuo liderando a equipe de desenvolvimento back-end e participando de vários projetos conforme necessário. Minhas contribuições para o projeto 'Cuido Bem' até agora incluem: - Revisar o código dos colegas e sugerir melhorias; - Escrever testes unitários para a estrutura MVC; - Implementar um GlobalExceptionHandler para gerenciar eficazmente as exceções de back-end.",
+    cuido_bem_projects: "Projetos",
     education: "Educação"
   },
-  
+
   de: {
     welcome: "Willkommen in meinem Portfolio! 😄",
     theme: "Thema Umschalten",
@@ -43,6 +47,8 @@ export const translations = {
     about: "Über",
     about_text: "Ich bin Softwaretechnik-Student und hatte auf meinem Weg die Möglichkeit, an vielfältigen Projekten zu arbeiten, wie der Entwicklung einer Verwaltungssoftware für das Geschäft 'Renata Senna' und der Zusammenarbeit als Back-End-Entwickler am Projekt 'Cuido Bem' der Experimentellen Softwareagentur der PUC Minas. Diese Erfahrungen ermöglichten es mir, moderne Tools wie Spring Boot, Next.js, TailwindCSS und React zu erkunden und meine Fähigkeiten im Problemlösen und in der Bereitstellung praktischer und effizienter Lösungen zu verbessern. Mein Ziel ist es, robuste und intuitive Systeme zu entwickeln, die einen positiven Einfluss haben und sowohl technische Aspekte als auch die Benutzererfahrung schätzen. Abseits des technischen Bereichs strebe ich danach, mich durch das Erlernen neuer Fähigkeiten wie der deutschen Sprache weiterzuentwickeln und verschiedene Wege zu finden, meine akademische und berufliche Laufbahn mit meinem persönlichen Leben in Einklang zu bringen.",
     experience: "Erfahrung",
+    cuido_bem: "In dieser Rolle trage ich dazu bei, das Back-End-Entwicklungsteam zu leiten und an verschiedenen Projekten nach Bedarf teilzunehmen. Meine bisherigen Beiträge zum Projekt 'Cuido Bem' umfassen: - Den Code meiner Kollegen zu überprüfen und Verbesserungsvorschläge zu machen; - Unit-Tests für die MVC-Struktur zu schreiben; - Einen GlobalExceptionHandler zu implementieren, um Back-End-Ausnahmen effektiv zu verwalten.",
+    cuido_bem_projects: "Projekte",
     education: "Bildung"
   },
 };
