@@ -20,4 +20,16 @@
     }
 }
 
+.glass-card {
+    background-clip: padding-box;
+    backdrop-filter: blur(8px) saturate(100%) contrast(100%);
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    .glass-card {
+      box-shadow: 0 4px 30px rgba(112, 128, 144); /* Sombra mais escura */
+      border: 1px solid rgba(255, 255, 255, 0.1); /* Borda para modo escuro */
+    }
+  }
+  
 /* TODO - consertar aside */

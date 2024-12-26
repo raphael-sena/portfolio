@@ -22,7 +22,7 @@ export default function RootLayout({ children }: LayoutProps) {
 
   return (
     <html lang="en">
-      <body className="min-h-screen md:px-20 lg:px-32 lg:mx-12 flex flex-col justify-center items-center bg-gradient-to-b from-slate-300 to-slate-50 text-gray-900 dark:bg-gray-900 dark:from-black dark:to-darkBlue bg-cover bg-center dark:text-slate-50">
+      <body className="min-h-screen max-w-[1280px] mx-auto flex flex-col justify-center items-center bg-gradient-to-b from-slate-300 to-slate-50 text-gray-900 dark:bg-gray-900 dark:from-black dark:to-darkBlue bg-cover bg-center dark:text-slate-50">
         <header className="text-lg p-4 flex justify-between items-center w-full">
           <div className="w-full flex justify-between space-x-4">
             <ThemeToggle language={language} />
