@@ -24,8 +24,8 @@ const LanguageToggle = () => {
           onClick={() => changeLanguage(lang)}
           className={`px-2 py-1 rounded-md text-sm shadow-lg ${
             language === lang
-              ? "bg-black text-slate-50 dark:bg-slate-50 dark:text-black"
-              : "bg-slate-50 dark:bg-gray-500 text-black dark:text-white"
+              ? "bg-black text-slate-50 dark:bg-slate-50 dark:text-black shadow-lg shadow-black dark:shadow-slate-400"
+              : "bg-slate-50 hover:shadow-sm hover:shadow-black dark:bg-gray-500 text-black dark:text-white dark:hover:shadow-sm dark:hover:shadow-slate-50 "
           }`}
         >
           {lang.toUpperCase()}

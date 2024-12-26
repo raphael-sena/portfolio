@@ -1,7 +1,7 @@
 // services/githubService.ts
 
 export const getGitHubRepos = async () => {
-    const specificRepos = ["recipes-and-flavors"];
+    const specificRepos = ["recipes-and-flavors", "portfolio"];
   
     try {
       const repoPromises = specificRepos.map(async (repo) => {
