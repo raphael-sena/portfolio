@@ -18,8 +18,8 @@ const MainContent = () => {
 
   return (
     <div>
-      <div className="lg:flex">
-        <aside className="lg:w-2/3">
+      <div className="lg:flex mb-8">
+        <aside className="lg:w-2/3 ">
           <section id="intro">
             <Intro />
           </section>
