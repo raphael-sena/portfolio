@@ -20,17 +20,19 @@ const Intro = () => {
   const secondPart = introText.slice(periodIndex).trim();
 
   return (
-    <div className="sm:flex sm:gap-2 mb-12">
-      <div className="shadow-lg rounded-md mb-2 sm:mb-0 sm:w-1/3">
+    <div className="content sm:flex sm:gap-2 mb-12 lg:mr-12">
+      <div className="shadow-lg rounded-md mb-2 sm:mb-0 sm:w-1/3 lg:w-full lg:mb-2 h-full">
         <Image
           className="w-full h-full rounded-lg"
-          width={400}
-          height={400}
+          width={1920}
+          height={1080}
+          layout="responsive"
           src="/images/profile_photo.JPEG"
           alt="Picture of me"
+          quality={100}
         />
       </div>
-      <div className="text-lg bg-black dark:bg-slate-50 text-slate-50 dark:text-black p-4 rounded-lg shadow sm:w-2/3">
+      <div className="text-lg bg-black dark:bg-slate-50 text-slate-50 dark:text-black p-4 rounded-lg shadow sm:w-2/3 lg:w-full">
         <p>
           {firstPart.split("Raphael Sena").map((part, index) =>
             index === 0 ? (

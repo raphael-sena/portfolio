@@ -94,10 +94,10 @@ const FeaturedProjects = () => {
   }, [projects]);
 
   if (loading) return <LoadingCards />;
-  if (error) return <p>{error}</p>;
+  if (error) return <LoadingCards />;
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-24">
+    <div className="cards grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 xl:grid-cols-2 gap-6 mb-24">
       {projects.map((project) => (
         <div
           key={project.id}

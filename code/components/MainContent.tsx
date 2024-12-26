@@ -17,13 +17,19 @@ const MainContent = () => {
     
   return (
     <div>
-      <Intro />
-      <section id="featured-projects">
-        <h2 className="text-2xl font-bold text-start mb-4">
-          {translations[language].featured}
-        </h2>
-        <FeaturedProjects />
-      </section>
+      <div className="lg:flex">
+        <aside className="lg:w-2/3">
+          <section id="intro">
+            <Intro />
+          </section>
+        </aside>
+        <section id="featured-projects" className="lg:w-full">
+          <h2 className="text-2xl font-bold text-start mb-4">
+            {translations[language].featured}
+          </h2>
+          <FeaturedProjects />
+        </section>
+      </div>
       <Footer />
     </div>
   );

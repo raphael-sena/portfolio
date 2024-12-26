@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@media (min-width: 1024px) { 
+    .content {
+        display: block !important;
+        max-width: fit-content;
+        margin: 0 auto;
+        gap: 4px;
+    }
+
+    .content img {
+        width: max-content;
+      }
+
+    .cards {
+        display: grid;
+        grid-column: 1;
+    }
+}
+
+/* TODO - consertar aside */
