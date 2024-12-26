@@ -23,7 +23,7 @@ const Intro = () => {
     <div className="content sm:flex sm:gap-2 mb-12 lg:mx-12">
       <div className="sm:w-1/3 lg:w-full lg:mb-8 h-full lg:w-128 lg:h-128">
         <Image
-          className="mb-2 lg:transform lg:transition-transform lg:duration-300 lg:hover:scale-105 w-full h-full rounded-lg lg:rounded-full lg:aspect-square object-cover overflow-hidden"
+          className="mb-2 lg:transform lg:transition-transform lg:duration-300 lg:hover:scale-105 w-full h-full rounded-lg lg:rounded-full lg:aspect-square object-cover overflow-hidden shadow-[5px_23px_91px_39px_rgba(27,_25,_30,_0.19)] dark:shadow-[5px_23px_91px_39px_rgba(218,_194,_232,_0.19)]"
           width={1024}
           height={1024}
           src="/images/profile_photo_2.JPEG"
@@ -36,7 +36,7 @@ const Intro = () => {
         </div>
       </div>
 
-      <div className="text-lg bg-black dark:bg-slate-50 text-slate-50 dark:text-black p-4 rounded-lg shadow sm:w-2/3 lg:w-full">
+      <div className="text-lg bg-black dark:bg-slate-50 text-slate-50 dark:text-black p-4 rounded-lg shadow sm:w-2/3 lg:w-full shadow-[5px_23px_91px_39px_rgba(27,_25,_30,_0.19)] dark:shadow-[5px_23px_91px_39px_rgba(218,_194,_232,_0.19)]">
         <p>
           {firstPart.split("Raphael").map((part, index) =>
             index === 0 ? (
