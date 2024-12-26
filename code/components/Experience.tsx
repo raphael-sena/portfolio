@@ -281,9 +281,16 @@ const Experience = () => {
               </h2>
             </div>
           </div>
-          <div className="flex items-center  gap-1">
+          <div className="flex items-center gap-1 justify-end">
             <Link
-              href="https://www.linkedin.com/company/agencia-experimental-de-software/"
+                href="https://www.avasotech.com/"
+                className="transform transition-transform duration-300 hover:scale-110 mr-1"
+                target="_blank"
+              >
+                <FaLink />
+            </Link>
+            <Link
+              href="https://www.linkedin.com/company/avaso-technology-solutions/posts/?feedView=all"
               className="transform transition-transform duration-300 hover:scale-110"
               target="_blank"
             >
