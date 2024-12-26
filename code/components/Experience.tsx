@@ -73,7 +73,7 @@ const Experience = () => {
           </div>
         </div>
         <div className="ml-2">
-          <h2 className="mb-1 font-semibold text-md">Projects</h2>
+          <h2 className="mb-1 font-semibold text-md">{translations[language].cuido_bem_projects}</h2>
           <div>
             <div className="items-center ml-2">
               <div className="flex justify-between items-center w-full">
