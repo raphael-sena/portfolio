@@ -23,7 +23,7 @@ const Intro = () => {
     <div className="content sm:flex sm:gap-2 mb-12 lg:mx-12">
       <div className="sm:w-1/3 lg:w-full lg:mb-8 h-full lg:w-128 lg:h-128">
         <Image
-          className="mb-2 transform transition-transform duration-300 hover:scale-105 w-full h-full rounded-lg lg:rounded-full lg:aspect-square object-cover overflow-hidden"
+          className="mb-2 lg:transform lg:transition-transform lg:duration-300 lg:hover:scale-105 w-full h-full rounded-lg lg:rounded-full lg:aspect-square object-cover overflow-hidden"
           width={1024}
           height={1024}
           src="/images/profile_photo_2.JPEG"
