@@ -33,6 +33,22 @@ export default function RootLayout({ children }: LayoutProps) {
           href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
           rel="stylesheet"
         />
+
+        <meta name="description" content="Dev Portfolio showcasing my work and skills." />
+        <meta property="og:title" content="Raphael Sena | Portfolio" />
+        <meta property="og:description" content="Explore my projects, skills, and experience." />
+        <meta property="og:url" content="https://raphaelsena.com" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://raphaelsena.com/images/avatar.png" />
+        <meta property="og:image:width" content="630" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Raphael Sena Portfolio Image" />
+        
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Raphael Sena | Portfolio" />
+        <meta name="twitter:description" content="Dev Portfolio showcasing my work and skills." />
+        <meta name="twitter:image" content="https://raphaelsena.com/images/avatar.png" />
+        <meta name="twitter:image:alt" content="Raphael Sena Portfolio Image" />
       </head>
 
       <body className="min-h-screen max-w-[1333px] mx-auto flex flex-col justify-center items-center bg-gradient-to-b from-slate-200 via-slate-50 to-slate-200 text-gray-900 dark:from-black dark:to-stone-900 bg-cover bg-center dark:text-slate-50">
