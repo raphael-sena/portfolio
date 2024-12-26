@@ -32,4 +32,6 @@
     }
   }
   
-/* TODO - consertar aside */
+  body {
+    font-family: 'Rubik', sans-serif;
+  }
