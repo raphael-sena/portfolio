@@ -6,6 +6,8 @@ import "./globals.css";
 import ThemeToggle from "@/components/ThemeToggle";
 import LanguageToggle from "@/components/LanguageToggle";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import '@react-pdf-viewer/core/lib/styles/index.css';
+import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 
 interface LayoutProps {
   children: ReactNode;
