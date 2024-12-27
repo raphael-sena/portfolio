@@ -5,13 +5,10 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { useEffect, useState } from "react";
-import {
-  FaGithub,
-  FaInstagram,
-  FaLinkedinIn,
-} from "react-icons/fa";
+import { FaGithub, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import WhatsAppButton from "./WhatsAppButton";
+import Navigation from "./navigation/Navigation";
 
 const Intro = () => {
   const [language, setLanguage] = useState<Language>("en");
@@ -32,14 +29,14 @@ const Intro = () => {
         alt="Picture of me"
         quality={100}
       />
-      <div className="flex-1 text-center md:text-start justify-center md:justify-start items-center md:items-start w-full h-full">
+      <div className="lg:mb-4 flex-1 text-center md:text-start justify-center md:justify-start items-center md:items-start w-full h-full">
         <div className="mb-4 w-full lg:mt-4">
           <h1 className="text-3xl font-bold">Raphael Sena</h1>
           <h2 className="text-lg"> {translations[language].profession}</h2>
         </div>
 
         <div className="text-xl flex justify-center md:justify-start items-center md:items-start text-center md:text-start space-x-4 lg:space-x-2">
-        <Link
+          <Link
             target="_blank"
             href={"https://www.linkedin.com/in/raphael-sena/"}
             className="transform transition-transform duration-300 hover:scale-110"
@@ -62,7 +59,9 @@ const Intro = () => {
           </Link>
           <Link
             target="_blank"
-            href={"https://www.instagram.com/raphasenab/profilecard/?igsh=MW53dWxiM3didnAyZg=="}
+            href={
+              "https://www.instagram.com/raphasenab/profilecard/?igsh=MW53dWxiM3didnAyZg=="
+            }
             className="transform transition-transform duration-300 hover:scale-110"
           >
             <FaInstagram />
@@ -70,6 +69,8 @@ const Intro = () => {
           <WhatsAppButton />
         </div>
       </div>
+
+      <Navigation />
     </div>
   );
 };
