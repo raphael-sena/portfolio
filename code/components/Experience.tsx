@@ -47,7 +47,7 @@ const Experience = () => {
 
   return (
     <div className="space-y-2">
-      <div className="glass-card bg-black dark:bg-slate-50 sm:gap-2 px-6 py-4 rounded-lg text-slate-50 dark:text-black lg:opacity-60 lg:hover:opacity-100 lg:transition-opacity lg:duration-300">
+      <div className="glass-card bg-black dark:bg-slate-50 sm:gap-2 p-4 rounded-lg text-slate-50 dark:text-black lg:opacity-60 lg:hover:opacity-100 lg:transition-opacity lg:duration-300">
         <div className="flex mb-2">
           <div className="w-full text-lg flex items-center mr-4 md:mr-2">
             <Image
@@ -138,7 +138,7 @@ const Experience = () => {
         </div>
       </div>
 
-      <div className="glass-card bg-black dark:bg-slate-50 sm:gap-2 px-6 py-4 rounded-lg text-slate-50 dark:text-black lg:opacity-60 lg:hover:opacity-100 lg:transition-opacity lg:duration-300">
+      <div className="glass-card bg-black dark:bg-slate-50 sm:gap-2 p-4 rounded-lg text-slate-50 dark:text-black lg:opacity-60 lg:hover:opacity-100 lg:transition-opacity lg:duration-300">
         <div className="flex mb-2">
           <div className="w-full text-lg flex items-center mr-4 md:mr-2">
             <Image
@@ -262,7 +262,7 @@ const Experience = () => {
         </div>
       </div>
 
-      <div className="glass-card bg-black dark:bg-slate-50 sm:gap-2 px-6 py-4 rounded-lg text-slate-50 dark:text-black lg:opacity-60 lg:hover:opacity-100 lg:transition-opacity lg:duration-300">
+      <div className="glass-card bg-black dark:bg-slate-50 sm:gap-2 p-4 rounded-lg text-slate-50 dark:text-black lg:opacity-60 lg:hover:opacity-100 lg:transition-opacity lg:duration-300">
         <div className="flex mb-2">
           <div className="w-full text-lg flex items-center mr-4 md:mr-2">
             <Image
