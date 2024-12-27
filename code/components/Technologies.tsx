@@ -2,10 +2,10 @@ import Image from "next/image";
 
 const Technologies = () => {
   return (
-    <div className="technologies flex flex-wrap justify-between">
+    <div className="technologies flex flex-wrap justify-between px-6">
       <div className="dak:glass-card backend mb-4 p-4 w-full rounded-lg dark:bg-slate-50 dark:text-black lg:transform lg:transition-transform lg:duration-300 lg:hover:scale-105">
-        <h2 className="text-lg font-bold mb-2">Backend</h2>
-        <div className="flex flex-wrap justify-start items-center">
+        <h2 className="text-xl font-bold mb-4">Backend</h2>
+        <div className="flex justify-start items-center px-5 mx-auto overflow-x-auto overflow-y-hidden whitespace-nowrap max-h-48">
           <Image
             className="mr-4 mb-8 w-32 transform transition-transform duration-300 hover:scale-110"
             width={1200}
@@ -66,10 +66,10 @@ const Technologies = () => {
       </div>
 
       <div className="dak:glass-card frontend mb-4 p-4 w-full rounded-lg dark:bg-slate-50 dark:text-black lg:transform lg:transition-transform lg:duration-300 lg:hover:scale-105">
-        <h2 className="text-lg font-bold mb-2">Frontend</h2>
-        <div className="flex flex-wrap justify-start items-center">
+        <h2 className="text-xl font-bold mb-2">Frontend</h2>
+        <div className="flex justify-start items-center px-5 mx-auto overflow-x-auto overflow-y-hidden whitespace-nowrap max-h-48">
           <Image
-            className="mr-6 mb-8 w-16 transform transition-transform duration-300 hover:scale-110"
+            className="mr-6 mb-8 w-20 transform transition-transform duration-300 hover:scale-110"
             width={1200}
             height={1200}
             src="/images/technologies/css-logo.png"
@@ -77,7 +77,7 @@ const Technologies = () => {
             title="CSS"
           />
           <Image
-            className="mr-6 mb-8 w-16 transform transition-transform duration-300 hover:scale-110"
+            className="mr-6 mb-8 w-20 transform transition-transform duration-300 hover:scale-110"
             width={1200}
             height={1200}
             src="/images/technologies/html-logo.png"
@@ -85,7 +85,7 @@ const Technologies = () => {
             title="HTML"
           />
           <Image
-            className="mr-6 mb-8 w-16 transform transition-transform duration-300 hover:scale-110"
+            className="mr-6 mb-8 w-20 transform transition-transform duration-300 hover:scale-110"
             width={1200}
             height={1200}
             src="/images/technologies/js-logo.png"
@@ -101,7 +101,7 @@ const Technologies = () => {
             title="Next.js"
           />
           <Image
-            className="mr-4 mb-8 w-48 transform transition-transform duration-300 hover:scale-110"
+            className="mr-4 mb-8 w-48 h-20 transform transition-transform duration-300 hover:scale-110"
             width={1200}
             height={1200}
             src="/images/technologies/react-logo.png"
@@ -109,7 +109,7 @@ const Technologies = () => {
             title="React"
           />
           <Image
-            className="mr-4 mb-8 w-48 transform transition-transform duration-300 hover:scale-110"
+            className="mr-4 mb-8 w-48 h-20 lg:h-auto transform transition-transform duration-300 hover:scale-110"
             width={1200}
             height={1200}
             src="/images/technologies/tailwind-logo.png"
@@ -128,20 +128,20 @@ const Technologies = () => {
       </div>
 
       <div className="dak:glass-card db mb-4 p-4 w-full rounded-lg dark:bg-slate-50 dark:text-black lg:transform lg:transition-transform lg:duration-300 lg:hover:scale-105">
-        <h2 className="text-lg font-bold mb-2">Data Base</h2>
-        <div className="flex flex-wrap">
+        <h2 className="text-xl font-bold mb-4">Data Base</h2>
+        <div className="flex justify-start items-center px-5 mx-auto overflow-x-auto overflow-y-hidden whitespace-nowrap max-h-48">
           <Image
-            className="mr-4 mb-8 transform transition-transform duration-300 hover:scale-110"
-            width={120}
-            height={120}
+            className="mr-4 mb-8 w-48 transform transition-transform duration-300 hover:scale-110"
+            width={1200}
+            height={1200}
             src="/images/technologies/postgresql-logo.png"
             alt="Postgresql Logo"
             title="PostgreSQL"
           />
           <Image
-            className="mr-4 mb-8 transform transition-transform duration-300 hover:scale-110"
-            width={64}
-            height={64}
+            className="mr-4 mb-8 w-24 transform transition-transform duration-300 hover:scale-110"
+            width={1200}
+            height={1200}
             src="/images/technologies/mysql-logo.png"
             alt="Mysql Logo"
             title="MySQL"

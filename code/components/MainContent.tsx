@@ -133,7 +133,7 @@ const MainContent = () => {
 
           <section
             id="featured-projects"
-            className={`lg:w-full mb-10 transition-opacity duration-1000 ${
+            className={`lg:w-full mb-12 transition-opacity duration-1000 ${
               featuredInView ? "opacity-100" : "opacity-0"
             }`}
             ref={featuredRef}
@@ -151,7 +151,7 @@ const MainContent = () => {
             }`}
             ref={technologiesRef}
           >
-            <h2 className="text-2xl font-bold text-start mb-4">{translations[language].technologies}</h2>
+            <h2 className="sticky-title glass-card px-4 py-2 bg-black/90 dark:bg-slate-50/90 text-slate-50 dark:text-black rounded-2xl text-2xl font-bold text-start mb-6">{translations[language].technologies}</h2>
             <Technologies />
           </section>
 
