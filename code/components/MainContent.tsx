@@ -8,6 +8,7 @@ import { Language, translations } from "@/services/translations";
 import Experience from "./Experience";
 import Education from "./Education";
 import Image from "next/image";
+import React from "react";
 
 const MainContent = () => {
   const [language, setLanguage] = useState<Language>("en");
@@ -18,23 +19,43 @@ const MainContent = () => {
     setLanguage(savedLanguage);
   }, []);
 
+  const introText = translations[language].intro;
+  const periodIndex = introText.indexOf(".") + 1;
+  const firstPart = introText.slice(0, periodIndex).trim();
+  const secondPart = introText.slice(periodIndex).trim();
+
   return (
     <div>
       <div className="lg:flex mb-8">
-        <aside className="lg:w-2/3 ">
+      <aside className="lg:w-2/6 lg:sticky lg:top-4 lg:h-screen">
           <section id="intro">
             <Intro />
           </section>
         </aside>
 
-        <div className="lg:w-full">
-          <section id="about" className="mb-10">
+        <div className="lg:w-4/6">
+          <section id="about" className="mb-10 mt-12 lg:mt-0">
             <h2 className="text-2xl font-bold text-start mb-2">
               {translations[language].about}
             </h2>
-            <p className="font-bold text-start mb-4">
+            <div className="mb-10 sm:mb-0 text-sm bg-black dark:bg-slate-50 text-slate-50 dark:text-black p-4 rounded-lg shadow lg:w-full shadow-[5px_23px_91px_39px_rgba(27,_25,_30,_0.19)] dark:shadow-[5px_23px_91px_39px_rgba(218,_194,_232,_0.19)]">
+              <p>
+                {firstPart.split("Raphael").map((part, index) =>
+                  index === 0 ? (
+                    part
+                  ) : (
+                    <React.Fragment key={index}>
+                      <strong>Raphael</strong>
+                      {part}
+                    </React.Fragment>
+                  )
+                )}
+              </p>
+              <p>{secondPart}</p>
+              <p>
               {translations[language].about_text}
             </p>
+            </div>
           </section>
 
           <section id="experience" className="mb-10">
