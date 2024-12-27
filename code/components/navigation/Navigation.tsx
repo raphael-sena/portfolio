@@ -8,7 +8,7 @@ export default function Navigation() {
                 <NavigationItem section="experience" title="Experience"/>
                 <NavigationItem section="education" title="Education"/>
                 <NavigationItem section="featured-projects" title="Projects"/>
-                <NavigationItem section="technologies" title="Technologies*"/>
+                <NavigationItem section="technologies" title="Technologies"/>
                 <NavigationItem section="wrapped" title="Github Wrapped"/>
                 <NavigationItem section="resume" title="Resume"/>
                 <NavigationItem section="hobbies" title="Hobbies*"/>

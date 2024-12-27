@@ -22,7 +22,7 @@ const Intro = () => {
   return (
     <div className="mb-10 content sm:flex sm:gap-2 lg:mr-4 lg:sticky">
       <Image
-        className="mb-4 lg:mb-8 lg:transform lg:transition-transform lg:duration-300 lg:hover:scale-105 w-full h-full lg:max-w-[75%] lg:max-h-[75%] sm:w-1/3 lg:w-2/3 lg:h-2/3 rounded-lg lg:rounded-full lg:aspect-square object-cover overflow-hidden shadow-[5px_23px_91px_39px_rgba(27,_25,_30,_0.19)] dark:shadow-[5px_23px_91px_39px_rgba(218,_194,_232,_0.19)]"
+        className="mb-4 lg:mb-8 lg:transform lg:transition-transform lg:duration-300 lg:hover:scale-105 w-full h-full lg:max-w-[75%] lg:max-h-[75%] sm:w-1/3 lg:w-2/3 lg:mx-auto lg:h-2/3 rounded-lg lg:rounded-full lg:aspect-square object-cover overflow-hidden shadow-[5px_23px_91px_39px_rgba(27,_25,_30,_0.19)] dark:shadow-[5px_23px_91px_39px_rgba(218,_194,_232,_0.19)]"
         width={1024}
         height={1024}
         src="/images/profile_photo_2.JPEG"

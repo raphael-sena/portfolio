@@ -31,7 +31,9 @@ export const translations = {
     sydney: "📍 Sydney/NSW - Australia",
     engineering: "Bachelor Software Engineering",
     engineering_text: "I am currently studying Software Engineering at PUC Minas, where I acquire knowledge in system development, requirements analysis, and software architecture. During my degree, I have specialized in back-end and agile development technologies.",
-    whatsapp_message: "Hi, how are you? My name is [Your Name], and I am [your occupation/field of expertise]. I’m reaching out because I believe we can create a partnership to develop impactful solutions together. If you’re interested, I’d be delighted to discuss further and align ideas. \uD83D\uDE04"
+    whatsapp_message: "Hi, how are you? My name is [Your Name], and I am [your occupation/field of expertise]. I’m reaching out because I believe we can create a partnership to develop impactful solutions together. If you’re interested, I’d be delighted to discuss further and align ideas. \uD83D\uDE04",
+    technologies: "Technologies",
+    resume: "Resume",
   },
 
   pt: {
@@ -65,6 +67,8 @@ export const translations = {
     engineering: "Bacharelado de Engenharia de Software",
     engineering_text: "Estou cursando Engenharia de Software na PUC Minas, onde adquiro conhecimentos em desenvolvimento de sistemas, análise de requisitos e arquitetura de software. Durante a graduação, tenho me especializado em back-end e tecnologias de desenvolvimento ágil.",
     whatsapp_message: "Olá, tudo bem? Meu nome é [Seu Nome] e sou [sua ocupação/área de atuação]. Estou entrando em contato porque acredito que podemos criar uma parceria para desenvolver soluções de impacto juntos. Caso tenha interesse, ficarei muito feliz em conversar mais e alinhar ideias. \uD83D\uDE04",
+    technologies: "Tecnologias",
+    resume: "Currículo",
   },
 
   de: {
@@ -98,5 +102,7 @@ export const translations = {
     engineering: "Bachelor Softwaretechnik",
     engineering_text: "Ich studiere Softwaretechnik an der PUC Minas, wo ich Kenntnisse in Systementwicklung, Anforderungsanalyse und Softwarearchitektur erwerbe. Während meines Studiums habe ich mich auf Back-End und agile Entwicklungstechnologien spezialisiert.",
     whatsapp_message: "Hallo, wie geht es Ihnen? Mein Name ist [Ihr Name], und ich bin [Ihr Beruf/Fachgebiet]. Ich melde mich, weil ich glaube, dass wir eine Partnerschaft eingehen können, um gemeinsam wirkungsvolle Lösungen zu entwickeln. Wenn Sie Interesse haben, würde ich mich freuen, mehr darüber zu sprechen und Ideen auszutauschen. \uD83D\uDE04",
+    technologies: "Technologieen",
+    resume: "Lebenslauf",
   },
 };
