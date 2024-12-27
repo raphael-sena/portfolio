@@ -13,6 +13,26 @@ interface LayoutProps {
 
 export default function RootLayout({ children }: LayoutProps) {
   const [language, setLanguage] = useState<"en" | "pt" | "de">("en");
+  const [showButton, setShowButton] = useState(false);
+
+  const handleScroll = () => {
+    if (window.scrollY > 300) {
+      setShowButton(true);
+    } else {
+      setShowButton(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   useEffect(() => {
     const savedLanguage =
@@ -61,6 +81,16 @@ export default function RootLayout({ children }: LayoutProps) {
         <main className="flex-grow w-full flex justify-center items-center">
           {children}
         </main>
+
+        {showButton && (
+          <button
+            onClick={scrollToTop}
+            className="fixed bottom-4 right-4 p-3 bg-gray-800 dark:bg-gray-400 rounded-full shadow-lg hover:bg-black dark:hover:bg-slate-50 transition-colors duration-300 lg:block"
+            aria-label="Go to top"
+          >
+            👆
+          </button>
+        )}
         <SpeedInsights />
       </body>
     </html>
