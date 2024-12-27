@@ -35,3 +35,9 @@
   body {
     font-family: 'Rubik', sans-serif;
   }
+
+  .sticky-title {
+    position: sticky;
+    top: 1rem;
+    z-index: 10;
+  }
