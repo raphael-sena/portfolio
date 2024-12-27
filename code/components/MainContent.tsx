@@ -10,6 +10,7 @@ import Education from "./Education";
 import Image from "next/image";
 import React from "react";
 import Spotify from "./Spotify";
+import PdfViewer from "./PdfViewer";
 
 const MainContent = () => {
   const [language, setLanguage] = useState<Language>("en");
@@ -97,6 +98,7 @@ const MainContent = () => {
 
           <section id="resume" className="lg:w-full mb-10">
             <h2 className="text-2xl font-bold text-start mb-2">Resume</h2>
+            <PdfViewer />
           </section>
 
           <section id="hobbies" className="lg:w-full mb-10">
