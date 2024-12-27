@@ -11,6 +11,8 @@ import Image from "next/image";
 import React from "react";
 import Spotify from "./Spotify";
 import PdfViewer from "./PdfViewer";
+import Technologies from "./Technologies";
+import { useInView } from "react-intersection-observer";
 
 const MainContent = () => {
   const [language, setLanguage] = useState<Language>("en");
@@ -26,17 +28,62 @@ const MainContent = () => {
   const firstPart = introText.slice(0, periodIndex).trim();
   const secondPart = introText.slice(periodIndex).trim();
 
+  const { ref: introRef, inView: introInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
+  const { ref: aboutRef, inView: aboutInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
+  const { ref: experienceRef, inView: experienceInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
+  const { ref: educationRef, inView: educationInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
+  const { ref: featuredRef, inView: featuredInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
+  const { ref: technologiesRef, inView: technologiesInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
+  const { ref: hobbiesRef, inView: hobbiesInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
+  const { ref: spotifyRef, inView: spotifyInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
+
   return (
     <div>
       <div className="lg:flex mb-8">
         <aside className="lg:w-2/6 lg:sticky lg:top-4 lg:h-screen">
-          <section id="intro">
+          <section
+            id="intro"
+            className={`transition-opacity duration-1000 ${
+              introInView ? "opacity-100" : "opacity-0"
+            }`}
+            ref={introRef}
+          >
             <Intro />
           </section>
         </aside>
 
         <div className="lg:w-4/6">
-          <section id="about" className="mb-10 mt-12 lg:mt-0">
+          <section
+            id="about"
+            className={`mb-10 mt-12 lg:mt-0 transition-opacity duration-1000 ${
+              aboutInView ? "opacity-100" : "opacity-0"
+            }`}
+            ref={aboutRef}
+          >
             <h2 className="text-2xl font-bold text-start mb-2">
               {translations[language].about}
             </h2>
@@ -58,37 +105,62 @@ const MainContent = () => {
             </div>
           </section>
 
-          <section id="experience" className="mb-10">
+          <section
+            id="experience"
+            className={`mb-10 transition-opacity duration-1000 ${
+              experienceInView ? "opacity-100" : "opacity-0"
+            }`}
+            ref={experienceRef}
+          >
             <h2 className="text-2xl font-bold text-start mb-2">
               {translations[language].experience}
             </h2>
             <Experience />
           </section>
 
-          <section id="education" className="mb-10">
+          <section
+            id="education"
+            className={`mb-10 transition-opacity duration-1000 ${
+              educationInView ? "opacity-100" : "opacity-0"
+            }`}
+            ref={educationRef}
+          >
             <h2 className="text-2xl font-bold text-start mb-2">
               {translations[language].education}
             </h2>
             <Education />
           </section>
 
-          <section id="featured-projects" className="lg:w-full mb-10">
+          <section
+            id="featured-projects"
+            className={`lg:w-full mb-10 transition-opacity duration-1000 ${
+              featuredInView ? "opacity-100" : "opacity-0"
+            }`}
+            ref={featuredRef}
+          >
             <h2 className="text-2xl font-bold text-start mb-2">
               {translations[language].featured}
             </h2>
             <FeaturedProjects />
           </section>
 
-          <section id="technologies" className="lg:w-full mb-10">
-            <h2 className="text-2xl font-bold text-start mb-2">Technologies</h2>
+          <section
+            id="technologies"
+            className={`lg:w-full mb-10 transition-opacity duration-1000 ${
+              technologiesInView ? "opacity-100" : "opacity-0"
+            }`}
+            ref={technologiesRef}
+          >
+            <h2 className="text-2xl font-bold text-start mb-4">{translations[language].technologies}</h2>
+            <Technologies />
           </section>
 
           <section id="wrapped" className="lg:w-full mb-10">
-            <h2 className="text-2xl font-bold text-start mb-2">
+            <h2 className="text-2xl font-bold text-start mb-4 hover:bg-gradient-to-r hover:from-violet-700 hover:via-rose-800 hover:to-red-300 hover:bg-clip-text hover:text-transparent hover:cursor-default">
               Github Wrapped 2024
             </h2>
             <Image
-              className="rounded-2xl transition-shadow duration-300 ease-in-out hover:shadow-[0_0_15px_10px_rgba(255,0,45,0.7)] hover:mt-4"
+              className="rounded-2xl transition-shadow duration-300 ease-in-out md:hover:shadow-[0_0_15px_10px_rgba(0,0,0,0.7)]"
               width={1200}
               height={1200}
               src="/images/git-wrapped-raphael-sena.png"
@@ -97,15 +169,27 @@ const MainContent = () => {
           </section>
 
           <section id="resume" className="lg:w-full mb-10">
-            <h2 className="text-2xl font-bold text-start mb-2">Resume</h2>
+            <h2 className="text-2xl font-bold text-start mb-2">{translations[language].resume}</h2>
             <PdfViewer />
           </section>
 
-          <section id="hobbies" className="lg:w-full mb-10">
+          <section
+            id="hobbies"
+            className={`lg:w-full mb-10 transition-opacity duration-1000 ${
+              hobbiesInView ? "opacity-100" : "opacity-0"
+            }`}
+            ref={hobbiesRef}
+          >
             <h2 className="text-2xl font-bold text-start mb-2">Hobbies</h2>
           </section>
 
-          <section id="spotify" className="lg:w-full mb-10">
+          <section
+            id="spotify"
+            className={`lg:w-full mb-10 transition-opacity duration-1000 ${
+              spotifyInView ? "opacity-100" : "opacity-0"
+            }`}
+            ref={spotifyRef}
+          >
             <h2 className="text-2xl font-bold text-start mb-2">Spotify</h2>
             <Spotify />
           </section>
