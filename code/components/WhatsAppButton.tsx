@@ -18,8 +18,6 @@ const WhatsAppButton = () => {
   const message = translations[language].whatsapp_message;
   const encodedMessage = encodeURIComponent(message);
 
-  console.log(encodedMessage);
-
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
   return (
