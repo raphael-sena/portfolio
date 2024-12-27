@@ -9,6 +9,7 @@ import Experience from "./Experience";
 import Education from "./Education";
 import Image from "next/image";
 import React from "react";
+import Spotify from "./Spotify";
 
 const MainContent = () => {
   const [language, setLanguage] = useState<Language>("en");
@@ -27,7 +28,7 @@ const MainContent = () => {
   return (
     <div>
       <div className="lg:flex mb-8">
-      <aside className="lg:w-2/6 lg:sticky lg:top-4 lg:h-screen">
+        <aside className="lg:w-2/6 lg:sticky lg:top-4 lg:h-screen">
           <section id="intro">
             <Intro />
           </section>
@@ -52,9 +53,7 @@ const MainContent = () => {
                 )}
               </p>
               <p>{secondPart}</p>
-              <p>
-              {translations[language].about_text}
-            </p>
+              <p>{translations[language].about_text}</p>
             </div>
           </section>
 
@@ -79,7 +78,11 @@ const MainContent = () => {
             <FeaturedProjects />
           </section>
 
-          <section id="featured-projects" className="lg:w-full mb-10">
+          <section id="technologies" className="lg:w-full mb-10">
+            <h2 className="text-2xl font-bold text-start mb-2">Technologies</h2>
+          </section>
+
+          <section id="wrapped" className="lg:w-full mb-10">
             <h2 className="text-2xl font-bold text-start mb-2">
               Github Wrapped 2024
             </h2>
@@ -90,6 +93,19 @@ const MainContent = () => {
               src="/images/git-wrapped-raphael-sena.png"
               alt="Logo Pucminas White"
             />
+          </section>
+
+          <section id="resume" className="lg:w-full mb-10">
+            <h2 className="text-2xl font-bold text-start mb-2">Resume</h2>
+          </section>
+
+          <section id="hobbies" className="lg:w-full mb-10">
+            <h2 className="text-2xl font-bold text-start mb-2">Hobbies</h2>
+          </section>
+
+          <section id="spotify" className="lg:w-full mb-10">
+            <h2 className="text-2xl font-bold text-start mb-2">Spotify</h2>
+            <Spotify />
           </section>
         </div>
       </div>
