@@ -7,6 +7,7 @@ import Intro from "./Intro";
 import { Language, translations } from "@/services/translations";
 import Experience from "./Experience";
 import Education from "./Education";
+import Image from "next/image";
 
 const MainContent = () => {
   const [language, setLanguage] = useState<Language>("en");
@@ -61,6 +62,13 @@ const MainContent = () => {
             <h2 className="text-2xl font-bold text-start mb-2">
               Github Wrapped 2024
             </h2>
+            <Image
+              className="rounded-2xl transition-shadow duration-300 ease-in-out hover:shadow-[0_0_15px_10px_rgba(255,0,45,0.7)] hover:mt-4"
+              width={1200}
+              height={1200}
+              src="/images/git-wrapped-raphael-sena.png"
+              alt="Logo Pucminas White"
+            />
           </section>
         </div>
       </div>
