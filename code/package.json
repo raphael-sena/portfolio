@@ -12,6 +12,7 @@
     "@react-pdf-viewer/core": "^3.12.0",
     "@react-pdf-viewer/default-layout": "^3.12.0",
     "@vercel/speed-insights": "^1.1.0",
+    "axios": "^1.7.9",
     "canvas": "^3.0.0",
     "next": "^14.2.21",
     "pdfjs-dist": "^3.4.120",
