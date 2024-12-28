@@ -93,14 +93,14 @@ export default function RootLayout({ children }: LayoutProps) {
           {children}
         </main>
 
-        <button
+        <div
           className={`z-20 fixed bottom-20 right-4 p-3 mr-2 bg-gray-800 rounded-full shadow-lg transition-opacity duration-1000 ease-in-out hover:transform hover:transition-transform hover:duration-500 hover:hover:scale-105 ${
             showButton ? "opacity-100 visible" : "opacity-0 invisible"
           }`}
           aria-label="Toggle theme"
         >
           <ThemeToggle2 />
-        </button>
+        </div>
 
         <button
           onClick={scrollToTop}

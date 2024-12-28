@@ -13,6 +13,7 @@ import Spotify from "./Spotify";
 import PdfViewer from "./PdfViewer";
 import Technologies from "./Technologies";
 import { useInView } from "react-intersection-observer";
+import Hobbies from "./Hobbies";
 
 const MainContent = () => {
   const [language, setLanguage] = useState<Language>("en");
@@ -181,6 +182,7 @@ const MainContent = () => {
             ref={hobbiesRef}
           >
             <h2 className="text-2xl font-bold text-start mb-2">Hobbies</h2>
+            <Hobbies />
           </section>
 
           <section
