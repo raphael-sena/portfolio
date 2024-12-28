@@ -24,17 +24,15 @@ const ThemeToggle = ({ language }: { language: keyof typeof translations }) => {
   return (
     <button
       onClick={toggleTheme}
-      className="p-2 shadow-lg hover:shadow-black dark:hover:shadow-slate-400 bg-black text-slate-50 dark:bg-slate-50 dark:text-black rounded-md text-sm flex items-center space-x-2"
+      className="text-lg"
     >
       {theme === "light" ? (
         <>
           <span>🌙</span>
-          <span>{translations[language].theme}</span>
         </>
       ) : (
         <>
           <span>☀️</span>
-          <span>{translations[language].theme}</span>
         </>
       )}
     </button>
