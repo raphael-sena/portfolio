@@ -99,7 +99,7 @@ export default function RootLayout({ children }: LayoutProps) {
           }`}
           aria-label="Toggle theme"
         >
-          <ThemeToggle2 language={language} />
+          <ThemeToggle2 />
         </button>
 
         <button

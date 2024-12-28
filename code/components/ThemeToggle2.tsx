@@ -1,9 +1,8 @@
 "use client";
 
-import { translations } from '@/services/translations';
 import { useState, useEffect } from 'react';
 
-const ThemeToggle = ({ language }: { language: keyof typeof translations }) => {
+const ThemeToggle2 = () => {
   const [theme, setTheme] = useState<string>("light");
 
   useEffect(() => {
@@ -39,4 +38,4 @@ const ThemeToggle = ({ language }: { language: keyof typeof translations }) => {
   );
 };
 
-export default ThemeToggle;
+export default ThemeToggle2;
