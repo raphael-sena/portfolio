@@ -5,9 +5,23 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FaLink, FaLinkedinIn } from "react-icons/fa";
+import { useInView } from "react-intersection-observer";
 
 const Experience = () => {
   const [language, setLanguage] = useState<Language>("en");
+
+  const { ref: experienceRef1, inView: experienceInView1 } = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
+  const { ref: experienceRef2, inView: experienceInView2 } = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
+  const { ref: experienceRef3, inView: experienceInView3 } = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
 
   useEffect(() => {
     const savedLanguage =
@@ -47,7 +61,13 @@ const Experience = () => {
 
   return (
     <div className="space-y-2">
-      <div className="glass-card bg-black dark:bg-slate-50 sm:gap-2 p-4 rounded-lg text-slate-50 dark:text-black lg:opacity-60 lg:hover:opacity-100 lg:transition-opacity lg:duration-300">
+      <div
+        id="experience"
+        className={`glass-card bg-black dark:bg-slate-50 sm:gap-2 p-4 rounded-lg text-slate-50 dark:text-black lg:opacity-60 lg:hover:opacity-100 lg:transition-opacity lg:duration-300 transition-opacity duration-1000 ${
+          experienceInView1 ? "opacity-100" : "opacity-0"
+        }`}
+        ref={experienceRef1}
+      >
         <div className="flex mb-2">
           <div className="w-full text-lg flex items-center mr-4 md:mr-2">
             <Image
@@ -138,7 +158,13 @@ const Experience = () => {
         </div>
       </div>
 
-      <div className="glass-card bg-black dark:bg-slate-50 sm:gap-2 p-4 rounded-lg text-slate-50 dark:text-black lg:opacity-60 lg:hover:opacity-100 lg:transition-opacity lg:duration-300">
+      <div
+        id="experience"
+        className={`glass-card bg-black dark:bg-slate-50 sm:gap-2 p-4 rounded-lg text-slate-50 dark:text-black lg:opacity-60 lg:hover:opacity-100 lg:transition-opacity lg:duration-300 transition-opacity duration-1000 ${
+          experienceInView2 ? "opacity-100" : "opacity-0"
+        }`}
+        ref={experienceRef2}
+      >
         <div className="flex mb-2">
           <div className="w-full text-lg flex items-center mr-4 md:mr-2">
             <Image
@@ -190,7 +216,9 @@ const Experience = () => {
           </div>
           <ul className="list-disc ml-4">
             <li>
-              <p className="text-sm">{translations[language].technician_text}</p>
+              <p className="text-sm">
+                {translations[language].technician_text}
+              </p>
             </li>
           </ul>
         </div>
@@ -204,7 +232,9 @@ const Experience = () => {
           </div>
           <ul className="list-disc ml-4">
             <li>
-              <p className="text-sm">{translations[language].technician_assistant_text}</p>
+              <p className="text-sm">
+                {translations[language].technician_assistant_text}
+              </p>
             </li>
           </ul>
         </div>
@@ -262,7 +292,13 @@ const Experience = () => {
         </div>
       </div>
 
-      <div className="glass-card bg-black dark:bg-slate-50 sm:gap-2 p-4 rounded-lg text-slate-50 dark:text-black lg:opacity-60 lg:hover:opacity-100 lg:transition-opacity lg:duration-300">
+      <div
+        id="experience"
+        className={`glass-card bg-black dark:bg-slate-50 sm:gap-2 p-4 rounded-lg text-slate-50 dark:text-black lg:opacity-60 lg:hover:opacity-100 lg:transition-opacity lg:duration-300 transition-opacity duration-1000 ${
+          experienceInView3 ? "opacity-100" : "opacity-0"
+        }`}
+        ref={experienceRef3}
+      >
         <div className="flex mb-2">
           <div className="w-full text-lg flex items-center mr-4 md:mr-2">
             <Image
@@ -283,11 +319,11 @@ const Experience = () => {
           </div>
           <div className="flex items-center gap-1 justify-end">
             <Link
-                href="https://www.avasotech.com/"
-                className="transform transition-transform duration-300 hover:scale-110 mr-1"
-                target="_blank"
-              >
-                <FaLink />
+              href="https://www.avasotech.com/"
+              className="transform transition-transform duration-300 hover:scale-110 mr-1"
+              target="_blank"
+            >
+              <FaLink />
             </Link>
             <Link
               href="https://www.linkedin.com/company/avaso-technology-solutions/posts/?feedView=all"
@@ -300,9 +336,7 @@ const Experience = () => {
         </div>
 
         <div className="ml-2 mb-2">
-          <h2 className="mb-1 font-semibold text-md">
-            Field Support Engineer
-          </h2>
+          <h2 className="mb-1 font-semibold text-md">Field Support Engineer</h2>
           <p>{translations[language].avaso}</p>
         </div>
 
