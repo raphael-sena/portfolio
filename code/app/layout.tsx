@@ -1,13 +1,13 @@
 "use client";
 
-// app/layout.tsx
 import { ReactNode, useEffect, useState } from "react";
 import "./globals.css";
 import ThemeToggle from "@/components/ThemeToggle";
 import LanguageToggle from "@/components/LanguageToggle";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import '@react-pdf-viewer/core/lib/styles/index.css';
-import '@react-pdf-viewer/default-layout/lib/styles/index.css';
+import "@react-pdf-viewer/core/lib/styles/index.css";
+import "@react-pdf-viewer/default-layout/lib/styles/index.css";
+import ThemeToggle2 from "@/components/ThemeToggle2";
 
 interface LayoutProps {
   children: ReactNode;
@@ -18,18 +18,12 @@ export default function RootLayout({ children }: LayoutProps) {
   const [showButton, setShowButton] = useState(false);
 
   const handleScroll = () => {
-    if (window.scrollY > 300) {
-      setShowButton(true);
-    } else {
-      setShowButton(false);
-    }
+    setShowButton(window.scrollY > 300);
   };
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToTop = () => {
@@ -56,20 +50,35 @@ export default function RootLayout({ children }: LayoutProps) {
           rel="stylesheet"
         />
 
-        <meta name="description" content="Dev Portfolio showcasing my work and skills." />
+        <meta
+          name="description"
+          content="Dev Portfolio showcasing my work and skills."
+        />
         <meta property="og:title" content="Raphael Sena | Portfolio" />
-        <meta property="og:description" content="Explore my projects, skills, and experience." />
+        <meta
+          property="og:description"
+          content="Explore my projects, skills, and experience."
+        />
         <meta property="og:url" content="https://raphaelsena.com" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://raphaelsena.com/images/avatar.png" />
+        <meta
+          property="og:image"
+          content="https://raphaelsena.com/images/avatar.png"
+        />
         <meta property="og:image:width" content="630" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Raphael Sena Portfolio Image" />
-        
+
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Raphael Sena | Portfolio" />
-        <meta name="twitter:description" content="Dev Portfolio showcasing my work and skills." />
-        <meta name="twitter:image" content="https://raphaelsena.com/images/avatar.png" />
+        <meta
+          name="twitter:description"
+          content="Dev Portfolio showcasing my work and skills."
+        />
+        <meta
+          name="twitter:image"
+          content="https://raphaelsena.com/images/avatar.png"
+        />
         <meta name="twitter:image:alt" content="Raphael Sena Portfolio Image" />
       </head>
 
@@ -84,15 +93,24 @@ export default function RootLayout({ children }: LayoutProps) {
           {children}
         </main>
 
-        {showButton && (
-          <button
-            onClick={scrollToTop}
-            className="fixed bottom-4 right-4 p-3 bg-gray-800 dark:bg-gray-400 rounded-full shadow-lg hover:bg-black dark:hover:bg-slate-50 transition-colors duration-300 lg:block"
-            aria-label="Go to top"
-          >
-            👆
-          </button>
-        )}
+        <button
+          className={`z-20 fixed bottom-20 right-4 p-3 mr-2 bg-gray-800 rounded-full shadow-lg transition-opacity duration-1000 ease-in-out hover:transform hover:transition-transform hover:duration-500 hover:hover:scale-105 ${
+            showButton ? "opacity-100 visible" : "opacity-0 invisible"
+          }`}
+          aria-label="Toggle theme"
+        >
+          <ThemeToggle2 language={language} />
+        </button>
+
+        <button
+          onClick={scrollToTop}
+          className={`z-20 fixed bottom-4 right-4 p-3 mr-2 bg-gray-800 rounded-full shadow-lg transition-opacity duration-1000 ease-in-out hover:transform hover:transition-transform hover:duration-500 hover:hover:scale-105 ${
+            showButton ? "opacity-100 visible" : "opacity-0 invisible"
+          }`}
+          aria-label="Go to top"
+        >
+          👆
+        </button>
         <SpeedInsights />
       </body>
     </html>
