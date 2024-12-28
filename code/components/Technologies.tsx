@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Technologies = () => {
   return (
-    <div className="technologies flex flex-wrap justify-between px-6">
+    <div className="technologies flex flex-wrap justify-between">
       <div className="dak:glass-card backend mb-4 p-4 w-full rounded-lg dark:bg-slate-50 dark:text-black lg:transform lg:transition-transform lg:duration-300 lg:hover:scale-105">
         <h2 className="text-xl font-bold mb-4">Backend</h2>
         <div className="flex justify-start items-center px-5 mx-auto overflow-x-auto overflow-y-hidden whitespace-nowrap max-h-48">
