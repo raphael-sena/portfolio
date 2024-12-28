@@ -39,7 +39,7 @@ const MainContent = () => {
   });
   const { ref: experienceRef, inView: experienceInView } = useInView({
     triggerOnce: true,
-    threshold: 0.5,
+    threshold: 0.1,
   });
   const { ref: educationRef, inView: educationInView } = useInView({
     triggerOnce: true,
@@ -47,11 +47,11 @@ const MainContent = () => {
   });
   const { ref: featuredRef, inView: featuredInView } = useInView({
     triggerOnce: true,
-    threshold: 0.5,
+    threshold: 0.2,
   });
   const { ref: technologiesRef, inView: technologiesInView } = useInView({
     triggerOnce: true,
-    threshold: 0.5,
+    threshold: 0.2,
   });
   const { ref: hobbiesRef, inView: hobbiesInView } = useInView({
     triggerOnce: true,
@@ -59,7 +59,7 @@ const MainContent = () => {
   });
   const { ref: spotifyRef, inView: spotifyInView } = useInView({
     triggerOnce: true,
-    threshold: 0.5,
+    threshold: 0.2,
   });
 
   return (
@@ -152,7 +152,9 @@ const MainContent = () => {
             }`}
             ref={technologiesRef}
           >
-            <h2 className="sticky-title glass-card px-4 py-2 bg-black/90 dark:bg-slate-50/90 text-slate-50 dark:text-black rounded-2xl text-2xl font-bold text-start mb-6">{translations[language].technologies}</h2>
+            <h2 className="text-2xl font-bold text-start mb-6">
+              {translations[language].technologies}
+            </h2>
             <Technologies />
           </section>
 
@@ -161,7 +163,14 @@ const MainContent = () => {
               Github Wrapped 2024
             </h2>
             <Image
-              className="rounded-2xl transition-shadow duration-300 ease-in-out md:hover:shadow-[0_0_15px_10px_rgba(0,0,0,0.7)]"
+              className="md:hidden rounded-2xl transition-shadow duration-300 ease-in-out md:hover:shadow-[0_0_15px_10px_rgba(0,0,0,0.7)]"
+              width={1200}
+              height={1200}
+              src="/images/git-wrapped-raphael-sena-mobile.png"
+              alt="Logo Pucminas White"
+            />
+            <Image
+              className="hidden md:flex rounded-2xl transition-shadow duration-300 ease-in-out md:hover:shadow-[0_0_15px_10px_rgba(0,0,0,0.7)]"
               width={1200}
               height={1200}
               src="/images/git-wrapped-raphael-sena.png"
@@ -170,7 +179,9 @@ const MainContent = () => {
           </section>
 
           <section id="resume" className="lg:w-full mb-10">
-            <h2 className="text-2xl font-bold text-start mb-2">{translations[language].resume}</h2>
+            <h2 className="text-2xl font-bold text-start mb-2">
+              {translations[language].resume}
+            </h2>
             <PdfViewer />
           </section>
 
