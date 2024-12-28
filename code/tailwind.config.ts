@@ -37,6 +37,26 @@ const config: Config = {
           },
         },
       },
+      backgroundImage: {
+        'chessboard': `
+          linear-gradient(45deg, #EEEED2 25%, transparent 25%, transparent 75%, #EEEED2 75%),
+          linear-gradient(45deg, #EEEED2 25%, transparent 25%, transparent 75%, #EEEED2 75%)
+        `,
+      },
+      backgroundSize: {
+        'chessboard': '20px 20px',
+      },
+      backgroundPosition: {
+        'chessboard': '0 0, 10px 10px',
+      },
+      backgroundColor: {
+        'chess-green': '#769656',
+      },
+
+      screens: {
+        'chess1': { min: '767px', max: '827px' },
+        'chess2': { min: '1024px', max: '1225px' },
+      },
     },
   },
   plugins: [],
