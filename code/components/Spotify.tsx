@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Spotify() {
   return (
-    <div className="grid sm:grid-cols-2 md:grid-cols-3 justify-center items-center gap-6">
+    <div className="grid sm:grid-cols-2 md:grid-cols-3 justify-center items-top gap-6">
       <Link
         href="https://spotify-github-profile.kittinanx.com/api/view?uid=sena_31&redirect=true"
         target="_blank"
