@@ -7,8 +7,8 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { FaGithub, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
-import WhatsAppButton from "./WhatsAppButton";
-import Navigation from "./navigation/Navigation";
+import Navigation from "../navigation/Navigation";
+import WhatsAppButton from "../WhatsAppButton";
 
 const Intro = () => {
   const [language, setLanguage] = useState<Language>("en");

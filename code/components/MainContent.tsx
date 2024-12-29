@@ -1,19 +1,18 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import FeaturedProjects from "./FeaturedProjects";
-import Footer from "./Footer";
-import Intro from "./Intro";
+import Footer from "./sections/Footer";
 import { Language, translations } from "@/services/translations";
-import Experience from "./Experience";
-import Education from "./Education";
+import Experience from "./sections/Experience";
+import Education from "./sections/Education";
 import Image from "next/image";
 import React from "react";
-import Spotify from "./Spotify";
 import PdfViewer from "./PdfViewer";
-import Technologies from "./Technologies";
+import Technologies from "./sections/Technologies";
 import { useInView } from "react-intersection-observer";
-import Hobbies from "./Hobbies";
+import Intro from "./sections/Intro";
+import FeaturedProjects from "./sections/FeaturedProjects";
+import Hobbies from "./sections/Hobbies";
 
 const MainContent = () => {
   const [language, setLanguage] = useState<Language>("en");
@@ -41,6 +40,10 @@ const MainContent = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
+  const { ref: experienceRef1, inView: experienceInView1 } = useInView({
+    triggerOnce: true,
+    threshold: 0.4,
+  });
   const { ref: educationRef, inView: educationInView } = useInView({
     triggerOnce: true,
     threshold: 0.5,
@@ -56,10 +59,6 @@ const MainContent = () => {
   const { ref: hobbiesRef, inView: hobbiesInView } = useInView({
     triggerOnce: true,
     threshold: 0.5,
-  });
-  const { ref: spotifyRef, inView: spotifyInView } = useInView({
-    triggerOnce: true,
-    threshold: 0.2,
   });
 
   return (
@@ -108,10 +107,23 @@ const MainContent = () => {
 
           <section
             id="experience"
-            className={`mb-10 transition-opacity duration-1000 ${
+            className={`lg:hidden mb-10 transition-opacity duration-1000 ${
               experienceInView ? "opacity-100" : "opacity-0"
             }`}
             ref={experienceRef}
+          >
+            <h2 className="text-2xl font-bold text-start mb-2">
+              {translations[language].experience}
+            </h2>
+            <Experience />
+          </section>
+
+          <section
+            id="experience"
+            className={`hidden lg:block mb-10 transition-opacity duration-1000 ${
+              experienceInView1 ? "opacity-100" : "opacity-0"
+            }`}
+            ref={experienceRef1}
           >
             <h2 className="text-2xl font-bold text-start mb-2">
               {translations[language].experience}
@@ -187,24 +199,13 @@ const MainContent = () => {
 
           <section
             id="hobbies"
-            className={`lg:w-full mb-10 transition-opacity duration-1000 ${
+            className={`lg:w-full mb-10 space-y-6 transition-opacity duration-1000 ${
               hobbiesInView ? "opacity-100" : "opacity-0"
             }`}
             ref={hobbiesRef}
           >
             <h2 className="text-2xl font-bold text-start mb-2">Hobbies</h2>
             <Hobbies />
-          </section>
-
-          <section
-            id="spotify"
-            className={`lg:w-full mb-10 transition-opacity duration-1000 ${
-              spotifyInView ? "opacity-100" : "opacity-0"
-            }`}
-            ref={spotifyRef}
-          >
-            <h2 className="text-2xl font-bold text-start mb-2">Spotify</h2>
-            <Spotify />
           </section>
         </div>
       </div>

@@ -1,5 +1,5 @@
 // app/page.tsx
-import Header from '@/components/Header';
+import Header from '@/components/sections/Header';
 import MainContent from '@/components/MainContent';
 
 const Page = () => {
