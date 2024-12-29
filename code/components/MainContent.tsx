@@ -7,7 +7,6 @@ import Experience from "./sections/Experience";
 import Education from "./sections/Education";
 import Image from "next/image";
 import React from "react";
-import Spotify from "./Spotify";
 import PdfViewer from "./PdfViewer";
 import Technologies from "./sections/Technologies";
 import { useInView } from "react-intersection-observer";
