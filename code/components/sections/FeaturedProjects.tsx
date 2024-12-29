@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 import { getGitHubRepos } from "@/services/githubService";
 import Image from "next/image";
-import LoadingCards from "./LoadingCards";
 import { Language, translations } from "@/services/translations";
+import LoadingCards from "../LoadingCards";
 
 interface Project {
   id: number;
