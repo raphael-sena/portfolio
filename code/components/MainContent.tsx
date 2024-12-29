@@ -60,10 +60,6 @@ const MainContent = () => {
     triggerOnce: true,
     threshold: 0.5,
   });
-  const { ref: spotifyRef, inView: spotifyInView } = useInView({
-    triggerOnce: true,
-    threshold: 0.2,
-  });
 
   return (
     <div>
