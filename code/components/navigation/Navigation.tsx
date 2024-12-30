@@ -21,8 +21,7 @@ export default function Navigation() {
                 <NavigationItem section="technologies" title={translations[language].technologies}/>
                 <NavigationItem section="wrapped" title="Github Wrapped"/>
                 <NavigationItem section="resume" title={translations[language].resume}/>
-                <NavigationItem section="hobbies" title="Hobbies*"/>
-                <NavigationItem section="spotify" title="Spotify"/>
+                <NavigationItem section="hobbies" title="Hobbies"/>
             </ul>
         </nav>
     );
