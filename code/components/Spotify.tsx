@@ -22,6 +22,7 @@ export default function Spotify() {
             width={500}
             height={500}
             alt="Spotify Animated Icon"
+            unoptimized={true}
           />
           <h1 className="text-lg font-semibold">Spotify</h1>
         </div>
