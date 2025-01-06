@@ -6,6 +6,7 @@ import { Language, translations } from "@/services/translations";
 import Experience from "./sections/Experience";
 import Education from "./sections/Education";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import Technologies from "./sections/Technologies";
 import { useInView } from "react-intersection-observer";
@@ -141,10 +142,7 @@ const MainContent = () => {
             <Education />
           </section>
 
-          <section
-            id="extracurricular"
-            className="mb-10"
-          >
+          <section id="extracurricular" className="mb-10">
             <h2 className="text-2xl font-bold text-start mb-2">
               {translations[language].extracurricular}
             </h2>
@@ -181,20 +179,26 @@ const MainContent = () => {
             <h2 className="text-2xl font-bold text-start mb-4 hover:bg-gradient-to-r hover:from-violet-700 hover:via-rose-800 hover:to-red-300 hover:bg-clip-text hover:text-transparent hover:cursor-default">
               Github Wrapped 2024
             </h2>
-            <Image
-              className="md:hidden rounded-2xl transition-shadow duration-300 ease-in-out md:hover:shadow-[0_0_15px_10px_rgba(0,0,0,0.7)]"
-              width={1200}
-              height={1200}
-              src="/images/git-wrapped-raphael-sena-mobile.png"
-              alt="Logo Pucminas White"
-            />
-            <Image
-              className="hidden md:flex rounded-2xl transition-shadow duration-300 ease-in-out md:hover:shadow-[0_0_15px_10px_rgba(0,0,0,0.7)]"
-              width={1200}
-              height={1200}
-              src="/images/git-wrapped-raphael-sena.png"
-              alt="Logo Pucminas White"
-            />
+            <Link
+              href="https://git-wrapped.com/profiles/raphael-sena"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                className="md:hidden rounded-2xl transition-shadow duration-300 ease-in-out md:hover:shadow-[0_0_15px_10px_rgba(0,0,0,0.7)]"
+                width={1200}
+                height={1200}
+                src="/images/git-wrapped-raphael-sena-mobile.png"
+                alt="Logo Pucminas White"
+              />
+              <Image
+                className="hidden md:flex rounded-2xl transition-shadow duration-300 ease-in-out md:hover:shadow-[0_0_15px_10px_rgba(0,0,0,0.7)]"
+                width={1200}
+                height={1200}
+                src="/images/git-wrapped-raphael-sena.png"
+                alt="Logo Pucminas White"
+              />
+            </Link>
           </section>
 
           <section id="resume" className="lg:w-full mb-10">
@@ -204,10 +208,7 @@ const MainContent = () => {
             <Resume />
           </section>
 
-          <section
-            id="hobbies"
-            className="lg:w-full mb-10 space-y-6"
-          >
+          <section id="hobbies" className="lg:w-full mb-10 space-y-6">
             <h2 className="text-2xl font-bold text-start mb-2">Hobbies</h2>
             <Hobbies />
           </section>
