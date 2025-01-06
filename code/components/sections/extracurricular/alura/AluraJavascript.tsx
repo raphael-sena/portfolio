@@ -37,17 +37,17 @@ const AluraJavascript = () => {
         </h2>
         <ul className="flex flex-wrap" aria-label="Technologies used">
           <li className="mr-1.5 mt-2">
-            <div className="flex items-center rounded-full bg-sky-400/20 dark:bg-sky-500/10 px-3 py-1 text-xs font-medium leading-5 text-sky-200 dark:text-sky-400">
+            <div className="flex items-center rounded-full bg-emerald-400/20 dark:bg-emerald-500/10 px-3 py-1 text-xs font-medium leading-5 text-emerald-200 dark:text-emerald-400">
               Javascript
             </div>
           </li>
           <li className="mr-1.5 mt-2">
-            <div className="flex items-center rounded-full bg-sky-400/20 dark:bg-sky-500/10 px-3 py-1 text-xs font-medium leading-5 text-sky-200 dark:text-sky-400">
+            <div className="flex items-center rounded-full bg-emerald-400/20 dark:bg-emerald-500/10 px-3 py-1 text-xs font-medium leading-5 text-emerald-200 dark:text-emerald-400">
               HTML
             </div>
           </li>
           <li className="mr-1.5 mt-2">
-            <div className="flex items-center rounded-full bg-sky-400/20 dark:bg-sky-500/10 px-3 py-1 text-xs font-medium leading-5 text-sky-200 dark:text-sky-400">
+            <div className="flex items-center rounded-full bg-emerald-400/20 dark:bg-emerald-500/10 px-3 py-1 text-xs font-medium leading-5 text-emerald-200 dark:text-emerald-400">
               CSS
             </div>
           </li>

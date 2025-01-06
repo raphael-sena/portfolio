@@ -37,42 +37,42 @@ const UdemyJava = () => {
         </h2>
         <ul className="flex flex-wrap" aria-label="Technologies used">
           <li className="mr-1.5 mt-2">
-            <div className="flex items-center rounded-full bg-sky-400/20 dark:bg-sky-500/10 px-3 py-1 text-xs font-medium leading-5 text-sky-200 dark:text-sky-400">
+            <div className="flex items-center rounded-full bg-violet-500/20 dark:bg-violet-500/10 px-3 py-1 text-xs font-medium leading-5 text-violet-300 dark:text-violet-400">
               Java
             </div>
           </li>
           <li className="mr-1.5 mt-2">
-            <div className="flex items-center rounded-full bg-sky-400/20 dark:bg-sky-500/10 px-3 py-1 text-xs font-medium leading-5 text-sky-200 dark:text-sky-400">
+            <div className="flex items-center rounded-full bg-violet-500/20 dark:bg-violet-500/10 px-3 py-1 text-xs font-medium leading-5 text-violet-300 dark:text-violet-400">
               OOP
             </div>
           </li>
           <li className="mr-1.5 mt-2">
-            <div className="flex items-center rounded-full bg-sky-400/20 dark:bg-sky-500/10 px-3 py-1 text-xs font-medium leading-5 text-sky-200 dark:text-sky-400">
+            <div className="flex items-center rounded-full bg-violet-500/20 dark:bg-violet-500/10 px-3 py-1 text-xs font-medium leading-5 text-violet-300 dark:text-violet-400">
               Spring Boot
             </div>
           </li>
           <li className="mr-1.5 mt-2">
-            <div className="flex items-center rounded-full bg-sky-400/20 dark:bg-sky-500/10 px-3 py-1 text-xs font-medium leading-5 text-sky-200 dark:text-sky-400">
+            <div className="flex items-center rounded-full bg-violet-500/20 dark:bg-violet-500/10 px-3 py-1 text-xs font-medium leading-5 text-violet-300 dark:text-violet-400">
               UML
             </div>
           </li>
           <li className="mr-1.5 mt-2">
-            <div className="flex items-center rounded-full bg-sky-400/20 dark:bg-sky-500/10 px-3 py-1 text-xs font-medium leading-5 text-sky-200 dark:text-sky-400">
+            <div className="flex items-center rounded-full bg-violet-500/20 dark:bg-violet-500/10 px-3 py-1 text-xs font-medium leading-5 text-violet-300 dark:text-violet-400">
               JDBC
             </div>
           </li>
           <li className="mr-1.5 mt-2">
-            <div className="flex items-center rounded-full bg-sky-400/20 dark:bg-sky-500/10 px-3 py-1 text-xs font-medium leading-5 text-sky-200 dark:text-sky-400">
+            <div className="flex items-center rounded-full bg-violet-500/20 dark:bg-violet-500/10 px-3 py-1 text-xs font-medium leading-5 text-violet-300 dark:text-violet-400">
               JPA
             </div>
           </li>
           <li className="mr-1.5 mt-2">
-            <div className="flex items-center rounded-full bg-sky-400/20 dark:bg-sky-500/10 px-3 py-1 text-xs font-medium leading-5 text-sky-200 dark:text-sky-400">
+            <div className="flex items-center rounded-full bg-violet-500/20 dark:bg-violet-500/10 px-3 py-1 text-xs font-medium leading-5 text-violet-300 dark:text-violet-400">
               Hibernate
             </div>
           </li>
           <li className="mr-1.5 mt-2">
-            <div className="flex items-center rounded-full bg-sky-400/20 dark:bg-sky-500/10 px-3 py-1 text-xs font-medium leading-5 text-sky-200 dark:text-sky-400">
+            <div className="flex items-center rounded-full bg-violet-500/20 dark:bg-violet-500/10 px-3 py-1 text-xs font-medium leading-5 text-violet-300 dark:text-violet-400">
               JavaFX
             </div>
           </li>
