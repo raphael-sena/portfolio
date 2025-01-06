@@ -1,7 +1,7 @@
 import { Viewer, Worker } from "@react-pdf-viewer/core";
 import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
 
-const PdfViewer = () => {
+const Resume = () => {
   const defaultLayoutPluginInstance = defaultLayoutPlugin();
 
   return (
@@ -16,4 +16,4 @@ const PdfViewer = () => {
   );
 };
 
-export default PdfViewer;
+export default Resume;

@@ -7,12 +7,13 @@ import Experience from "./sections/Experience";
 import Education from "./sections/Education";
 import Image from "next/image";
 import React from "react";
-import PdfViewer from "./PdfViewer";
 import Technologies from "./sections/Technologies";
 import { useInView } from "react-intersection-observer";
 import Intro from "./sections/Intro";
 import FeaturedProjects from "./sections/FeaturedProjects";
 import Hobbies from "./sections/Hobbies";
+import Extracurricular from "./sections/Extracurricular";
+import Resume from "./sections/Resume";
 
 const MainContent = () => {
   const [language, setLanguage] = useState<Language>("en");
@@ -55,10 +56,6 @@ const MainContent = () => {
   const { ref: technologiesRef, inView: technologiesInView } = useInView({
     triggerOnce: true,
     threshold: 0.2,
-  });
-  const { ref: hobbiesRef, inView: hobbiesInView } = useInView({
-    triggerOnce: true,
-    threshold: 0.5,
   });
 
   return (
@@ -145,6 +142,16 @@ const MainContent = () => {
           </section>
 
           <section
+            id="extracurricular"
+            className="mb-10"
+          >
+            <h2 className="text-2xl font-bold text-start mb-2">
+              {translations[language].extracurricular}
+            </h2>
+            <Extracurricular />
+          </section>
+
+          <section
             id="featured-projects"
             className={`lg:w-full mb-12 transition-opacity duration-1000 ${
               featuredInView ? "opacity-100" : "opacity-0"
@@ -194,15 +201,12 @@ const MainContent = () => {
             <h2 className="text-2xl font-bold text-start mb-2">
               {translations[language].resume}
             </h2>
-            <PdfViewer />
+            <Resume />
           </section>
 
           <section
             id="hobbies"
-            className={`lg:w-full mb-10 space-y-6 transition-opacity duration-1000 ${
-              hobbiesInView ? "opacity-100" : "opacity-0"
-            }`}
-            ref={hobbiesRef}
+            className="lg:w-full mb-10 space-y-6"
           >
             <h2 className="text-2xl font-bold text-start mb-2">Hobbies</h2>
             <Hobbies />

@@ -42,7 +42,7 @@ const Education = () => {
           </div>
 
           <div className="lg:w-1/3 flex justify-between lg:justify-end lg:flex-col lg:items-end lg:text-end">
-            <h3 className="mb-2">{translations[language].bh}</h3>
+            <h3 className="mb-2 mt-3 lg:mt-0">{translations[language].bh}</h3>
             <div className="flex items-center justify-end space-x-2">
               <Link
                 target="_blank"
@@ -93,7 +93,7 @@ const Education = () => {
           </div>
 
           <div className="lg:w-1/3 flex justify-between lg:justify-end lg:flex-col lg:items-end lg:text-end">
-            <h3 className="mb-2">{translations[language].sydney}</h3>
+            <h3 className="mb-2 mt-3 lg:mt-0">{translations[language].sydney}</h3>
             <div className="flex items-center justify-end space-x-2">
               <Link
                 target="_blank"
