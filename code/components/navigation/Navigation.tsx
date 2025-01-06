@@ -17,6 +17,7 @@ export default function Navigation() {
                 <NavigationItem section="about" title={translations[language].about}/>
                 <NavigationItem section="experience" title={translations[language].experience}/>
                 <NavigationItem section="education" title={translations[language].education}/>
+                <NavigationItem section="extracurricular" title={translations[language].extracurricular}/>
                 <NavigationItem section="featured-projects" title={translations[language].projects}/>
                 <NavigationItem section="technologies" title={translations[language].technologies}/>
                 <NavigationItem section="wrapped" title="Github Wrapped"/>
