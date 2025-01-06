@@ -23,7 +23,6 @@ const ThemeToggle2 = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="text-lg"
     >
       {theme === "light" ? (
         <>
