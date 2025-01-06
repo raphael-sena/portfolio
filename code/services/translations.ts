@@ -45,6 +45,9 @@ export const translations = {
     alura_javascript_url:
       "https://drive.google.com/file/d/1CClEytR90nr3xdyrK3P2FkjaeePeCyEI/view?usp=sharing",
     alura_javascript_png: "/extracurricular/alura/alura_javascript_en.png",
+    udemy_java_url:
+    "https://drive.google.com/file/d/1bEq4DXe6MPFIYGv728N0PRkvfyA5CQiI/view?usp=sharing",
+    udemy_java_png: "/extracurricular/udemy/java_udemy_en.jpg",
     whatsapp_message:
       "Hi, how are you? My name is [Your Name], and I am [your occupation/field of expertise]. I’m reaching out because I believe we can create a partnership to develop impactful solutions together. If you’re interested, I’d be delighted to discuss further and align ideas. \uD83D\uDE04",
     technologies: "Technologies",
@@ -63,7 +66,8 @@ export const translations = {
     total_losses: "Total Losses",
     spotify_text:
       "I enjoy music as a whole; I'm quite eclectic. I adore Brazilian music and listen a lot to bossa nova, samba, and MPB. Besides national music, I like to listen to a bit of neo-psychedelia, indie, indie rock, jazz, and so on... I really love music!",
-  },
+    december: "Dec",
+    },
 
   pt: {
     welcome: "Bem-vindo(a) ao meu Portfólio! 😄",
@@ -109,7 +113,9 @@ export const translations = {
     alura_javascript_url:
       "https://drive.google.com/file/d/1CClEytR90nr3xdyrK3P2FkjaeePeCyEI/view?usp=sharing",
     alura_javascript_png: "/extracurricular/alura/alura_javascript_pt.png",
-
+    udemy_java_url:
+      "https://drive.google.com/file/d/13xjOGajuXWw6j6GkfqPmN-6VmLmCvU1k/view?usp=sharing",
+    udemy_java_png: "/extracurricular/udemy/java_udemy_pt.jpg",
     whatsapp_message:
       "Olá, tudo bem? Meu nome é [Seu Nome] e sou [sua ocupação/área de atuação]. Estou entrando em contato porque acredito que podemos criar uma parceria para desenvolver soluções de impacto juntos. Caso tenha interesse, ficarei muito feliz em conversar mais e alinhar ideias. \uD83D\uDE04",
     technologies: "Tecnologias",
@@ -128,7 +134,8 @@ export const translations = {
     total_losses: "Derrotas",
     spotify_text:
       "Gosto muito de música em um todo, sou bastante eclético. Adoro a música brasileira e escuto muito bossa nova, samba e MPB. Além da música nacional, gosto de escutar um pouco de neo-psicodelia, indie, indie rock, jazz, enfim... Gosto muito de música!",
-  },
+    december: "Dez",
+},
 
   de: {
     welcome: "Willkommen in meinem Portfolio! 😄",
@@ -174,6 +181,9 @@ export const translations = {
     alura_javascript_url:
       "https://drive.google.com/file/d/1CClEytR90nr3xdyrK3P2FkjaeePeCyEI/view?usp=sharing",
     alura_javascript_png: "/extracurricular/alura/alura_javascript_en.png",
+    udemy_java_url:
+      "https://drive.google.com/file/d/1bEq4DXe6MPFIYGv728N0PRkvfyA5CQiI/view?usp=sharing",
+    udemy_java_png: "/extracurricular/udemy/java_udemy_en.jpg",
     whatsapp_message:
       "Hallo, wie geht es Ihnen? Mein Name ist [Ihr Name], und ich bin [Ihr Beruf/Fachgebiet]. Ich melde mich, weil ich glaube, dass wir eine Partnerschaft eingehen können, um gemeinsam wirkungsvolle Lösungen zu entwickeln. Wenn Sie Interesse haben, würde ich mich freuen, mehr darüber zu sprechen und Ideen auszutauschen. \uD83D\uDE04",
     technologies: "Technologieen",
@@ -192,5 +202,6 @@ export const translations = {
     total_losses: "Gesamtverluste",
     spotify_text:
       "Ich mag Musik insgesamt sehr; ich bin ziemlich vielseitig. Ich liebe brasilianische Musik und höre viel Bossa Nova, Samba und MPB. Neben nationaler Musik höre ich auch gerne ein bisschen Neo-Psychedelia, Indie, Indie-Rock, Jazz und so weiter... Ich liebe Musik wirklich sehr!",
-  },
+    december: "Dez",
+},
 };
