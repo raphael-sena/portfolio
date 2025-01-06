@@ -38,6 +38,13 @@ export const translations = {
     engineering: "Bachelor Software Engineering",
     engineering_text:
       "I am currently studying Software Engineering at PUC Minas, where I acquire knowledge in system development, requirements analysis, and software architecture. During my degree, I have specialized in back-end and agile development technologies.",
+    extracurricular: "Extracurricular",
+    alura_java_url:
+      "https://drive.google.com/file/d/1dxsLorrXwDCNB_u1-X7IrlB74zbVwC8M/view?usp=sharing",
+    alura_java_poo_png: "/extracurricular/alura/alura_java_poo_en.png",
+    alura_javascript_url:
+      "https://drive.google.com/file/d/1CClEytR90nr3xdyrK3P2FkjaeePeCyEI/view?usp=sharing",
+    alura_javascript_png: "/extracurricular/alura/alura_javascript_en.png",
     whatsapp_message:
       "Hi, how are you? My name is [Your Name], and I am [your occupation/field of expertise]. I’m reaching out because I believe we can create a partnership to develop impactful solutions together. If you’re interested, I’d be delighted to discuss further and align ideas. \uD83D\uDE04",
     technologies: "Technologies",
@@ -54,7 +61,8 @@ export const translations = {
     best_score: "High Score",
     total_wins: "Total Wins",
     total_losses: "Total Losses",
-    spotify_text: "I enjoy music as a whole; I'm quite eclectic. I adore Brazilian music and listen a lot to bossa nova, samba, and MPB. Besides national music, I like to listen to a bit of neo-psychedelia, indie, indie rock, jazz, and so on... I really love music!",
+    spotify_text:
+      "I enjoy music as a whole; I'm quite eclectic. I adore Brazilian music and listen a lot to bossa nova, samba, and MPB. Besides national music, I like to listen to a bit of neo-psychedelia, indie, indie rock, jazz, and so on... I really love music!",
   },
 
   pt: {
@@ -94,6 +102,14 @@ export const translations = {
     engineering: "Bacharelado de Engenharia de Software",
     engineering_text:
       "Estou cursando Engenharia de Software na PUC Minas, onde adquiro conhecimentos em desenvolvimento de sistemas, análise de requisitos e arquitetura de software. Durante a graduação, tenho me especializado em back-end e tecnologias de desenvolvimento ágil.",
+    extracurricular: "Extracurricular",
+    alura_java_url:
+      "https://drive.google.com/file/d/1my2dosjLglVMcyOGIlx-ZGS9_FuIb7rV/view?usp=sharing",
+    alura_java_poo_png: "/extracurricular/alura/alura_java_poo_pt.png",
+    alura_javascript_url:
+      "https://drive.google.com/file/d/1CClEytR90nr3xdyrK3P2FkjaeePeCyEI/view?usp=sharing",
+    alura_javascript_png: "/extracurricular/alura/alura_javascript_en.png",
+
     whatsapp_message:
       "Olá, tudo bem? Meu nome é [Seu Nome] e sou [sua ocupação/área de atuação]. Estou entrando em contato porque acredito que podemos criar uma parceria para desenvolver soluções de impacto juntos. Caso tenha interesse, ficarei muito feliz em conversar mais e alinhar ideias. \uD83D\uDE04",
     technologies: "Tecnologias",
@@ -110,7 +126,8 @@ export const translations = {
     best_score: "Melhor pontuação",
     total_wins: "Vitórias",
     total_losses: "Derrotas",
-    spotify_text: "Gosto muito de música em um todo, sou bastante eclético. Adoro a música brasileira e escuto muito bossa nova, samba e MPB. Além da música nacional, gosto de escutar um pouco de neo-psicodelia, indie, indie rock, jazz, enfim... Gosto muito de música!",
+    spotify_text:
+      "Gosto muito de música em um todo, sou bastante eclético. Adoro a música brasileira e escuto muito bossa nova, samba e MPB. Além da música nacional, gosto de escutar um pouco de neo-psicodelia, indie, indie rock, jazz, enfim... Gosto muito de música!",
   },
 
   de: {
@@ -150,6 +167,13 @@ export const translations = {
     engineering: "Bachelor Softwaretechnik",
     engineering_text:
       "Ich studiere Softwaretechnik an der PUC Minas, wo ich Kenntnisse in Systementwicklung, Anforderungsanalyse und Softwarearchitektur erwerbe. Während meines Studiums habe ich mich auf Back-End und agile Entwicklungstechnologien spezialisiert.",
+    extracurricular: "Extracurricular",
+    alura_java_url:
+      "https://drive.google.com/file/d/1dxsLorrXwDCNB_u1-X7IrlB74zbVwC8M/view?usp=sharing",
+    alura_java_poo_png: "/extracurricular/alura/alura_java_poo_en.png",
+    alura_javascript_url:
+      "https://drive.google.com/file/d/1CClEytR90nr3xdyrK3P2FkjaeePeCyEI/view?usp=sharing",
+    alura_javascript_png: "/extracurricular/alura/alura_javascript_en.png",
     whatsapp_message:
       "Hallo, wie geht es Ihnen? Mein Name ist [Ihr Name], und ich bin [Ihr Beruf/Fachgebiet]. Ich melde mich, weil ich glaube, dass wir eine Partnerschaft eingehen können, um gemeinsam wirkungsvolle Lösungen zu entwickeln. Wenn Sie Interesse haben, würde ich mich freuen, mehr darüber zu sprechen und Ideen auszutauschen. \uD83D\uDE04",
     technologies: "Technologieen",
@@ -166,6 +190,7 @@ export const translations = {
     best_score: "Bestes Ergebnis",
     total_wins: "Gesamtgewinne",
     total_losses: "Gesamtverluste",
-    spotify_text: "Ich mag Musik insgesamt sehr; ich bin ziemlich vielseitig. Ich liebe brasilianische Musik und höre viel Bossa Nova, Samba und MPB. Neben nationaler Musik höre ich auch gerne ein bisschen Neo-Psychedelia, Indie, Indie-Rock, Jazz und so weiter... Ich liebe Musik wirklich sehr!"
+    spotify_text:
+      "Ich mag Musik insgesamt sehr; ich bin ziemlich vielseitig. Ich liebe brasilianische Musik und höre viel Bossa Nova, Samba und MPB. Neben nationaler Musik höre ich auch gerne ein bisschen Neo-Psychedelia, Indie, Indie-Rock, Jazz und so weiter... Ich liebe Musik wirklich sehr!",
   },
 };
