@@ -57,10 +57,6 @@ const MainContent = () => {
     triggerOnce: true,
     threshold: 0.2,
   });
-  const { ref: hobbiesRef, inView: hobbiesInView } = useInView({
-    triggerOnce: true,
-    threshold: 0.5,
-  });
 
   return (
     <div>
