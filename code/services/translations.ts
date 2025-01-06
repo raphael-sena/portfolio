@@ -108,7 +108,7 @@ export const translations = {
     alura_java_poo_png: "/extracurricular/alura/alura_java_poo_pt.png",
     alura_javascript_url:
       "https://drive.google.com/file/d/1CClEytR90nr3xdyrK3P2FkjaeePeCyEI/view?usp=sharing",
-    alura_javascript_png: "/extracurricular/alura/alura_javascript_en.png",
+    alura_javascript_png: "/extracurricular/alura/alura_javascript_pt.png",
 
     whatsapp_message:
       "Olá, tudo bem? Meu nome é [Seu Nome] e sou [sua ocupação/área de atuação]. Estou entrando em contato porque acredito que podemos criar uma parceria para desenvolver soluções de impacto juntos. Caso tenha interesse, ficarei muito feliz em conversar mais e alinhar ideias. \uD83D\uDE04",
