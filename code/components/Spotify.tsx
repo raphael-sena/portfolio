@@ -5,13 +5,30 @@ import { useEffect, useState } from "react";
 
 export default function Spotify() {
   const [language, setLanguage] = useState<Language>("en");
-  
-    useEffect(() => {
-      const savedLanguage =
-        (localStorage.getItem("language") as Language) || "en";
-      setLanguage(savedLanguage);
-    }, []);
-    
+  const [imageUrls, setImageUrls] = useState({
+    profile: "https://spotify-github-profile.kittinanx.com/api/view?uid=sena_31&cover_image=true&theme=default&show_offline=false&background_color=121212&interchange=false&bar_color_cover=false",
+    recentlyPlayed: "https://spotify-recently-played-readme.vercel.app/api?user=sena_31&count=9",
+    lastFm: "https://lastfm-recently-played.vercel.app/api?user=raphael_sena&width=400",
+  });
+
+  useEffect(() => {
+    const savedLanguage =
+      (localStorage.getItem("language") as Language) || "en";
+    setLanguage(savedLanguage);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setImageUrls({
+        profile: `https://spotify-github-profile.kittinanx.com/api/view?uid=sena_31&cover_image=true&theme=default&show_offline=false&background_color=121212&interchange=false&bar_color_cover=false&t=${Date.now()}`,
+        recentlyPlayed: `https://spotify-recently-played-readme.vercel.app/api?user=sena_31&count=9&t=${Date.now()}`,
+        lastFm: `https://lastfm-recently-played.vercel.app/api?user=raphael_sena&width=400&t=${Date.now()}`,
+      });
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="ml-2">
       <div>
@@ -28,26 +45,26 @@ export default function Spotify() {
         </div>
         <p className="mb-4">{translations[language].spotify_text}</p>
       </div>
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 justify-center items-top gap-6">
+      <div className="sm:grid sm:grid-cols-2 md:grid-cols-3 justify-center items-top gap-4">
         <Link
           href="https://spotify-github-profile.kittinanx.com/api/view?uid=sena_31&redirect=true"
           target="_blank"
           rel="noopener noreferrer"
-          className="transition-transform duration-300 hover:scale-105 mx-auto"
+          className="sm:transition-transform sm:duration-300 sm:hover:scale-105 w-full"
         >
           <img
-            src="https://spotify-github-profile.kittinanx.com/api/view?uid=sena_31&cover_image=true&theme=default&show_offline=false&background_color=121212&interchange=false&bar_color_cover=false"
+            src={imageUrls.profile}
             alt="Spotify Profile"
-            className="rounded-lg shadow-lg"
+            className="rounded-lg shadow-lg w-full mb-3 sm:mb-0"
           />
         </Link>
 
         <img
-          className="transition-transform duration-300 hover:scale-105 mx-auto"
+          className="sm:transition-transform sm:duration-300 sm:hover:scale-105 rounded-lg shadow-lg w-full mb-3 sm:mb-0"
           alt="Spotify list"
           width="250px"
           height="270px"
-          src="https://spotify-recently-played-readme.vercel.app/api?user=sena_31&count=9"
+          src={imageUrls.recentlyPlayed}
         />
 
         <Link href="https://www.last.fm/pt/user/raphael_sena" target="_blank">
@@ -55,8 +72,8 @@ export default function Spotify() {
             width="400px"
             height="270px"
             alt="lastfm"
-            src="https://lastfm-recently-played.vercel.app/api?user=raphael_sena&width=400"
-            className="transition-transform duration-300 hover:scale-105 rounded-lg shadow-lg mx-auto"
+            src={imageUrls.lastFm}
+            className="sm:transition-transform sm:duration-300 sm:hover:scale-105 rounded-lg shadow-lg w-full"
           />
         </Link>
       </div>
