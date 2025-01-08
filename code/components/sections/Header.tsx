@@ -16,9 +16,9 @@ const Header = () => {
   return (
     <header className="w-full flex justify-start items-center mb-8 rounded-full bg-black dark:bg-slate-50 px-2 py-2 transform transition-transform duration-300 hover:scale-105 shadow-[5px_23px_91px_39px_rgba(27,_25,_30,_0.19)] dark:shadow-[5px_23px_91px_39px_rgba(218,_194,_232,_0.19)]">
       <Image
-        className="rounded-full mr-2 transform transition-transform duration-300 hover:scale-110"
-        width={45}
-        height={45}
+        className="rounded-full mr-2 transform transition-transform duration-300 hover:scale-110 w-14"
+        width={500}
+        height={500}
         src="/images/avatar.png"
         alt="Profile Pic"
       />
