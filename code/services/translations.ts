@@ -72,6 +72,7 @@ export const translations = {
       "I enjoy music as a whole; I'm quite eclectic. I adore Brazilian music and listen a lot to bossa nova, samba, and MPB. Besides national music, I like to listen to a bit of neo-psychedelia, indie, indie rock, jazz, and so on... I really love music!",
     december: "Dec",
     may: "May",
+    tools: "Development Tools",
   },
 
   pt: {
@@ -145,6 +146,7 @@ export const translations = {
       "Gosto muito de música em um todo, sou bastante eclético. Adoro a música brasileira e escuto muito bossa nova, samba e MPB. Além da música nacional, gosto de escutar um pouco de neo-psicodelia, indie, indie rock, jazz, enfim... Gosto muito de música!",
     december: "Dez",
     may: "Mai",
+    tools: "Ferramentas de Desevolvimento",
   },
 
   de: {
@@ -218,5 +220,6 @@ export const translations = {
       "Ich mag Musik insgesamt sehr; ich bin ziemlich vielseitig. Ich liebe brasilianische Musik und höre viel Bossa Nova, Samba und MPB. Neben nationaler Musik höre ich auch gerne ein bisschen Neo-Psychedelia, Indie, Indie-Rock, Jazz und so weiter... Ich liebe Musik wirklich sehr!",
     december: "Dez",
     may: "Mai",
+    tools: "Entwicklungswerkzeuge",
   },
 };
