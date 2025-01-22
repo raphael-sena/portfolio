@@ -56,6 +56,7 @@ export const translations = {
       "Hi, how are you? My name is [Your Name], and I am [your occupation/field of expertise]. I’m reaching out because I believe we can create a partnership to develop impactful solutions together. If you’re interested, I’d be delighted to discuss further and align ideas. \uD83D\uDE04",
     technologies: "Technologies",
     resume: "Resume",
+    resumeUrl: "/Resume_Raphael_Sena.pdf",
     chess: "Chess",
     chess_text:
       "I love playing chess, a game that stimulates concentration, logical thinking, and strategic decision-making. Besides being fun, it helps me develop skills like problem-solving.",
@@ -130,6 +131,7 @@ export const translations = {
       "Olá, tudo bem? Meu nome é [Seu Nome] e sou [sua ocupação/área de atuação]. Estou entrando em contato porque acredito que podemos criar uma parceria para desenvolver soluções de impacto juntos. Caso tenha interesse, ficarei muito feliz em conversar mais e alinhar ideias. \uD83D\uDE04",
     technologies: "Tecnologias",
     resume: "Currículo",
+    resumeUrl: "/Currículo_Raphael_Sena.pdf",
     chess: "Xadrez",
     chess_text:
       "Eu adoro jogar xadrez, um jogo que estimula a concentração, o raciocínio lógico e a tomada de decisões estratégicas. Além de divertido, ele me ajuda a desenvolver habilidades como resolução de problemas.",
@@ -204,6 +206,7 @@ export const translations = {
       "Hallo, wie geht es Ihnen? Mein Name ist [Ihr Name], und ich bin [Ihr Beruf/Fachgebiet]. Ich melde mich, weil ich glaube, dass wir eine Partnerschaft eingehen können, um gemeinsam wirkungsvolle Lösungen zu entwickeln. Wenn Sie Interesse haben, würde ich mich freuen, mehr darüber zu sprechen und Ideen auszutauschen. \uD83D\uDE04",
     technologies: "Technologieen",
     resume: "Lebenslauf",
+    resumeUrl: "/Resume_Raphael_Sena.pdf",
     chess: "Schach",
     chess_text:
       "Ich liebe es, Schach zu spielen, ein Spiel, das die Konzentration, das logische Denken und strategische Entscheidungen fördert. Neben dem Spaß hilft es mir, Fähigkeiten wie Problemlösung zu entwickeln.",
