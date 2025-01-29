@@ -25,6 +25,7 @@ const FeaturedProjects = () => {
   const projectImages = {
     "recipes-and-flavors": "/images/projects/recipes_and_flavors.png",
     portfolio: "/images/projects/portfolio.png",
+    "relatorio-fotografico": "/images/projects/relatorio-fotografico.png"
   };
 
   useEffect(() => {
