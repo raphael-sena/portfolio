@@ -1,18 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    images: {
-      remotePatterns: [
-        {
-          protocol: 'https',
-          hostname: 'avatars.githubusercontent.com',
-        },
-        {
-          protocol: 'https',
-          hostname: 'images.chesscomfiles.com',
-        }
-      ],
-    },
-    webpack: (config, { isServer }) => {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "avatars.githubusercontent.com",
+      },
+      {
+        protocol: "https",
+        hostname: "images.chesscomfiles.com",
+      },
+    ],
+  },
+  webpack: (config, { isServer }) => {
     if (!isServer) {
       config.resolve.fallback = {
         ...config.resolve.fallback,
@@ -22,8 +22,8 @@ const nextConfig = {
       };
 
       config.module.rules.push({
-        test: /canvas\.node$/,
-        use: 'null-loader',
+        test: /\.node$/,
+        use: "ignore-loader",
       });
     }
     return config;
