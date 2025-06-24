@@ -12,7 +12,22 @@ const nextConfig = {
         }
       ],
     },
-  };
-  
-  export default nextConfig;
-  
+    webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        canvas: false,
+        fs: false,
+        path: false,
+      };
+
+      config.module.rules.push({
+        test: /canvas\.node$/,
+        use: 'null-loader',
+      });
+    }
+    return config;
+  },
+};
+
+export default nextConfig;
