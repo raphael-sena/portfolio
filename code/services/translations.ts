@@ -74,6 +74,10 @@ export const translations = {
     december: "Dec",
     may: "May",
     tools: "Development Tools",
+    e1: {
+      software_engineering_intern: "Software Engineering Intern",
+      software_engineering_intern_text: ""
+    }
   },
 
   pt: {
@@ -149,6 +153,10 @@ export const translations = {
     december: "Dez",
     may: "Mai",
     tools: "Ferramentas de Desevolvimento",
+    e1: {
+      software_engineering_intern: "Estagiário de Engenharia de Software",
+      software_engineering_intern_text: ""
+    }
   },
 
   de: {
@@ -224,5 +232,9 @@ export const translations = {
     december: "Dez",
     may: "Mai",
     tools: "Entwicklungswerkzeuge",
+    e1: {
+      software_engineering_intern: "Praktikant im Software-Engineering",
+      software_engineering_intern_text: ""
+    }
   },
 };
