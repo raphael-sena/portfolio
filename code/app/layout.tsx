@@ -82,7 +82,7 @@ export default function RootLayout({ children }: LayoutProps) {
         <meta name="twitter:image:alt" content="Raphael Sena Portfolio Image" />
       </head>
 
-      <body className="min-h-screen max-w-[1333px] mx-auto flex flex-col justify-center items-center bg-gradient-to-b from-slate-200 via-slate-50 to-slate-200 text-gray-900 dark:from-black dark:to-stone-900 bg-cover bg-center dark:text-slate-50">
+      <body className="min-h-screen max-w-[1333px] mx-auto flex flex-col justify-center items-center bg-slate-50 text-gray-900 dark:bg-black bg-cover bg-center dark:text-slate-50">
         <header className="text-lg p-4 flex justify-between items-center w-full">
           <div className="w-full flex justify-between space-x-4">
             <ThemeToggle language={language} />
