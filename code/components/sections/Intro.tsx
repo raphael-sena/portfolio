@@ -20,22 +20,22 @@ const Intro = () => {
   }, []);
 
   return (
-    <div className="mb-10 content sm:flex sm:gap-2 lg:mr-4 lg:sticky">
+    <div className="mb-10 content flex flex-col items-center gap-2 lg:mr-4 lg:sticky">
       <Image
-        className="mb-4 lg:mb-8 lg:transform lg:transition-transform lg:duration-300 lg:hover:scale-105 w-full h-full lg:max-w-[75%] lg:max-h-[75%] sm:w-1/3 lg:w-2/3 lg:mx-auto lg:h-2/3 rounded-lg lg:rounded-full lg:aspect-square object-cover overflow-hidden shadow-[5px_23px_91px_39px_rgba(27,_25,_30,_0.19)] dark:shadow-[5px_23px_91px_39px_rgba(218,_194,_232,_0.19)]"
+        className="mb-4 lg:mb-8 lg:transform lg:transition-transform lg:duration-300 lg:hover:scale-105 lg:max-w-[75%] lg:max-h-[75%] w-2/3 lg:mx-auto lg:h-2/3 rounded-full aspect-square object-cover object-[center_25%] overflow-hidden"
         width={1024}
         height={1024}
-        src="/images/profile_photo_2.JPEG"
-        alt="Picture of me"
+        src="/images/profile.jpg"
+        alt="Picture of myself"
         quality={100}
       />
-      <div className="lg:mb-4 flex-1 text-center md:text-start justify-center md:justify-start items-center md:items-start w-full h-full">
+      <div className="mb-4 text-center lg:text-start justify-center lg:justify-start items-center lg:items-start w-full h-full">
         <div className="mb-4 w-full lg:mt-4">
           <h1 className="text-3xl font-bold">Raphael Sena</h1>
           <h2 className="text-lg"> {translations[language].profession}</h2>
         </div>
 
-        <div className="text-xl flex justify-center md:justify-start items-center md:items-start text-center md:text-start space-x-4 lg:space-x-2">
+        <div className="text-xl flex justify-center lg:justify-start items-center text-center space-x-4 lg:space-x-2">
           <Link
             target="_blank"
             href={"https://www.linkedin.com/in/raphael-sena/"}
