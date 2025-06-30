@@ -124,7 +124,17 @@ const Experience = () => {
           <ul className="list-disc ml-4">
             <li>
               <p className="text-sm">
-                {translations[language].e1.software_engineering_intern_text}
+                {translations[language].e1.software_engineering_intern_text_1}
+              </p>
+            </li>
+            <li>
+              <p className="text-sm">
+                {translations[language].e1.software_engineering_intern_text_2}
+              </p>
+            </li>
+            <li>
+              <p className="text-sm">
+                {translations[language].e1.software_engineering_intern_text_3}
               </p>
             </li>
           </ul>
@@ -137,32 +147,32 @@ const Experience = () => {
           <ul className="flex flex-wrap" aria-label="Technologies used">
             <li className="mr-1.5 mt-2">
               <div className="flex items-center rounded-full bg-gray-50/10 dark:bg-gray-500/10 px-3 py-1 text-xs font-medium leading-5 dark:text-gray-500">
-                Service Desk
+                Java 8
               </div>
             </li>
             <li className="mr-1.5 mt-2">
               <div className="flex items-center rounded-full bg-gray-50/10 dark:bg-gray-500/10 px-3 py-1 text-xs font-medium leading-5 dark:text-gray-500">
-                MS Office
+                Spring Boot
               </div>
             </li>
             <li className="mr-1.5 mt-2">
               <div className="flex items-center rounded-full bg-gray-50/10 dark:bg-gray-500/10 px-3 py-1 text-xs font-medium leading-5 dark:text-gray-500">
-                User Support
+                AngularJS
               </div>
             </li>
             <li className="mr-1.5 mt-2">
               <div className="flex items-center rounded-full bg-gray-50/10 dark:bg-gray-500/10 px-3 py-1 text-xs font-medium leading-5 dark:text-gray-500">
-                Hardware Support
+                Eclipse
               </div>
             </li>
             <li className="mr-1.5 mt-2">
               <div className="flex items-center rounded-full bg-gray-50/10 dark:bg-gray-500/10 px-3 py-1 text-xs font-medium leading-5 dark:text-gray-500">
-                Active Directory
+                SQL
               </div>
             </li>
             <li className="mr-1.5 mt-2">
               <div className="flex items-center rounded-full bg-gray-50/10 dark:bg-gray-500/10 px-3 py-1 text-xs font-medium leading-5 dark:text-gray-500">
-                Windows
+                Pentaho Report Designer
               </div>
             </li>
           </ul>
@@ -172,9 +182,9 @@ const Experience = () => {
       <div
         id="experience"
         className={`glass-card bg-black dark:bg-slate-50 sm:gap-2 p-4 rounded-lg text-slate-50 dark:text-black lg:opacity-60 lg:hover:opacity-100 lg:transition-opacity lg:duration-300 transition-opacity duration-1000 ${
-          experienceInView1 ? "opacity-100" : "opacity-0"
+          experienceInView2 ? "opacity-100" : "opacity-0"
         }`}
-        ref={experienceRef1}
+        ref={experienceRef2}
       >
         <div className="flex mb-2">
           <div className="w-full text-lg flex items-center mr-4 md:mr-2">
@@ -269,9 +279,9 @@ const Experience = () => {
       <div
         id="experience"
         className={`glass-card bg-black dark:bg-slate-50 sm:gap-2 p-4 rounded-lg text-slate-50 dark:text-black lg:opacity-60 lg:hover:opacity-100 lg:transition-opacity lg:duration-300 transition-opacity duration-1000 ${
-          experienceInView2 ? "opacity-100" : "opacity-0"
+          experienceInView3 ? "opacity-100" : "opacity-0"
         }`}
-        ref={experienceRef2}
+        ref={experienceRef3}
       >
         <div className="flex mb-2">
           <div className="w-full text-lg flex items-center mr-4 md:mr-2">
@@ -403,9 +413,9 @@ const Experience = () => {
       <div
         id="experience"
         className={`glass-card bg-black dark:bg-slate-50 sm:gap-2 p-4 rounded-lg text-slate-50 dark:text-black lg:opacity-60 lg:hover:opacity-100 lg:transition-opacity lg:duration-300 transition-opacity duration-1000 ${
-          experienceInView3 ? "opacity-100" : "opacity-0"
+          experienceInView4 ? "opacity-100" : "opacity-0"
         }`}
-        ref={experienceRef3}
+        ref={experienceRef4}
       >
         <div className="flex mb-2">
           <div className="w-full text-lg flex items-center mr-4 md:mr-2">

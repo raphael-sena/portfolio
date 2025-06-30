@@ -76,8 +76,13 @@ export const translations = {
     tools: "Development Tools",
     e1: {
       software_engineering_intern: "Software Engineering Intern",
-      software_engineering_intern_text: ""
-    }
+      software_engineering_intern_text_1:
+        "Developed, researched, and resolved issues in the Sigom Cloud web application, supporting over 150 cities and impacting more than 18 million public transport users across various cities and states in Brazil.",
+      software_engineering_intern_text_2:
+        "Worked with Java 8, AngularJS, Eclipse, DAO, Wildfly, SQL, and Pentaho for report generation.",
+      software_engineering_intern_text_3:
+        "Followed an Agile development model, actively participating in daily stand-ups, sprint planning sessions, and delivering features incrementally through biweekly sprints.",
+    },
   },
 
   pt: {
@@ -155,8 +160,13 @@ export const translations = {
     tools: "Ferramentas de Desevolvimento",
     e1: {
       software_engineering_intern: "Estagiário de Engenharia de Software",
-      software_engineering_intern_text: ""
-    }
+      software_engineering_intern_text_1:
+        "Desenvolvimento, pesquisa e resolução de problemas na aplicação web Sigom Cloud, atendendo mais de 150 cidades e impactando mais de 18 milhões de usuários de transporte público em diversos municípios e estados do Brasil.",
+      software_engineering_intern_text_2:
+        "Atuação com Java 8, AngularJS, Eclipse, DAO, Wildfly, SQL, Git e Pentaho para geração de relatórios.",
+      software_engineering_intern_text_3:
+        "Acompanhamento do modelo de desenvolvimento ágil, com participação ativa em reuniões diárias (daily stand-ups), planejamento de sprints e entrega incremental de funcionalidades em ciclos quinzenais.",
+    },
   },
 
   de: {
@@ -234,7 +244,12 @@ export const translations = {
     tools: "Entwicklungswerkzeuge",
     e1: {
       software_engineering_intern: "Praktikant im Software-Engineering",
-      software_engineering_intern_text: ""
-    }
+      software_engineering_intern_text_1:
+        "Entwicklung, Recherche und Problemlösung in der Webanwendung Sigom Cloud, die über 150 Städte bedient und mehr als 18 Millionen Nutzer des öffentlichen Nahverkehrs in verschiedenen Gemeinden und Bundesstaaten Brasiliens beeinflusst.",
+      software_engineering_intern_text_2:
+        "Einsatz von Java 8, AngularJS, Eclipse, DAO, Wildfly, SQL, Git und Pentaho zur Berichtserstellung.",
+      software_engineering_intern_text_3:
+        "Begleitung des agilen Entwicklungsmodells mit aktiver Teilnahme an täglichen Besprechungen (Daily Stand-ups), Sprint-Planungen und der schrittweisen Auslieferung von Funktionen im zweiwöchigen Rhythmus.",
+    },
   },
 };
