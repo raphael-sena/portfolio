@@ -39,6 +39,7 @@ export default function RootLayout({ children }: LayoutProps) {
   return (
     <html lang="en">
       <head>
+        <title>Raphael Sena | Portfolio</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
