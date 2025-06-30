@@ -14,7 +14,7 @@ export const translations = {
     viewRepo: "View Repository",
     about: "About",
     about_text:
-      "I am a Brazilian Software Engineering student, and throughout my journey, I have had the opportunity to work on diverse projects, such as developing a management software for the 'Renata Senna' store and collaborating as a back-end developer on the 'Cuido Bem' project at the Experimental Software Agency at PUC Minas. These experiences allowed me to explore modern tools such as Spring Boot, Next.js, TailwindCSS, and React, as well as enhance my skills in problem-solving and delivering practical and efficient solutions. My goal is to create robust and intuitive systems that generate positive impact, valuing both technical aspects and user experience. Beyond the technical field, I aim to grow by learning new skills, such as the German language, and exploring different ways to balance my academic and professional journey with my personal life.",
+      "I am a Brazilian Software Engineering student, and throughout my journey, I have had the opportunity to work on diverse projects. These experiences allowed me to explore modern tools such as Spring Boot, Next.js, TailwindCSS, and React, as well as enhance my skills in problem-solving and delivering practical and efficient solutions. My goal is to create robust systems that generate positive impact, valuing both technical aspects and user experience. Beyond the technical field, I aim to grow by learning new skills, such as the German language, and exploring different ways to balance my academic and professional journey with my personal life.",
     experience: "Experience",
     currently: "Currently",
     cuido_bem:
@@ -74,6 +74,15 @@ export const translations = {
     december: "Dec",
     may: "May",
     tools: "Development Tools",
+    e1: {
+      software_engineering_intern: "Software Engineering Intern",
+      software_engineering_intern_text_1:
+        "Developed, researched, and resolved issues in the Sigom Cloud web application, supporting over 150 cities and impacting more than 18 million public transport users across various cities and states in Brazil.",
+      software_engineering_intern_text_2:
+        "Worked with Java 8, AngularJS, Eclipse, DAO, Wildfly, SQL, and Pentaho for report generation.",
+      software_engineering_intern_text_3:
+        "Followed an Agile development model, actively participating in daily stand-ups, sprint planning sessions, and delivering features incrementally through biweekly sprints.",
+    },
   },
 
   pt: {
@@ -89,7 +98,7 @@ export const translations = {
     viewRepo: "Ver Repositório",
     about: "Sobre",
     about_text:
-      "Sou um estudante brasileiro de Engenharia de Software e durante minha caminhada, tive a oportunidade de trabalhar em projetos diversificados, como o desenvolvimento de um software de gestão para a loja 'Renata Senna' e minha colaboração como desenvolvedor back-end no projeto 'Cuido Bem' da Agência Experimental de Software da PUC Minas. Essas experiências me permitiram explorar ferramentas modernas como Spring Boot, Next.js, TailwindCSS e React, além de aprimorar minhas habilidades em resolver problemas e entregar soluções práticas e eficientes. Meu objetivo é criar sistemas robustos e intuitivos que gerem impacto positivo, valorizando tanto o aspecto técnico quanto a experiência do usuário. Fora do campo técnico, busco me desenvolver aprendendo novas habilidades, como o idioma alemão, e explorando diferentes formas de equilibrar minha jornada acadêmica e profissional com meu lado pessoal.",
+      "Sou um estudante brasileiro de Engenharia de Software e durante minha caminhada, tive a oportunidade de trabalhar em projetos diversificados. Essas experiências me permitiram explorar ferramentas modernas como Spring Boot, Next.js, TailwindCSS e React, além de aprimorar minhas habilidades em resolver problemas e entregar soluções práticas e eficientes. Meu objetivo é criar sistemas robustos que gerem impacto positivo, valorizando tanto o aspecto técnico quanto a experiência do usuário. Fora do campo técnico, busco me desenvolver aprendendo novas habilidades, como o idioma alemão, e explorando diferentes formas de equilibrar minha jornada acadêmica e profissional com meu lado pessoal.",
     experience: "Experiência",
     currently: "Atualmente",
     cuido_bem:
@@ -149,6 +158,15 @@ export const translations = {
     december: "Dez",
     may: "Mai",
     tools: "Ferramentas de Desevolvimento",
+    e1: {
+      software_engineering_intern: "Estagiário de Engenharia de Software",
+      software_engineering_intern_text_1:
+        "Desenvolvimento, pesquisa e resolução de problemas na aplicação web Sigom Cloud, atendendo mais de 150 cidades e impactando mais de 18 milhões de usuários de transporte público em diversos municípios e estados do Brasil.",
+      software_engineering_intern_text_2:
+        "Atuação com Java 8, AngularJS, Eclipse, DAO, Wildfly, SQL, Git e Pentaho para geração de relatórios.",
+      software_engineering_intern_text_3:
+        "Acompanhamento do modelo de desenvolvimento ágil, com participação ativa em reuniões diárias (daily stand-ups), planejamento de sprints e entrega incremental de funcionalidades em ciclos quinzenais.",
+    },
   },
 
   de: {
@@ -164,7 +182,7 @@ export const translations = {
     viewRepo: "Repository anzeigen",
     about: "Über",
     about_text:
-      "Ich bin ein brasilianischer Student der Softwaretechnik und hatte auf meinem Weg die Möglichkeit, an vielfältigen Projekten zu arbeiten, wie der Entwicklung einer Verwaltungssoftware für das Geschäft 'Renata Senna' und der Zusammenarbeit als Back-End-Entwickler am Projekt 'Cuido Bem' der Experimentellen Softwareagentur der PUC Minas. Diese Erfahrungen ermöglichten es mir, moderne Tools wie Spring Boot, Next.js, TailwindCSS und React zu erkunden und meine Fähigkeiten im Problemlösen und in der Bereitstellung praktischer und effizienter Lösungen zu verbessern. Mein Ziel ist es, robuste und intuitive Systeme zu entwickeln, die einen positiven Einfluss haben und sowohl technische Aspekte als auch die Benutzererfahrung schätzen. Abseits des technischen Bereichs strebe ich danach, mich durch das Erlernen neuer Fähigkeiten wie der deutschen Sprache weiterzuentwickeln und verschiedene Wege zu finden, meine akademische und berufliche Laufbahn mit meinem persönlichen Leben in Einklang zu bringen.",
+      "Ich bin ein brasilianischer Student der Softwaretechnik und hatte auf meinem Weg die Möglichkeit, an vielfältigen Projekten zu arbeiten. Diese Erfahrungen ermöglichten es mir, moderne Tools wie Spring Boot, Next.js, TailwindCSS und React zu erkunden und meine Fähigkeiten im Problemlösen und in der Bereitstellung praktischer und effizienter Lösungen zu verbessern. Mein Ziel ist es, robuste Systeme zu entwickeln, die einen positiven Einfluss haben und sowohl technische Aspekte als auch die Benutzererfahrung schätzen. Abseits des technischen Bereichs strebe ich danach, mich durch das Erlernen neuer Fähigkeiten wie der deutschen Sprache weiterzuentwickeln und verschiedene Wege zu finden, meine akademische und berufliche Laufbahn mit meinem persönlichen Leben in Einklang zu bringen.",
     experience: "Erfahrung",
     currently: "Zurzeit",
     cuido_bem:
@@ -224,5 +242,14 @@ export const translations = {
     december: "Dez",
     may: "Mai",
     tools: "Entwicklungswerkzeuge",
+    e1: {
+      software_engineering_intern: "Praktikant im Software-Engineering",
+      software_engineering_intern_text_1:
+        "Entwicklung, Recherche und Problemlösung in der Webanwendung Sigom Cloud, die über 150 Städte bedient und mehr als 18 Millionen Nutzer des öffentlichen Nahverkehrs in verschiedenen Gemeinden und Bundesstaaten Brasiliens beeinflusst.",
+      software_engineering_intern_text_2:
+        "Einsatz von Java 8, AngularJS, Eclipse, DAO, Wildfly, SQL, Git und Pentaho zur Berichtserstellung.",
+      software_engineering_intern_text_3:
+        "Begleitung des agilen Entwicklungsmodells mit aktiver Teilnahme an täglichen Besprechungen (Daily Stand-ups), Sprint-Planungen und der schrittweisen Auslieferung von Funktionen im zweiwöchigen Rhythmus.",
+    },
   },
 };

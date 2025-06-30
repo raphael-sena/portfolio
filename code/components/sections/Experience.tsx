@@ -22,6 +22,10 @@ const Experience = () => {
     triggerOnce: true,
     threshold: 0.5,
   });
+  const { ref: experienceRef4, inView: experienceInView4 } = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
 
   useEffect(() => {
     const savedLanguage =
@@ -67,6 +71,120 @@ const Experience = () => {
           experienceInView1 ? "opacity-100" : "opacity-0"
         }`}
         ref={experienceRef1}
+      >
+        <div className="flex mb-2">
+          <div className="w-full text-lg flex items-center mr-4 md:mr-2">
+            <Image
+              className="mr-2 transform transition-transform duration-300 hover:scale-110 dark:hidden"
+              width={42}
+              height={42}
+              src="/images/experience/e1-simbolo-branco.png"
+              alt="Volaris - Empresa 1"
+            />
+            <Image
+              className="mr-2 transform transition-transform duration-300 hover:scale-110 hidden dark:block"
+              width={42}
+              height={42}
+              src="/images/experience/e1-simbolo-preto.png"
+              alt="Volaris - Empresa 1"
+            />
+            <div>
+              <h1 className="text-md font-bold tracking-tighter">
+                Volaris - Empresa 1
+              </h1>
+              <h2 className="text-sm font-semibold">05/2025 - {translations[language].currently}</h2>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-1 justify-end">
+            <Link
+              href="https://www.empresa1.com.br/"
+              className="transform transition-transform duration-300 hover:scale-110 mr-1"
+              target="_blank"
+            >
+              <FaLink />
+            </Link>
+            <Link
+              href="https://www.linkedin.com/company/empresa-1/posts/?feedView=all"
+              className="transform transition-transform duration-300 hover:scale-110"
+              target="_blank"
+            >
+              <FaLinkedinIn />
+            </Link>
+          </div>
+        </div>
+
+        <div className="ml-2 mb-2 w-full h-full">
+          <div className="flex justify-between items-center w-full">
+            <h2 className="mr-2 font-semibold text-md">
+              {translations[language].e1.software_engineering_intern}
+            </h2>
+            <h2 className="text-xs font-semibold">05/2025 - {translations[language].currently}</h2>
+          </div>
+          <ul className="list-disc ml-4">
+            <li>
+              <p className="text-sm">
+                {translations[language].e1.software_engineering_intern_text_1}
+              </p>
+            </li>
+            <li>
+              <p className="text-sm">
+                {translations[language].e1.software_engineering_intern_text_2}
+              </p>
+            </li>
+            <li>
+              <p className="text-sm">
+                {translations[language].e1.software_engineering_intern_text_3}
+              </p>
+            </li>
+          </ul>
+        </div>
+
+        <div className="ml-2">
+          <h2 className="mb-1 font-semibold text-md">
+            {translations[language].skills}
+          </h2>
+          <ul className="flex flex-wrap" aria-label="Technologies used">
+            <li className="mr-1.5 mt-2">
+              <div className="flex items-center rounded-full bg-gray-50/10 dark:bg-gray-500/10 px-3 py-1 text-xs font-medium leading-5 dark:text-gray-500">
+                Java 8
+              </div>
+            </li>
+            <li className="mr-1.5 mt-2">
+              <div className="flex items-center rounded-full bg-gray-50/10 dark:bg-gray-500/10 px-3 py-1 text-xs font-medium leading-5 dark:text-gray-500">
+                Spring Boot
+              </div>
+            </li>
+            <li className="mr-1.5 mt-2">
+              <div className="flex items-center rounded-full bg-gray-50/10 dark:bg-gray-500/10 px-3 py-1 text-xs font-medium leading-5 dark:text-gray-500">
+                AngularJS
+              </div>
+            </li>
+            <li className="mr-1.5 mt-2">
+              <div className="flex items-center rounded-full bg-gray-50/10 dark:bg-gray-500/10 px-3 py-1 text-xs font-medium leading-5 dark:text-gray-500">
+                Eclipse
+              </div>
+            </li>
+            <li className="mr-1.5 mt-2">
+              <div className="flex items-center rounded-full bg-gray-50/10 dark:bg-gray-500/10 px-3 py-1 text-xs font-medium leading-5 dark:text-gray-500">
+                SQL
+              </div>
+            </li>
+            <li className="mr-1.5 mt-2">
+              <div className="flex items-center rounded-full bg-gray-50/10 dark:bg-gray-500/10 px-3 py-1 text-xs font-medium leading-5 dark:text-gray-500">
+                Pentaho Report Designer
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div
+        id="experience"
+        className={`glass-card bg-black dark:bg-slate-50 sm:gap-2 p-4 rounded-lg text-slate-50 dark:text-black lg:opacity-60 lg:hover:opacity-100 lg:transition-opacity lg:duration-300 transition-opacity duration-1000 ${
+          experienceInView2 ? "opacity-100" : "opacity-0"
+        }`}
+        ref={experienceRef2}
       >
         <div className="flex mb-2">
           <div className="w-full text-lg flex items-center mr-4 md:mr-2">
@@ -161,9 +279,9 @@ const Experience = () => {
       <div
         id="experience"
         className={`glass-card bg-black dark:bg-slate-50 sm:gap-2 p-4 rounded-lg text-slate-50 dark:text-black lg:opacity-60 lg:hover:opacity-100 lg:transition-opacity lg:duration-300 transition-opacity duration-1000 ${
-          experienceInView2 ? "opacity-100" : "opacity-0"
+          experienceInView3 ? "opacity-100" : "opacity-0"
         }`}
-        ref={experienceRef2}
+        ref={experienceRef3}
       >
         <div className="flex mb-2">
           <div className="w-full text-lg flex items-center mr-4 md:mr-2">
@@ -295,9 +413,9 @@ const Experience = () => {
       <div
         id="experience"
         className={`glass-card bg-black dark:bg-slate-50 sm:gap-2 p-4 rounded-lg text-slate-50 dark:text-black lg:opacity-60 lg:hover:opacity-100 lg:transition-opacity lg:duration-300 transition-opacity duration-1000 ${
-          experienceInView3 ? "opacity-100" : "opacity-0"
+          experienceInView4 ? "opacity-100" : "opacity-0"
         }`}
-        ref={experienceRef3}
+        ref={experienceRef4}
       >
         <div className="flex mb-2">
           <div className="w-full text-lg flex items-center mr-4 md:mr-2">
