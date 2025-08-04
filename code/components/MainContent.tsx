@@ -62,7 +62,7 @@ const MainContent = () => {
   return (
     <div>
       <div className="lg:flex mb-8">
-        <aside className="lg:w-2/6 lg:sticky lg:top-32 lg:h-screen">
+        <aside className="lg:w-2/6 lg:sticky md:top-8 lg:h-[calc(100vh-2rem)] lg:overflow-y-auto">
           <section
             id="intro"
             className={`transition-opacity duration-1000 ${
