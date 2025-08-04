@@ -20,9 +20,9 @@ const Intro = () => {
   }, []);
 
   return (
-    <div className="mb-10 content flex flex-col items-center gap-2 lg:mr-4 lg:sticky">
+    <div className="content flex flex-col items-center gap-2 lg:mr-4">
       <Image
-        className="mb-4 lg:mb-8 lg:transform lg:transition-transform lg:duration-300 lg:hover:scale-105 lg:max-w-[75%] lg:max-h-[75%] w-2/3 lg:mx-auto lg:h-2/3 rounded-full aspect-square object-cover object-[center_25%] overflow-hidden"
+        className="mt-4 mb-4 lg:mb-8 lg:transform lg:transition-transform lg:duration-300 lg:hover:scale-105 lg:max-w-[75%] lg:max-h-[75%] w-2/3 lg:mx-auto lg:h-2/3 rounded-full aspect-square object-cover object-[center_25%] overflow-hidden"
         width={1024}
         height={1024}
         src="/images/profile.jpg"
