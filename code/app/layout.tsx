@@ -8,6 +8,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import "@react-pdf-viewer/core/lib/styles/index.css";
 import "@react-pdf-viewer/default-layout/lib/styles/index.css";
 import ThemeToggle2 from "@/components/ThemeToggle2";
+import MicrosoftClarity from "@/components/MicrosoftClarity";
 
 interface LayoutProps {
   children: ReactNode;
@@ -113,6 +114,7 @@ export default function RootLayout({ children }: LayoutProps) {
           👆
         </button>
         <SpeedInsights />
+        <MicrosoftClarity projectId={process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID || ""} />
       </body>
     </html>
   );
