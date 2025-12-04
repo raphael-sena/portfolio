@@ -12,6 +12,7 @@ interface Project {
   description: string;
   html_url: string;
   language: string;
+  languages: string[];
   stargazers_count: number;
 }
 
@@ -126,10 +127,12 @@ const FeaturedProjects = () => {
             <div className="space-y-4">
               <div className="bg-slate-50 dark:bg-gray-300 bg-opacity-20 rounded-lg p-3">
                 <div className="text-xs text-gray-200 dark:text-gray-500 uppercase">
-                  Main Language
+                  {project.languages && project.languages.length > 1 ? "Main Languages" : "Main Language"}
                 </div>
                 <div className="text-lg font-bold text-slate-50 dark:text-black">
-                  {project.language || "Unknown"}
+                  {project.languages && project.languages.length > 0 
+                    ? project.languages.join(" • ") 
+                    : project.language || "Unknown"}
                 </div>
               </div>
               <button
