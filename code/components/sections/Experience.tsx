@@ -79,18 +79,18 @@ const Experience = () => {
               width={42}
               height={42}
               src="/images/experience/e1-simbolo-branco.png"
-              alt="Volaris - Empresa 1"
+              alt="Modaxo - Empresa 1"
             />
             <Image
               className="mr-2 transform transition-transform duration-300 hover:scale-110 hidden dark:block"
               width={42}
               height={42}
               src="/images/experience/e1-simbolo-preto.png"
-              alt="Volaris - Empresa 1"
+              alt="Modaxo - Empresa 1"
             />
             <div>
               <h1 className="text-md font-bold tracking-tighter">
-                Volaris - Empresa 1
+                Modaxo - Empresa 1
               </h1>
               <h2 className="text-sm font-semibold">05/2025 - {translations[language].currently}</h2>
             </div>
@@ -117,27 +117,25 @@ const Experience = () => {
         <div className="ml-2 mb-2 w-full h-full">
           <div className="flex justify-between items-center w-full">
             <h2 className="mr-2 font-semibold text-md">
-              {translations[language].e1.software_engineering_intern}
+              {translations[language].e1.software_engineer}
             </h2>
             <h2 className="text-xs font-semibold">05/2025 - {translations[language].currently}</h2>
           </div>
-          <ul className="list-disc ml-4">
-            <li>
-              <p className="text-sm">
-                {translations[language].e1.software_engineering_intern_text_1}
-              </p>
-            </li>
-            <li>
-              <p className="text-sm">
-                {translations[language].e1.software_engineering_intern_text_2}
-              </p>
-            </li>
-            <li>
-              <p className="text-sm">
-                {translations[language].e1.software_engineering_intern_text_3}
-              </p>
-            </li>
-          </ul>
+
+          <div className="ml-2 mt-2">
+            <h3 className="font-semibold text-sm">{translations[language].e1.project_sigom_cloud}</h3>
+            <p className="text-sm">{translations[language].e1.project_sigom_cloud_text}</p>
+          </div>
+
+          <div className="ml-2 mt-2">
+            <h3 className="font-semibold text-sm">{translations[language].e1.project_sigo}</h3>
+            <p className="text-sm">{translations[language].e1.project_sigo_text}</p>
+          </div>
+
+          <div className="ml-2 mt-2">
+            <h3 className="font-semibold text-sm">{translations[language].e1.project_sigo_2}</h3>
+            <p className="text-sm">{translations[language].e1.project_sigo_2_text}</p>
+          </div>
         </div>
 
         <div className="ml-2">
@@ -147,7 +145,7 @@ const Experience = () => {
           <ul className="flex flex-wrap" aria-label="Technologies used">
             <li className="mr-1.5 mt-2">
               <div className="flex items-center rounded-full bg-gray-50/10 dark:bg-gray-500/10 px-3 py-1 text-xs font-medium leading-5 dark:text-gray-500">
-                Java 8
+                Java 1.7/1.8
               </div>
             </li>
             <li className="mr-1.5 mt-2">
@@ -162,17 +160,22 @@ const Experience = () => {
             </li>
             <li className="mr-1.5 mt-2">
               <div className="flex items-center rounded-full bg-gray-50/10 dark:bg-gray-500/10 px-3 py-1 text-xs font-medium leading-5 dark:text-gray-500">
-                Eclipse
+                Flutter
               </div>
             </li>
             <li className="mr-1.5 mt-2">
               <div className="flex items-center rounded-full bg-gray-50/10 dark:bg-gray-500/10 px-3 py-1 text-xs font-medium leading-5 dark:text-gray-500">
-                SQL
+                Xamarin
               </div>
             </li>
             <li className="mr-1.5 mt-2">
               <div className="flex items-center rounded-full bg-gray-50/10 dark:bg-gray-500/10 px-3 py-1 text-xs font-medium leading-5 dark:text-gray-500">
-                Pentaho Report Designer
+                C#
+              </div>
+            </li>
+            <li className="mr-1.5 mt-2">
+              <div className="flex items-center rounded-full bg-gray-50/10 dark:bg-gray-500/10 px-3 py-1 text-xs font-medium leading-5 dark:text-gray-500">
+                Dart
               </div>
             </li>
           </ul>
@@ -330,45 +333,12 @@ const Experience = () => {
             <h2 className="mr-2 font-semibold text-md">
               {translations[language].technician}
             </h2>
-            <h2 className="text-xs font-semibold">05/2023 - 09/2023</h2>
+            <h2 className="text-xs font-semibold">09/2021 - 09/2023</h2>
           </div>
-          <ul className="list-disc ml-4">
-            <li>
-              <p className="text-sm">
-                {translations[language].technician_text}
-              </p>
-            </li>
-          </ul>
-        </div>
-
-        <div className="ml-2 mb-2 w-full h-full">
-          <div className="flex justify-between items-center w-full">
-            <h2 className="mr-2 font-semibold text-md">
-              {translations[language].technician_assistant}
-            </h2>
-            <h2 className="text-xs font-semibold">03/2022 - 04/2023</h2>
+          <div className="ml-2 mt-1">
+            <h3 className="font-semibold text-sm">{translations[language].servicedesk_helpdesk}</h3>
+            <p className="text-sm">{translations[language].technician_text}</p>
           </div>
-          <ul className="list-disc ml-4">
-            <li>
-              <p className="text-sm">
-                {translations[language].technician_assistant_text}
-              </p>
-            </li>
-          </ul>
-        </div>
-
-        <div className="ml-2 mb-2 w-full h-full">
-          <div className="flex justify-between items-center w-full">
-            <h2 className="mr-2 font-semibold text-md">
-              {translations[language].intern}
-            </h2>
-            <h2 className="text-xs font-semibold">09/2021 - 03/2022</h2>
-          </div>
-          <ul className="list-disc ml-4">
-            <li>
-              <p className="text-sm">{translations[language].intern_text}</p>
-            </li>
-          </ul>
         </div>
 
         <div className="ml-2">
@@ -454,8 +424,14 @@ const Experience = () => {
         </div>
 
         <div className="ml-2 mb-2">
-          <h2 className="mb-1 font-semibold text-md">Field Support Engineer</h2>
-          <p>{translations[language].avaso}</p>
+          <div className="flex justify-between items-center w-full">
+            <h2 className="mr-2 font-semibold text-md">{translations[language].avaso_title}</h2>
+            <h2 className="text-xs font-semibold">09/2023 - {translations[language].currently}</h2>
+          </div>
+          <div className="ml-2 mt-1">
+            <h3 className="font-semibold text-sm">{translations[language].avaso_freelance}</h3>
+            <p className="text-sm">{translations[language].avaso}</p>
+          </div>
         </div>
 
         <div className="ml-2">

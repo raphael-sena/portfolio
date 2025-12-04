@@ -2,10 +2,8 @@ export type Language = keyof typeof translations;
 
 export const translations = {
   en: {
-    welcome: "Welcome to my Portfolio! 😄",
+    welcome: "Welcome to Raphael Sena's Portfolio! 😄",
     theme: "Toggle Theme",
-    intro:
-      "Hello, I'm Raphael, and welcome again to my Portfolio! Here, you'll find a selection of my projects, where I share my journey and other details to give you a glimpse of who Raphael really is 🫡. I'm always looking for new challenges and opportunities to grow as a professional. Explore my projects and feel free to get in touch! 🚀",
     profession: "Software Engineer",
     footer: "Made with 🤙 by @raphael-sena",
     fork: "Fork this project!",
@@ -14,22 +12,25 @@ export const translations = {
     viewRepo: "View Repository",
     about: "About",
     about_text:
-      "I am a Brazilian Software Engineering student, and throughout my journey, I have had the opportunity to work on diverse projects. These experiences allowed me to explore modern tools such as Spring Boot, Next.js, TailwindCSS, and React, as well as enhance my skills in problem-solving and delivering practical and efficient solutions. My goal is to create robust systems that generate positive impact, valuing both technical aspects and user experience. Beyond the technical field, I aim to grow by learning new skills, such as the German language, and exploring different ways to balance my academic and professional journey with my personal life.",
+      "Raphael Sena is a software developer who has evolved from hands-on IT support to building and modernizing real-world mobility and ERP systems. After early international experience studying in Sydney, he started his career in Service Desk/Help Desk roles, developing a strong foundation in troubleshooting, networks, hardware, and enterprise support. That customer-facing technical base later led to software engineering. Today, he works as a Fullstack Engineer at Modaxo (Empresa 1) on large-scale electronic ticketing and transit revenue platforms—shipping mobile apps used across multiple Brazilian cities and contributing to modernization efforts with Flutter and Java/Spring. Alongside professional work, he builds personal projects, combining product mindset with fullstack execution across mobile, backend, frontend, and cloud/devops. He is also a Software Engineering student at PUC Minas (2023–2027), continuously strengthening his engineering fundamentals while applying them in production environments and side projects with Java, Angular, PostgreSQL and Docker.",
     experience: "Experience",
     currently: "Currently",
     cuido_bem:
       "In this role, I contribute by leading the back-end development team and participating in various projects as needed. My contributions to the 'Cuido Bem' project so far include: - Reviewing colleagues' code and suggesting improvements; - Writing unit tests for the MVC structure; - Implementing a GlobalExceptionHandler to effectively manage back-end exceptions.",
     cuido_bem_projects: "Projects",
     skills: "Skills",
-    technician: "Information Technology Technician",
+    technician: "IT Technician",
     technician_text:
-      "In this position, I dealt with the users of the administrative network providing them first-level support, with the use of Active Directory, ticket system, VPN, Helpdesk Platforms, physical network handle and Directories and Printers mapping.",
+      "I configured and verified networks on desktops and laptops. Verified and installed hardware. Performed maintenance on computers and laptops. Provided L1 technical support using Active Directory, ticketing systems (CSC), VPN, directory and printer mapping platforms, following established SLA standards. Collaborated on a telephony change project serving over 100 users, migrating logical telephony networks to VOIP and configuring/installing devices.",
     technician_assistant: "Information Technology Assistant",
     technician_assistant_text: "Service Desk Assistant",
     intern: "Information Technology Intern",
     intern_text: "Service Desk intern.",
     avaso:
-      "I diagnosed, researched, and solved issues with computers and systems. I monitored and updated ServiceDesk tickets to ensure compliance with responses and feedback on the solutions provided. I performed installation, configuration, and support for computers, laptops, virtual machines, smartphones, VOIP devices, servers, backup systems, and other devices. Additionally, I handled requests through a ticket system used for time tracking and recording the activities performed.",
+      "Provide English-language support for a multicultural user base. Diagnosed, researched, and resolved issues across desktops, laptops, VMs, smartphones, servers, backup systems, VoIP devices, and peripherals. Installed and configured devices and updated documents in a ticketing system for tracking and reporting.",
+    avaso_title: "Field Support Engineer",
+    avaso_freelance: "Service Desk (Freelance)",
+    servicedesk_helpdesk: "ServiceDesk and HelpDesk",
     education: "Education",
     highschool: "Year 11 - High School",
     kogarah: "High School exchange in Sydney, Australia.",
@@ -75,21 +76,19 @@ export const translations = {
     may: "May",
     tools: "Development Tools",
     e1: {
-      software_engineering_intern: "Software Engineering Intern",
-      software_engineering_intern_text_1:
-        "Developed, researched, and resolved issues in the Sigom Cloud web application, supporting over 150 cities and impacting more than 18 million public transport users across various cities and states in Brazil.",
-      software_engineering_intern_text_2:
-        "Worked with Java 8, AngularJS, Eclipse, DAO, Wildfly, SQL, and Pentaho for report generation.",
-      software_engineering_intern_text_3:
-        "Followed an Agile development model, actively participating in daily stand-ups, sprint planning sessions, and delivering features incrementally through biweekly sprints.",
+      software_engineer: "Software Engineer",
+      project_sigom_cloud: "Project Sigom Cloud",
+      project_sigom_cloud_text: "Sigom Cloud is an ERP/Transit Revenue Management, available in SaaS style. Worked as a Fullstack developer operating with Java 1.8, Spring Boot, and AngularJS. Optimized PIX payment report generation by redesigning the algorithm and reducing execution paths by 42.6%; for 1M records, reduced estimated work from 20M–1T to 1M operations.",
+      project_sigo: "Project SIGO",
+      project_sigo_text: "SIGO is a mobile app for electronic ticketing for public transport across small and large metropolitan cities around Brazil, such as Guarulhos, SP; Florianópolis, SC; Uberlândia, MG and many others. Worked as a Fullstack developer dealing with the technologies C# with Xamarin for the mobile app and Java 1.7 and Spring Boot 1.5. The app is available on Apple App Store and Android Google Play and it reached out over 177K people.",
+      project_sigo_2: "Project SIGO 2.0",
+      project_sigo_2_text: "SIGO 2.0 is a modernization of SIGO. Worked as a Fullstack developer using the technologies Dart with Flutter kit for the mobile app and Java 1.7 and Spring Boot 1.5. Worked on the following functionalities: Card Statement, FAQ, Alerts, User Registering, Profile Editing, Orders and My Cards sections and Moovit integrations with GTFS and GTFS-RT for route planning and real time lines tracking.",
     },
   },
 
   pt: {
-    welcome: "Bem-vindo(a) ao meu Portfólio! 😄",
+    welcome: "Bem-vindo(a) ao Portfólio de Raphael Sena! 😄",
     theme: "Alterar Tema",
-    intro:
-      "Olá, sou o Raphael e, de novo, seja muito bem vindo(a) ao meu Portfólio! Aqui, você encontrará uma seleção dos meus projetos, onde compartilho minha trajetória, além de outros detalhes para saber um pouco sobre quem é realmente o Raphael 🫡. Estou sempre em busca de novos desafios e oportunidades para crescer como profissional. Explore os projetos e sinta-se à vontade para entrar em contato! 🚀",
     profession: "Engenheiro de Software",
     footer: "Feito com 🤙 por @raphael-sena",
     fork: "Dê um fork neste projeto!",
@@ -98,7 +97,7 @@ export const translations = {
     viewRepo: "Ver Repositório",
     about: "Sobre",
     about_text:
-      "Sou um estudante brasileiro de Engenharia de Software e durante minha caminhada, tive a oportunidade de trabalhar em projetos diversificados. Essas experiências me permitiram explorar ferramentas modernas como Spring Boot, Next.js, TailwindCSS e React, além de aprimorar minhas habilidades em resolver problemas e entregar soluções práticas e eficientes. Meu objetivo é criar sistemas robustos que gerem impacto positivo, valorizando tanto o aspecto técnico quanto a experiência do usuário. Fora do campo técnico, busco me desenvolver aprendendo novas habilidades, como o idioma alemão, e explorando diferentes formas de equilibrar minha jornada acadêmica e profissional com meu lado pessoal.",
+      "Raphael Sena é um desenvolvedor de software que evoluiu do suporte de TI na prática para a construção e modernização de sistemas reais de mobilidade e ERP. Após uma experiência internacional inicial estudando em Sydney, iniciou sua carreira em funções de Service Desk/Help Desk, desenvolvendo uma base em troubleshooting, redes, hardware e suporte corporativo. Essa vivência técnica voltada ao cliente posteriormente o levou à engenharia de software. Hoje, atua como Engenheiro Fullstack na Modaxo (Empresa 1) em plataformas de bilhetagem eletrônica e gestão de receita do transporte em larga escala — entregando aplicativos móveis utilizados em diversas cidades brasileiras e contribuindo para esforços de modernização com Flutter e Java/Spring. Paralelamente ao trabalho profissional, desenvolve projetos pessoais, combinando mentalidade de produto com execução fullstack em mobile, backend, frontend e cloud/devops. Também é estudante de Engenharia de Software na PUC Minas (2023–2027), fortalecendo continuamente seus fundamentos de engenharia enquanto aplica esse conhecimento em ambientes de produção e projetos paralelos com Java, Angular, PostgreSQL e Docker.",
     experience: "Experiência",
     currently: "Atualmente",
     cuido_bem:
@@ -107,13 +106,16 @@ export const translations = {
     skills: "Competências",
     technician: "Técnico de TI",
     technician_text:
-      "Nesta posição, lidei com os usuários da rede administrativa, fornecendo suporte de primeiro nível a eles, utilizando o Active Directory, sistema de tickets, VPN, plataformas de helpdesk, gerenciamento de rede física, mapeamento de diretórios e impressoras.",
+      "Configurei e verifiquei redes em desktops e notebooks. Verifiquei e instalei hardware. Realizei manutenção em computadores e notebooks. Prestei suporte técnico N1 utilizando Active Directory, sistema de chamados (CSC), VPN, plataformas de mapeamento de diretórios e impressoras, seguindo padrões de SLA estabelecidos. Colaborei em um projeto de mudança de telefonia para mais de 100 usuários, migrando redes lógicas de telefonia para VoIP e configurando/instalando equipamentos.",
     technician_assistant: "Assistente Técnico de TI",
     technician_assistant_text: "Assistente de Service Desk",
     intern: "Information Technology Intern",
     intern_text: "Estagiário de Service Desk.",
     avaso:
-      "Diagnostiquei, pesquisei e solucionei problemas em computadores e sistemas. Monitorei e atualizei chamados de ServiceDesk para assegurar conformidade nas respostas e feedbacks sobre as soluções apresentadas. Realizei a instalação, configuração e suporte de computadores, notebooks, máquinas virtuais, smartphones, dispositivos VOIP, servidores, sistemas de backup e outros dispositivos. Além disso, atendi demandas por meio de um sistema de tickets, utilizado para o controle de horas e registro das atividades realizadas.",
+      "Presto suporte em inglês para uma base de usuários multicultural. Diagnostiquei, pesquisei e resolvi problemas em desktops, notebooks, VMs, smartphones, servidores, sistemas de backup, dispositivos VoIP e periféricos. Realizei instalação e configuração de equipamentos e atualizei documentações em sistema de chamados para rastreio e relatórios.",
+    avaso_title: "Field Support Engineer",
+    avaso_freelance: "Service Desk (Freelance)",
+    servicedesk_helpdesk: "ServiceDesk e HelpDesk",
     education: "Educação",
     highschool: "2º Ano - Ensino Médio",
     kogarah: "Intercâmbio do ensino médio em Sydney, Austrália.",
@@ -159,21 +161,19 @@ export const translations = {
     may: "Mai",
     tools: "Ferramentas de Desevolvimento",
     e1: {
-      software_engineering_intern: "Estagiário de Engenharia de Software",
-      software_engineering_intern_text_1:
-        "Desenvolvimento, pesquisa e resolução de problemas na aplicação web Sigom Cloud, atendendo mais de 150 cidades e impactando mais de 18 milhões de usuários de transporte público em diversos municípios e estados do Brasil.",
-      software_engineering_intern_text_2:
-        "Atuação com Java 8, AngularJS, Eclipse, DAO, Wildfly, SQL, Git e Pentaho para geração de relatórios.",
-      software_engineering_intern_text_3:
-        "Acompanhamento do modelo de desenvolvimento ágil, com participação ativa em reuniões diárias (daily stand-ups), planejamento de sprints e entrega incremental de funcionalidades em ciclos quinzenais.",
+      software_engineer: "Engenheiro de Software",
+      project_sigom_cloud: "Projeto Sigom Cloud",
+      project_sigom_cloud_text: "Sigom Cloud é um ERP/Sistema de Gestão de Receita do Transporte, oferecido no modelo SaaS. Atuei como desenvolvedor Fullstack com Java 1.8, Spring Boot e AngularJS. Otimizei a geração de relatórios de pagamento via PIX ao redesenhar o algoritmo e reduzir os caminhos de execução em 42,6%; para 1M de registros, reduzi o esforço estimado de 20M–1T para 1M operações.",
+      project_sigo: "Projeto SIGO",
+      project_sigo_text: "SIGO é um aplicativo móvel de bilhetagem eletrônica para transporte público em cidades pequenas e grandes regiões metropolitanas do Brasil, como Guarulhos, SP; Florianópolis, SC; Uberlândia, MG e muitas outras. Atuei como desenvolvedor Fullstack utilizando C# com Xamarin no app mobile e Java 1.7 com Spring Boot 1.5. O app está disponível na Apple App Store e na Google Play e alcançou mais de 177 mil pessoas.",
+      project_sigo_2: "Projeto SIGO 2.0",
+      project_sigo_2_text: "O SIGO 2.0 é uma modernização do SIGO. Atuei como desenvolvedor Fullstack utilizando as tecnologias Dart com o kit Flutter para o aplicativo mobile e Java 1.7 e Spring Boot 1.5. Trabalhei nas seguintes funcionalidades: Extrato do Cartão, FAQ, Alertas, Cadastro de Usuário, Edição de Perfil, seções de Pedidos e Meus Cartões, além de integrações com o Moovit via GTFS e GTFS-RT para planejamento de rotas e acompanhamento de linhas em tempo real.",
     },
   },
 
   de: {
-    welcome: "Willkommen in meinem Portfolio! 😄",
+    welcome: "Willkommen in Raphael Senas Portfolio! 😄",
     theme: "Thema Umschalten",
-    intro:
-      "Hallo, ich bin Raphael, und herzlich willkommen wieder in meinem Portfolio! Hier finden Sie eine Auswahl meiner Projekte, in denen ich meine Reise teile und weitere Details zeige, um Ihnen einen Einblick zu geben, wer Raphael wirklich ist 🫡. Ich bin immer auf der Suche nach neuen Herausforderungen und Möglichkeiten, mich beruflich weiterzuentwickeln. Erkunden Sie meine Projekte und zögern Sie nicht, mich zu kontaktieren! 🚀",
     profession: "Softwaretechniker",
     footer: "Mit 🤙 gemacht von @raphael-sena",
     fork: "Forken Sie dieses Projekt!",
@@ -182,7 +182,7 @@ export const translations = {
     viewRepo: "Repository anzeigen",
     about: "Über",
     about_text:
-      "Ich bin ein brasilianischer Student der Softwaretechnik und hatte auf meinem Weg die Möglichkeit, an vielfältigen Projekten zu arbeiten. Diese Erfahrungen ermöglichten es mir, moderne Tools wie Spring Boot, Next.js, TailwindCSS und React zu erkunden und meine Fähigkeiten im Problemlösen und in der Bereitstellung praktischer und effizienter Lösungen zu verbessern. Mein Ziel ist es, robuste Systeme zu entwickeln, die einen positiven Einfluss haben und sowohl technische Aspekte als auch die Benutzererfahrung schätzen. Abseits des technischen Bereichs strebe ich danach, mich durch das Erlernen neuer Fähigkeiten wie der deutschen Sprache weiterzuentwickeln und verschiedene Wege zu finden, meine akademische und berufliche Laufbahn mit meinem persönlichen Leben in Einklang zu bringen.",
+      "Raphael Sena ist ein Softwareentwickler, der sich vom praktischen IT-Support zur Entwicklung und Modernisierung realer Mobilitäts- und ERP-Systeme entwickelt hat. Nach frühen internationalen Erfahrungen beim Studium in Sydney begann er seine Karriere in Service-Desk/Help-Desk-Rollen und entwickelte eine solide Grundlage in Troubleshooting, Netzwerken, Hardware und Unternehmensunterstützung. Diese kundenorientierte technische Basis führte später zur Softwareentwicklung. Heute arbeitet er als Fullstack-Ingenieur bei Modaxo (Empresa 1) an großangelegten elektronischen Ticketing- und Transiteinnahmenplattformen – er liefert mobile Apps, die in mehreren brasilianischen Städten eingesetzt werden, und trägt zu Modernisierungsbemühungen mit Flutter und Java/Spring bei. Neben der beruflichen Arbeit entwickelt er persönliche Projekte und kombiniert dabei Produktdenken mit Fullstack-Umsetzung über Mobile, Backend, Frontend und Cloud/DevOps. Er ist außerdem Student der Softwaretechnik an der PUC Minas (2023–2027) und stärkt kontinuierlich seine technischen Grundlagen, während er sie in Produktionsumgebungen und Nebenprojekten mit Java, Angular, PostgreSQL und Docker anwendet.",
     experience: "Erfahrung",
     currently: "Zurzeit",
     cuido_bem:
@@ -191,13 +191,16 @@ export const translations = {
     skills: "Kompetenzen",
     technician: "IT-Techniker",
     technician_text:
-      "In dieser Position habe ich mich mit den Benutzern des Administrationsnetzwerks befasst und ihnen Support auf der ersten Ebene angeboten, unter Verwendung von Active Directory, Ticket-System, VPN, Helpdesk-Plattformen, physischer Netzwerkverwaltung, Verzeichniszuweisung und Druckerzuordnung.",
+      "Konfiguration und Überprüfung von Netzwerken auf Desktops und Laptops. Hardware überprüft und installiert. Wartung an Computern und Laptops durchgeführt. L1-technischen Support mit Active Directory, Ticketsystemen (CSC), VPN, Verzeichnis- und Druckerzuordnungsplattformen bereitgestellt, gemäß festgelegten SLA-Standards. An einem Telefoniewechselprojekt für über 100 Benutzer mitgearbeitet, logische Telefonienetzwerke zu VoIP migriert und Geräte konfiguriert/installiert.",
     technician_assistant: "IT-Assistent",
     technician_assistant_text: "Assistent am Service Desk",
     intern: "IT-Praktikant",
     intern_text: "Praktikant am Service Desk.",
     avaso:
-      "Ich habe Probleme mit Computern und Systemen diagnostiziert, recherchiert und gelöst. Ich habe ServiceDesk-Tickets überwacht und aktualisiert, um die Einhaltung der Antworten und das Feedback zu den vorgeschlagenen Lösungen sicherzustellen. Ich habe die Installation, Konfiguration und Unterstützung von Computern, Notebooks, virtuellen Maschinen, Smartphones, VOIP-Geräten, Servern, Backup-Systemen und anderen Geräten durchgeführt. Außerdem habe ich Anfragen über ein Ticketsystem bearbeitet, das für die Zeiterfassung und die Dokumentation der durchgeführten Aktivitäten verwendet wurde.",
+      "Englischsprachiger Support für eine multikulturelle Benutzerbasis. Diagnose, Recherche und Lösung von Problemen bei Desktops, Laptops, VMs, Smartphones, Servern, Backup-Systemen, VoIP-Geräten und Peripheriegeräten. Installation und Konfiguration von Geräten und Aktualisierung von Dokumenten in einem Ticketsystem für Tracking und Reporting.",
+    avaso_title: "Field Support Engineer",
+    avaso_freelance: "Service Desk (Freelance)",
+    servicedesk_helpdesk: "ServiceDesk und HelpDesk",
     education: "Bildung",
     highschool: "Klasse 11 - Gymnasium",
     kogarah: "Highschool-Austausch in Sydney, Australien.",
@@ -243,13 +246,13 @@ export const translations = {
     may: "Mai",
     tools: "Entwicklungswerkzeuge",
     e1: {
-      software_engineering_intern: "Praktikant im Software-Engineering",
-      software_engineering_intern_text_1:
-        "Entwicklung, Recherche und Problemlösung in der Webanwendung Sigom Cloud, die über 150 Städte bedient und mehr als 18 Millionen Nutzer des öffentlichen Nahverkehrs in verschiedenen Gemeinden und Bundesstaaten Brasiliens beeinflusst.",
-      software_engineering_intern_text_2:
-        "Einsatz von Java 8, AngularJS, Eclipse, DAO, Wildfly, SQL, Git und Pentaho zur Berichtserstellung.",
-      software_engineering_intern_text_3:
-        "Begleitung des agilen Entwicklungsmodells mit aktiver Teilnahme an täglichen Besprechungen (Daily Stand-ups), Sprint-Planungen und der schrittweisen Auslieferung von Funktionen im zweiwöchigen Rhythmus.",
+      software_engineer: "Software-Ingenieur",
+      project_sigom_cloud: "Projekt Sigom Cloud",
+      project_sigom_cloud_text: "Sigom Cloud ist ein ERP/Transit-Umsatzverwaltungssystem, das im SaaS-Stil verfügbar ist. Arbeitete als Fullstack-Entwickler mit Java 1.8, Spring Boot und AngularJS. Optimierte die PIX-Zahlungsberichterstattung durch Neugestaltung des Algorithmus und Reduzierung der Ausführungspfade um 42,6%; für 1M Datensätze wurde der geschätzte Aufwand von 20M–1T auf 1M Operationen reduziert.",
+      project_sigo: "Projekt SIGO",
+      project_sigo_text: "SIGO ist eine mobile App für elektronische Ticketierung im öffentlichen Nahverkehr in kleinen und großen Metropolregionen Brasiliens, wie Guarulhos, SP; Florianópolis, SC; Uberlândia, MG und vielen anderen. Arbeitete als Fullstack-Entwickler mit C# und Xamarin für die mobile App sowie Java 1.7 und Spring Boot 1.5. Die App ist im Apple App Store und bei Google Play verfügbar und erreichte über 177.000 Menschen.",
+      project_sigo_2: "Projekt SIGO 2.0",
+      project_sigo_2_text: "SIGO 2.0 ist eine Modernisierung von SIGO. Arbeitete als Fullstack-Entwickler mit Dart und dem Flutter-Kit für die mobile App sowie Java 1.7 und Spring Boot 1.5. Arbeitete an folgenden Funktionen: Kartenabrechnung, FAQ, Benachrichtigungen, Benutzerregistrierung, Profilbearbeitung, Bestellungen und Meine Karten-Bereiche sowie Moovit-Integrationen mit GTFS und GTFS-RT für Routenplanung und Echtzeitverfolgung von Linien.",
     },
   },
 };
