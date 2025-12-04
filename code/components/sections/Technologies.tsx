@@ -37,7 +37,7 @@ const Technologies = () => {
         </div>
       </div>
 
-      <div className="sm:flex w-full justify-start w-full gap-4">
+      <div className="sm:flex justify-start w-full gap-4">
         <div className="dak:glass-card mobile mb-4 p-4 w-full rounded-lg dark:bg-slate-50 dark:text-black lg:transform lg:transition-transform lg:duration-300 lg:hover:scale-105">
         <h2 className="text-xl font-bold mb-4">Mobile & Cross-platform</h2>
         <div className="flex justify-start items-center px-5 mx-auto overflow-x-auto overflow-y-hidden whitespace-nowrap max-h-48">
@@ -46,13 +46,13 @@ const Technologies = () => {
         </div>
       </div>
 
-      <div className="dak:glass-card backend mb-4 p-4 w-full rounded-lg dark:bg-slate-50 dark:text-black lg:transform lg:transition-transform lg:duration-300 lg:hover:scale-105">
-        <h2 className="text-xl font-bold mb-4">Backend & Frameworks</h2>
-        <div className="flex justify-start items-center px-5 mx-auto overflow-x-auto overflow-y-hidden whitespace-nowrap max-h-48">
-          <TechIcon src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg" alt="Spring Boot Logo" name="Spring Boot" className="mr-8" />
-          <TechIcon src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" alt="Node.js Logo" name="Node.js" className="" />
+        <div className="dak:glass-card backend mb-4 p-4 w-full rounded-lg dark:bg-slate-50 dark:text-black lg:transform lg:transition-transform lg:duration-300 lg:hover:scale-105">
+          <h2 className="text-xl font-bold mb-4">Backend & Frameworks</h2>
+          <div className="flex justify-start items-center px-5 mx-auto overflow-x-auto overflow-y-hidden whitespace-nowrap max-h-48">
+            <TechIcon src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg" alt="Spring Boot Logo" name="Spring Boot" className="mr-8" />
+            <TechIcon src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" alt="Node.js Logo" name="Node.js" className="" />
+          </div>
         </div>
-      </div>
       </div>
 
       <div className="dak:glass-card db mb-4 p-4 w-full rounded-lg dark:bg-slate-50 dark:text-black lg:transform lg:transition-transform lg:duration-300 lg:hover:scale-105">
@@ -95,7 +95,7 @@ const Technologies = () => {
 
       <div className="dak:glass-card db mb-4 p-4 w-full rounded-lg dark:bg-slate-50 dark:text-black lg:transform lg:transition-transform lg:duration-300 lg:hover:scale-105">
         <h2 className="text-xl font-bold mb-4">{translations[language].tools}</h2>
-        <div className="flex justify-start items-center px-5 mx-auto overflow-x-auto overflow-y-hidden whitespace-nowrap max-h-48">
+        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 justify-start items-center px-5 mx-auto overflow-x-hidden overflow-y-scroll whitespace-nowrap max-h-64">
           <TechIcon src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/illustrator/illustrator-plain.svg" alt="Adobe Illustrator" name="Adobe Illustrator" />
           <TechIcon src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg" alt="Adobe Photoshop" name="Adobe Photoshop" />
           <TechIcon src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="Docker Logo" name="Docker" />
