@@ -23,8 +23,9 @@ const FeaturedProjects = () => {
   const [language, setLanguage] = useState<Language>("en");
 
   const projectImages = {
-    "recipes-and-flavors": "/images/projects/recipes_and_flavors.png",
+    remediar: "/images/projects/remediar.png",
     portfolio: "/images/projects/portfolio.png",
+    "recipes-and-flavors": "/images/projects/recipes_and_flavors.png",
     "relatorio-fotografico": "/images/projects/relatorio-fotografico.png"
   };
 
