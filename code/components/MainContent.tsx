@@ -142,8 +142,8 @@ const MainContent = () => {
             <Education />
           </section>
 
-          <section id="extracurricular hidden md:block" 
-            className={`mb-10 transition-opacity duration-1000 ${
+          <section id="extracurricular" 
+            className={`mb-10 transition-opacity duration-1000 hidden md:block ${
               extracurricularInView ? "opacity-100" : "opacity-0"
             }`}
             ref={extracurricularRef}
