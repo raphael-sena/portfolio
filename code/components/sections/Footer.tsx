@@ -51,7 +51,7 @@ const Footer = () => {
           Star
         </GitHubButton>
         <GitHubButton
-          href="https://github.com/lucaazalim/azal.im/fork"
+          href="https://github.com/raphael-sena/portfolio/fork"
           data-color-scheme="no-preference: dark; light: light; dark: dark;"
           data-icon="octicon-repo-forked"
           data-size="large"

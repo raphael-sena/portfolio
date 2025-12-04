@@ -25,11 +25,6 @@ const MainContent = () => {
     setLanguage(savedLanguage);
   }, []);
 
-  const introText = translations[language].intro;
-  const periodIndex = introText.indexOf(".") + 1;
-  const firstPart = introText.slice(0, periodIndex).trim();
-  const secondPart = introText.slice(periodIndex).trim();
-
   const { ref: introRef, inView: introInView } = useInView({
     triggerOnce: true,
     threshold: 0.5,
@@ -47,6 +42,10 @@ const MainContent = () => {
     threshold: 0.4,
   });
   const { ref: educationRef, inView: educationInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
+  const { ref: extracurricularRef, inView: extracurricularInView } = useInView({
     triggerOnce: true,
     threshold: 0.5,
   });
@@ -86,19 +85,6 @@ const MainContent = () => {
               {translations[language].about}
             </h2>
             <div className="mb-10 sm:mb-0 text-sm bg-black dark:bg-slate-50 text-slate-50 dark:text-black p-4 rounded-lg shadow lg:w-full shadow-[5px_23px_91px_39px_rgba(27,_25,_30,_0.19)] dark:shadow-[5px_23px_91px_39px_rgba(218,_194,_232,_0.19)]">
-              <p>
-                {firstPart.split("Raphael").map((part, index) =>
-                  index === 0 ? (
-                    part
-                  ) : (
-                    <React.Fragment key={index}>
-                      <strong>Raphael</strong>
-                      {part}
-                    </React.Fragment>
-                  )
-                )}
-              </p>
-              <p>{secondPart}</p>
               <p>{translations[language].about_text}</p>
             </div>
           </section>
@@ -130,6 +116,20 @@ const MainContent = () => {
           </section>
 
           <section
+            id="featured-projects"
+            className={`lg:w-full mb-12 transition-opacity duration-1000 ${
+              featuredInView ? "opacity-100" : "opacity-0"
+            }`}
+            ref={featuredRef}
+          >
+            <h2 className="text-2xl font-bold text-start mb-2">
+              {translations[language].featured}
+            </h2>
+            <FeaturedProjects />
+          </section>
+
+
+          <section
             id="education"
             className={`mb-10 transition-opacity duration-1000 ${
               educationInView ? "opacity-100" : "opacity-0"
@@ -142,24 +142,23 @@ const MainContent = () => {
             <Education />
           </section>
 
-          <section id="extracurricular" className="mb-10">
+          <section id="extracurricular hidden md:block" 
+            className={`mb-10 transition-opacity duration-1000 ${
+              extracurricularInView ? "opacity-100" : "opacity-0"
+            }`}
+            ref={extracurricularRef}
+            >
             <h2 className="text-2xl font-bold text-start mb-2">
               {translations[language].extracurricular}
             </h2>
             <Extracurricular />
           </section>
 
-          <section
-            id="featured-projects"
-            className={`lg:w-full mb-12 transition-opacity duration-1000 ${
-              featuredInView ? "opacity-100" : "opacity-0"
-            }`}
-            ref={featuredRef}
-          >
+          <section id="extracurricular" className="mb-10 md:hidden">
             <h2 className="text-2xl font-bold text-start mb-2">
-              {translations[language].featured}
+              {translations[language].extracurricular}
             </h2>
-            <FeaturedProjects />
+            <Extracurricular />
           </section>
 
           <section
