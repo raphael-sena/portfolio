@@ -200,7 +200,7 @@ const Experience = () => {
             />
             <div>
               <h1 className="text-md font-bold tracking-tighter">
-                Agência Experimental de Software
+                Experimental Software Agency
               </h1>
               <h2 className="text-sm font-semibold">
                 09/2024 - {translations[language].currently}

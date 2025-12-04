@@ -69,9 +69,20 @@ const Education = () => {
             <h2 className="mr-2 font-semibold text-md">
               {translations[language].engineering}
             </h2>
-            <h2 className="text-xs font-semibold">01/2023 - {translations[language].currently}</h2>
+            <h2 className="text-xs font-semibold">07/2023 - 07/2027</h2>
           </div>
-          <p className="text-sm">{translations[language].engineering_text}</p>
+          <p className="text-sm mb-3">{translations[language].engineering_text}</p>
+          
+          <div className="space-y-2">
+            <div>
+              <h3 className="font-semibold text-sm">{translations[language].interdisciplinary_project}</h3>
+              <p className="text-sm">{translations[language].interdisciplinary_project_text}</p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-sm">{translations[language].experimental_agency}</h3>
+              <p className="text-sm">{translations[language].experimental_agency_text}</p>
+            </div>
+          </div>
         </div>
       </div>
 

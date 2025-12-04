@@ -39,6 +39,10 @@ export const translations = {
     engineering: "Bachelor Software Engineering",
     engineering_text:
       "I am currently studying Software Engineering at PUC Minas, where I acquire knowledge in system development, requirements analysis, and software architecture. During my degree, I have specialized in back-end and agile development technologies.",
+    interdisciplinary_project: "Interdisciplinary Project Champion",
+    interdisciplinary_project_text: "Led an award-winning team in high-impact, real-world software project.",
+    experimental_agency: "Experimental Software Agency - PMMG",
+    experimental_agency_text: "As a Tech Lead, I am leading a team to build the human-resources selection process software scope for Minas Gerais State Military Police, impacting more than 40000 candidates per public tender.",
     extracurricular: "Extracurricular",
     alura_java_url:
       "https://drive.google.com/file/d/1dxsLorrXwDCNB_u1-X7IrlB74zbVwC8M/view?usp=sharing",
@@ -124,6 +128,10 @@ export const translations = {
     engineering: "Bacharelado de Engenharia de Software",
     engineering_text:
       "Estou cursando Engenharia de Software na PUC Minas, onde adquiro conhecimentos em desenvolvimento de sistemas, análise de requisitos e arquitetura de software. Durante a graduação, tenho me especializado em back-end e tecnologias de desenvolvimento ágil.",
+    interdisciplinary_project: "Campeão de Projeto Interdisciplinar",
+    interdisciplinary_project_text: "Liderei uma equipe premiada em um projeto de software de alto impacto e aplicação no mundo real.",
+    experimental_agency: "Agência Experimental de Software - PMMG",
+    experimental_agency_text: "Como Tech Lead, lidero uma equipe para construir o escopo do software de processo seletivo de recursos humanos da Polícia Militar de Minas Gerais, impactando mais de 40.000 candidatos por concurso público.",
     extracurricular: "Extracurricular",
     alura_java_url:
       "https://drive.google.com/file/d/1my2dosjLglVMcyOGIlx-ZGS9_FuIb7rV/view?usp=sharing",
@@ -209,6 +217,10 @@ export const translations = {
     engineering: "Bachelor Softwaretechnik",
     engineering_text:
       "Ich studiere Softwaretechnik an der PUC Minas, wo ich Kenntnisse in Systementwicklung, Anforderungsanalyse und Softwarearchitektur erwerbe. Während meines Studiums habe ich mich auf Back-End und agile Entwicklungstechnologien spezialisiert.",
+    interdisciplinary_project: "Champion für interdisziplinäre Projekte",
+    interdisciplinary_project_text: "Leitete ein preisgekröntes Team in einem wirkungsvollen, praxisnahen Softwareprojekt.",
+    experimental_agency: "Experimentelle Software-Agentur - PMMG",
+    experimental_agency_text: "Als Tech Lead leite ich ein Team, um den Umfang der Software für den Personalauswahlprozess der Militärpolizei von Minas Gerais zu erstellen, was mehr als 40.000 Kandidaten pro öffentlicher Ausschreibung betrifft.",
     extracurricular: "Extracurricular",
     alura_java_url:
       "https://drive.google.com/file/d/1dxsLorrXwDCNB_u1-X7IrlB74zbVwC8M/view?usp=sharing",
