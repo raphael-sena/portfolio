@@ -60,6 +60,9 @@ export const translations = {
     whatsapp_message:
       "Hi, how are you? My name is [Your Name], and I am [your occupation/field of expertise]. I’m reaching out because I believe we can create a partnership to develop impactful solutions together. If you’re interested, I’d be delighted to discuss further and align ideas. \uD83D\uDE04",
     technologies: "Technologies",
+    programmingLanguages: "Programming Languages",
+    observability: "Observability",
+    messaging: "Messaging & Caching",
     resume: "Resume",
     resumeUrl: "/Resume_Raphael_Sena.pdf",
     chess: "Chess",
@@ -149,6 +152,9 @@ export const translations = {
     whatsapp_message:
       "Olá, tudo bem? Meu nome é [Seu Nome] e sou [sua ocupação/área de atuação]. Estou entrando em contato porque acredito que podemos criar uma parceria para desenvolver soluções de impacto juntos. Caso tenha interesse, ficarei muito feliz em conversar mais e alinhar ideias. \uD83D\uDE04",
     technologies: "Tecnologias",
+    programmingLanguages: "Linguagens de Programação",
+    observability: "Observabilidade",
+    messaging: "Mensageria & Cache",
     resume: "Currículo",
     resumeUrl: "/Currículo_Raphael_Sena.pdf",
     chess: "Xadrez",
@@ -238,6 +244,9 @@ export const translations = {
     whatsapp_message:
       "Hallo, wie geht es Ihnen? Mein Name ist [Ihr Name], und ich bin [Ihr Beruf/Fachgebiet]. Ich melde mich, weil ich glaube, dass wir eine Partnerschaft eingehen können, um gemeinsam wirkungsvolle Lösungen zu entwickeln. Wenn Sie Interesse haben, würde ich mich freuen, mehr darüber zu sprechen und Ideen auszutauschen. \uD83D\uDE04",
     technologies: "Technologieen",
+    programmingLanguages: "Programmiersprachen",
+    observability: "Beobachtbarkeit",
+    messaging: "Messaging & Caching",
     resume: "Lebenslauf",
     resumeUrl: "/Resume_Raphael_Sena.pdf",
     chess: "Schach",
