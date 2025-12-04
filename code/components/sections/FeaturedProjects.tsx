@@ -25,6 +25,7 @@ const FeaturedProjects = () => {
   const projectImages = {
     remediar: "/images/projects/remediar.png",
     portfolio: "/images/projects/portfolio.png",
+    "dress-manager": "/images/projects/dress-manager.jpg",
     "recipes-and-flavors": "/images/projects/recipes_and_flavors.png",
     "relatorio-fotografico": "/images/projects/relatorio-fotografico.png"
   };
