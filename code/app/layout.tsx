@@ -9,6 +9,7 @@ import "@react-pdf-viewer/core/lib/styles/index.css";
 import "@react-pdf-viewer/default-layout/lib/styles/index.css";
 import ThemeToggle2 from "@/components/ThemeToggle2";
 import MicrosoftClarity from "@/components/MicrosoftClarity";
+import { Analytics } from "@vercel/analytics/next";
 
 interface LayoutProps {
   children: ReactNode;
@@ -113,6 +114,7 @@ export default function RootLayout({ children }: LayoutProps) {
         >
           👆
         </button>
+        <Analytics />
         <SpeedInsights />
         <MicrosoftClarity projectId={process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID || ""} />
       </body>
