@@ -35,6 +35,10 @@ jobs:
   e2e:
     needs: verificar
     runs-on: ubuntu-latest
+    env:
+      # Matriz completa (chromium, firefox, webkit, Pixel 7, iPhone 14) só em PR para o main.
+      PW_MATRIZ: ${{ github.base_ref == 'main' && 'completa' || '' }}
+      PW_BROWSERS: ${{ github.base_ref == 'main' && 'chromium firefox webkit' || 'chromium' }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -52,15 +56,13 @@ jobs:
         id: pw-cache
         with:
           path: ~/.cache/ms-playwright
-          key: playwright-${{ runner.os }}-${{ steps.pw.outputs.versao }}
+          key: playwright-${{ runner.os }}-${{ steps.pw.outputs.versao }}-${{ env.PW_BROWSERS }}
       - if: steps.pw-cache.outputs.cache-hit != 'true'
-        run: pnpm exec playwright install --with-deps chromium
+        run: pnpm exec playwright install --with-deps ${{ env.PW_BROWSERS }}
       - if: steps.pw-cache.outputs.cache-hit == 'true'
-        run: pnpm exec playwright install-deps chromium
+        run: pnpm exec playwright install-deps ${{ env.PW_BROWSERS }}
       # O Playwright sobe `pnpm build` + `wrangler dev` (build real, nunca next dev).
       - run: pnpm test:e2e
-        env:
-          PW_MATRIZ: ${{ github.base_ref == 'main' && 'completa' || '' }}
       - uses: actions/upload-artifact@v4
         if: failure()
         with:
