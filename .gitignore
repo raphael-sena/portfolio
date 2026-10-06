@@ -37,3 +37,6 @@ design/3d/
 
 # gerado por hook de sessão (manifesto), não faz parte do projeto
 docs/.gerado/
+
+# worktrees de subagentes
+.claude/worktrees/
