@@ -6,6 +6,7 @@
 import { createHash } from 'node:crypto';
 import { readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
 import { dirname, join, relative, sep } from 'node:path';
+import { anosArquivados } from './copiar-arquivos.mjs';
 import { fileURLToPath } from 'node:url';
 
 const MAX_REGRAS = 100;
@@ -46,7 +47,7 @@ export function csp(hashes, { enforce = false } = {}) {
   return diretivas.join('; ');
 }
 
-export function gerarHeaders({ producao, paginas = [], enforce = false }) {
+export function gerarHeaders({ producao, paginas = [], enforce = false, arquivos = [] }) {
   const seguranca = [
     'X-Content-Type-Options: nosniff',
     'Referrer-Policy: strict-origin-when-cross-origin',
@@ -68,6 +69,11 @@ export function gerarHeaders({ producao, paginas = [], enforce = false }) {
     // Modelo 3D, poster e imagens Open Graph não têm hash no nome: cache de um dia.
     { padrao: '/models/*', linhas: ['Cache-Control: public, max-age=86400'] },
     { padrao: '/og/*', linhas: ['Cache-Control: public, max-age=86400'] },
+    // Versões antigas em /<ano>/: sempre noindex (e sem CSP: os apps antigos usam scripts inline que não controlamos).
+    ...arquivos.flatMap((ano) => [
+      { padrao: `/${ano}/*`, linhas: ['X-Robots-Tag: noindex, nofollow'] },
+      { padrao: `/${ano}/_next/static/*`, linhas: ['Cache-Control: public, max-age=31536000, immutable'] },
+    ]),
     ...paginas.map(({ caminho, hashes }) => ({
       padrao: caminho,
       linhas: [
@@ -107,7 +113,7 @@ function* arquivosHtml(pasta) {
 }
 
 /** Páginas servidas como `/<rota>/` (index.html) com os hashes dos scripts inline de cada uma. */
-export function paginasDe(saida) {
+export function paginasDe(saida, arquivos = []) {
   return [...arquivosHtml(saida)]
     .map((arquivo) => {
       const rota = '/' + relative(saida, dirname(arquivo)).split(sep).join('/');
@@ -115,6 +121,7 @@ export function paginasDe(saida) {
       return { caminho, hashes: hashesInline(readFileSync(arquivo, 'utf8')) };
     })
     .filter(({ caminho }) => !['/_not-found/', '/404/'].includes(caminho))
+    .filter(({ caminho }) => !arquivos.some((ano) => caminho === `/${ano}/`))
     .sort((a, b) => a.caminho.localeCompare(b.caminho));
 }
 
@@ -123,12 +130,13 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const saida = join(raiz, 'out');
   const producao = process.env.SITE_ENV === 'production';
   const enforce = process.env.CSP_MODE === 'enforce';
-  const paginas = paginasDe(saida);
-  const texto = gerarHeaders({ producao, paginas, enforce });
+  const arquivos = anosArquivados();
+  const paginas = paginasDe(saida, arquivos);
+  const texto = gerarHeaders({ producao, paginas, enforce, arquivos });
   validarHeaders(texto);
   writeFileSync(join(saida, '_headers'), texto);
   writeFileSync(join(saida, '_redirects'), gerarRedirects());
   console.log(
-    `out/_headers gerado (${producao ? 'production' : 'preview, noindex'}; CSP ${enforce ? 'enforce' : 'report-only'} em ${paginas.length} páginas)`,
+    `out/_headers gerado (${producao ? 'production' : 'preview, noindex'}; CSP ${enforce ? 'enforce' : 'report-only'} em ${paginas.length} páginas; ${arquivos.length} versão(ões) antiga(s) noindex)`,
   );
 }

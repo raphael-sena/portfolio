@@ -19,7 +19,7 @@ const todas = [
 ];
 // No CI (PR para o main) um conjunto representativo nos 3 idiomas, para o job caber em poucos minutos;
 // localmente (ou com LHCI_TODAS=1), todas as rotas.
-const representativas = ['/', '/sobre/', '/en/', '/en/projetos/', '/de/', '/de/contato/'];
+const representativas = ['/', '/sobre/', '/linha-do-tempo/', '/en/', '/en/projetos/', '/de/', '/de/contato/'];
 const urls = process.env.CI && !process.env.LHCI_TODAS ? representativas : todas;
 
 // Calibração da CPU: o Lighthouse simula um celular lento com `cpuSlowdownMultiplier: 4` sobre uma máquina de referência.

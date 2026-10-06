@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/gerar-og.mjs && next build && node scripts/gerar-headers.mjs",
+    "build": "node scripts/gerar-og.mjs && next build && node scripts/copiar-arquivos.mjs && node scripts/gerar-headers.mjs",
     "start": "wrangler dev",
     "preview": "wrangler dev --ip 127.0.0.1 --port 8787",
     "lint": "eslint . && prettier --check .",
@@ -23,7 +23,9 @@
     "i18n:check": "node scripts/i18n.mjs check",
     "i18n:lock": "node scripts/i18n.mjs lock",
     "i18n:translate": "node scripts/i18n.mjs translate",
-    "lighthouse": "pnpm dlx @lhci/cli@0.15.1 autorun"
+    "lighthouse": "pnpm dlx @lhci/cli@0.15.1 autorun",
+    "archive:build": "node scripts/build-archives.ts",
+    "archive:rebuild": "node scripts/build-archives.ts --rebuild"
   },
   "dependencies": {
     "next": "16.3.8",
@@ -65,6 +67,6 @@
   "packageManager": "pnpm@12.9.1",
   "lint-staged": {
     "*.{ts,tsx,js,mjs,cjs,json,jsonc,css,md,yml}": "prettier --write",
-    "*.{ts,tsx,js,mjs}": "eslint --fix"
+    "*.{ts,tsx,js,mjs}": "eslint --fix --no-warn-ignored"
   }
 }

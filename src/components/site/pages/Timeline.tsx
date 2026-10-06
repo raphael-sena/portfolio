@@ -1,7 +1,8 @@
-import { Button, HatchPlaceholder, PageHeader } from '@/components/gazeta';
+import { Button, PageHeader } from '@/components/gazeta';
 import { archives } from '@/content/data';
 import type { Locale } from '@/i18n/config';
 import { fill, t } from '@/i18n/dictionary';
+import { LateImage } from '@/components/site/LateImage';
 import { pageNumber } from '@/i18n/routes';
 
 interface Card {
@@ -11,7 +12,7 @@ interface Card {
   stack: string;
   changed: string;
   learned: string;
-  figure: string;
+  shot: string;
   figureAlt: string;
   current: boolean;
   /** `/<ano>/` só existe depois do G7 (archived: true). */
@@ -29,10 +30,10 @@ export function TimelinePage({ locale }: { locale: Locale }) {
       key: String(a.year),
       year: a.year,
       heading: String(a.year),
-      stack: timeline.archivedStack,
+      stack: a.label,
       changed: timeline.placeholderChanged,
       learned: timeline.placeholderLearned,
-      figure: fill(timeline.figure, { year: a.year }),
+      shot: `/timeline/${a.year}.jpg`,
       figureAlt: fill(timeline.figureAlt, { year: a.year }),
       current: false,
       href: a.archived ? `${a.basePath}/` : null,
@@ -44,8 +45,8 @@ export function TimelinePage({ locale }: { locale: Locale }) {
       stack: timeline.currentStack,
       changed: timeline.currentChanged,
       learned: timeline.currentLearned,
-      figure: timeline.current,
-      figureAlt: timeline.current,
+      shot: '/timeline/atual.jpg',
+      figureAlt: timeline.figureAltCurrent,
       current: true,
       href: null,
     },
@@ -65,7 +66,14 @@ export function TimelinePage({ locale }: { locale: Locale }) {
                 </p>
               )}
               <div className="mt-4">
-                <HatchPlaceholder label={card.figure} height={220} alt={card.figureAlt} />
+                {/* Capturas geradas por scripts/capturar-arquivos.mjs; em tons de cinza, como o resto da Gazeta. */}
+                <LateImage
+                  src={card.shot}
+                  alt={card.figureAlt}
+                  width={560}
+                  height={448}
+                  className="frame-outline block h-auto w-full border-[3px] border-ink grayscale"
+                />
               </div>
               <dl className="mt-4 space-y-2">
                 <div>

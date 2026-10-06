@@ -1,5 +1,42 @@
 # ARCHIVE: histórico de versões e linha do tempo
 
+> **Estado (G7, 2026-10-06):** as três versões estão arquivadas e no ar em `/2024/`, `/2025/` e `/2026/`. Esta seção descreve como funciona e como arquivar uma versão nova; a análise do histórico que levou à escolha dos SHAs vem logo abaixo.
+
+## Como funciona
+
+- **Fonte de verdade:** as tags anotadas `site/<ANO>` e `src/content/data/archives.json` (ano, tag, SHA, Node da época, tipo de build, `basePath`, `archived` e `label`, que é a stack da época). A página `/linha-do-tempo/` lê esse arquivo para gerar os cartões.
+- **Construção (local, uma vez por versão):** `pnpm archive:build` constrói só o que falta; `pnpm archive:rebuild <ano|all>` refaz. O script `scripts/build-archives.ts`:
+  1. cria um `git worktree` da tag em `.worktrees/<ano>` e confere que o SHA bate com `archives.json`;
+  2. aplica `archive/patches/<ano>.patch` (export estático, `basePath: /<ano>`, imagens sem otimizador e remoção de Vercel Speed Insights, Vercel Analytics e Microsoft Clarity, que não migram; em 2024 também um alias vazio para o módulo nativo `canvas`);
+  3. usa o Node da época (`.cache/node-<major>`, pacote npm `node`) e `npm ci --ignore-scripts` (sem scripts de instalação de dependências antigas); se o lockfile estiver fora de sincronia cai para `npm install`, como a hospedagem da época fazia (aconteceu em 2025);
+  4. roda `next build` com `NEXT_PUBLIC_CLARITY_PROJECT_ID` vazio (o `.env` versionado do legado nunca é embutido nem lido);
+  5. reescreve os caminhos absolutos do legado (`/images/...`, PDFs) para `/<ano>/...`, poda imagens grandes (> 400 KB) que nenhuma página referencia pelo nome, injeta `noindex` e o link "Voltar à edição atual" (criado depois da hidratação, com um `MutationObserver` que o recoloca se o React o remover);
+  6. copia o resultado para `archive/<ano>/` e grava `archive/<ano>/.source` (tag, SHA, versão do Node, modo de instalação, hash do patch).
+- **Build do site (inclusive no CI):** `scripts/copiar-arquivos.mjs` só **copia** `archive/<ano>/` para `out/<ano>/`; o CI não reconstrói versões antigas. `scripts/gerar-headers.mjs` acrescenta `X-Robots-Tag: noindex, nofollow` em `/<ano>/*`, cache imutável em `/<ano>/_next/static/*` e deixa essas páginas fora da CSP (os apps antigos usam scripts inline que não controlamos). As versões ficam fora do `sitemap.xml` e do `robots.txt` (que não as bloqueia: o crawler precisa ler o `noindex`).
+- **Capturas dos cartões:** `node scripts/capturar-arquivos.mjs` (com `pnpm build && pnpm preview` no ar) gera `public/timeline/<ano>.jpg` e `atual.jpg`. Chamadas a terceiros (GitHub, Chess.com, Spotify) são abortadas na captura.
+- **Testes:** `tests/archive` (projeto `archive`): cada `/<ano>/` responde 200, tem `noindex` no cabeçalho e no meta, não tem canonical, não está no sitemap, não gera 404 de recursos do próprio site, não chama Vercel/Clarity/Umami, o link de volta funciona, os PDFs (inclusive nome com acento) abrem e a linha do tempo mostra as capturas e links.
+
+## Como arquivar uma nova versão no futuro
+
+1. Criar a tag anotada no commit final da versão: `GIT_COMMITTER_DATE="$(git log -1 --format=%aI <SHA>)" git tag -a site/<ANO> <SHA> -m "Portfólio versão <ANO>" && git push origin site/<ANO>` (nunca mover nem apagar tags `site/*`).
+2. Acrescentar a entrada em `src/content/data/archives.json` com `"archived": false`, o Node da época e o `basePath` `/<ANO>`.
+3. Se a versão precisar de ajustes para virar estática, criar o worktree à mão (`git worktree add --detach .worktrees/<ANO> site/<ANO>`), editar e salvar com `git -C .worktrees/<ANO> diff > archive/patches/<ANO>.patch` (olhe os patches existentes: `next.config.mjs` com `output: 'export'`, `basePath`, `images.unoptimized`, e a remoção dos componentes de analytics do layout).
+4. Rodar `pnpm archive:build` e conferir `archive/<ANO>/.source`.
+5. Marcar `"archived": true`, rodar `pnpm build && pnpm preview` e `node scripts/capturar-arquivos.mjs`, rodar `pnpm exec playwright test --project=archive` e fazer o commit de `archive/<ANO>/`, `archive/patches/<ANO>.patch`, `archives.json` e `public/timeline/<ANO>.jpg`.
+6. Se uma versão não puder ser realocada para `/<ANO>/`, propor em `docs/DECISIONS.md` um subdomínio com Worker separado antes de mudar.
+
+## Resultados do G7
+
+| Ano  | Tag         | SHA       | Node    | Instalação                             | Tamanho | Observações                                                       |
+| ---- | ----------- | --------- | ------- | -------------------------------------- | ------- | ----------------------------------------------------------------- |
+| 2024 | `site/2024` | `8303d12` | 20.20.2 | `npm ci`                               | ~10 MB  | `pdfjs-dist` pedia o módulo nativo `canvas`: alias vazio no patch |
+| 2025 | `site/2025` | `8235c76` | 20.20.2 | `npm install` (lock fora de sincronia) | ~12 MB  | duas fotos antigas não usadas podadas                             |
+| 2026 | `site/2026` | `d30b96f` | 20.20.2 | `npm ci`                               | ~13 MB  | duas fotos antigas não usadas podadas                             |
+
+As três versões têm o mesmo visual de base (Next 14, React 18, Tailwind 3); a diferença é incremental (ver a análise abaixo). As frases "O que mudou" e "O que aprendi" dos cartões continuam placeholders: são do autor.
+
+---
+
 Análise somente leitura (subagente E do G0). Nenhuma tag além de `site/2026` foi criada. Os SHAs abaixo são PROPOSTAS, aguardando OK do usuário.
 
 ## Tags existentes

@@ -1,0 +1,51 @@
+diff --git a/code/app/layout.tsx b/code/app/layout.tsx
+index b7946c8..c99aeff 100644
+--- a/code/app/layout.tsx
++++ b/code/app/layout.tsx
+@@ -4,7 +4,6 @@ import { ReactNode, useEffect, useState } from "react";
+ import "./globals.css";
+ import ThemeToggle from "@/components/ThemeToggle";
+ import LanguageToggle from "@/components/LanguageToggle";
+-import { SpeedInsights } from "@vercel/speed-insights/next";
+ import "@react-pdf-viewer/core/lib/styles/index.css";
+ import "@react-pdf-viewer/default-layout/lib/styles/index.css";
+ import ThemeToggle2 from "@/components/ThemeToggle2";
+@@ -111,7 +110,6 @@ export default function RootLayout({ children }: LayoutProps) {
+         >
+           👆
+         </button>
+-        <SpeedInsights />
+       </body>
+     </html>
+   );
+diff --git a/code/next.config.mjs b/code/next.config.mjs
+index 7c13fe5..b50a6a0 100644
+--- a/code/next.config.mjs
++++ b/code/next.config.mjs
+@@ -1,6 +1,10 @@
+ /** @type {import('next').NextConfig} */
+ const nextConfig = {
++    // Arquivo da versão de 2024: export estático servido em /2024/ (ver scripts/build-archives.ts).
++    output: 'export',
++    basePath: '/2024',
+     images: {
++      unoptimized: true,
+       remotePatterns: [
+         {
+           protocol: 'https',
+@@ -12,7 +16,14 @@ const nextConfig = {
+         }
+       ],
+     },
++    // pdfjs-dist tenta carregar o módulo nativo `canvas`, que não existe no export estático (a versão de 2025 corrigiu
++    // com `ignore-loader`; aqui um alias vazio, sem dependência nova).
++    webpack: (config) => {
++      config.resolve.alias = { ...config.resolve.alias, canvas: false };
++      config.resolve.fallback = { ...config.resolve.fallback, canvas: false, fs: false, path: false };
++      return config;
++    },
+   };
+-  
++
+   export default nextConfig;
+   

@@ -9,6 +9,8 @@ export interface ArchiveEntry {
   node: string;
   build: 'next-export' | 'static-html';
   basePath: string;
+  /** Stack da época (neutra de idioma). */
+  label: string;
   /** `true` só depois que o G7 gerar archive/<ano>/ e a rota /<ano>/ existir. */
   archived: boolean;
 }

@@ -43,3 +43,7 @@ docs/.gerado/
 
 # imagens Open Graph geradas no build (scripts/gerar-og.mjs)
 public/og/
+
+# versões antigas em construção (scripts/build-archives.ts)
+.worktrees/
+.cache/
