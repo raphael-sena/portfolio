@@ -27,20 +27,22 @@ export function ProjectsPage({ locale }: { locale: Locale }) {
               </figure>
               <h2 className="mt-4 font-headline text-[28px] leading-[1.1] font-bold">{project.name}</h2>
               <p className="mt-1 font-label text-[21px] tracking-[0.14em] uppercase">
-                {texts.stack}: {project.languages.join(' · ')}
+                {texts.stack}: {(project.stack ?? project.languages ?? []).join(' · ')}
               </p>
               <p className="prose-gazeta mt-2">{texts.descriptions[project.slug]}</p>
-              <p className="mt-2">
-                <a
-                  href={project.repo}
-                  rel="noopener"
-                  data-track="project_open"
-                  data-track-slug={project.slug}
-                  className="inline-flex min-h-11 items-center"
-                >
-                  {dict.common.openRepo}
-                </a>
-              </p>
+              {project.repo && (
+                <p className="mt-2">
+                  <a
+                    href={project.repo}
+                    rel="noopener"
+                    data-track="project_open"
+                    data-track-slug={project.slug}
+                    className="inline-flex min-h-11 items-center"
+                  >
+                    {dict.common.openRepo}
+                  </a>
+                </p>
+              )}
             </article>
           </li>
         ))}

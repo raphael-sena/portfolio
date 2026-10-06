@@ -29,42 +29,21 @@ export const RESUME_FILES = {
 } as const;
 
 export interface Job {
-  id: 'modaxo' | 'agencia' | 'avaso' | 'puc';
+  id: 'newenergy' | 'modaxo' | 'avaso' | 'puc';
   company: string;
-  /** Mês ISO (`YYYY-MM`); `null` onde o usuário ainda não confirmou (vira placeholder). */
-  from: string | null;
+  /** Mês ISO (`YYYY-MM`). */
+  from: string;
   to: string | null;
   /** `true` quando o vínculo é atual (o período mostra "atual" no fim). */
   current: boolean;
-  skills: string[];
 }
 
+/** Fonte: currículo do autor (public/resume-raphael-sena.pdf), atualizado em 2026-10-06. Do mais recente para o mais antigo. */
 export const jobs: Job[] = [
-  { id: 'modaxo', company: 'Modaxo', from: null, to: null, current: false, skills: [] },
-  {
-    id: 'agencia',
-    company: 'Agência Experimental de Software',
-    from: '2024-09',
-    to: null,
-    current: true,
-    skills: ['Java', 'Spring Boot', 'Mockito', 'Git', 'REST API'],
-  },
-  {
-    id: 'avaso',
-    company: 'Avaso Technology Solutions',
-    from: '2023-09',
-    to: null,
-    current: true,
-    skills: ['Hardware', 'Server maintenance', 'User support'],
-  },
-  {
-    id: 'puc',
-    company: 'PUC Minas',
-    from: '2021-09',
-    to: '2023-09',
-    current: false,
-    skills: ['Service Desk', 'MS Office', 'Active Directory', 'Windows', 'User support', 'Hardware support'],
-  },
+  { id: 'newenergy', company: 'New Energy Soluções Elétricas', from: '2026-03', to: null, current: true },
+  { id: 'modaxo', company: 'Modaxo', from: '2025-05', to: null, current: true },
+  { id: 'avaso', company: 'AVASO Technology Solutions', from: '2023-09', to: '2025-05', current: false },
+  { id: 'puc', company: 'Sociedade Mineira de Cultura', from: '2021-09', to: '2023-09', current: false },
 ];
 
 export interface EducationItem {
@@ -75,7 +54,7 @@ export interface EducationItem {
 }
 export const education: EducationItem[] = [
   { id: 'puc', institution: 'PUC Minas', from: '2023-07', to: '2027-07' },
-  { id: 'kogarah', institution: 'Kogarah High School', from: '2017-07', to: '2018-01' },
+  { id: 'kogarah', institution: 'Kogarah High School', from: '2017-07', to: '2017-12' },
 ];
 
 export interface ExtraCourse {
@@ -129,19 +108,29 @@ export const extraCourses: ExtraCourse[] = [
   },
 ];
 
-/** Dados dos repositórios congelados em 2026-10-05 (uma consulta à API do GitHub, sem token): linguagens com 35.000 bytes ou mais, no máximo 3. */
+/**
+ * Projetos. `languages` (repositórios do GitHub): consulta única à API em 2026-10-05, sem token (linguagens com 35.000
+ * bytes ou mais, no máximo 3). `stack` (currículo): lista de tecnologias que substitui `languages`. Sem `repo`, o cartão
+ * não tem link de código.
+ */
 export interface Project {
-  slug: 'remediar' | 'dress-manager' | 'recipes-and-flavors' | 'portfolio' | 'relatorio-fotografico';
+  slug: 'remediar' | 'rural-erp' | 'dress-manager' | 'recipes-and-flavors' | 'portfolio' | 'relatorio-fotografico';
   name: string;
-  repo: string;
-  languages: string[];
+  repo?: string;
+  languages?: string[];
+  stack?: string[];
 }
 export const projects: Project[] = [
   {
     slug: 'remediar',
     name: 'Remediar',
     repo: 'https://github.com/raphael-sena/remediar',
-    languages: ['TypeScript', 'Java'],
+    stack: ['Java', 'Spring Boot', 'Microservices', 'PostgreSQL', 'Docker', 'TypeScript', 'Next.js'],
+  },
+  {
+    slug: 'rural-erp',
+    name: 'Rural ERP + AI Copilot',
+    stack: ['Java', 'Spring Boot', 'PostgreSQL + pgvector', 'MQTT', 'Go', 'Flutter', 'AWS'],
   },
   {
     slug: 'dress-manager',
@@ -170,30 +159,54 @@ export const projects: Project[] = [
 ];
 
 export type TechGroupId =
-  'languages' | 'frontend' | 'mobile' | 'backend' | 'databases' | 'devops' | 'observability' | 'messaging' | 'tools';
+  | 'languages'
+  | 'backend'
+  | 'architecture'
+  | 'databases'
+  | 'auth'
+  | 'devops'
+  | 'testing'
+  | 'observability'
+  | 'frontend'
+  | 'mobile'
+  | 'practices'
+  | 'domain';
 
-/** Lista do legado, sem duplicatas (Docker e Node.js apareciam duas vezes). */
+/**
+ * Nomes de tecnologias (neutros de idioma). Fonte: seção "Skills" do currículo (2026-10-06); front-end e mobile vêm dos
+ * projetos (TypeScript, Next.js, React, Flutter) e do legado. Itens descritivos (ex.: "Code review") ficam no dicionário.
+ */
 export const technologies: Record<TechGroupId, string[]> = {
-  languages: ['Java', 'TypeScript', 'C#', 'Dart', 'SQL'],
-  frontend: ['HTML', 'CSS', 'React', 'Next.js', 'Angular', 'Tailwind CSS'],
-  mobile: ['Flutter', 'Xamarin'],
-  backend: ['Spring Boot', 'Node.js'],
-  databases: ['Oracle', 'PostgreSQL', 'MySQL', 'SQLite'],
-  devops: ['Docker', 'Cloudflare', 'Linux', 'GitHub Actions'],
-  observability: ['Prometheus', 'Grafana'],
-  messaging: ['RabbitMQ', 'Redis'],
-  tools: [
-    'Adobe Illustrator',
-    'Adobe Photoshop',
-    'Figma',
-    'Git',
-    'GitHub',
-    'Insomnia',
-    'IntelliJ IDEA',
-    'Maven',
-    'Postman',
-    'VS Code',
+  languages: ['Java 8 a 21', 'TypeScript', 'C#', 'Dart', 'Go', 'SQL'],
+  backend: ['Spring Boot', 'Spring Framework', 'Spring Security', 'REST APIs', 'JPA/Hibernate', 'Node.js'],
+  architecture: [
+    'Microservices',
+    'Modular Monolith',
+    'Event-Driven Architecture',
+    'Domain-Driven Design',
+    'Multi-Tenancy',
+    'State Machines',
+    'Distributed Systems',
+    'System Integration',
   ],
+  databases: ['PostgreSQL', 'Flyway', 'Liquibase', 'Oracle', 'MySQL', 'SQLite'],
+  auth: ['OAuth2/OIDC', 'Microsoft Entra ID (Azure AD SSO)', 'Firebase'],
+  devops: [
+    'Docker',
+    'Git',
+    'CI/CD',
+    'GitHub Actions',
+    'Maven',
+    'AWS (EC2, Lightsail)',
+    'Google Cloud (BigQuery)',
+    'Linux',
+  ],
+  testing: ['JUnit', 'Mockito', 'SonarQube'],
+  observability: ['Grafana', 'Prometheus', 'Zipkin', 'Crashlytics', 'RabbitMQ', 'Redis'],
+  frontend: ['React', 'Next.js', 'Angular', 'Tailwind CSS', 'HTML', 'CSS'],
+  mobile: ['Flutter', 'Xamarin'],
+  practices: ['Scrum', 'Kanban', 'Jira', 'Confluence', 'Git Flow'],
+  domain: ['ERP', 'SaaS'],
 };
 
 /** Formata um mês ISO (`YYYY-MM`) com Intl no idioma da página. */

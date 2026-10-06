@@ -43,7 +43,6 @@ export const en: Dictionary = {
     backHome: 'Back to the home page',
     present: 'present',
     openRepo: 'Code on GitHub →',
-    placeholder: { role: '[ROLE]', period: '[PERIOD]' },
   },
   meta: {
     home: {
@@ -87,7 +86,7 @@ export const en: Dictionary = {
       kicker: 'Latest edition',
       headline: 'Software developer presents their works to the public',
       lead: 'A Software Engineering student gathers projects, experience and a machine that spins.',
-      body: 'Raphael Sena studies Software Engineering at PUC Minas and works with electronic ticketing and transit revenue management platforms. Enjoys programming, gathering requirements and turning both into a product.',
+      body: 'Backend-focused software engineer, between production electronic ticketing systems at Modaxo and a multi-tenant ERP platform built from scratch with Java and Spring Boot. Software Engineering student at PUC Minas.',
       continue: 'Continued in About, page 2 →',
       aside: {
         title: 'Featured',
@@ -107,7 +106,7 @@ export const en: Dictionary = {
     about: {
       title: 'Who writes this gazette',
       lead: 'A software developer from Belo Horizonte, in a few paragraphs and a fact sheet.',
-      p1: 'Raphael Sena studies Software Engineering at PUC Minas and works with electronic ticketing and transit revenue management platforms. Enjoys programming, gathering requirements and turning both into a product.',
+      p1: 'Backend-focused software engineer working across two concurrent Java/Spring Boot codebases: production ticketing systems serving 177,000+ users at Modaxo and, as a freelance backend developer, a multi-tenant ERP/tax platform built from scratch with Java 21, PostgreSQL, Flyway and event-driven architecture. Comfortable owning a feature from data model and JPA/Hibernate persistence through REST API design, testing and release. Software Engineering student at PUC Minas.',
       p2: '[PARAGRAPH ABOUT YOU: how you started programming, what drives you and what you are looking for now.]',
       quote: '[A PHRASE OF YOURS TO HIGHLIGHT]',
       p3: '[SECOND PARAGRAPH: a way of working, a value, something the reader should remember.]',
@@ -124,6 +123,8 @@ export const en: Dictionary = {
         interestsValue: 'Software architecture and requirements',
         outside: 'Outside of code',
         outsideValue: 'Chess',
+        languages: 'Languages',
+        languagesValue: 'Portuguese (native), English (C1), Spanish (A2), German (B1)',
       },
     },
     experience: {
@@ -131,32 +132,94 @@ export const en: Dictionary = {
       lead: 'What has been done, where and with which tools.',
       jobsTitle: 'Experience',
       jobs: {
-        modaxo: {
-          role: '[ROLE]',
-          text: 'Electronic ticketing and transit revenue management platforms.',
+        newenergy: {
+          role: 'Backend developer (freelance, remote)',
+          items: [
+            {
+              title: 'Precifique: pricing and tax engine (from scratch)',
+              text: 'Built a commercial pricing and Brazilian tax calculation system from the ground up on Java 21, Spring Boot 3.2, PostgreSQL and Flyway migrations, replacing a legacy Excel-based workflow. Modeled NCM-based fiscal classification via JPA/Hibernate entity relationships and integrated the IBPT tax-data API.',
+            },
+            {
+              title: 'Kvaris: multi-tenant ERP platform',
+              text: 'Evolved Precifique into a broader multi-tenant ERP serving two legal entities on a shared database, with tenant isolation via a request-scoped TenantContext/TenantInterceptor. Architected the Sales/Purchasing/WMS/Fiscal/Finance pipeline as a modular monolith with internal event-driven communication (Spring ApplicationEventPublisher) and a dedicated state machine owning order-status transitions.',
+            },
+            {
+              title: 'Auth and integrations',
+              text: 'Implemented OAuth2/OIDC single sign-on via Microsoft Entra ID (Azure AD) with role-based App Roles, and scheduled third-party API sync jobs against external ERP systems for both tenant companies.',
+            },
+            {
+              title: 'Engineering judgment',
+              text: 'Made deliberate architecture trade-offs to avoid over-engineering: chose a cost-effective VPS/PaaS deployment over managed cloud services, and a simplified internal Outbox pattern over a Kafka/Debezium event pipeline. Currently in active development on staging, with a live demo available.',
+            },
+          ],
         },
-        agencia: {
-          role: 'Back-end team lead on the Cuido Bem project',
-          text: 'Code review, unit tests for the MVC structure and a GlobalExceptionHandler to handle back-end exceptions.',
+        modaxo: {
+          role: 'Software Engineer',
+          items: [
+            {
+              title: 'Sigom Cloud: payment reporting (Java)',
+              text: 'Rebuilt Java/Spring Boot payment report generation on a revenue management platform, cutting estimated computational effort from 20M–1T to 1M operations at high data volumes, and delivered the supporting REST endpoints end to end.',
+            },
+            {
+              title: 'Corrective and evolutionary maintenance (SIGO)',
+              text: 'Develop and maintain Java/Spring Boot services behind an electronic ticketing product deployed across 47 cities with 695K+ downloads: investigate and resolve production incidents, evolve features and maintain REST integrations on a distributed, service-oriented back end.',
+            },
+            {
+              title: 'Data integrity across systems',
+              text: 'Automated database versioning and migrations across 120 production systems using Liquibase, eliminating manual SQL drift and cutting deployment risk for legacy Java services.',
+            },
+            {
+              title: 'Ways of working',
+              text: 'Work in Scrum squads: technical refinements and estimates, code review, Jira/Confluence tracking and documentation, and incremental delivery alongside product stakeholders.',
+            },
+          ],
         },
         avaso: {
-          role: 'Field Support Engineer (Service Desk, freelance)',
-          text: 'English-language support for a multicultural user base: diagnosing and resolving issues on desktops, laptops, virtual machines, smartphones, servers, backups, VoIP phones and peripherals, tracked in a ticketing system.',
+          role: 'Field Support Engineer',
+          items: [
+            {
+              title: 'Service Desk (freelance)',
+              text: 'Resolved hardware and software incidents across desktops, laptops, VMs, servers, backup systems, VoIP devices and peripherals, sustaining 95% SLA compliance for a multicultural English-speaking user base, working as an allocated engineer for international clients.',
+            },
+          ],
         },
         puc: {
-          role: 'IT Technician (Service Desk and Help Desk)',
-          text: 'Network configuration and checks, hardware installation, computer maintenance and level 1 support with Active Directory, a ticketing system, VPN and directory and printer mapping, within service level agreements. Took part in a telephony migration project.',
+          role: 'IT Technician',
+          items: [
+            {
+              title: 'Telephony migration',
+              text: 'Drove a VoIP migration for 100+ users, reconfiguring logical network topology and deploying endpoint hardware during cutover.',
+            },
+            {
+              title: 'Service Desk and Help Desk',
+              text: 'Delivered L1 technical support using Active Directory, ticketing systems (CSC), VPN, and directory/printer mapping platforms under established SLA standards.',
+            },
+          ],
         },
       },
+      pucNote: "PUC Minas' governing foundation",
       educationTitle: 'Education',
       education: {
         puc: {
           title: "Bachelor's degree in Software Engineering",
           place: 'Belo Horizonte, MG, Brazil',
-          text: 'System development, requirements analysis and software architecture, with a focus on back-end and agile methods.',
+          items: [
+            {
+              title: 'Experimental Software Agency (PMMG)',
+              text: 'Tech Lead for the HR recruitment platform of the Military Police of Minas Gerais, serving 40,000+ candidates per examination cycle, owning scoping through delivery.',
+            },
+            {
+              title: 'Interdisciplinary Project Champion (2x)',
+              text: 'Led two award-winning teams delivering production software for external clients.',
+            },
+            {
+              title: 'Research project',
+              text: 'Member of a research group advised by Prof. Lucila Ishitani, publishing a paper on productivity in software engineering.',
+            },
+          ],
         },
         kogarah: {
-          title: 'High school exchange (Year 11)',
+          title: 'High school exchange program',
           place: 'Sydney, NSW, Australia',
           text: 'High school exchange in Sydney, Australia.',
         },
@@ -184,11 +247,13 @@ export const en: Dictionary = {
       figureAlt: 'Placeholder for the {name} project screenshot',
       descriptions: {
         remediar:
-          'A web platform that organises medication donations, inventory and distribution for the NGO Remediar, built with Spring Boot microservices, Next.js and Docker.',
+          'Award-winning ERP platform built and deployed for the NGO Remediar, an organization focused on medicine donation, covering inventory, donations and reporting. Spring Boot microservices, Next.js, PostgreSQL, Docker, Nginx and CI/CD.',
         'dress-manager':
           'A dress management app for Renata Senna: full-stack software built with Java, Spring Boot, Next.js and TypeScript, styled with Tailwind CSS.',
         'recipes-and-flavors':
           'A web application for sharing cooking recipes, with a Java and Spring Boot back end and a Next.js, TypeScript and Tailwind CSS front end.',
+        'rural-erp':
+          'Capstone project: a modular ERP for small-scale producers with an irrigation control module, designed with DDD and validated through ATAM. It includes an LLM agronomist copilot with RAG over public agricultural datasets, and anomaly detection over sensor data.',
         portfolio: 'Personal portfolio.',
         'relatorio-fotografico':
           'Photographic Report Manager: a Windows application running on the Java JRE, developed for the companies Eletronet and New Energy. It generates PDF reports with the items and client data for the REI inspection required by CEMIG, a client of both companies.',
@@ -199,14 +264,23 @@ export const en: Dictionary = {
       lead: 'Languages, frameworks and tools from the work and the projects.',
       groups: {
         languages: 'Languages',
+        backend: 'Backend',
+        architecture: 'Architecture',
+        databases: 'Databases',
+        auth: 'Auth and integration',
+        devops: 'DevOps and cloud',
+        testing: 'Testing and quality',
+        observability: 'Observability and messaging',
         frontend: 'Front end',
         mobile: 'Mobile',
-        backend: 'Back end and frameworks',
-        databases: 'Databases',
-        devops: 'DevOps and cloud',
-        observability: 'Observability',
-        messaging: 'Messaging and caching',
-        tools: 'Development tools',
+        practices: 'Practices',
+        domain: 'Domain',
+      },
+      extra: {
+        auth: ['Third-party API integrations'],
+        testing: ['Automated testing', 'Code review'],
+        practices: ['Remote collaboration'],
+        domain: ['Fintech and Brazilian tax (ICMS, IPI, PIS/COFINS, NCM)', 'AI-enabled products'],
       },
     },
     timeline: {

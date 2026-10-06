@@ -48,7 +48,6 @@ export const de: Dictionary = {
     backHome: 'Zurück zur Startseite',
     present: 'heute',
     openRepo: 'Code auf GitHub →',
-    placeholder: { role: '[POSITION]', period: '[ZEITRAUM]' },
   },
   meta: {
     home: {
@@ -94,7 +93,7 @@ export const de: Dictionary = {
       kicker: 'Neueste Ausgabe',
       headline: 'Softwareentwickler stellt Werke der Öffentlichkeit vor',
       lead: 'Aus dem Studium der Softwaretechnik: Projekte, Erfahrung und eine Maschine, die sich dreht.',
-      body: 'Raphael Sena studiert Softwaretechnik an der PUC Minas und arbeitet mit Plattformen für elektronisches Fahrgeldmanagement und die Einnahmenverwaltung im Nahverkehr. Zu den Vorlieben zählen das Programmieren, das Erheben von Anforderungen und die Verbindung beider zu einem Produkt.',
+      body: 'Softwareentwicklung mit Schwerpunkt Back-End, zwischen elektronischen Fahrgeldmanagement-Systemen im Produktivbetrieb bei Modaxo und einer von Grund auf entwickelten mandantenfähigen ERP-Plattform mit Java und Spring Boot. Studium der Softwaretechnik an der PUC Minas.',
       continue: 'Weiter unter Über mich, Seite 2 →',
       aside: {
         title: 'Im Blickpunkt',
@@ -114,7 +113,7 @@ export const de: Dictionary = {
     about: {
       title: 'Wer diese Gazette schreibt',
       lead: 'Ein Softwareentwickler aus Belo Horizonte, in wenigen Absätzen und einem Steckbrief.',
-      p1: 'Raphael Sena studiert Softwaretechnik an der PUC Minas und arbeitet mit Plattformen für elektronisches Fahrgeldmanagement und die Einnahmenverwaltung im Nahverkehr. Zu den Vorlieben zählen das Programmieren, das Erheben von Anforderungen und die Verbindung beider zu einem Produkt.',
+      p1: 'Softwareentwicklung mit Schwerpunkt Back-End, parallel in zwei Java/Spring-Boot-Codebasen: Ticketing-Systeme im Produktivbetrieb mit über 177.000 Nutzenden bei Modaxo und, als freiberufliche Backend-Entwicklung, eine von Grund auf gebaute mandantenfähige ERP- und Steuerplattform mit Java 21, PostgreSQL, Flyway und ereignisgesteuerter Architektur. Sicher darin, ein Feature vom Datenmodell und der Persistenz mit JPA/Hibernate über das REST-API-Design und die Tests bis zum Release zu verantworten. Studium der Softwaretechnik an der PUC Minas.',
       p2: '[ABSATZ ÜBER MICH: wie das Programmieren begann, was antreibt und was jetzt gesucht wird.]',
       quote: '[EIN EIGENER SATZ ZUM HERVORHEBEN]',
       p3: '[ZWEITER ABSATZ: eine Arbeitsweise, ein Wert, etwas, das der Leserschaft in Erinnerung bleiben soll.]',
@@ -131,6 +130,8 @@ export const de: Dictionary = {
         interestsValue: 'Softwarearchitektur und Anforderungen',
         outside: 'Abseits des Codes',
         outsideValue: 'Schach',
+        languages: 'Sprachen',
+        languagesValue: 'Portugiesisch (Muttersprache), Englisch (C1), Spanisch (A2), Deutsch (B1)',
       },
     },
     experience: {
@@ -138,32 +139,94 @@ export const de: Dictionary = {
       lead: 'Was bisher geleistet wurde, wo und mit welchen Werkzeugen.',
       jobsTitle: 'Erfahrung',
       jobs: {
-        modaxo: {
-          role: '[POSITION]',
-          text: 'Plattformen für elektronisches Fahrgeldmanagement und die Einnahmenverwaltung im Nahverkehr.',
+        newenergy: {
+          role: 'Backend-Entwicklung (freiberuflich, remote)',
+          items: [
+            {
+              title: 'Precifique: Preis- und Steuerberechnung (von Grund auf)',
+              text: 'Ein kommerzielles System zur Preiskalkulation und brasilianischen Steuerberechnung von Grund auf gebaut, mit Java 21, Spring Boot 3.2, PostgreSQL und Flyway-Migrationen, als Ersatz für einen alten Excel-Ablauf. Die steuerliche Klassifizierung nach NCM über JPA/Hibernate-Beziehungen modelliert und die Steuerdaten-API von IBPT eingebunden.',
+            },
+            {
+              title: 'Kvaris: mandantenfähige ERP-Plattform',
+              text: 'Precifique zu einem breiteren mandantenfähigen ERP ausgebaut, das zwei juristische Personen auf einer gemeinsamen Datenbank bedient, mit Mandantentrennung über einen anfragebezogenen TenantContext/TenantInterceptor. Die Pipeline aus Vertrieb, Einkauf, WMS, Steuern und Finanzen als modularen Monolithen entworfen, mit interner ereignisgesteuerter Kommunikation (Spring ApplicationEventPublisher) und einer eigenen Zustandsmaschine für die Statuswechsel der Aufträge.',
+            },
+            {
+              title: 'Authentifizierung und Integrationen',
+              text: 'Single Sign-on mit OAuth2/OIDC über Microsoft Entra ID (Azure AD) mit rollenbasierten App Roles umgesetzt, dazu geplante Synchronisierungsjobs mit APIs externer ERP-Systeme für beide Unternehmen.',
+            },
+            {
+              title: 'Technisches Urteilsvermögen',
+              text: 'Architekturentscheidungen bewusst gegen Überengineering getroffen: kostengünstiges VPS/PaaS-Hosting statt verwalteter Cloud-Dienste und ein vereinfachtes internes Outbox-Muster statt einer Kafka/Debezium-Pipeline. Aktuell in aktiver Entwicklung auf einer Staging-Umgebung, mit Live-Demo.',
+            },
+          ],
         },
-        agencia: {
-          role: 'Leitung des Back-End-Teams im Projekt Cuido Bem',
-          text: 'Code-Reviews, Unit-Tests für die MVC-Struktur und ein GlobalExceptionHandler zur Behandlung von Back-End-Ausnahmen.',
+        modaxo: {
+          role: 'Software Engineer',
+          items: [
+            {
+              title: 'Sigom Cloud: Zahlungsbericht (Java)',
+              text: 'Die Erzeugung des Zahlungsberichts in Java/Spring Boot auf einer Plattform für Einnahmenverwaltung im Nahverkehr neu aufgebaut und den geschätzten Rechenaufwand bei großen Datenmengen von 20 Mio. bis 1 Billion auf 1 Mio. Operationen gesenkt; die zugehörigen REST-Endpunkte durchgängig geliefert.',
+            },
+            {
+              title: 'Korrektive und evolutionäre Wartung (SIGO)',
+              text: 'Entwicklung und Wartung von Java/Spring-Boot-Diensten hinter einem elektronischen Ticketing-Produkt, das in 47 Städten mit über 695.000 Downloads im Einsatz ist: Produktionsvorfälle untersuchen und beheben, Funktionen weiterentwickeln und REST-Integrationen in einem verteilten, dienstorientierten Back-End pflegen.',
+            },
+            {
+              title: 'Datenintegrität über Systeme hinweg',
+              text: 'Datenbankversionierung und Migrationen in 120 Produktivsystemen mit Liquibase automatisiert, manuelle SQL-Abweichungen beseitigt und das Deployment-Risiko für ältere Java-Dienste gesenkt.',
+            },
+            {
+              title: 'Arbeitsweise',
+              text: 'Arbeit in Scrum-Squads: technische Refinements und Schätzungen, Code-Reviews, Nachverfolgung und Dokumentation in Jira/Confluence sowie inkrementelle Lieferung gemeinsam mit den Produktverantwortlichen.',
+            },
+          ],
         },
         avaso: {
-          role: 'Field Support Engineer (Service Desk, freiberuflich)',
-          text: 'Englischsprachiger Support für einen multikulturellen Nutzerkreis: Diagnose und Behebung von Problemen an Desktops, Notebooks, virtuellen Maschinen, Smartphones, Servern, Backups, VoIP-Telefonen und Peripheriegeräten, dokumentiert in einem Ticketsystem.',
+          role: 'Field Support Engineer',
+          items: [
+            {
+              title: 'Service Desk (freiberuflich)',
+              text: 'Hardware- und Softwarestörungen an Desktops, Notebooks, virtuellen Maschinen, Servern, Backup-Systemen, VoIP-Geräten und Peripherie behoben und dabei 95 % SLA-Einhaltung für einen multikulturellen englischsprachigen Nutzerkreis erreicht, als zugeteilte Fachkraft für internationale Kunden.',
+            },
+          ],
         },
         puc: {
-          role: 'IT-Techniker (Service Desk und Help Desk)',
-          text: 'Konfiguration und Prüfung von Netzwerken, Hardwareinstallation, Wartung von Computern und Support der Stufe 1 mit Active Directory, Ticketsystem, VPN sowie Verzeichnis- und Druckerzuordnung, im Rahmen der vereinbarten Servicelevel. Mitarbeit an einem Migrationsprojekt für die Telefonie.',
+          role: 'IT-Techniker',
+          items: [
+            {
+              title: 'Telefonie-Migration',
+              text: 'Eine VoIP-Migration für über 100 Nutzende geleitet, die logische Netzwerktopologie neu konfiguriert und die Endgeräte-Hardware während der Umstellung installiert.',
+            },
+            {
+              title: 'Service Desk und Help Desk',
+              text: 'Technischen Support der Stufe 1 mit Active Directory, Ticketsystem (CSC), VPN sowie Verzeichnis- und Druckerzuordnung geleistet, im Rahmen der vereinbarten Servicelevel.',
+            },
+          ],
         },
       },
+      pucNote: 'Trägerstiftung der PUC Minas',
       educationTitle: 'Ausbildung',
       education: {
         puc: {
           title: 'Bachelorstudium Softwaretechnik',
           place: 'Belo Horizonte, MG, Brasilien',
-          text: 'Systementwicklung, Anforderungsanalyse und Softwarearchitektur, mit Schwerpunkt auf Back-End und agilen Methoden.',
+          items: [
+            {
+              title: 'Experimentelle Softwareagentur (PMMG)',
+              text: 'Tech Lead der HR-Recruiting-Plattform der Militärpolizei von Minas Gerais mit über 40.000 Bewerbenden pro Auswahlverfahren, mit Verantwortung vom Umfang bis zur Lieferung.',
+            },
+            {
+              title: 'Champion im interdisziplinären Projekt (2x)',
+              text: 'Zwei ausgezeichnete Teams geleitet, die Produktivsoftware für externe Kunden lieferten.',
+            },
+            {
+              title: 'Forschungsprojekt',
+              text: 'Mitglied einer Forschungsgruppe unter der Leitung von Prof. Lucila Ishitani, mit Veröffentlichung eines Artikels über Produktivität in der Softwaretechnik.',
+            },
+          ],
         },
         kogarah: {
-          title: 'Schüleraustausch (Klasse 11)',
+          title: 'Schüleraustausch',
           place: 'Sydney, NSW, Australien',
           text: 'Schüleraustausch in Sydney, Australien.',
         },
@@ -191,11 +254,13 @@ export const de: Dictionary = {
       figureAlt: 'Platzhalter für den Screenshot des Projekts {name}',
       descriptions: {
         remediar:
-          'Webplattform, die Medikamentenspenden, Bestand und Verteilung der NGO Remediar organisiert, gebaut mit Spring-Boot-Microservices, Next.js und Docker.',
+          'Preisgekrönte ERP-Plattform, gebaut und eingeführt für die NGO Remediar, eine Organisation für Medikamentenspenden: Bestand, Spenden und Berichte. Spring-Boot-Microservices, Next.js, PostgreSQL, Docker, Nginx und CI/CD.',
         'dress-manager':
           'Anwendung zur Verwaltung von Kleidern für Renata Senna: Fullstack-Software mit Java, Spring Boot, Next.js und TypeScript, gestaltet mit Tailwind CSS.',
         'recipes-and-flavors':
           'Webanwendung zum Teilen von Kochrezepten, mit Back-End in Java und Spring Boot und Front-End in Next.js, TypeScript und Tailwind CSS.',
+        'rural-erp':
+          'Abschlussprojekt: modulares ERP für Kleinerzeuger mit einem Modul zur Bewässerungssteuerung, entworfen mit DDD und mit ATAM validiert. Es umfasst einen agronomischen Copiloten mit LLM und RAG über öffentliche Agrardaten sowie Anomalieerkennung in Sensordaten.',
         portfolio: 'Persönliches Portfolio.',
         'relatorio-fotografico':
           'Verwaltung für Fotoberichte: Windows-Anwendung auf Basis der Java JRE, entwickelt für die Unternehmen Eletronet und New Energy. Sie erzeugt PDF-Berichte mit den Positionen und Kundendaten für die von CEMIG geforderte REI-Inspektion; CEMIG ist Kunde beider Unternehmen.',
@@ -206,14 +271,23 @@ export const de: Dictionary = {
       lead: 'Sprachen, Frameworks und Werkzeuge aus Beruf und Projekten.',
       groups: {
         languages: 'Sprachen',
+        backend: 'Back-End',
+        architecture: 'Architektur',
+        databases: 'Datenbanken',
+        auth: 'Authentifizierung und Integration',
+        devops: 'DevOps und Cloud',
+        testing: 'Tests und Qualität',
+        observability: 'Observability und Messaging',
         frontend: 'Front-End',
         mobile: 'Mobile',
-        backend: 'Back-End und Frameworks',
-        databases: 'Datenbanken',
-        devops: 'DevOps und Cloud',
-        observability: 'Observability',
-        messaging: 'Messaging und Caching',
-        tools: 'Entwicklungswerkzeuge',
+        practices: 'Arbeitsweisen',
+        domain: 'Fachgebiete',
+      },
+      extra: {
+        auth: ['Anbindung von Drittanbieter-APIs'],
+        testing: ['Automatisierte Tests', 'Code-Reviews'],
+        practices: ['Remote-Zusammenarbeit'],
+        domain: ['Fintech und brasilianisches Steuerrecht (ICMS, IPI, PIS/COFINS, NCM)', 'KI-gestützte Produkte'],
       },
     },
     timeline: {

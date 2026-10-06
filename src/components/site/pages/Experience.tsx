@@ -5,6 +5,19 @@ import type { Locale } from '@/i18n/config';
 import { t } from '@/i18n/dictionary';
 import { pageNumber } from '@/i18n/routes';
 
+function Highlights({ items }: { items: Array<{ title: string; text: string }> }) {
+  return (
+    <ul className="mt-2 space-y-2">
+      {items.map((item) => (
+        <li key={item.title}>
+          <span className="font-label text-[21px] tracking-[0.1em] uppercase">{item.title}.</span>{' '}
+          <span className="prose-gazeta">{item.text}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 function Row({
   period,
   title,
@@ -36,8 +49,7 @@ export function ExperiencePage({ locale }: { locale: Locale }) {
   const { common } = dict;
   const kicker = `${common.nav.experience} · ${common.dateline.page} ${pageNumber('experience')}`;
 
-  const range = (from: string | null, to: string | null, current: boolean) => {
-    if (!from) return common.placeholder.period;
+  const range = (from: string, to: string | null, current: boolean) => {
     const end = to ? formatMonth(locale, to) : current ? common.present : '';
     return end ? `${formatMonth(locale, from)} – ${end}` : formatMonth(locale, from);
   };
@@ -55,13 +67,10 @@ export function ExperiencePage({ locale }: { locale: Locale }) {
                 key={job.id}
                 period={range(job.from, job.to, job.current)}
                 title={job.company}
-                subtitle={text.role}
+                subtitle={job.id === 'puc' ? `${text.role} · ${experience.pucNote}` : text.role}
                 last={i === jobs.length - 1}
               >
-                <p className="prose-gazeta mt-1">{text.text}</p>
-                {job.skills.length > 0 && (
-                  <p className="mt-2 font-label text-[21px] tracking-[0.14em] uppercase">{job.skills.join(' · ')}</p>
-                )}
+                <Highlights items={text.items} />
               </Row>
             );
           })}
@@ -79,7 +88,7 @@ export function ExperiencePage({ locale }: { locale: Locale }) {
                 subtitle={`${text.title} · ${text.place}`}
                 last={i === education.length - 1}
               >
-                <p className="prose-gazeta mt-1">{text.text}</p>
+                {'items' in text ? <Highlights items={text.items} /> : <p className="prose-gazeta mt-1">{text.text}</p>}
               </Row>
             );
           })}
