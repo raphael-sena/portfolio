@@ -80,4 +80,4 @@ O currículo em inglês (`public/resume-raphael-sena.pdf`) virou a fonte do cont
 - Fonte do texto em português: `raphael_sena_resume-12.pdf` (agora publicado como `curriculo-raphael-sena.pdf`). Inglês e alemão acompanham o pt. Novidades: levantamento de requisitos (perfil, New Energy, PMMG, Interdisciplinar, Remediar, ERP Rural) e o grupo "Requisitos e produto" em Tecnologias.
 - O PDF em inglês (`resume-raphael-sena.pdf`) ainda é a versão sem as linhas de requisitos: falta uma versão em inglês do 12. Não há PDF em alemão (o alemão usa o inglês).
 - `raphael_sena_resume-5` a `-11` são variantes de currículo (IA, mobile, Java legado, backend/AWS, português anterior). Não estão no git nem publicadas.
-- Linha do tempo: "O que mudou" de 2024, 2025 e 2026 vem do diff das tags `site/*`; "O que aprendi" continua placeholder.
+- Linha do tempo: "O que mudou" de 2025 e 2026 vem do diff das tags `site/*`. "O que aprendi" foi removido da página; 2024 saiu da lista.

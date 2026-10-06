@@ -12,10 +12,6 @@ export const en: Dictionary = {
       price: 'Price: one click',
       page: 'Page',
     },
-    mastheadBoxes: {
-      left: ['Software Engineering', 'PUC Minas'],
-      right: ['Belo Horizonte', 'Minas Gerais'],
-    },
     nav: {
       label: 'Main',
       home: 'Home',
@@ -26,14 +22,20 @@ export const en: Dictionary = {
       timeline: 'Timeline',
       contact: 'Contact',
     },
-    footer: { privacy: 'Privacy' },
+    footer: {
+      privacy: 'Privacy',
+      mark: 'Masthead vignette: diagram of a linotype, the machine that set the type of newspapers. De Vinne, 1904. Public domain.',
+      markSource: 'Wikimedia Commons',
+      initial:
+        'About-page initial: illustration from “The Last Chronicle of Barset”, vol. 1, by Anthony Trollope. Public domain.',
+    },
     skipLink: 'Skip to content',
     language: { label: 'Language', current: 'current language' },
     ear: { hint: 'Pull the corner · page {n} →', aria: 'Turn the page: {section}, page {n}' },
     mac: {
       aria: 'Compact computer in 3D: drag, use the arrow keys or the buttons to rotate',
       caption: 'Fig. 1 — Compact computer, rotating view. Drag to examine.',
-      captionStatic: 'Fig. 1 — Compact computer (Apple II).',
+      captionStatic: 'Fig. 1 — Compact computer, rotating view.',
       left: 'Rotate left',
       reset: 'Reset',
       right: 'Rotate right',
@@ -131,8 +133,8 @@ export const en: Dictionary = {
     about: {
       title: 'Who writes this gazette',
       lead: 'A software developer from Belo Horizonte, in a few paragraphs and a fact sheet.',
-      p1: 'Backend-focused software engineer working across two concurrent Java/Spring Boot codebases: production ticketing systems serving 177,000+ users at Modaxo and, as a freelance backend developer, a multi-tenant ERP/tax platform built from scratch with Java 21, PostgreSQL, Flyway and event-driven architecture. Comfortable owning a feature from data model and JPA/Hibernate persistence through REST API design, testing and release. In both, I am also directly responsible for requirements gathering and for translating business needs into technical solutions, with no Product/BA layer between me and the decision-maker. Software Engineering student at PUC Minas. English C1, Spanish A2.',
-      p2: 'I started in IT support. After studying in Sydney, I worked in Service Desk and Help Desk roles, building a foundation in troubleshooting, networks, hardware and enterprise support. That customer-facing technical base led me to software engineering: today I build and modernize real-world mobility and ERP systems, while strengthening my fundamentals at PUC Minas (2023–2027).',
+      p1: 'Raphael Sena is a backend-focused software engineer working across two concurrent Java/Spring Boot codebases: production ticketing systems serving 177,000+ users at Modaxo and, as a freelance backend developer, a multi-tenant ERP/tax platform built from scratch with Java 21, PostgreSQL, Flyway and event-driven architecture. Comfortable owning a feature from data model and JPA/Hibernate persistence through REST API design, testing and release. In both, I am also directly responsible for requirements gathering and for translating business needs into technical solutions, with no Product/BA layer between me and the decision-maker. Software Engineering student at PUC Minas. English C1, Spanish A2.',
+      p2: 'Software developer now, I started out in IT support. After studying in Sydney, I worked in Service Desk and Help Desk roles, building a foundation in troubleshooting, networks, hardware and enterprise support. That customer-facing technical base led me to software engineering: today I build and modernize real-world mobility and ERP systems, while strengthening my fundamentals at PUC Minas (2023–2027).',
       quote: 'Customer support is what led me to software engineering.',
       p3: 'Outside of code, I enjoy chess, which stimulates concentration, logical thinking and strategic decision-making, and helps me develop problem-solving skills. I am also eclectic in music: I listen to a lot of bossa nova, samba and MPB, plus neo-psychedelia, indie, indie rock and jazz.',
       figureCaption: 'Fig. 1 — “The Newspaper Correspondent”, etching by Edwin Forbes, 1876. Public domain.',
@@ -280,13 +282,9 @@ export const en: Dictionary = {
           'Award-winning ERP platform built and deployed for the NGO Remediar, an organization focused on medicine donation, covering inventory, donations and reporting, with requirements gathered directly with the NGO team. Spring Boot microservices, Next.js, PostgreSQL, Docker, Nginx and CI/CD.',
         'dress-manager':
           'A dress management app for Renata Senna: full-stack software built with Java, Spring Boot, Next.js and TypeScript, styled with Tailwind CSS.',
-        'recipes-and-flavors':
-          'A web application for sharing cooking recipes, with a Java and Spring Boot back end and a Next.js, TypeScript and Tailwind CSS front end.',
         'rural-erp':
           'Capstone project: a modular ERP for small-scale producers with an irrigation control module, designed with DDD and validated through ATAM. Requirements gathered directly with a real agronomist, the project’s client. It includes an LLM agronomist copilot with RAG over public agricultural datasets, and anomaly detection over sensor data.',
         portfolio: 'Personal portfolio.',
-        'relatorio-fotografico':
-          'Photographic Report Manager: a Windows application running on the Java JRE, developed for the companies Eletronet and New Energy. It generates PDF reports with the items and client data for the REI inspection required by CEMIG, a client of both companies.',
       },
     },
     technologies: {
@@ -326,7 +324,6 @@ export const en: Dictionary = {
       lead: 'Every version of the portfolio is still online, from the oldest to the newest.',
       stack: 'Stack',
       changed: 'What changed',
-      learned: 'What I learned',
       now: 'Now',
       current: 'Current edition',
       open: 'Open /{year}',
@@ -334,19 +331,20 @@ export const en: Dictionary = {
       backCurrent: 'Back to the current edition',
       figureAlt: 'Screenshot of the {year} version of the portfolio',
       figureAltCurrent: 'Screenshot of the current edition of the portfolio',
+      engravingAlt:
+        'Engraving of a man in a tailcoat and bow tie, in profile, holding a watch chain; in front of him, in the foreground, a large pocket watch.',
+      engravingCaption:
+        'Fig. 1 — “Left-handed watches for left-handed people”, Popular Science Monthly, vol. 88 (1916). Public domain.',
+      engravingSource: 'Wikimedia Commons',
       changedByYear: {
-        '2024':
-          'First edition: a single page with light and dark themes, in English, Portuguese and German, with chess and music.',
         '2025':
           'Adds the extra courses section, with certificates, and the resume section; the technologies list is rebuilt.',
         '2026':
           'Introduction rewritten, experience updated (Modaxo, AVASO, Experimental Software Agency) and project screenshots added.',
       },
       placeholderChanged: '[A SENTENCE ABOUT THE DESIGN AND THE CODE]',
-      placeholderLearned: '[A SENTENCE ABOUT WHAT WAS LEARNED]',
       currentStack: 'Next.js 16, React 19, TypeScript, Tailwind CSS 4 and Cloudflare Workers',
       currentChanged: 'A black-and-white 1900 gazette, with page turning and a computer that spins.',
-      currentLearned: '[A SENTENCE ABOUT WHAT WAS LEARNED]',
     },
     contact: {
       title: 'Letters to the editor',

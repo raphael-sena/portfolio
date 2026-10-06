@@ -8,6 +8,8 @@ import type { MacViewer3DProps } from './MacViewer3D';
 
 const INITIAL = { rx: -10, ry: 30 } as const;
 const STEP = 45;
+/** Giro automático lento, em graus por segundo (uma volta a cada 45 s); o quadriculado gira ao contrário. */
+const SPIN_DEG_PER_S = 8;
 const POSTER_URL = '/models/apple-ii-poster.webp';
 
 /** Atribuição CC BY 4.0 do modelo (título, autor, fonte, licença e aviso de modificação). */
@@ -58,7 +60,9 @@ function webglDisponivel(): boolean {
 
 /**
  * Computador compacto. Mostra o poster; só quando o viewer entra na tela carrega o three.js e o .glb (chunk separado).
- * Se o WebGL ou o modelo falharem, cai para o cubo CSS 3D. Arrasto, setas do teclado e botões giram nos dois modos.
+ * Se o WebGL ou o modelo falharem, cai para o cubo CSS 3D. O computador gira sozinho, devagar, e o quadriculado de fundo
+ * gira no sentido oposto (em celular e desktop; sem giro com prefers-reduced-motion). Arrasto (só mouse), setas do
+ * teclado e botões somam ao giro automático nos dois modos.
  */
 export function MacViewer({ labels = DEFAULT_LABELS }: { labels?: MacViewerLabels }) {
   const frameRef = useRef<HTMLDivElement>(null);
@@ -68,6 +72,9 @@ export function MacViewer({ labels = DEFAULT_LABELS }: { labels?: MacViewerLabel
   const [phase, setPhase] = useState<Phase>('poster');
   const [Viewer3D, setViewer3D] = useState<ComponentType<MacViewer3DProps> | null>(null);
   const [reducedMotion, setReducedMotion] = useState(false);
+  const [spin, setSpin] = useState(0);
+  const draggingRef = useRef(false);
+  const visibleRef = useRef(false);
 
   useEffect(() => {
     const query = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -78,14 +85,49 @@ export function MacViewer({ labels = DEFAULT_LABELS }: { labels?: MacViewerLabel
   }, []);
 
   useEffect(() => {
+    draggingRef.current = dragging;
+  }, [dragging]);
+
+  // Giro automático: soma graus por tempo decorrido; pausa arrastando, fora da tela ou com a aba escondida.
+  const pronto = phase === '3d' || phase === 'cube';
+  useEffect(() => {
+    if (reducedMotion || !pronto) return;
+    let raf = 0;
+    let last = performance.now();
+    const tick = (now: number) => {
+      // Tempo real decorrido: em aparelho lento (poucos quadros por segundo) o giro mantém a mesma velocidade. O limite de
+      // 1 s só evita um salto grande ao voltar de uma aba escondida.
+      const dt = Math.min(now - last, 1000);
+      last = now;
+      if (!draggingRef.current && visibleRef.current && document.visibilityState === 'visible') {
+        setSpin((angulo) => angulo + (dt / 1000) * SPIN_DEG_PER_S);
+      }
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [reducedMotion, pronto]);
+
+  useEffect(() => {
+    const frame = frameRef.current;
+    if (!frame || !('IntersectionObserver' in window)) {
+      visibleRef.current = true;
+      return;
+    }
+    const observer = new IntersectionObserver((entries) => {
+      visibleRef.current = entries.some((e) => e.isIntersecting);
+    });
+    observer.observe(frame);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     const frame = frameRef.current;
     if (!frame) return;
     let started = false;
     const iniciar = () => {
       if (started) return;
       started = true;
-      // Abaixo de 768 px o modelo é só o poster: nada de three.js nem de .glb no celular.
-      if (window.matchMedia('(max-width: 767px)').matches) return;
       const economia = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData;
       if (economia || !webglDisponivel()) {
         setPhase('cube');
@@ -94,14 +136,34 @@ export function MacViewer({ labels = DEFAULT_LABELS }: { labels?: MacViewerLabel
       setPhase('loading');
       import('./MacViewer3D').then((m) => setViewer3D(() => m.default)).catch(() => setPhase('cube'));
     };
+    // No celular o 3D espera a página carregar e então a primeira interação (ou 5 s), com o navegador ocioso: assim não
+    // disputa com o LCP nem com a primeira interação.
+    const noCelular = window.matchMedia('(max-width: 767px)').matches;
+    const comecar = () => {
+      if (!noCelular) return iniciar();
+      const eventos = ['pointerdown', 'touchstart', 'scroll', 'keydown'] as const;
+      let timer = 0;
+      const disparar = () => {
+        window.clearTimeout(timer);
+        for (const e of eventos) window.removeEventListener(e, disparar);
+        if ('requestIdleCallback' in window) window.requestIdleCallback(iniciar, { timeout: 2500 });
+        else setTimeout(iniciar, 500);
+      };
+      const armar = () => {
+        for (const e of eventos) window.addEventListener(e, disparar, { once: true, passive: true });
+        timer = window.setTimeout(disparar, 5000);
+      };
+      if (document.readyState === 'complete') armar();
+      else window.addEventListener('load', armar, { once: true });
+    };
     if (!('IntersectionObserver' in window)) {
-      iniciar();
+      comecar();
       return;
     }
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries.some((e) => e.isIntersecting)) {
-          iniciar();
+          comecar();
           observer.disconnect();
         }
       },
@@ -119,6 +181,7 @@ export function MacViewer({ labels = DEFAULT_LABELS }: { labels?: MacViewerLabel
   const reset = () => setRot({ ...INITIAL });
 
   function onPointerDown(e: PointerEvent<HTMLDivElement>) {
+    if (e.pointerType === 'touch') return; // no toque o dedo rola a página; só o mouse arrasta
     e.currentTarget.setPointerCapture(e.pointerId);
     drag.current = { x: e.clientX, y: e.clientY, rx: rot.rx, ry: rot.ry };
     setDragging(true);
@@ -147,6 +210,8 @@ export function MacViewer({ labels = DEFAULT_LABELS }: { labels?: MacViewerLabel
   }
 
   const angle = Math.round(((rot.ry % 360) + 360) % 360);
+  const autoSpin = !reducedMotion;
+  const totalRy = rot.ry + spin;
   const showPoster = phase === 'poster' || phase === 'loading';
 
   return (
@@ -171,8 +236,8 @@ export function MacViewer({ labels = DEFAULT_LABELS }: { labels?: MacViewerLabel
           className="absolute -inset-[25%]"
           style={{
             background: 'repeating-conic-gradient(from 0 at 50% 50%, #111 0 6deg, #f3eedf 6deg 12deg)',
-            transform: `rotate(${rot.ry}deg)`,
-            transition: dragging || reducedMotion ? 'none' : 'transform 450ms ease-out',
+            transform: `rotate(${-totalRy}deg)`,
+            transition: dragging || reducedMotion || autoSpin ? 'none' : 'transform 450ms ease-out',
           }}
         />
         <div
@@ -186,13 +251,13 @@ export function MacViewer({ labels = DEFAULT_LABELS }: { labels?: MacViewerLabel
           style={{ boxShadow: '0 0 0 8px #f3eedf, 0 0 0 11px #111' }}
         />
         {phase === 'cube' ? (
-          <MacCube rx={rot.rx} ry={rot.ry} dragging={dragging} />
+          <MacCube rx={rot.rx} ry={totalRy} dragging={dragging || autoSpin} />
         ) : (
           <>
             {Viewer3D && (
               <Viewer3D
                 rx={rot.rx}
-                ry={rot.ry}
+                ry={totalRy}
                 dragging={dragging}
                 reducedMotion={reducedMotion}
                 onReady={() => setPhase('3d')}
@@ -207,8 +272,8 @@ export function MacViewer({ labels = DEFAULT_LABELS }: { labels?: MacViewerLabel
               width={900}
               height={1000}
               decoding="async"
-              loading="lazy"
-              fetchPriority="low"
+              loading="eager"
+              fetchPriority="high"
               draggable={false}
               className={`pointer-events-none absolute top-0 left-1/2 h-full w-auto max-w-none -translate-x-1/2 transition-opacity duration-300 ${showPoster ? 'opacity-100' : 'opacity-0'}`}
             />

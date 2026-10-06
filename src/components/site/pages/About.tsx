@@ -1,4 +1,4 @@
-import { DropCap, LeaderRow, PageHeader, Pullquote, SectionTitle } from '@/components/gazeta';
+import { DropCapImage, LeaderRow, PageHeader, Pullquote, SectionTitle } from '@/components/gazeta';
 import { LateImage } from '@/components/site/LateImage';
 import type { Locale } from '@/i18n/config';
 import { t } from '@/i18n/dictionary';
@@ -14,10 +14,26 @@ export function AboutPage({ locale }: { locale: Locale }) {
       <div className="mt-8 flex flex-wrap gap-y-9">
         <article className="min-w-0 flex-[2_1_420px] lg:pr-8">
           <p className="prose-gazeta">
-            <DropCap letter={about.p1.charAt(0)} />
+            <DropCapImage
+              letter={about.p1.charAt(0)}
+              src="/art/Printing_World_draped_dropcap_R.webp"
+              width={284}
+              height={628}
+            />
             {about.p1.slice(1)}
           </p>
-          <p className="prose-gazeta mt-4">{about.p2}</p>
+          <div className="flow-root">
+            <p className="prose-gazeta mt-4">
+              <DropCapImage
+                letter={about.p2.charAt(0)}
+                src="/art/barset-initial-s.webp"
+                width={640}
+                height={850}
+                className="h-[14rem] w-[10.5rem] max-md:h-[10.5rem] max-md:w-[7.9rem]"
+              />
+              {about.p2.slice(1)}
+            </p>
+          </div>
           <div className="my-6">
             <Pullquote>{about.quote}</Pullquote>
           </div>
