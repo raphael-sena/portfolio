@@ -10,10 +10,6 @@ export const pt = {
       price: 'Preço: um clique',
       page: 'Página',
     },
-    mastheadBoxes: {
-      left: ['Engenharia de Software', 'PUC Minas'],
-      right: ['Belo Horizonte', 'Minas Gerais'],
-    },
     nav: {
       label: 'Principal',
       home: 'Início',
@@ -130,7 +126,7 @@ export const pt = {
     about: {
       title: 'Quem escreve esta gazeta',
       lead: 'Um desenvolvedor de software de Belo Horizonte, em poucos parágrafos e uma ficha.',
-      p1: 'Engenheiro de software com foco em back-end, atuando em duas bases de código Java/Spring Boot ao mesmo tempo: sistemas de bilhetagem em produção, com mais de 177 mil usuários, na Modaxo e, como desenvolvedor backend freelance, uma plataforma ERP/tributária multi-tenant criada do zero com Java 21, PostgreSQL, Flyway e arquitetura orientada a eventos. À vontade para assumir uma funcionalidade do modelo de dados e da persistência com JPA/Hibernate ao desenho da API REST, aos testes e à entrega. Em ambos os projetos, atuo também como responsável direto pelo levantamento de requisitos e pela tradução de necessidades de negócio em solução técnica, sem camada de Product/BA entre mim e quem decide. Estudante de Engenharia de Software na PUC Minas. Inglês C1, espanhol A2.',
+      p1: 'Raphael Sena é engenheiro de software com foco em back-end, atuando em duas bases de código Java/Spring Boot ao mesmo tempo: sistemas de bilhetagem em produção, com mais de 177 mil usuários, na Modaxo e, como desenvolvedor backend freelance, uma plataforma ERP/tributária multi-tenant criada do zero com Java 21, PostgreSQL, Flyway e arquitetura orientada a eventos. À vontade para assumir uma funcionalidade do modelo de dados e da persistência com JPA/Hibernate ao desenho da API REST, aos testes e à entrega. Em ambos os projetos, atuo também como responsável direto pelo levantamento de requisitos e pela tradução de necessidades de negócio em solução técnica, sem camada de Product/BA entre mim e quem decide. Estudante de Engenharia de Software na PUC Minas. Inglês C1, espanhol A2.',
       p2: 'Comecei pelo suporte de TI. Depois de estudar em Sydney, atuei em Service Desk e Help Desk, onde construí uma base em troubleshooting, redes, hardware e suporte corporativo. Essa base técnica voltada ao cliente me levou à engenharia de software: hoje construo e modernizo sistemas reais de mobilidade e ERP, e sigo fortalecendo meus fundamentos na PUC Minas (2023–2027).',
       quote: 'Foi o suporte ao cliente que me levou à engenharia de software.',
       p3: 'Fora do código, gosto de xadrez, que estimula a concentração, o raciocínio lógico e a tomada de decisões estratégicas, e me ajuda a desenvolver a resolução de problemas. Também sou eclético na música: escuto muita bossa nova, samba e MPB, além de neo-psicodelia, indie, indie rock e jazz.',

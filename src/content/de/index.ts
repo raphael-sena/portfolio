@@ -17,10 +17,6 @@ export const de: Dictionary = {
       price: 'Preis: ein Klick',
       page: 'Seite',
     },
-    mastheadBoxes: {
-      left: ['Software Engineering', 'PUC Minas'],
-      right: ['Belo Horizonte', 'Minas Gerais'],
-    },
     nav: {
       label: 'Hauptmenü',
       home: 'Startseite',
@@ -141,7 +137,7 @@ export const de: Dictionary = {
     about: {
       title: 'Wer diese Gazette schreibt',
       lead: 'Ein Softwareentwickler aus Belo Horizonte, in wenigen Absätzen und einem Steckbrief.',
-      p1: 'Softwareentwicklung mit Schwerpunkt Back-End, parallel in zwei Java/Spring-Boot-Codebasen: Ticketing-Systeme im Produktivbetrieb mit über 177.000 Nutzenden bei Modaxo und, als freiberufliche Backend-Entwicklung, eine von Grund auf gebaute mandantenfähige ERP- und Steuerplattform mit Java 21, PostgreSQL, Flyway und ereignisgesteuerter Architektur. Sicher darin, ein Feature vom Datenmodell und der Persistenz mit JPA/Hibernate über das REST-API-Design und die Tests bis zum Release zu verantworten. In beiden Projekten bin ich außerdem direkt für die Anforderungserhebung und die Übersetzung fachlicher Bedürfnisse in technische Lösungen verantwortlich, ohne Product-/BA-Ebene zwischen mir und den Entscheidenden. Studium der Softwaretechnik an der PUC Minas. Englisch C1, Spanisch A2.',
+      p1: 'Raphael Sena ist Softwareentwickler mit Schwerpunkt Back-End und arbeitet parallel in zwei Java/Spring-Boot-Codebasen: Ticketing-Systeme im Produktivbetrieb mit über 177.000 Nutzenden bei Modaxo und, als freiberufliche Backend-Entwicklung, eine von Grund auf gebaute mandantenfähige ERP- und Steuerplattform mit Java 21, PostgreSQL, Flyway und ereignisgesteuerter Architektur. Sicher darin, ein Feature vom Datenmodell und der Persistenz mit JPA/Hibernate über das REST-API-Design und die Tests bis zum Release zu verantworten. In beiden Projekten bin ich außerdem direkt für die Anforderungserhebung und die Übersetzung fachlicher Bedürfnisse in technische Lösungen verantwortlich, ohne Product-/BA-Ebene zwischen mir und den Entscheidenden. Studium der Softwaretechnik an der PUC Minas. Englisch C1, Spanisch A2.',
       p2: 'Ich habe im IT-Support angefangen. Nach dem Auslandsaufenthalt in Sydney arbeitete ich im Service Desk und Help Desk und baute eine Grundlage in Troubleshooting, Netzwerken, Hardware und Unternehmenssupport auf. Diese kundennahe technische Basis führte mich zur Softwareentwicklung: Heute baue und modernisiere ich reale Mobilitäts- und ERP-Systeme und stärke meine Grundlagen an der PUC Minas (2023–2027).',
       quote: 'Der Kundensupport hat mich zur Softwareentwicklung geführt.',
       p3: 'Außerhalb des Codes spiele ich gern Schach, das Konzentration, logisches Denken und strategische Entscheidungen fördert und mir hilft, Problemlösung zu üben. Auch in der Musik bin ich vielseitig: Ich höre viel Bossa Nova, Samba und MPB sowie Neo-Psychedelia, Indie, Indie-Rock und Jazz.',

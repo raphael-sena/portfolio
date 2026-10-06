@@ -2,6 +2,7 @@ export { Button } from './Button';
 export { Callout } from './Callout';
 export { Dateline } from './Dateline';
 export { DropCap } from './DropCap';
+export { DropCapImage } from './DropCapImage';
 export { Footer, type FooterLink } from './Footer';
 export { HatchPlaceholder } from './HatchPlaceholder';
 export { LeaderRow } from './LeaderRow';

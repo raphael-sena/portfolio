@@ -38,7 +38,6 @@ export function SiteShell({ locale, id, children }: { locale: Locale; id: AnyPag
         variant={isHome ? 'home' : 'inner'}
         title={common.siteName}
         subtitle={common.tagline}
-        boxes={{ left: common.mastheadBoxes.left, right: common.mastheadBoxes.right }}
         homeHref={pathFor(locale, 'home')}
       />
       <div className="max-md:hidden">

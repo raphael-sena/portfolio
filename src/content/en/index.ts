@@ -12,10 +12,6 @@ export const en: Dictionary = {
       price: 'Price: one click',
       page: 'Page',
     },
-    mastheadBoxes: {
-      left: ['Software Engineering', 'PUC Minas'],
-      right: ['Belo Horizonte', 'Minas Gerais'],
-    },
     nav: {
       label: 'Main',
       home: 'Home',
@@ -131,7 +127,7 @@ export const en: Dictionary = {
     about: {
       title: 'Who writes this gazette',
       lead: 'A software developer from Belo Horizonte, in a few paragraphs and a fact sheet.',
-      p1: 'Backend-focused software engineer working across two concurrent Java/Spring Boot codebases: production ticketing systems serving 177,000+ users at Modaxo and, as a freelance backend developer, a multi-tenant ERP/tax platform built from scratch with Java 21, PostgreSQL, Flyway and event-driven architecture. Comfortable owning a feature from data model and JPA/Hibernate persistence through REST API design, testing and release. In both, I am also directly responsible for requirements gathering and for translating business needs into technical solutions, with no Product/BA layer between me and the decision-maker. Software Engineering student at PUC Minas. English C1, Spanish A2.',
+      p1: 'Raphael Sena is a backend-focused software engineer working across two concurrent Java/Spring Boot codebases: production ticketing systems serving 177,000+ users at Modaxo and, as a freelance backend developer, a multi-tenant ERP/tax platform built from scratch with Java 21, PostgreSQL, Flyway and event-driven architecture. Comfortable owning a feature from data model and JPA/Hibernate persistence through REST API design, testing and release. In both, I am also directly responsible for requirements gathering and for translating business needs into technical solutions, with no Product/BA layer between me and the decision-maker. Software Engineering student at PUC Minas. English C1, Spanish A2.',
       p2: 'I started in IT support. After studying in Sydney, I worked in Service Desk and Help Desk roles, building a foundation in troubleshooting, networks, hardware and enterprise support. That customer-facing technical base led me to software engineering: today I build and modernize real-world mobility and ERP systems, while strengthening my fundamentals at PUC Minas (2023–2027).',
       quote: 'Customer support is what led me to software engineering.',
       p3: 'Outside of code, I enjoy chess, which stimulates concentration, logical thinking and strategic decision-making, and helps me develop problem-solving skills. I am also eclectic in music: I listen to a lot of bossa nova, samba and MPB, plus neo-psychedelia, indie, indie rock and jazz.',
