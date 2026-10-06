@@ -22,19 +22,20 @@ SOA: `dns1.registrar-servers.com. hostmaster.registrar-servers.com. 1734727836 4
 
 ## Registros DNS atuais
 
-| Tipo                                                 | Nome | Valor                                                | Obs.               |
-| ---------------------------------------------------- | ---- | ---------------------------------------------------- | ------------------ |
-| NS                                                   | @    | dns1/dns2.registrar-servers.com.                     | rollback           |
-| A                                                    | @    | 76.76.21.21                                          | Vercel (apex)      |
-| CNAME                                                | www  | cname.vercel-dns.com.                                | Vercel             |
-| **MX**                                               | @    | 10 eforward1.registrar-servers.com.                  | **copiar**         |
-| **MX**                                               | @    | 10 eforward2.registrar-servers.com.                  | **copiar**         |
-| **MX**                                               | @    | 10 eforward3.registrar-servers.com.                  | **copiar**         |
-| **MX**                                               | @    | 15 eforward4.registrar-servers.com.                  | **copiar**         |
-| **MX**                                               | @    | 20 eforward5.registrar-servers.com.                  | **copiar**         |
-| **TXT**                                              | @    | `v=spf1 include:spf.efwd.registrar-servers.com ~all` | **copiar** (SPF)   |
-| CAA, AAAA, DS, DNSKEY                                | @    | vazio                                                |                    |
-| mail, stats, umami, _dmarc, default._domainkey, _spf |      | vazio                                                | sem DMARC nem DKIM |
+| Tipo                                                 | Nome | Valor                                                                  | Obs.                                              |
+| ---------------------------------------------------- | ---- | ---------------------------------------------------------------------- | ------------------------------------------------- |
+| NS                                                   | @    | dns1/dns2.registrar-servers.com.                                       | rollback                                          |
+| A                                                    | @    | 76.76.21.21                                                            | Vercel (apex)                                     |
+| CNAME                                                | www  | cname.vercel-dns.com.                                                  | Vercel                                            |
+| **MX**                                               | @    | 10 eforward1.registrar-servers.com.                                    | **copiar**                                        |
+| **MX**                                               | @    | 10 eforward2.registrar-servers.com.                                    | **copiar**                                        |
+| **MX**                                               | @    | 10 eforward3.registrar-servers.com.                                    | **copiar**                                        |
+| **MX**                                               | @    | 15 eforward4.registrar-servers.com.                                    | **copiar**                                        |
+| **MX**                                               | @    | 20 eforward5.registrar-servers.com.                                    | **copiar**                                        |
+| **TXT**                                              | @    | `v=spf1 include:spf.efwd.registrar-servers.com ~all`                   | **copiar** (SPF)                                  |
+| **TXT**                                              | @    | `google-site-verification=KT_00vPl1jvEt0xxeeP72SozaW_lyl8wNMvEJN77-SE` | **copiar** (Search Console, achado em 2026-10-06) |
+| CAA, AAAA, DS, DNSKEY                                | @    | vazio                                                                  |                                                   |
+| mail, stats, umami, _dmarc, default._domainkey, _spf |      | vazio                                                                  | sem DMARC nem DKIM                                |
 
 Limitação: só foram consultados os nomes acima. A lista completa e os TTLs só aparecem no painel Advanced DNS do Namecheap.
 Observação: não há TXT de verificação do Search Console no apex. A propriedade pode usar outro método (meta tag, arquivo ou propriedade de prefixo de URL). Confirmar.
@@ -84,3 +85,10 @@ Mecanismo escolhido: **Redirect Rule (Single Redirect) da Cloudflare**, criada n
 - Então: redirecionamento dinâmico para `concat("https://www.raphaelsena.com", http.request.uri.path)`, status **301**, preservando a query string.
 - O apex e o `www` precisam existir como registros proxied (ou como custom domains do Worker) para a regra ser alcançada.
 - Teste: `SMOKE_APEX=https://raphaelsena.com PLAYWRIGHT_BASE_URL=https://www.raphaelsena.com pnpm test:publicado` (um único 301 e `Location` com o caminho). Hoje a Vercel responde 308 em duas etapas no http; o novo comportamento é um salto só.
+
+## G8: andamento (2026-10-06)
+
+- Zona `raphaelsena.com` criada na Cloudflare (Free); nameservers `braelyn.ns.cloudflare.com` e `uriah.ns.cloudflare.com`, trocados na Namecheap em 2026-10-06 (~20:12 UTC). A importação trouxe A, CNAME `www`, 5 MX e SPF; o TXT do Google foi criado à mão. Não há DNSSEC. Não há caixa de e-mail própria: o encaminhamento não foi testado.
+- **Incidente de ~10 min após a troca:** A `@` e CNAME `www` ficaram com proxy (nuvem laranja) na frente da Vercel; HTTPS deu `handshake failure` (certificado da zona ainda não emitido). Corrigido ao voltar os dois para "DNS only" (cinza). Regra: **ficam cinza até o passo 5.**
+- O deploy do CI passou a compilar com `SITE_ENV=production` (indexável, HSTS, robots liberado); antes era `preview` (noindex). Smoke novo: "produção: indexável" (só roda no domínio raphaelsena.com).
+- Ordem restante: custom domains do Worker (painel) > Redirect Rule apex>www 301 (painel) > `SMOKE_BASE_URL=https://www.raphaelsena.com` > smoke > desligar `workers_dev` > Search Console > Vercel após 48 h.
