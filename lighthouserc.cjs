@@ -3,7 +3,7 @@
 // Orçamentos do BRIEF: Performance >= 95, Acessibilidade 100, SEO 100, Boas práticas >= 95; LCP < 2,0 s, CLS < 0,05.
 const porta = 4330;
 const base = `http://127.0.0.1:${porta}`;
-const urls = [
+const todas = [
   '/',
   '/sobre/',
   '/experiencia/',
@@ -17,6 +17,16 @@ const urls = [
   '/de/contato/',
   '/privacidade/',
 ];
+// No CI (PR para o main) um conjunto representativo nos 3 idiomas, para o job caber em poucos minutos;
+// localmente (ou com LHCI_TODAS=1), todas as rotas.
+const representativas = ['/', '/sobre/', '/en/', '/en/projetos/', '/de/', '/de/contato/'];
+const urls = process.env.CI && !process.env.LHCI_TODAS ? representativas : todas;
+
+// Calibração da CPU: o Lighthouse simula um celular lento com `cpuSlowdownMultiplier: 4` sobre uma máquina de referência.
+// Medido pelo próprio Lighthouse (benchmarkIndex), um Mac de desenvolvimento faz ~4.700 e o runner do GitHub ~2.400:
+// metade da velocidade. No CI o multiplicador de 2 equivale, na prática, aos 4 de uma máquina de desenvolvimento
+// (com 4 o runner media TBT 60 a 190 ms contra ~3 ms local, só por ser mais lento).
+const cpuSlowdownMultiplier = process.env.CI ? 2 : 4;
 
 module.exports = {
   ci: {
@@ -27,6 +37,7 @@ module.exports = {
       startServerReadyPattern: 'Ready on',
       startServerReadyTimeout: 120000,
       settings: {
+        throttling: { cpuSlowdownMultiplier },
         // Chromium do Playwright no CI e localmente (CHROME_PATH); sem sandbox por causa dos contêineres de CI.
         chromeFlags: '--no-sandbox --headless=new',
       },

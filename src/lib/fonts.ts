@@ -1,10 +1,13 @@
 import { Bodoni_Moda_SC, Pathway_Gothic_One, PT_Serif_Caption, UnifrakturMaguntia } from 'next/font/google';
 import localFont from 'next/font/local';
 
+// `optional` nas duas fontes que pintam o LCP (letreiro e texto corrido): são preload e chegam junto com o CSS, então
+// entram na primeira pintura; em rede muito lenta, ficam para a próxima visita em vez de trocar a fonte no meio da leitura
+// (o que também refaz o LCP e causa deslocamento).
 const unifraktur = UnifrakturMaguntia({
   weight: '400',
   subsets: ['latin'],
-  display: 'swap',
+  display: 'optional',
   variable: '--font-unifraktur',
 });
 const bodoni = Bodoni_Moda_SC({
@@ -36,7 +39,7 @@ const ptSerif = PT_Serif_Caption({
   weight: '400',
   style: ['normal', 'italic'],
   subsets: ['latin'],
-  display: 'swap',
+  display: 'optional',
   variable: '--font-ptserif',
 });
 
