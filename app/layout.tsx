@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { Bodoni_Moda_SC, Pathway_Gothic_One, PT_Serif_Caption, UnifrakturMaguntia } from 'next/font/google';
+import { SkipLink } from '@/components/gazeta';
 import './globals.css';
 
 const unifraktur = UnifrakturMaguntia({
@@ -46,7 +47,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="pt-BR" className={`${unifraktur.variable} ${bodoni.variable} ${pathway.variable} ${ptSerif.variable}`}>
-      <body>{children}</body>
+      <body>
+        <SkipLink />
+        {children}
+      </body>
     </html>
   );
 }

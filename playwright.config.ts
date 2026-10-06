@@ -14,6 +14,7 @@ export default defineConfig({
   projects: [
     { name: 'seo', testDir: './tests/seo', use: { ...devices['Desktop Chrome'], javaScriptEnabled: false } },
     { name: 'e2e', testDir: './tests/e2e', use: { ...devices['Desktop Chrome'] } },
+    { name: 'a11y', testDir: './tests/a11y', use: { ...devices['Desktop Chrome'] } },
     ...(completa
       ? [
           { name: 'firefox', testDir: './tests/e2e', use: { ...devices['Desktop Firefox'] } },
