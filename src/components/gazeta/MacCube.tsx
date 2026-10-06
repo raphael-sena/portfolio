@@ -39,9 +39,9 @@ export function MacCube({ rx, ry, dragging }: { rx: number; ry: number; dragging
           style={{ transform: 'rotateY(0) translateZ(100px)' }}
         >
           <Hatch id={`${hatchId}-f`} />
-          <rect x="2" y="2" width="196" height="236" rx="12" fill="#f2f0e8" {...STROKE} />
+          <rect x="2" y="2" width="196" height="236" rx="12" fill="#efead9" {...STROKE} />
           <rect x="170" y="10" width="22" height="220" fill={`url(#${hatchId}-f)`} opacity=".5" />
-          <rect x="28" y="28" width="132" height="108" rx="14" fill="#f5f3ec" {...STROKE} />
+          <rect x="28" y="28" width="132" height="108" rx="14" fill="#f3eedf" {...STROKE} />
           <rect x="64" y="58" width="10" height="16" fill="#111" />
           <rect x="114" y="58" width="10" height="16" fill="#111" />
           <path d="M62 98h8v8h8v8h34v-8h8v-8h8" fill="none" {...STROKE} strokeLinejoin="miter" />
@@ -62,7 +62,7 @@ export function MacCube({ rx, ry, dragging }: { rx: number; ry: number; dragging
             <line key={y} x1="40" y1={y} x2="160" y2={y} {...STROKE} strokeWidth="3" />
           ))}
           {[60, 100, 140].map((x) => (
-            <circle key={x} cx={x} cy="190" r="10" fill="#f5f3ec" {...STROKE} />
+            <circle key={x} cx={x} cy="190" r="10" fill="#f3eedf" {...STROKE} />
           ))}
         </svg>
         {/* Laterais */}
@@ -89,7 +89,7 @@ export function MacCube({ rx, ry, dragging }: { rx: number; ry: number; dragging
           height="200"
           style={{ top: 20, transform: 'rotateX(90deg) translateZ(120px)' }}
         >
-          <rect x="2" y="2" width="196" height="196" rx="12" fill="#e6e3d8" {...STROKE} />
+          <rect x="2" y="2" width="196" height="196" rx="12" fill="#e3ddcb" {...STROKE} />
           <rect x="30" y="30" width="140" height="140" rx="8" fill="none" {...STROKE} strokeWidth="2" />
         </svg>
         <svg

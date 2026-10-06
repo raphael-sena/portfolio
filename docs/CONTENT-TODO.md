@@ -13,12 +13,12 @@ Os textos em `en` e `de` foram traduzidos do pt (revisão: `src/content/reviewed
 
 ## Placeholders por página
 
-| Página         | Placeholder                                                                                                                                                                                | Texto sugerido                                                                                                                                                               |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Sobre          | `[PARÁGRAFO SOBRE VOCÊ...]`, `[UMA FRASE SUA PARA DESTACAR]`, `[SEGUNDO PARÁGRAFO...]`, `[RETRATO]`, `Fig. 1 — [LEGENDA DO RETRATO]`                                                       | Semente: o `about_text` do legado, em `../portfolio-legacy/code/services/translations.ts` (en, pt e de). Ele cita cargo e empresa atuais; só entra o que o usuário confirmar |
-| Experiência    | `[CARGO]` e `[PERÍODO]` da Modaxo                                                                                                                                                          | Aguardam o usuário (cargo e data da Modaxo, 05/2025 no legado)                                                                                                               |
-| Projetos       | `Fig. N — [CAPTURA DO PROJETO]` (5 projetos)                                                                                                                                               | Capturas de tela dos 5 repositórios                                                                                                                                          |
-| Linha do tempo | `[UMA FRASE SOBRE O DESIGN E O CÓDIGO]` e `[UMA FRASE SOBRE O APRENDIZADO]` nas edições 2024, 2025 e 2026; `[UMA FRASE SOBRE O APRENDIZADO]` na edição atual; `[CAPTURA DA VERSÃO DE ANO]` | Dados reais em `archives.json`; as frases são do usuário                                                                                                                     |
+| Página         | Placeholder                                                                                                                                                                                                                    | Texto sugerido                                                 |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------- |
+| Sobre          | `[RETRATO]`, `Fig. 1 — [LEGENDA DO RETRATO]`. Os parágrafos e a frase de destaque agora vêm do currículo e do `about_text`/xadrez/música do legado (2026-10-06); a frase de destaque é uma paráfrase do legado e vale conferir | Retrato do autor                                               |
+| Experiência    | `[CARGO]` e `[PERÍODO]` da Modaxo                                                                                                                                                                                              | Aguardam o usuário (cargo e data da Modaxo, 05/2025 no legado) |
+| Projetos       | `Fig. N — [CAPTURA DO PROJETO]` (5 projetos)                                                                                                                                                                                   | Capturas de tela dos 5 repositórios                            |
+| Linha do tempo | `[UMA FRASE SOBRE O DESIGN E O CÓDIGO]` e `[UMA FRASE SOBRE O APRENDIZADO]` nas edições 2024, 2025 e 2026; `[UMA FRASE SOBRE O APRENDIZADO]` na edição atual; `[CAPTURA DA VERSÃO DE ANO]`                                     | Dados reais em `archives.json`; as frases são do usuário       |
 
 ## Do protótipo, a confirmar
 
@@ -74,3 +74,10 @@ O currículo em inglês (`public/resume-raphael-sena.pdf`) virou a fonte do cont
 - Os números do currículo estão no ar (177 mil usuários, 47 cidades, 695 mil downloads, 120 sistemas, 40 mil candidatos, 95% de SLA, 100+ usuários, 20 milhões a 1 trilhão para 1 milhão de operações). Qualquer ajuste deve ser feito no currículo e nos dicionários.
 - A Profa. Lucila Ishitani é citada pelo nome no projeto de pesquisa (como no currículo).
 - Versão em português do currículo em PDF (`curriculo-raphael-sena.pdf` ainda é a antiga).
+
+## Atualização de 2026-10-06 (versões do currículo em `public/`)
+
+- Fonte do texto em português: `raphael_sena_resume-12.pdf` (agora publicado como `curriculo-raphael-sena.pdf`). Inglês e alemão acompanham o pt. Novidades: levantamento de requisitos (perfil, New Energy, PMMG, Interdisciplinar, Remediar, ERP Rural) e o grupo "Requisitos e produto" em Tecnologias.
+- O PDF em inglês (`resume-raphael-sena.pdf`) ainda é a versão sem as linhas de requisitos: falta uma versão em inglês do 12. Não há PDF em alemão (o alemão usa o inglês).
+- `raphael_sena_resume-5` a `-11` são variantes de currículo (IA, mobile, Java legado, backend/AWS, português anterior). Não estão no git nem publicadas.
+- Linha do tempo: "O que mudou" de 2024, 2025 e 2026 vem do diff das tags `site/*`; "O que aprendi" continua placeholder.

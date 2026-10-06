@@ -18,7 +18,7 @@ const el = (tamanho) => ({
       display: 'flex',
       width: tamanho,
       height: tamanho,
-      background: '#F5F3EC',
+      background: '#F3EEDF',
       border: `${Math.max(2, Math.round(tamanho * 0.04))}px solid #111111`,
       alignItems: 'center',
       justifyContent: 'center',

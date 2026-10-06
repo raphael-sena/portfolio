@@ -2,19 +2,19 @@
 
 /* Tokens da "Gazeta de 1900" (BRIEF seção 3; extras do protótipo em docs/DESIGN-SPEC.md seção 2). */
 @theme {
-  --color-paper: #f5f3ec;
+  --color-paper: #f3eedf;
   --color-ink: #111111;
   --color-visited: #555555;
-  --color-grey-1: #f2f0e8;
-  --color-grey-2: #e6e3d8;
-  --color-grey-3: #d9d6cb;
-  --color-grey-4: #cfccc0;
+  --color-grey-1: #efead9;
+  --color-grey-2: #e3ddcb;
+  --color-grey-3: #d6d0bd;
+  --color-grey-4: #cac3ae;
   --color-stage: #161616;
   /* Extras usados pelo protótipo (pilha de folhas, orelha) */
-  --color-sheet-4: #efede3;
-  --color-ear-back: #e4e1d5;
-  --color-fold-dark: #a9a597;
-  --color-fold-light: #e7e4d8;
+  --color-sheet-4: #ece6d5;
+  --color-ear-back: #e1dac7;
+  --color-fold-dark: #a8a18c;
+  --color-fold-light: #e6dfcc;
 
   --font-masthead: var(--font-unifraktur), 'Old English Text MT', serif;
   --font-headline: var(--font-bodoni), 'Bodoni 72', Didot, serif;

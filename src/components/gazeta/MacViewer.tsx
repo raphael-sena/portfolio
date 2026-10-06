@@ -161,7 +161,7 @@ export function MacViewer({ labels = DEFAULT_LABELS }: { labels?: MacViewerLabel
         onPointerCancel={() => setDragging(false)}
         onKeyDown={onKeyDown}
         className={`relative h-[500px] touch-pan-y overflow-hidden border-[3px] border-ink select-none max-md:h-[340px] ${dragging ? 'cursor-grabbing' : 'cursor-grab'}`}
-        style={{ boxShadow: '0 0 0 6px #f5f3ec, 0 0 0 8px #111' }}
+        style={{ boxShadow: '0 0 0 6px #f3eedf, 0 0 0 8px #111' }}
       >
         {/* Raios do quadriculado: giram em torno do centro junto com o computador (o cruzamento com os anéis, fixos, faz o
             quadriculado "andar em círculo"). Maior que o quadro para que os cantos não apareçam ao girar. */}
@@ -170,7 +170,7 @@ export function MacViewer({ labels = DEFAULT_LABELS }: { labels?: MacViewerLabel
           data-testid="mac-raios"
           className="absolute -inset-[25%]"
           style={{
-            background: 'repeating-conic-gradient(from 0 at 50% 50%, #111 0 6deg, #f5f3ec 6deg 12deg)',
+            background: 'repeating-conic-gradient(from 0 at 50% 50%, #111 0 6deg, #f3eedf 6deg 12deg)',
             transform: `rotate(${rot.ry}deg)`,
             transition: dragging || reducedMotion ? 'none' : 'transform 450ms ease-out',
           }}
@@ -183,7 +183,7 @@ export function MacViewer({ labels = DEFAULT_LABELS }: { labels?: MacViewerLabel
         <div
           aria-hidden="true"
           className="absolute top-1/2 left-1/2 h-[330px] w-[330px] -translate-x-1/2 -translate-y-1/2 rounded-full border-4 border-ink bg-paper"
-          style={{ boxShadow: '0 0 0 8px #f5f3ec, 0 0 0 11px #111' }}
+          style={{ boxShadow: '0 0 0 8px #f3eedf, 0 0 0 11px #111' }}
         />
         {phase === 'cube' ? (
           <MacCube rx={rot.rx} ry={rot.ry} dragging={dragging} />

@@ -23,11 +23,11 @@ import { pathFor } from '@/i18n/routes';
 import { t } from '@/i18n/dictionary';
 
 const PALETTE = [
-  { hex: '#F5F3EC', name: 'Papel', swatch: 'bg-paper', dark: false },
+  { hex: '#F3EEDF', name: 'Papel', swatch: 'bg-paper', dark: false },
   { hex: '#111111', name: 'Tinta', swatch: 'bg-ink', dark: true },
   { hex: '#555555', name: 'Link visitado', swatch: 'bg-visited', dark: true },
-  { hex: '#F2F0E8', name: 'Cinza 1 (objeto)', swatch: 'bg-grey-1', dark: false },
-  { hex: '#E6E3D8', name: 'Cinza 2 (objeto)', swatch: 'bg-grey-2', dark: false },
+  { hex: '#EFEAD9', name: 'Cinza 1 (objeto)', swatch: 'bg-grey-1', dark: false },
+  { hex: '#E3DDCB', name: 'Cinza 2 (objeto)', swatch: 'bg-grey-2', dark: false },
   { hex: '#D9D6CB', name: 'Cinza 3 (objeto)', swatch: 'bg-grey-3', dark: false },
   { hex: '#CFCCC0', name: 'Cinza 4 (objeto)', swatch: 'bg-grey-4', dark: false },
 ];

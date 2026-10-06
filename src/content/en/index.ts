@@ -97,7 +97,7 @@ export const en: Dictionary = {
       kicker: 'Latest edition',
       headline: 'Software developer presents their works to the public',
       lead: 'A Software Engineering student gathers projects, experience and a machine that spins.',
-      body: 'Backend-focused software engineer, between production electronic ticketing systems at Modaxo and a multi-tenant ERP platform built from scratch with Java and Spring Boot. Software Engineering student at PUC Minas.',
+      body: 'Backend-focused software engineer, between production electronic ticketing systems at Modaxo and a multi-tenant ERP platform built from scratch with Java and Spring Boot, gathering requirements directly with decision-makers. Software Engineering student at PUC Minas.',
       continue: 'Continued in About, page 2 →',
       edition: {
         title: 'In this edition',
@@ -131,10 +131,10 @@ export const en: Dictionary = {
     about: {
       title: 'Who writes this gazette',
       lead: 'A software developer from Belo Horizonte, in a few paragraphs and a fact sheet.',
-      p1: 'Backend-focused software engineer working across two concurrent Java/Spring Boot codebases: production ticketing systems serving 177,000+ users at Modaxo and, as a freelance backend developer, a multi-tenant ERP/tax platform built from scratch with Java 21, PostgreSQL, Flyway and event-driven architecture. Comfortable owning a feature from data model and JPA/Hibernate persistence through REST API design, testing and release. Software Engineering student at PUC Minas.',
-      p2: '[PARAGRAPH ABOUT YOU: how you started programming, what drives you and what you are looking for now.]',
-      quote: '[A PHRASE OF YOURS TO HIGHLIGHT]',
-      p3: '[SECOND PARAGRAPH: a way of working, a value, something the reader should remember.]',
+      p1: 'Backend-focused software engineer working across two concurrent Java/Spring Boot codebases: production ticketing systems serving 177,000+ users at Modaxo and, as a freelance backend developer, a multi-tenant ERP/tax platform built from scratch with Java 21, PostgreSQL, Flyway and event-driven architecture. Comfortable owning a feature from data model and JPA/Hibernate persistence through REST API design, testing and release. In both, I am also directly responsible for requirements gathering and for translating business needs into technical solutions, with no Product/BA layer between me and the decision-maker. Software Engineering student at PUC Minas. English C1, Spanish A2.',
+      p2: 'I started in IT support. After studying in Sydney, I worked in Service Desk and Help Desk roles, building a foundation in troubleshooting, networks, hardware and enterprise support. That customer-facing technical base led me to software engineering: today I build and modernize real-world mobility and ERP systems, while strengthening my fundamentals at PUC Minas (2023–2027).',
+      quote: 'Customer support is what led me to software engineering.',
+      p3: 'Outside of code, I enjoy chess, which stimulates concentration, logical thinking and strategic decision-making, and helps me develop problem-solving skills. I am also eclectic in music: I listen to a lot of bossa nova, samba and MPB, plus neo-psychedelia, indie, indie rock and jazz.',
       portrait: '[PORTRAIT]',
       portraitCaption: 'Fig. 1 — [PORTRAIT CAPTION]',
       portraitAlt: 'Placeholder for the portrait of Raphael Sena',
@@ -147,7 +147,7 @@ export const en: Dictionary = {
         interests: 'Interests',
         interestsValue: 'Software architecture and requirements',
         outside: 'Outside of code',
-        outsideValue: 'Chess',
+        outsideValue: 'Chess and music',
         languages: 'Languages',
         languagesValue: 'Portuguese (native), English (C1), Spanish (A2), German (B1)',
       },
@@ -167,6 +167,10 @@ export const en: Dictionary = {
             {
               title: 'Kvaris: multi-tenant ERP platform',
               text: 'Evolved Precifique into a broader multi-tenant ERP serving two legal entities on a shared database, with tenant isolation via a request-scoped TenantContext/TenantInterceptor. Architected the Sales/Purchasing/WMS/Fiscal/Finance pipeline as a modular monolith with internal event-driven communication (Spring ApplicationEventPublisher) and a dedicated state machine owning order-status transitions.',
+            },
+            {
+              title: 'Requirements and stakeholders',
+              text: 'Acted as the sole technical point between business need and system: gathered requirements directly from the partners and operations of both companies served, with no Product Owner or Business Analyst in between, turning a manual spreadsheet process into a complete data model and system flow.',
             },
             {
               title: 'Auth and integrations',
@@ -231,11 +235,11 @@ export const en: Dictionary = {
           items: [
             {
               title: 'Experimental Software Agency (PMMG)',
-              text: 'Tech Lead for the HR recruitment platform of the Military Police of Minas Gerais, serving 40,000+ candidates per examination cycle, owning scoping through delivery.',
+              text: 'Tech Lead for the HR recruitment platform of the Military Police of Minas Gerais, serving 40,000+ candidates per examination cycle, owning scope from requirements gathering with the client through delivery.',
             },
             {
               title: 'Interdisciplinary Project Champion (2x)',
-              text: 'Led two award-winning teams delivering production software for external clients.',
+              text: 'Led two award-winning teams delivering production software for external clients, including gathering each client’s needs.',
             },
             {
               title: 'Research project',
@@ -272,13 +276,13 @@ export const en: Dictionary = {
       figureAlt: 'Placeholder for the {name} project screenshot',
       descriptions: {
         remediar:
-          'Award-winning ERP platform built and deployed for the NGO Remediar, an organization focused on medicine donation, covering inventory, donations and reporting. Spring Boot microservices, Next.js, PostgreSQL, Docker, Nginx and CI/CD.',
+          'Award-winning ERP platform built and deployed for the NGO Remediar, an organization focused on medicine donation, covering inventory, donations and reporting, with requirements gathered directly with the NGO team. Spring Boot microservices, Next.js, PostgreSQL, Docker, Nginx and CI/CD.',
         'dress-manager':
           'A dress management app for Renata Senna: full-stack software built with Java, Spring Boot, Next.js and TypeScript, styled with Tailwind CSS.',
         'recipes-and-flavors':
           'A web application for sharing cooking recipes, with a Java and Spring Boot back end and a Next.js, TypeScript and Tailwind CSS front end.',
         'rural-erp':
-          'Capstone project: a modular ERP for small-scale producers with an irrigation control module, designed with DDD and validated through ATAM. It includes an LLM agronomist copilot with RAG over public agricultural datasets, and anomaly detection over sensor data.',
+          'Capstone project: a modular ERP for small-scale producers with an irrigation control module, designed with DDD and validated through ATAM. Requirements gathered directly with a real agronomist, the project’s client. It includes an LLM agronomist copilot with RAG over public agricultural datasets, and anomaly detection over sensor data.',
         portfolio: 'Personal portfolio.',
         'relatorio-fotografico':
           'Photographic Report Manager: a Windows application running on the Java JRE, developed for the companies Eletronet and New Energy. It generates PDF reports with the items and client data for the REI inspection required by CEMIG, a client of both companies.',
@@ -296,12 +300,20 @@ export const en: Dictionary = {
         devops: 'DevOps and cloud',
         testing: 'Testing and quality',
         observability: 'Observability and messaging',
+        requirements: 'Requirements and product',
         frontend: 'Front end',
         mobile: 'Mobile',
         practices: 'Practices',
         domain: 'Domain',
       },
       extra: {
+        requirements: [
+          'Requirements gathering and elicitation',
+          'Direct communication with business stakeholders',
+          'Translating business needs into technical solutions',
+          'Scope and functional documentation',
+          'Brazilian tax and fiscal domain',
+        ],
         auth: ['Third-party API integrations'],
         testing: ['Automated testing', 'Code review'],
         practices: ['Remote collaboration'],
@@ -321,6 +333,14 @@ export const en: Dictionary = {
       backCurrent: 'Back to the current edition',
       figureAlt: 'Screenshot of the {year} version of the portfolio',
       figureAltCurrent: 'Screenshot of the current edition of the portfolio',
+      changedByYear: {
+        '2024':
+          'First edition: a single page with light and dark themes, in English, Portuguese and German, with chess and music.',
+        '2025':
+          'Adds the extra courses section, with certificates, and the resume section; the technologies list is rebuilt.',
+        '2026':
+          'Introduction rewritten, experience updated (Modaxo, AVASO, Experimental Software Agency) and project screenshots added.',
+      },
       placeholderChanged: '[A SENTENCE ABOUT THE DESIGN AND THE CODE]',
       placeholderLearned: '[A SENTENCE ABOUT WHAT WAS LEARNED]',
       currentStack: 'Next.js 16, React 19, TypeScript, Tailwind CSS 4 and Cloudflare Workers',

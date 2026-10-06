@@ -31,7 +31,7 @@ export function TimelinePage({ locale }: { locale: Locale }) {
       year: a.year,
       heading: String(a.year),
       stack: a.label,
-      changed: timeline.placeholderChanged,
+      changed: (timeline.changedByYear as Record<string, string>)[a.year] ?? timeline.placeholderChanged,
       learned: timeline.placeholderLearned,
       shot: `/timeline/${a.year}.jpg`,
       figureAlt: fill(timeline.figureAlt, { year: a.year }),
