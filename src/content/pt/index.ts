@@ -96,7 +96,7 @@ export const pt = {
       kicker: 'Última edição',
       headline: 'Desenvolvedor de software apresenta suas obras ao público',
       lead: 'Estudante de Engenharia de Software reúne projetos, experiência e uma máquina que gira.',
-      body: 'Engenheiro de software com foco em back-end, entre sistemas de bilhetagem eletrônica em produção na Modaxo e uma plataforma ERP multi-tenant criada do zero, em Java e Spring Boot. Estudante de Engenharia de Software na PUC Minas.',
+      body: 'Engenheiro de software com foco em back-end, entre sistemas de bilhetagem eletrônica em produção na Modaxo e uma plataforma ERP multi-tenant criada do zero, em Java e Spring Boot, levantando os requisitos direto com quem decide. Estudante de Engenharia de Software na PUC Minas.',
       continue: 'Continua em Sobre, página 2 →',
       edition: {
         title: 'Nesta edição',
@@ -130,13 +130,14 @@ export const pt = {
     about: {
       title: 'Quem escreve esta gazeta',
       lead: 'Um desenvolvedor de software de Belo Horizonte, em poucos parágrafos e uma ficha.',
-      p1: 'Engenheiro de software com foco em back-end, atuando em duas bases de código Java/Spring Boot ao mesmo tempo: sistemas de bilhetagem em produção, com mais de 177 mil usuários, na Modaxo e, como desenvolvedor backend freelance, uma plataforma ERP/tributária multi-tenant criada do zero com Java 21, PostgreSQL, Flyway e arquitetura orientada a eventos. À vontade para assumir uma funcionalidade do modelo de dados e da persistência com JPA/Hibernate ao desenho da API REST, aos testes e à entrega. Estudante de Engenharia de Software na PUC Minas.',
-      p2: '[PARÁGRAFO SOBRE VOCÊ: como começou a programar, o que te move e o que você procura agora.]',
-      quote: '[UMA FRASE SUA PARA DESTACAR]',
-      p3: '[SEGUNDO PARÁGRAFO: um jeito de trabalhar, um valor, algo que o leitor deva lembrar.]',
-      portrait: '[RETRATO]',
-      portraitCaption: 'Fig. 1 — [LEGENDA DO RETRATO]',
-      portraitAlt: 'Espaço reservado para o retrato de Raphael Sena',
+      p1: 'Engenheiro de software com foco em back-end, atuando em duas bases de código Java/Spring Boot ao mesmo tempo: sistemas de bilhetagem em produção, com mais de 177 mil usuários, na Modaxo e, como desenvolvedor backend freelance, uma plataforma ERP/tributária multi-tenant criada do zero com Java 21, PostgreSQL, Flyway e arquitetura orientada a eventos. À vontade para assumir uma funcionalidade do modelo de dados e da persistência com JPA/Hibernate ao desenho da API REST, aos testes e à entrega. Em ambos os projetos, atuo também como responsável direto pelo levantamento de requisitos e pela tradução de necessidades de negócio em solução técnica, sem camada de Product/BA entre mim e quem decide. Estudante de Engenharia de Software na PUC Minas. Inglês C1, espanhol A2.',
+      p2: 'Comecei pelo suporte de TI. Depois de estudar em Sydney, atuei em Service Desk e Help Desk, onde construí uma base em troubleshooting, redes, hardware e suporte corporativo. Essa base técnica voltada ao cliente me levou à engenharia de software: hoje construo e modernizo sistemas reais de mobilidade e ERP, e sigo fortalecendo meus fundamentos na PUC Minas (2023–2027).',
+      quote: 'Foi o suporte ao cliente que me levou à engenharia de software.',
+      p3: 'Fora do código, gosto de xadrez, que estimula a concentração, o raciocínio lógico e a tomada de decisões estratégicas, e me ajuda a desenvolver a resolução de problemas. Também sou eclético na música: escuto muita bossa nova, samba e MPB, além de neo-psicodelia, indie, indie rock e jazz.',
+      figureCaption: 'Fig. 1 — “The Newspaper Correspondent”, gravura de Edwin Forbes, 1876. Domínio público.',
+      figureSource: 'Wikimedia Commons',
+      figureAlt:
+        'Gravura de 1876 de Edwin Forbes: um correspondente de jornal a galope, numa estrada junto a uma mata fechada, levando notícias da batalha.',
       sheet: {
         title: 'Ficha do redator',
         city: 'Cidade',
@@ -146,7 +147,7 @@ export const pt = {
         interests: 'Interesses',
         interestsValue: 'Arquitetura de software e requisitos',
         outside: 'Fora do código',
-        outsideValue: 'Xadrez',
+        outsideValue: 'Xadrez e música',
         languages: 'Idiomas',
         languagesValue: 'Português (nativo), inglês (C1), espanhol (A2), alemão (B1)',
       },
@@ -166,6 +167,10 @@ export const pt = {
             {
               title: 'Kvaris: plataforma ERP multi-tenant',
               text: 'Evoluí o Precifique para um ERP multi-tenant que atende duas pessoas jurídicas em um banco compartilhado, com isolamento de tenants por um TenantContext/TenantInterceptor no escopo da requisição. Projetei o pipeline de Vendas, Compras, WMS, Fiscal e Financeiro como um monólito modular, com comunicação interna orientada a eventos (Spring ApplicationEventPublisher) e uma máquina de estados dedicada que controla o status dos pedidos.',
+            },
+            {
+              title: 'Levantamento de requisitos e stakeholders',
+              text: 'Atuei como único ponto técnico entre a necessidade de negócio e o sistema: levantei os requisitos diretamente com os sócios e a operação das duas empresas atendidas, sem intermediação de um Product Owner ou Analista de Negócios, traduzindo um processo manual em planilha em um modelo de dados e um fluxo de sistema completos.',
             },
             {
               title: 'Autenticação e integrações',
@@ -230,11 +235,11 @@ export const pt = {
           items: [
             {
               title: 'Agência Experimental de Software (PMMG)',
-              text: 'Tech Lead da plataforma de recrutamento de RH da Polícia Militar de Minas Gerais, que atende mais de 40 mil candidatos por ciclo de seleção, responsável pelo escopo até a entrega.',
+              text: 'Tech Lead da plataforma de recrutamento de RH da Polícia Militar de Minas Gerais, que atende mais de 40 mil candidatos por ciclo de seleção, responsável pelo escopo desde o levantamento de requisitos junto ao cliente até a entrega.',
             },
             {
               title: 'Campeão de Projeto Interdisciplinar (2x)',
-              text: 'Liderei duas equipes premiadas que entregaram software de produção para clientes externos.',
+              text: 'Liderei duas equipes premiadas que entregaram software de produção para clientes externos, incluindo o levantamento das necessidades de cada cliente.',
             },
             {
               title: 'Projeto de pesquisa',
@@ -271,13 +276,13 @@ export const pt = {
       figureAlt: 'Espaço reservado para a captura do projeto {name}',
       descriptions: {
         remediar:
-          'Plataforma ERP premiada, construída e implantada para a ONG Remediar, organização que atua com doação de medicamentos: estoque, doações e relatórios. Microsserviços Spring Boot, Next.js, PostgreSQL, Docker, Nginx e CI/CD.',
+          'Plataforma ERP premiada, construída e implantada para a ONG Remediar, organização que atua com doação de medicamentos: estoque, doações e relatórios, com os requisitos levantados diretamente com a equipe da ONG. Microsserviços Spring Boot, Next.js, PostgreSQL, Docker, Nginx e CI/CD.',
         'dress-manager':
           'Aplicativo de gestão de vestidos para Renata Senna: software fullstack em Java, Spring Boot, Next.js e TypeScript, estilizado com Tailwind CSS.',
         'recipes-and-flavors':
           'Aplicação web para compartilhar receitas de culinária, com back-end em Java e Spring Boot e front-end em Next.js, TypeScript e Tailwind CSS.',
         'rural-erp':
-          'Projeto de conclusão de curso: ERP modular para pequenos produtores, com módulo de controle de irrigação, projetado com DDD e validado pelo método ATAM. Inclui um copiloto agrônomo com LLM e RAG sobre bases públicas agrícolas e detecção de anomalias em dados de sensores.',
+          'Projeto de conclusão de curso: ERP modular para pequenos produtores, com módulo de controle de irrigação, projetado com DDD e validado pelo método ATAM. Requisitos levantados diretamente com um agrônomo real, cliente do projeto. Inclui um copiloto agrônomo com LLM e RAG sobre bases públicas agrícolas e detecção de anomalias em dados de sensores.',
         portfolio: 'Portfólio pessoal.',
         'relatorio-fotografico':
           'Gerenciador de Relatório Fotográfico: aplicação para Windows, com Java JRE, desenvolvida para as empresas Eletronet e New Energy. Gera relatórios em PDF com os itens e o cliente, para a inspeção do REI exigido pela CEMIG, cliente das empresas.',
@@ -295,12 +300,20 @@ export const pt = {
         devops: 'DevOps e nuvem',
         testing: 'Testes e qualidade',
         observability: 'Observabilidade e mensageria',
+        requirements: 'Requisitos e produto',
         frontend: 'Front-end',
         mobile: 'Mobile',
         practices: 'Práticas',
         domain: 'Domínio',
       },
       extra: {
+        requirements: [
+          'Levantamento e elicitação de requisitos',
+          'Comunicação direta com stakeholders de negócio',
+          'Tradução de necessidade de negócio em solução técnica',
+          'Escopo e documentação funcional',
+          'Domínio fiscal e tributário brasileiro',
+        ],
         auth: ['Integrações de API de terceiros'],
         testing: ['Testes automatizados', 'Code review'],
         practices: ['Colaboração remota'],
@@ -320,6 +333,14 @@ export const pt = {
       backCurrent: 'Voltar à edição atual',
       figureAlt: 'Captura de tela da versão de {year} do portfólio',
       figureAltCurrent: 'Captura de tela da edição atual do portfólio',
+      changedByYear: {
+        '2024':
+          'Primeira edição: página única com tema claro e escuro, em inglês, português e alemão, com xadrez e música.',
+        '2025':
+          'Ganha a seção de cursos extras, com certificados, e a seção do currículo; a lista de tecnologias é refeita.',
+        '2026':
+          'Apresentação reescrita, experiência atualizada (Modaxo, AVASO, Agência Experimental) e capturas dos projetos.',
+      },
       placeholderChanged: '[UMA FRASE SOBRE O DESIGN E O CÓDIGO]',
       placeholderLearned: '[UMA FRASE SOBRE O APRENDIZADO]',
       currentStack: 'Next.js 16, React 19, TypeScript, Tailwind CSS 4 e Cloudflare Workers',

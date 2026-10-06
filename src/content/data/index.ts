@@ -38,7 +38,7 @@ export interface Job {
   current: boolean;
 }
 
-/** Fonte: currículo do autor (public/resume-raphael-sena.pdf), atualizado em 2026-10-06. Do mais recente para o mais antigo. */
+/** Fonte: currículo do autor (versão em português com a New Energy), atualizado em 2026-10-06. Do mais recente para o mais antigo. */
 export const jobs: Job[] = [
   { id: 'newenergy', company: 'New Energy Soluções Elétricas', from: '2026-03', to: null, current: true },
   { id: 'modaxo', company: 'Modaxo', from: '2025-05', to: null, current: true },
@@ -167,6 +167,7 @@ export type TechGroupId =
   | 'devops'
   | 'testing'
   | 'observability'
+  | 'requirements'
   | 'frontend'
   | 'mobile'
   | 'practices'
@@ -203,6 +204,7 @@ export const technologies: Record<TechGroupId, string[]> = {
   ],
   testing: ['JUnit', 'Mockito', 'SonarQube'],
   observability: ['Grafana', 'Prometheus', 'Zipkin', 'Crashlytics', 'RabbitMQ', 'Redis'],
+  requirements: [],
   frontend: ['React', 'Next.js', 'Angular', 'Tailwind CSS', 'HTML', 'CSS'],
   mobile: ['Flutter', 'Xamarin'],
   practices: ['Scrum', 'Kanban', 'Jira', 'Confluence', 'Git Flow'],

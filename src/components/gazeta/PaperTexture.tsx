@@ -21,11 +21,21 @@ export function PaperTexture() {
           <rect width="300" height="300" filter="url(#paper-grain-filter)" />
         </pattern>
         <radialGradient id="paper-vignette" cx="50%" cy="50%" r="75%">
-          <stop offset="60%" stopColor="#000" stopOpacity="0" />
-          <stop offset="100%" stopColor="#000" stopOpacity=".2" />
+          <stop offset="55%" stopColor="#3d2a0e" stopOpacity="0" />
+          <stop offset="100%" stopColor="#3d2a0e" stopOpacity=".26" />
+        </radialGradient>
+        <radialGradient id="paper-foxing-a" cx="12%" cy="8%" r="38%">
+          <stop offset="0%" stopColor="#8a6a2a" stopOpacity=".14" />
+          <stop offset="100%" stopColor="#8a6a2a" stopOpacity="0" />
+        </radialGradient>
+        <radialGradient id="paper-foxing-b" cx="92%" cy="88%" r="42%">
+          <stop offset="0%" stopColor="#8a6a2a" stopOpacity=".12" />
+          <stop offset="100%" stopColor="#8a6a2a" stopOpacity="0" />
         </radialGradient>
       </defs>
       <rect width="100%" height="100%" fill="url(#paper-grain-tile)" opacity=".7" />
+      <rect width="100%" height="100%" fill="url(#paper-foxing-a)" />
+      <rect width="100%" height="100%" fill="url(#paper-foxing-b)" />
       <rect width="100%" height="100%" fill="url(#paper-vignette)" />
     </svg>
   );

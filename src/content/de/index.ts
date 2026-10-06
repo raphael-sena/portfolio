@@ -104,7 +104,7 @@ export const de: Dictionary = {
       kicker: 'Neueste Ausgabe',
       headline: 'Softwareentwickler stellt Werke der Öffentlichkeit vor',
       lead: 'Aus dem Studium der Softwaretechnik: Projekte, Erfahrung und eine Maschine, die sich dreht.',
-      body: 'Softwareentwicklung mit Schwerpunkt Back-End, zwischen elektronischen Fahrgeldmanagement-Systemen im Produktivbetrieb bei Modaxo und einer von Grund auf entwickelten mandantenfähigen ERP-Plattform mit Java und Spring Boot. Studium der Softwaretechnik an der PUC Minas.',
+      body: 'Softwareentwicklung mit Schwerpunkt Back-End, zwischen elektronischen Fahrgeldmanagement-Systemen im Produktivbetrieb bei Modaxo und einer von Grund auf entwickelten mandantenfähigen ERP-Plattform mit Java und Spring Boot, mit Anforderungserhebung direkt bei den Entscheidenden. Studium der Softwaretechnik an der PUC Minas.',
       continue: 'Weiter unter Über mich, Seite 2 →',
       edition: {
         title: 'In dieser Ausgabe',
@@ -141,13 +141,14 @@ export const de: Dictionary = {
     about: {
       title: 'Wer diese Gazette schreibt',
       lead: 'Ein Softwareentwickler aus Belo Horizonte, in wenigen Absätzen und einem Steckbrief.',
-      p1: 'Softwareentwicklung mit Schwerpunkt Back-End, parallel in zwei Java/Spring-Boot-Codebasen: Ticketing-Systeme im Produktivbetrieb mit über 177.000 Nutzenden bei Modaxo und, als freiberufliche Backend-Entwicklung, eine von Grund auf gebaute mandantenfähige ERP- und Steuerplattform mit Java 21, PostgreSQL, Flyway und ereignisgesteuerter Architektur. Sicher darin, ein Feature vom Datenmodell und der Persistenz mit JPA/Hibernate über das REST-API-Design und die Tests bis zum Release zu verantworten. Studium der Softwaretechnik an der PUC Minas.',
-      p2: '[ABSATZ ÜBER MICH: wie das Programmieren begann, was antreibt und was jetzt gesucht wird.]',
-      quote: '[EIN EIGENER SATZ ZUM HERVORHEBEN]',
-      p3: '[ZWEITER ABSATZ: eine Arbeitsweise, ein Wert, etwas, das der Leserschaft in Erinnerung bleiben soll.]',
-      portrait: '[PORTRÄT]',
-      portraitCaption: 'Abb. 1 — [PORTRÄTUNTERSCHRIFT]',
-      portraitAlt: 'Platzhalter für das Porträt von Raphael Sena',
+      p1: 'Softwareentwicklung mit Schwerpunkt Back-End, parallel in zwei Java/Spring-Boot-Codebasen: Ticketing-Systeme im Produktivbetrieb mit über 177.000 Nutzenden bei Modaxo und, als freiberufliche Backend-Entwicklung, eine von Grund auf gebaute mandantenfähige ERP- und Steuerplattform mit Java 21, PostgreSQL, Flyway und ereignisgesteuerter Architektur. Sicher darin, ein Feature vom Datenmodell und der Persistenz mit JPA/Hibernate über das REST-API-Design und die Tests bis zum Release zu verantworten. In beiden Projekten bin ich außerdem direkt für die Anforderungserhebung und die Übersetzung fachlicher Bedürfnisse in technische Lösungen verantwortlich, ohne Product-/BA-Ebene zwischen mir und den Entscheidenden. Studium der Softwaretechnik an der PUC Minas. Englisch C1, Spanisch A2.',
+      p2: 'Ich habe im IT-Support angefangen. Nach dem Auslandsaufenthalt in Sydney arbeitete ich im Service Desk und Help Desk und baute eine Grundlage in Troubleshooting, Netzwerken, Hardware und Unternehmenssupport auf. Diese kundennahe technische Basis führte mich zur Softwareentwicklung: Heute baue und modernisiere ich reale Mobilitäts- und ERP-Systeme und stärke meine Grundlagen an der PUC Minas (2023–2027).',
+      quote: 'Der Kundensupport hat mich zur Softwareentwicklung geführt.',
+      p3: 'Außerhalb des Codes spiele ich gern Schach, das Konzentration, logisches Denken und strategische Entscheidungen fördert und mir hilft, Problemlösung zu üben. Auch in der Musik bin ich vielseitig: Ich höre viel Bossa Nova, Samba und MPB sowie Neo-Psychedelia, Indie, Indie-Rock und Jazz.',
+      figureCaption: 'Abb. 1 — „The Newspaper Correspondent“, Radierung von Edwin Forbes, 1876. Gemeinfrei.',
+      figureSource: 'Wikimedia Commons',
+      figureAlt:
+        'Radierung von Edwin Forbes, 1876: ein Zeitungskorrespondent im Galopp auf einer Straße am dichten Wald, mit Nachrichten von der Schlacht.',
       sheet: {
         title: 'Steckbrief der Redaktion',
         city: 'Stadt',
@@ -157,7 +158,7 @@ export const de: Dictionary = {
         interests: 'Interessen',
         interestsValue: 'Softwarearchitektur und Anforderungen',
         outside: 'Abseits des Codes',
-        outsideValue: 'Schach',
+        outsideValue: 'Schach und Musik',
         languages: 'Sprachen',
         languagesValue: 'Portugiesisch (Muttersprache), Englisch (C1), Spanisch (A2), Deutsch (B1)',
       },
@@ -177,6 +178,10 @@ export const de: Dictionary = {
             {
               title: 'Kvaris: mandantenfähige ERP-Plattform',
               text: 'Precifique zu einem breiteren mandantenfähigen ERP ausgebaut, das zwei juristische Personen auf einer gemeinsamen Datenbank bedient, mit Mandantentrennung über einen anfragebezogenen TenantContext/TenantInterceptor. Die Pipeline aus Vertrieb, Einkauf, WMS, Steuern und Finanzen als modularen Monolithen entworfen, mit interner ereignisgesteuerter Kommunikation (Spring ApplicationEventPublisher) und einer eigenen Zustandsmaschine für die Statuswechsel der Aufträge.',
+            },
+            {
+              title: 'Anforderungen und Stakeholder',
+              text: 'Als einzige technische Ansprechperson zwischen fachlichem Bedarf und System tätig: Die Anforderungen direkt bei den Gesellschaftern und im Betrieb beider betreuten Unternehmen erhoben, ohne Product Owner oder Business Analyst dazwischen, und einen manuellen Tabellenprozess in ein vollständiges Datenmodell und einen durchgängigen Systemablauf überführt.',
             },
             {
               title: 'Authentifizierung und Integrationen',
@@ -241,11 +246,11 @@ export const de: Dictionary = {
           items: [
             {
               title: 'Experimentelle Softwareagentur (PMMG)',
-              text: 'Tech Lead der HR-Recruiting-Plattform der Militärpolizei von Minas Gerais mit über 40.000 Bewerbenden pro Auswahlverfahren, mit Verantwortung vom Umfang bis zur Lieferung.',
+              text: 'Tech Lead der HR-Recruiting-Plattform der Militärpolizei von Minas Gerais mit über 40.000 Bewerbenden pro Auswahlverfahren, mit Verantwortung für den Umfang von der Anforderungserhebung beim Kunden bis zur Lieferung.',
             },
             {
               title: 'Champion im interdisziplinären Projekt (2x)',
-              text: 'Zwei ausgezeichnete Teams geleitet, die Produktivsoftware für externe Kunden lieferten.',
+              text: 'Zwei ausgezeichnete Teams geleitet, die Produktivsoftware für externe Kunden lieferten, einschließlich der Erhebung der Bedürfnisse jedes Kunden.',
             },
             {
               title: 'Forschungsprojekt',
@@ -282,13 +287,13 @@ export const de: Dictionary = {
       figureAlt: 'Platzhalter für den Screenshot des Projekts {name}',
       descriptions: {
         remediar:
-          'Preisgekrönte ERP-Plattform, gebaut und eingeführt für die NGO Remediar, eine Organisation für Medikamentenspenden: Bestand, Spenden und Berichte. Spring-Boot-Microservices, Next.js, PostgreSQL, Docker, Nginx und CI/CD.',
+          'Preisgekrönte ERP-Plattform, gebaut und eingeführt für die NGO Remediar, eine Organisation für Medikamentenspenden: Bestand, Spenden und Berichte, mit Anforderungen, die direkt mit dem Team der NGO erhoben wurden. Spring-Boot-Microservices, Next.js, PostgreSQL, Docker, Nginx und CI/CD.',
         'dress-manager':
           'Anwendung zur Verwaltung von Kleidern für Renata Senna: Fullstack-Software mit Java, Spring Boot, Next.js und TypeScript, gestaltet mit Tailwind CSS.',
         'recipes-and-flavors':
           'Webanwendung zum Teilen von Kochrezepten, mit Back-End in Java und Spring Boot und Front-End in Next.js, TypeScript und Tailwind CSS.',
         'rural-erp':
-          'Abschlussprojekt: modulares ERP für Kleinerzeuger mit einem Modul zur Bewässerungssteuerung, entworfen mit DDD und mit ATAM validiert. Es umfasst einen agronomischen Copiloten mit LLM und RAG über öffentliche Agrardaten sowie Anomalieerkennung in Sensordaten.',
+          'Abschlussprojekt: modulares ERP für Kleinerzeuger mit einem Modul zur Bewässerungssteuerung, entworfen mit DDD und mit ATAM validiert. Anforderungen direkt bei einem echten Agronomen, dem Kunden des Projekts, erhoben. Es umfasst einen agronomischen Copiloten mit LLM und RAG über öffentliche Agrardaten sowie Anomalieerkennung in Sensordaten.',
         portfolio: 'Persönliches Portfolio.',
         'relatorio-fotografico':
           'Verwaltung für Fotoberichte: Windows-Anwendung auf Basis der Java JRE, entwickelt für die Unternehmen Eletronet und New Energy. Sie erzeugt PDF-Berichte mit den Positionen und Kundendaten für die von CEMIG geforderte REI-Inspektion; CEMIG ist Kunde beider Unternehmen.',
@@ -306,12 +311,20 @@ export const de: Dictionary = {
         devops: 'DevOps und Cloud',
         testing: 'Tests und Qualität',
         observability: 'Observability und Messaging',
+        requirements: 'Anforderungen und Produkt',
         frontend: 'Front-End',
         mobile: 'Mobile',
         practices: 'Arbeitsweisen',
         domain: 'Fachgebiete',
       },
       extra: {
+        requirements: [
+          'Anforderungserhebung und -klärung',
+          'Direkte Kommunikation mit fachlichen Stakeholdern',
+          'Übersetzung fachlicher Bedürfnisse in technische Lösungen',
+          'Umfang und funktionale Dokumentation',
+          'Brasilianische Steuer- und Fiskalfachlichkeit',
+        ],
         auth: ['Anbindung von Drittanbieter-APIs'],
         testing: ['Automatisierte Tests', 'Code-Reviews'],
         practices: ['Remote-Zusammenarbeit'],
@@ -331,6 +344,14 @@ export const de: Dictionary = {
       backCurrent: 'Zurück zur aktuellen Ausgabe',
       figureAlt: 'Screenshot der Version {year} des Portfolios',
       figureAltCurrent: 'Screenshot der aktuellen Ausgabe des Portfolios',
+      changedByYear: {
+        '2024':
+          'Erste Ausgabe: eine einzelne Seite mit hellem und dunklem Thema, auf Englisch, Portugiesisch und Deutsch, mit Schach und Musik.',
+        '2025':
+          'Ergänzt den Bereich mit zusätzlichen Kursen samt Zertifikaten und den Lebenslauf-Bereich; die Technologieliste wird neu aufgebaut.',
+        '2026':
+          'Vorstellung neu geschrieben, Erfahrung aktualisiert (Modaxo, AVASO, Experimentelle Softwareagentur) und Projekt-Screenshots ergänzt.',
+      },
       placeholderChanged: '[EIN SATZ ZU DESIGN UND CODE]',
       placeholderLearned: '[EIN SATZ ZUM GELERNTEN]',
       currentStack: 'Next.js 16, React 19, TypeScript, Tailwind CSS 4 und Cloudflare Workers',

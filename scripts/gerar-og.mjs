@@ -44,7 +44,7 @@ const dicionarios = { pt, en, de };
 const PAGINAS = ['home', 'about', 'experience', 'projects', 'technologies', 'timeline', 'contact', 'privacy'];
 const NUMERO = { home: 1, about: 2, experience: 3, projects: 4, technologies: 5, timeline: 6, contact: 7 };
 
-const PAPEL = '#F5F3EC';
+const PAPEL = '#F3EEDF';
 const TINTA = '#111111';
 
 const h = (type, style, children) => ({ type, props: { style: { display: 'flex', ...style }, children } });

@@ -59,7 +59,7 @@ export function PageEarCurl({
             className="absolute inset-0"
             style={{
               clipPath: 'polygon(0 100%, 100% 0, 0 0)',
-              background: 'linear-gradient(315deg, #a9a597 50%, #e7e4d8 72%, #f5f3ec 100%)',
+              background: 'linear-gradient(315deg, #a8a18c 50%, #e6dfcc 72%, #f3eedf 100%)',
             }}
           />
         </div>
