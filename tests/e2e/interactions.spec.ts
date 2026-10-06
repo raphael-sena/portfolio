@@ -185,12 +185,13 @@ test.describe('computador 3D', () => {
     }
   });
 
-  /** Ângulo (graus) do `rotate()` do quadriculado, lido da matriz computada. */
-  const anguloDosRaios = (page: Page) =>
+  /** Ângulo (graus) do `rotate()` do quadriculado, com o instante da leitura (no mesmo `evaluate`, sem a latência do runner). */
+  const amostraDosRaios = (page: Page) =>
     page.getByTestId('mac-raios').evaluate((el) => {
       const m = new DOMMatrixReadOnly(getComputedStyle(el).transform);
-      return (Math.atan2(m.b, m.a) * 180) / Math.PI;
+      return { angulo: (Math.atan2(m.b, m.a) * 180) / Math.PI, t: performance.now() };
     });
+  const anguloDosRaios = async (page: Page) => (await amostraDosRaios(page)).angulo;
   const diferenca = (a: number, b: number) => ((((b - a) % 360) + 540) % 360) - 180;
 
   test('o computador gira sozinho e o quadriculado gira no sentido oposto, devagar', async ({ page }) => {
@@ -198,13 +199,14 @@ test.describe('computador 3D', () => {
     const quadro = page.locator('[data-renderer]').first();
     await quadro.scrollIntoViewIfNeeded();
     await expect(quadro).toHaveAttribute('data-renderer', /3d|cube/, { timeout: 45_000 });
-    const antes = await anguloDosRaios(page);
+    const antes = await amostraDosRaios(page);
     await page.waitForTimeout(2000);
-    const depois = await anguloDosRaios(page);
-    const delta = diferenca(antes, depois);
-    // 8 graus por segundo para o modelo (sentido positivo) e o quadriculado no sentido contrário (negativo).
-    expect(delta, `delta ${delta.toFixed(1)}`).toBeLessThan(-6);
-    expect(delta, `delta ${delta.toFixed(1)}`).toBeGreaterThan(-40);
+    const depois = await amostraDosRaios(page);
+    // Taxa em graus por segundo, pelo tempo real entre as duas leituras (independe da lentidão do runner): o quadriculado
+    // gira no sentido oposto ao do modelo (negativo), a ~8 graus por segundo.
+    const taxa = diferenca(antes.angulo, depois.angulo) / ((depois.t - antes.t) / 1000);
+    expect(taxa, `taxa ${taxa.toFixed(1)} graus/s`).toBeLessThan(-3);
+    expect(taxa, `taxa ${taxa.toFixed(1)} graus/s`).toBeGreaterThan(-14);
   });
 
   test('prefers-reduced-motion: o computador e o fundo ficam parados', async ({ page }) => {
