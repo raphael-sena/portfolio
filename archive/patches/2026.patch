@@ -1,0 +1,42 @@
+diff --git a/code/app/layout.tsx b/code/app/layout.tsx
+index ac81342..af31f5e 100644
+--- a/code/app/layout.tsx
++++ b/code/app/layout.tsx
+@@ -4,12 +4,9 @@ import { ReactNode, useEffect, useState } from "react";
+ import "./globals.css";
+ import ThemeToggle from "@/components/ThemeToggle";
+ import LanguageToggle from "@/components/LanguageToggle";
+-import { SpeedInsights } from "@vercel/speed-insights/next";
+ import "@react-pdf-viewer/core/lib/styles/index.css";
+ import "@react-pdf-viewer/default-layout/lib/styles/index.css";
+ import ThemeToggle2 from "@/components/ThemeToggle2";
+-import MicrosoftClarity from "@/components/MicrosoftClarity";
+-import { Analytics } from "@vercel/analytics/next";
+ 
+ interface LayoutProps {
+   children: ReactNode;
+@@ -114,9 +111,6 @@ export default function RootLayout({ children }: LayoutProps) {
+         >
+           👆
+         </button>
+-        <Analytics />
+-        <SpeedInsights />
+-        <MicrosoftClarity projectId={process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID || ""} />
+       </body>
+     </html>
+   );
+diff --git a/code/next.config.mjs b/code/next.config.mjs
+index b837fb2..889613c 100644
+--- a/code/next.config.mjs
++++ b/code/next.config.mjs
+@@ -1,6 +1,10 @@
+ /** @type {import('next').NextConfig} */
+ const nextConfig = {
++  // Arquivo da versão de 2026: export estático servido em /2026/ (ver scripts/build-archives.ts).
++  output: "export",
++  basePath: "/2026",
+   images: {
++    unoptimized: true,
+     remotePatterns: [
+       {
+         protocol: "https",

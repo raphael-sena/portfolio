@@ -1,0 +1,7 @@
+tag=site/2025
+sha=8235c76e65a47d50b4e0748890e1088301d5c13c
+node=v20.20.2
+instalacao=npm install (lockfile fora de sincronia)
+patch=6c0f6e27bdcd
+caminhos_reescritos=64
+podados=images/profile_photo.JPEG,images/profile_photo_2.JPEG

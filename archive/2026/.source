@@ -1,0 +1,7 @@
+tag=site/2026
+sha=d30b96fd5270028b3344253b1af43db88c86cdc1
+node=v20.20.2
+instalacao=npm ci
+patch=c25700bf4090
+caminhos_reescritos=74
+podados=images/profile_photo.JPEG,images/profile_photo_2.JPEG

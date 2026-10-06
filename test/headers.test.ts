@@ -53,6 +53,14 @@ describe('gerarHeaders', () => {
     expect(gerarHeaders({ producao: true })).toContain('Reporting-Endpoints: csp="/api/csp-report"');
   });
 
+  it('versões antigas em /<ano>/ são sempre noindex, mesmo em produção, e não ganham CSP', () => {
+    const texto = gerarHeaders({ producao: true, arquivos: [2024, 2025] });
+    expect(texto).toContain('/2024/*\n  X-Robots-Tag: noindex, nofollow');
+    expect(texto).toContain('/2025/*\n  X-Robots-Tag: noindex, nofollow');
+    expect(texto).toContain('/2024/_next/static/*\n  Cache-Control: public, max-age=31536000, immutable');
+    expect(texto).not.toContain('/2024/\n');
+  });
+
   it('respeita os limites do Cloudflare', () => {
     expect(() => validarHeaders(gerarHeaders({ producao: false }))).not.toThrow();
     expect(() => validarHeaders('x'.repeat(2001))).toThrow();

@@ -6,7 +6,8 @@
     "node": "20",
     "build": "next-export",
     "basePath": "/2024",
-    "archived": false
+    "archived": true,
+    "label": "Next.js 14, React 18, TypeScript, Tailwind CSS 3"
   },
   {
     "year": 2025,
@@ -15,7 +16,8 @@
     "node": "20",
     "build": "next-export",
     "basePath": "/2025",
-    "archived": false
+    "archived": true,
+    "label": "Next.js 14, React 18, TypeScript, Tailwind CSS 3"
   },
   {
     "year": 2026,
@@ -24,6 +26,7 @@
     "node": "20",
     "build": "next-export",
     "basePath": "/2026",
-    "archived": false
+    "archived": true,
+    "label": "Next.js 14, React 18, TypeScript, Tailwind CSS 3"
   }
 ]
