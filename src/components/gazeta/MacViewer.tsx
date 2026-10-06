@@ -95,7 +95,9 @@ export function MacViewer({ labels = DEFAULT_LABELS }: { labels?: MacViewerLabel
     let raf = 0;
     let last = performance.now();
     const tick = (now: number) => {
-      const dt = Math.min(now - last, 100);
+      // Tempo real decorrido: em aparelho lento (poucos quadros por segundo) o giro mantém a mesma velocidade. O limite de
+      // 1 s só evita um salto grande ao voltar de uma aba escondida.
+      const dt = Math.min(now - last, 1000);
       last = now;
       if (!draggingRef.current && visibleRef.current && document.visibilityState === 'visible') {
         setSpin((angulo) => angulo + (dt / 1000) * SPIN_DEG_PER_S);
