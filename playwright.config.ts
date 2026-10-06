@@ -14,6 +14,8 @@ export default defineConfig({
   projects: [
     { name: 'seo', testDir: './tests/seo', use: { ...devices['Desktop Chrome'], javaScriptEnabled: false } },
     { name: 'e2e', testDir: './tests/e2e', use: { ...devices['Desktop Chrome'] } },
+    // Sobe o próprio wrangler dev + Umami falso (tests/umami/fixtures.ts); precisa do build em out/.
+    { name: 'umami', testDir: './tests/umami', use: { ...devices['Desktop Chrome'] } },
     ...(completa
       ? [
           { name: 'firefox', testDir: './tests/e2e', use: { ...devices['Desktop Firefox'] } },
