@@ -1,0 +1,79 @@
+name: Smoke do site publicado
+
+# Smoke diário (leitura) e crawl semanal completo contra o site publicado. Só roda sozinho com a variável de repositório
+# SMOKE_DIARIO=true; o disparo manual (workflow_dispatch) sempre funciona. A URL vem de SMOKE_BASE_URL (padrão: workers.dev).
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 9 * * *'
+    - cron: '43 9 * * 1'
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  smoke:
+    if: github.event_name == 'workflow_dispatch' || (vars.SMOKE_DIARIO == 'true' && github.event.schedule == '17 9 * * *')
+    runs-on: ubuntu-latest
+    env:
+      PLAYWRIGHT_BASE_URL: ${{ vars.SMOKE_BASE_URL || 'https://portfolio.raphael-116.workers.dev' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: pnpm test:publicado
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-report-smoke
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 7
+      - name: Abrir issue
+        if: failure() && github.event_name == 'schedule'
+        run: |
+          gh issue create --title "Smoke diário do site publicado falhou" --body "Execução: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+  crawl:
+    if: github.event_name == 'workflow_dispatch' || (vars.SMOKE_DIARIO == 'true' && github.event.schedule == '43 9 * * 1')
+    runs-on: ubuntu-latest
+    env:
+      PLAYWRIGHT_BASE_URL: ${{ vars.SMOKE_BASE_URL || 'https://portfolio.raphael-116.workers.dev' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec playwright install --with-deps chromium
+      # Crawl semanal: suítes seo (sem JavaScript) e a11y em todas as rotas e idiomas, contra o site publicado.
+      - run: pnpm exec playwright test --project=seo --project=a11y
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report-crawl
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 7
+      - name: Abrir issue
+        if: failure() && github.event_name == 'schedule'
+        run: |
+          gh issue create --title "Crawl semanal do site publicado falhou" --body "Execução: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+        env:
+          GH_TOKEN: ${{ github.token }}

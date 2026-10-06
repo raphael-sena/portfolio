@@ -18,6 +18,7 @@
 
   --font-masthead: var(--font-unifraktur), 'Old English Text MT', serif;
   --font-headline: var(--font-bodoni), 'Bodoni 72', Didot, serif;
+  --font-headline-italic: var(--font-bodoni-italic), 'Bodoni 72', Didot, serif;
   --font-label: var(--font-pathway), 'Arial Narrow', sans-serif;
   --font-text: var(--font-ptserif), Georgia, serif;
 

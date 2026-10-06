@@ -15,6 +15,8 @@ export function buildMetadata(locale: Locale, id: AnyPageId): Metadata {
 
   const { title, description } = t(locale).meta[id];
   const canonical = urlFor(locale, id);
+  // Imagem 1200x630 por página e idioma, gerada no build (scripts/gerar-og.mjs).
+  const ogImage = `${SITE_URL}/og/${locale}/${id}.png`;
   const available = localesOf(id);
 
   const languages: Record<string, string> = {};
@@ -23,10 +25,19 @@ export function buildMetadata(locale: Locale, id: AnyPageId): Metadata {
 
   return {
     metadataBase: new URL(SITE_URL),
+    icons: {
+      icon: [
+        { url: '/favicon.ico', sizes: '48x48' },
+        { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+      ],
+      apple: '/apple-touch-icon.png',
+    },
+    manifest: '/site.webmanifest',
     title,
     description,
     alternates: { canonical, languages },
     openGraph: {
+      images: [{ url: ogImage, width: 1200, height: 630, alt: title }],
       type: 'website',
       url: canonical,
       siteName: t(locale).common.siteName,
@@ -35,6 +46,6 @@ export function buildMetadata(locale: Locale, id: AnyPageId): Metadata {
       locale: OG_LOCALE[locale],
       alternateLocale: available.filter((l) => l !== locale).map((l) => OG_LOCALE[l]),
     },
-    twitter: { card: 'summary', title, description },
+    twitter: { card: 'summary_large_image', title, description, images: [{ url: ogImage, alt: title }] },
   };
 }

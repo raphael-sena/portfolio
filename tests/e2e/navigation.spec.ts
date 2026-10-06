@@ -61,7 +61,7 @@ test('o 404 global funciona e leva aos três idiomas', async ({ page }) => {
 
 test('o computador compacto aparece só na home e a página não rola na horizontal', async ({ page }) => {
   await page.goto('/');
-  await expect(page.getByRole('group', { name: /Computador compacto/ })).toBeVisible();
+  await expect(page.getByRole('figure', { name: /Computador compacto/ })).toBeVisible();
   const largura = await page.evaluate(() => [document.documentElement.scrollWidth, window.innerWidth]);
   expect(largura[0]).toBeLessThanOrEqual(largura[1]! + 1);
 });

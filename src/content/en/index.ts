@@ -4,6 +4,7 @@ import type { Dictionary } from '../dictionary';
 export const en: Dictionary = {
   common: {
     siteName: 'Raphael Sena',
+    jobTitle: 'Software Engineer',
     tagline: "A software developer's gazette",
     dateline: {
       place: 'Belo Horizonte, Minas Gerais',

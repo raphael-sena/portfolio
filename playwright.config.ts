@@ -19,6 +19,8 @@ export default defineConfig({
     { name: 'e2e', testDir: './tests/e2e', use: { ...devices['Desktop Chrome'] } },
     // Sobe o próprio wrangler dev + Umami falso (tests/umami/fixtures.ts); precisa do build em out/.
     { name: 'umami', testDir: './tests/umami', use: { ...devices['Desktop Chrome'] } },
+    // Smoke somente leitura; também roda contra o site publicado (PLAYWRIGHT_BASE_URL).
+    { name: 'publicado', testDir: './tests/publicado', use: { ...devices['Desktop Chrome'] } },
     { name: 'a11y', testDir: './tests/a11y', use: { ...devices['Desktop Chrome'] } },
     ...(completa
       ? [

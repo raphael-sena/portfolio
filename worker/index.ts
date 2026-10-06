@@ -1,3 +1,4 @@
+import { handleCspReport } from './csp-report';
 import { BASE_HEADERS, handleHealth, handleStats, type UmamiEnv } from './umami';
 
 interface Env extends UmamiEnv {
@@ -21,7 +22,10 @@ export default {
     if (pathname === '/api/health') {
       return handleHealth(env);
     }
-    // /api/chess e /api/spotify entram no G3.
+    if (pathname === '/api/csp-report') {
+      return handleCspReport(request);
+    }
+    // /api/chess e /api/spotify entram quando houver conteúdo para elas.
     if (pathname.startsWith('/stats/')) {
       return handleStats(request, env);
     }

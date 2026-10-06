@@ -2,21 +2,23 @@
 
 ## Fase atual
 
-**G4 Interações e computador 3D: PR aberto, aguardando OK.** G1, G2, G3 e G5 mergeados (`main` publicado só em workers.dev, noindex). G6, G7 e G8 pendentes.
+**G6 SEO e confiabilidade: PR aberto, aguardando OK.** G1 a G5 mergeados (`main` publicado só em workers.dev, noindex). G7 (linha do tempo por tags) e G8 (cutover) pendentes.
 
 ## Feito
 
 - 2026-10-05: G0 aprovado; tags `site/2024`, `site/2025`, `site/2026` e `v1.0.0` intactas. G1, G2 e G5 mergeados.
-- 2026-10-06: Umami ligado pelo usuário; integração Git "Workers Builds" da Cloudflare desconectada. G3 mergeado (PR #29): 7 páginas × 3 idiomas.
-- 2026-10-06: G4 (`g4-interacoes`): computador 3D "Apple II Computer" (CC BY 4.0, atribuição no site; 114 MB reduzidos a 1 MB), carregado só ao entrar na tela, com poster e reserva em cubo CSS; orelha com arraste (dx+dy ≥ 280 px); virada de página por View Transitions entre todas as rotas, imediata com movimento reduzido; currículo novo em inglês ligado. Verificação: lint, typecheck, 72 unitários e a matriz completa de navegadores (Chromium, Firefox, WebKit, Pixel 7, iPhone 14): 257 e2e passando, 4 `skip` documentados.
+- 2026-10-06: G3 (páginas, 3 idiomas) e G4 (orelha com arraste, virada de página por View Transitions, computador 3D Apple II CC BY 4.0) mergeados.
+- 2026-10-06: G6 (`g6-seo`): imagens Open Graph por página, JSON-LD, `robots.txt`, `sitemap.xml` com hreflang, CSP em Report-Only com hashes, HSTS só em produção, favicon e manifest, Lighthouse CI, orçamento de LCP/CLS em 4G, smoke pós-deploy com rollback, workflow de smoke e crawl, `docs/search-console.md`. Lighthouse local nas 12 rotas: Performance 95 a 97, Acessibilidade 100, Boas práticas 100, SEO 100.
+
+## Feedback do usuário para corrigir depois (G4)
+
+Pontos que ficaram ruins na passada de página, o tamanho da orelha e bugs ao voltar com a orelha. O usuário vai detalhar; o agente corrige em uma rodada de ajustes.
 
 ## Pendente
 
-- Usuário: OK para atualizar o conteúdo a partir do currículo novo; versão em português do PDF; revisar o alemão; Instagram, WhatsApp e telefone; cargo e período da Modaxo; provedor de tradução.
-- Usuário: proteger o `main` (CI obrigatório: `verificar` e `e2e`).
-- G6: OG por página (satori), JSON-LD, sitemap e robots, redirect apex para www, CSP, Lighthouse.
+- Usuário: religar o secret `UMAMI_HOST` (`wrangler secret list` está vazio; `/api/health` mostra `umami: unconfigured`); OK para atualizar o conteúdo a partir do currículo novo; versão em português do currículo; revisar o alemão; Instagram, WhatsApp e telefone; cargo e período da Modaxo; provedor de tradução; proteger o `main` (CI obrigatório: `verificar`, `e2e` e `lighthouse`); descobrir como o Search Console foi verificado.
 - G7: `archive/<ano>/` e `/<ano>/` (hoje "Em breve").
-- G8: cutover.
+- G8: cutover (zona Cloudflare, MX/SPF, nameservers, domínio no Worker, Redirect Rule do apex, rollback ensaiado).
 
 ## Regras vivas
 

@@ -71,3 +71,12 @@ Trocar nameservers no Namecheap, fornecer secrets, fornecer o modelo 3D e sua li
 | **Versão em português do currículo** (`curriculo-raphael-sena.pdf` ainda é a antiga)                   | O botão "Baixar o currículo" em pt aponta para ele                 |
 | OK para atualizar Experiência, Formação e Sobre a partir do currículo novo (tabela em CONTENT-TODO.md) | O site ainda mostra Avaso como atual e não cita a Modaxo com cargo |
 | Decisão sobre o telefone do currículo e o WhatsApp                                                     | O PDF é público e tem telefone e e-mail no cabeçalho               |
+
+## Atualização do G6 (2026-10-06)
+
+| Item                                                                                                     | Para quê                                                                                             |
+| -------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| **Como o Search Console foi verificado** (Configurações > Verificação)                                   | Não há `google-site-verification` no legado nem arquivo `google*.html`; ver `docs/search-console.md` |
+| Proteção do `main`: acrescentar o check `lighthouse` aos obrigatórios (`verificar`, `e2e`, `lighthouse`) | O job novo roda só em PR para o `main`                                                               |
+| Variáveis de repositório opcionais: `SMOKE_BASE_URL` (padrão: o workers.dev) e `SMOKE_DIARIO=true`       | Smoke diário e crawl semanal                                                                         |
+| Religar `UMAMI_HOST`: `! pnpm exec wrangler secret put UMAMI_HOST`                                       | `wrangler secret list` está vazio                                                                    |
