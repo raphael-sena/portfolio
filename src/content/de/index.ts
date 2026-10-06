@@ -38,6 +38,7 @@ export const de: Dictionary = {
     mac: {
       aria: 'Kompakter Computer in 3D: zum Drehen ziehen, die Pfeiltasten oder die Schaltflächen verwenden',
       caption: 'Abb. 1 — Kompakter Computer, drehbare Ansicht. Zum Betrachten ziehen.',
+      captionStatic: 'Abb. 1 — Kompakter Computer (Apple II).',
       left: 'Nach links drehen',
       reset: 'Zurücksetzen',
       right: 'Nach rechts drehen',
@@ -47,6 +48,16 @@ export const de: Dictionary = {
     },
     backHome: 'Zurück zur Startseite',
     present: 'heute',
+    mobile: {
+      menu: 'Abschnittsmenü',
+      sections: 'Abschnitte',
+      prev: 'Zurück',
+      next: 'Weiter',
+      prevAria: 'Vorherige Seite: {section}, Seite {n}',
+      nextAria: 'Nächste Seite: {section}, Seite {n}',
+      of: '{n} von {total}',
+      lastEdition: 'Neueste Ausgabe',
+    },
     openRepo: 'Code auf GitHub →',
   },
   meta: {
@@ -95,6 +106,23 @@ export const de: Dictionary = {
       lead: 'Aus dem Studium der Softwaretechnik: Projekte, Erfahrung und eine Maschine, die sich dreht.',
       body: 'Softwareentwicklung mit Schwerpunkt Back-End, zwischen elektronischen Fahrgeldmanagement-Systemen im Produktivbetrieb bei Modaxo und einer von Grund auf entwickelten mandantenfähigen ERP-Plattform mit Java und Spring Boot. Studium der Softwaretechnik an der PUC Minas.',
       continue: 'Weiter unter Über mich, Seite 2 →',
+      edition: {
+        title: 'In dieser Ausgabe',
+        items: {
+          about: {
+            title: 'Wer diese Gazette schreibt',
+            text: 'Ein Softwareentwickler aus Belo Horizonte und das Profil des Redakteurs.',
+          },
+          experience: {
+            title: 'Erfahrung und Ausbildung',
+            text: 'Was bisher entstanden ist, wo und mit welchen Werkzeugen.',
+          },
+          projects: { title: 'Veröffentlichte Werke', text: 'Ausgewählte Projekte, jeweils mit Stack und Ergebnis.' },
+          technologies: { title: 'Werkzeuge des Handwerks', text: 'Was ich täglich nutze, nach Bereichen geordnet.' },
+          timeline: { title: 'Frühere Ausgaben', text: 'Jede Version des Portfolios ist weiterhin online.' },
+          contact: { title: 'Briefe an die Redaktion', text: 'Wege, den Autor dieser Gazette zu erreichen.' },
+        },
+      },
       aside: {
         title: 'Im Blickpunkt',
         timeline: {

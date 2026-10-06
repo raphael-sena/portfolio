@@ -32,10 +32,12 @@ function Row({
   last?: boolean;
 }) {
   return (
-    <article className={`flex flex-wrap gap-x-6 gap-y-1.5 py-5 ${last ? '' : 'border-b border-ink'}`}>
-      <p className="flex-[0_0_150px] font-label text-2xl tracking-widest uppercase">{period}</p>
+    <article className={`flex flex-wrap gap-x-6 gap-y-1.5 py-5 max-md:py-4 ${last ? '' : 'border-b border-ink'}`}>
+      <p className="flex-[0_0_150px] font-label text-2xl tracking-widest uppercase max-md:flex-[1_0_100%] max-md:text-[1.0625rem] max-md:tracking-[0.2em]">
+        {period}
+      </p>
       <div className="min-w-0 flex-[1_1_260px]">
-        <h3 className="font-headline text-[1.625rem] leading-[1.15] font-bold">{title}</h3>
+        <h3 className="font-headline text-[1.625rem] leading-[1.15] font-bold max-md:text-[1.375rem]">{title}</h3>
         {subtitle && <p className="italic">{subtitle}</p>}
         {children}
       </div>
@@ -102,7 +104,7 @@ export function ExperiencePage({ locale }: { locale: Locale }) {
                 key={course.id}
                 className={`flex flex-wrap gap-x-6 gap-y-1 py-3 ${i === extraCourses.length - 1 ? '' : 'border-b border-ink'}`}
               >
-                <span className="flex-[0_0_150px] font-label text-2xl tracking-widest uppercase">
+                <span className="flex-[0_0_150px] font-label text-2xl tracking-widest uppercase max-md:flex-[1_0_100%] max-md:text-[1.0625rem] max-md:tracking-[0.2em]">
                   {formatMonth(locale, course.date)}
                 </span>
                 <span className="min-w-0 flex-[1_1_260px]">

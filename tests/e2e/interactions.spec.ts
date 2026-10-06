@@ -1,5 +1,8 @@
 import { expect, test, type Page } from '@playwright/test';
 
+// Comportamento do desktop (orelha, virada em 3D, menu horizontal, 3D): o mobile (< 768 px) tem o próprio tests/e2e/mobile.spec.ts.
+test.skip(({ viewport }) => (viewport?.width ?? 1280) < 768, 'desktop apenas');
+
 // G4: orelha com arraste, virada de página por View Transitions e computador 3D sob demanda.
 
 /** Conta chamadas a document.startViewTransition (o que prova que a virada animada foi usada). */
@@ -87,17 +90,6 @@ test('links de arquivo (PDF) e externos não passam pela virada', async ({ page 
   );
   await page.getByRole('link', { name: 'Baixar o currículo →' }).click();
   expect(await viewTransitions(page)).toBe(0);
-});
-
-test('a orelha é fixa no canto da tela no celular', async ({ page }) => {
-  await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto('/sobre/');
-  const orelha = page.getByRole('link', { name: /Virar a página/ });
-  const posicao = await orelha.evaluate((el) => getComputedStyle(el).position);
-  expect(posicao).toBe('fixed');
-  const caixa = (await orelha.boundingBox())!;
-  expect(caixa.x + caixa.width).toBeCloseTo(390, 0);
-  expect(caixa.y + caixa.height).toBeCloseTo(844, 0);
 });
 
 test.describe('computador 3D', () => {

@@ -23,6 +23,8 @@ export const MODEL_CREDIT = {
 export interface MacViewerLabels {
   aria: string;
   caption: string;
+  /** Legenda do mobile, onde o modelo é só o poster. */
+  captionStatic?: string;
   left: string;
   reset: string;
   right: string;
@@ -82,6 +84,8 @@ export function MacViewer({ labels = DEFAULT_LABELS }: { labels?: MacViewerLabel
     const iniciar = () => {
       if (started) return;
       started = true;
+      // Abaixo de 768 px o modelo é só o poster: nada de three.js nem de .glb no celular.
+      if (window.matchMedia('(max-width: 767px)').matches) return;
       const economia = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData;
       if (economia || !webglDisponivel()) {
         setPhase('cube');
@@ -156,7 +160,7 @@ export function MacViewer({ labels = DEFAULT_LABELS }: { labels?: MacViewerLabel
         onPointerUp={() => setDragging(false)}
         onPointerCancel={() => setDragging(false)}
         onKeyDown={onKeyDown}
-        className={`relative h-[500px] touch-pan-y overflow-hidden border-[3px] border-ink select-none ${dragging ? 'cursor-grabbing' : 'cursor-grab'}`}
+        className={`relative h-[500px] touch-pan-y overflow-hidden border-[3px] border-ink select-none max-md:h-[340px] ${dragging ? 'cursor-grabbing' : 'cursor-grab'}`}
         style={{ boxShadow: '0 0 0 6px #f5f3ec, 0 0 0 8px #111' }}
       >
         {/* Raios do quadriculado: giram em torno do centro junto com o computador (o cruzamento com os anéis, fixos, faz o
@@ -214,7 +218,7 @@ export function MacViewer({ labels = DEFAULT_LABELS }: { labels?: MacViewerLabel
       <p className="sr-only" aria-live="polite">
         {labels.angle.replace('{angle}', String(angle))}
       </p>
-      <div className="mt-6 flex flex-wrap justify-center gap-3">
+      <div className="mt-6 flex flex-wrap justify-center gap-3 max-md:hidden">
         <Button size="sm" onClick={() => turn(-STEP)}>
           {labels.left}
         </Button>
@@ -225,8 +229,11 @@ export function MacViewer({ labels = DEFAULT_LABELS }: { labels?: MacViewerLabel
           {labels.right}
         </Button>
       </div>
-      <figcaption className="mt-3 text-center text-base italic">{labels.caption}</figcaption>
-      <p className="mt-1 text-center text-base">
+      <figcaption className="mt-3 text-center text-base italic max-md:mt-2.5 max-md:text-left max-md:text-sm">
+        <span className="max-md:hidden">{labels.caption}</span>
+        <span className="md:hidden">{labels.captionStatic ?? labels.caption}</span>
+      </figcaption>
+      <p className="mt-1 text-center text-base max-md:text-left max-md:text-sm max-md:italic">
         {labels.credit.model}{' '}
         <a href={MODEL_CREDIT.sourceUrl} rel="noopener">
           «{MODEL_CREDIT.title}»

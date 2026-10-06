@@ -59,13 +59,15 @@ export function TimelinePage({ locale }: { locale: Locale }) {
         {cards.map((card) => (
           <li key={card.key}>
             <article>
-              <h2 className="font-headline text-[3.5rem] leading-none font-extrabold">{card.heading}</h2>
+              <h2 className="font-headline text-[3.5rem] leading-none font-extrabold max-md:text-[2.5rem]">
+                {card.heading}
+              </h2>
               {card.current && (
                 <p className="mt-2 inline-block bg-ink px-3 py-0.5 font-label text-xl tracking-[0.2em] text-paper uppercase">
                   {timeline.current}
                 </p>
               )}
-              <div className="mt-4">
+              <div className="mt-4 max-md:hidden">
                 {/* Capturas geradas por scripts/capturar-arquivos.mjs; em tons de cinza, como o resto da Gazeta. */}
                 <LateImage
                   src={card.shot}

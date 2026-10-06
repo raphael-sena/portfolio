@@ -28,7 +28,7 @@
 
 @layer base {
   html {
-    font-size: 90%; /* escala geral: tudo em rem encolhe 10% para caber mais conteúdo por tela */
+    font-size: 100%;
     background: var(--color-stage);
     color: var(--color-ink);
   }
@@ -36,9 +36,18 @@
     min-height: 100dvh;
     background: var(--color-stage);
     font-family: var(--font-text);
-    font-size: 1.125rem;
+    font-size: 1rem;
     line-height: 1.6;
     font-synthesis: none; /* sem negrito/itálico sintético: PT Serif Caption só tem regular e itálico */
+  }
+  /* Escala do desktop: tudo em rem encolhe 10% para caber mais conteúdo por tela. No mobile, 1rem = 16px. */
+  @media (min-width: 48rem) {
+    html {
+      font-size: 90%;
+    }
+    body {
+      font-size: 1.125rem;
+    }
   }
   a {
     color: var(--color-ink);

@@ -33,6 +33,7 @@ export const en: Dictionary = {
     mac: {
       aria: 'Compact computer in 3D: drag, use the arrow keys or the buttons to rotate',
       caption: 'Fig. 1 — Compact computer, rotating view. Drag to examine.',
+      captionStatic: 'Fig. 1 — Compact computer (Apple II).',
       left: 'Rotate left',
       reset: 'Reset',
       right: 'Rotate right',
@@ -42,6 +43,16 @@ export const en: Dictionary = {
     },
     backHome: 'Back to the home page',
     present: 'present',
+    mobile: {
+      menu: 'Section menu',
+      sections: 'Sections',
+      prev: 'Previous',
+      next: 'Next',
+      prevAria: 'Previous page: {section}, page {n}',
+      nextAria: 'Next page: {section}, page {n}',
+      of: '{n} of {total}',
+      lastEdition: 'Latest edition',
+    },
     openRepo: 'Code on GitHub →',
   },
   meta: {
@@ -88,6 +99,20 @@ export const en: Dictionary = {
       lead: 'A Software Engineering student gathers projects, experience and a machine that spins.',
       body: 'Backend-focused software engineer, between production electronic ticketing systems at Modaxo and a multi-tenant ERP platform built from scratch with Java and Spring Boot. Software Engineering student at PUC Minas.',
       continue: 'Continued in About, page 2 →',
+      edition: {
+        title: 'In this edition',
+        items: {
+          about: {
+            title: 'Who writes this gazette',
+            text: 'A software developer from Belo Horizonte and the writer’s profile.',
+          },
+          experience: { title: 'Experience and education', text: 'What has been done, where, and with which tools.' },
+          projects: { title: 'Published works', text: 'Featured projects, each with its stack and outcome.' },
+          technologies: { title: 'Tools of the trade', text: 'What I use day to day, organized by area.' },
+          timeline: { title: 'Earlier editions', text: 'Every version of the portfolio is still online.' },
+          contact: { title: 'Letters to the editor', text: 'Ways to reach the author of this gazette.' },
+        },
+      },
       aside: {
         title: 'Featured',
         timeline: {

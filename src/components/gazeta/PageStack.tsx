@@ -18,30 +18,45 @@ interface PageStackProps {
   /** Orelha de página (posicionada no canto inferior direito da folha). */
   ear?: ReactNode;
   className?: string;
+  /** Faixa superior e barra inferior fixas do mobile (ficam fora da folha, em largura total). */
+  top?: ReactNode;
+  bottom?: ReactNode;
 }
 
 /** Cenário escuro com hachura e a pilha de folhas inclinadas atrás da folha principal. */
-export function PageStack({ children, spine = true, earSpace = true, ear, className = '' }: PageStackProps) {
+export function PageStack({
+  children,
+  spine = true,
+  earSpace = true,
+  ear,
+  className = '',
+  top,
+  bottom,
+}: PageStackProps) {
   return (
-    <div className="bg-stage-hatch overflow-hidden py-7 pr-11 pb-13 pl-6">
+    <div className="bg-stage-hatch overflow-hidden py-7 pr-11 pb-13 pl-6 max-md:[overflow:clip] max-md:bg-paper max-md:p-0">
+      {top}
       <div className="relative mx-auto max-w-295">
         {BACK_SHEETS.map((sheet) => (
           <div
             key={sheet.color}
             aria-hidden="true"
-            className={`${sheet.color} absolute inset-0 border border-ink shadow-sheet-back`}
+            className={`${sheet.color} absolute inset-0 border border-ink shadow-sheet-back max-md:hidden`}
             style={{ transform: sheet.transform }}
           />
         ))}
         <div
-          className={`page-sheet relative z-[5] overflow-hidden border border-ink bg-paper text-ink shadow-sheet ${earSpace ? 'pb-24' : 'pb-8'} ${className}`}
+          className={`page-sheet relative z-[5] overflow-hidden border border-ink bg-paper text-ink shadow-sheet max-md:[overflow:clip] max-md:border-0 max-md:pb-0 max-md:shadow-none ${earSpace ? 'pb-24' : 'pb-8'} ${className}`}
         >
-          {spine && <div aria-hidden="true" className="bg-spine pointer-events-none absolute inset-0" />}
-          <div className="relative mx-auto max-w-280 px-5 pt-5">{children}</div>
-          <PaperTexture />
-          {ear}
+          {spine && <div aria-hidden="true" className="bg-spine pointer-events-none absolute inset-0 max-md:hidden" />}
+          <div className="relative mx-auto max-w-280 px-5 pt-5 max-md:px-4 max-md:pt-0">{children}</div>
+          <div className="max-md:hidden">
+            <PaperTexture />
+          </div>
+          <div className="max-md:hidden">{ear}</div>
         </div>
       </div>
+      {bottom}
     </div>
   );
 }

@@ -18,14 +18,14 @@ export function ProjectsPage({ locale }: { locale: Locale }) {
             className="min-w-0 flex-[1_1_280px] lg:px-5 lg:first:pl-0 lg:[&:not(:nth-child(3n+1))]:border-l lg:[&:not(:nth-child(3n+1))]:border-ink lg:[&:nth-child(3n)]:pr-0 lg:[&:nth-child(3n+1)]:pl-0"
           >
             <article>
-              <figure>
+              <figure className="max-md:hidden">
                 <HatchPlaceholder
                   label={fill(texts.figure, { n: i + 1 })}
                   height={200}
                   alt={fill(texts.figureAlt, { name: project.name })}
                 />
               </figure>
-              <h2 className="mt-4 font-headline text-[1.75rem] leading-[1.1] font-bold">{project.name}</h2>
+              <h2 className="mt-4 font-headline text-[1.75rem] leading-[1.1] font-bold max-md:mt-0">{project.name}</h2>
               <p className="mt-1 font-label text-[1.3125rem] tracking-[0.14em] uppercase">
                 {texts.stack}: {(project.stack ?? project.languages ?? []).join(' · ')}
               </p>

@@ -1,6 +1,9 @@
 import { expect, test } from '@playwright/test';
 import { LOCALES, PAGES, path } from '../support/routes';
 
+// Comportamento do desktop (orelha, virada em 3D, menu horizontal, 3D): o mobile (< 768 px) tem o próprio tests/e2e/mobile.spec.ts.
+test.skip(({ viewport }) => (viewport?.width ?? 1280) < 768, 'desktop apenas');
+
 const NUMBERS = [1, 2, 3, 4, 5, 6, 7];
 
 for (const locale of LOCALES) {
