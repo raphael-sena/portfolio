@@ -20,7 +20,26 @@ function Hatch({ id }: { id: string }) {
 }
 
 /** Computador compacto em CSS 3D: seis faces SVG, arrasto, setas do teclado e botões. Substituído pelo .glb quando a licença for confirmada. */
-export function MacViewer({ caption = 'Fig. 1 — Computador compacto, em vista giratória. Arraste para examinar.' }) {
+export interface MacViewerLabels {
+  aria: string;
+  caption: string;
+  left: string;
+  reset: string;
+  right: string;
+  /** Texto com `{angle}`, lido por leitores de tela ao girar. */
+  angle: string;
+}
+
+const DEFAULT_LABELS: MacViewerLabels = {
+  aria: 'Computador compacto em 3D: arraste, use as setas do teclado ou os botões para girar',
+  caption: 'Fig. 1 — Computador compacto, em vista giratória. Arraste para examinar.',
+  left: 'Girar à esquerda',
+  reset: 'Reiniciar',
+  right: 'Girar à direita',
+  angle: 'Rotação horizontal: {angle} graus',
+};
+
+export function MacViewer({ labels = DEFAULT_LABELS }: { labels?: MacViewerLabels }) {
   const hatchId = useId();
   const [rot, setRot] = useState<{ rx: number; ry: number }>({ ...INITIAL });
   const [dragging, setDragging] = useState(false);
@@ -172,20 +191,20 @@ export function MacViewer({ caption = 'Fig. 1 — Computador compacto, em vista 
         </div>
       </div>
       <p className="sr-only" aria-live="polite">
-        Rotação horizontal: {angle} graus
+        {labels.angle.replace('{angle}', String(angle))}
       </p>
       <div className="mt-6 flex flex-wrap justify-center gap-3">
         <Button size="sm" onClick={() => turn(-STEP)}>
-          Girar à esquerda
+          {labels.left}
         </Button>
         <Button size="sm" onClick={reset}>
-          Reiniciar
+          {labels.reset}
         </Button>
         <Button size="sm" onClick={() => turn(STEP)}>
-          Girar à direita
+          {labels.right}
         </Button>
       </div>
-      <figcaption className="mt-3 text-center text-base italic">{caption}</figcaption>
+      <figcaption className="mt-3 text-center text-base italic">{labels.caption}</figcaption>
     </figure>
   );
 }

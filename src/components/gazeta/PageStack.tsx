@@ -15,11 +15,13 @@ interface PageStackProps {
   spine?: boolean;
   /** Reserva espaço no rodapé para a orelha de página. */
   earSpace?: boolean;
+  /** Orelha de página (posicionada no canto inferior direito da folha). */
+  ear?: ReactNode;
   className?: string;
 }
 
 /** Cenário escuro com hachura e a pilha de folhas inclinadas atrás da folha principal. */
-export function PageStack({ children, spine = true, earSpace = true, className = '' }: PageStackProps) {
+export function PageStack({ children, spine = true, earSpace = true, ear, className = '' }: PageStackProps) {
   return (
     <div className="bg-stage-hatch overflow-hidden py-7 pr-11 pb-13 pl-6">
       <div className="relative mx-auto max-w-295">
@@ -37,6 +39,7 @@ export function PageStack({ children, spine = true, earSpace = true, className =
           {spine && <div aria-hidden="true" className="bg-spine pointer-events-none absolute inset-0" />}
           <div className="relative mx-auto max-w-280 px-5 pt-5">{children}</div>
           <PaperTexture />
+          {ear}
         </div>
       </div>
     </div>

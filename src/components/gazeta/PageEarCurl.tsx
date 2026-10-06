@@ -6,10 +6,12 @@ interface PageEarCurlProps {
   nextPage: number;
   /** Pulso discreto no repouso. */
   pulse?: boolean;
+  /** Palavra "Página" no idioma atual. */
+  pageLabel?: string;
 }
 
 /** Parte visual da orelha (canto virado). A interação (arrastar, clicar, Enter) entra no G4. */
-export function PageEarCurl({ size = 44, nextLabel, nextPage, pulse = false }: PageEarCurlProps) {
+export function PageEarCurl({ size = 44, nextLabel, nextPage, pulse = false, pageLabel = 'Página' }: PageEarCurlProps) {
   return (
     <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-[6] overflow-hidden">
       <div
@@ -25,7 +27,9 @@ export function PageEarCurl({ size = 44, nextLabel, nextPage, pulse = false }: P
           />
           {size >= 200 && (
             <div className="absolute right-[22px] bottom-3.5 text-right">
-              <p className="font-label text-[22px] tracking-[0.2em] uppercase">Página {nextPage}</p>
+              <p className="font-label text-[22px] tracking-[0.2em] uppercase">
+                {pageLabel} {nextPage}
+              </p>
               <p className="font-headline text-[32px] leading-[1.1] font-extrabold">{nextLabel}</p>
             </div>
           )}

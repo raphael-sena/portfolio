@@ -8,7 +8,7 @@ Next.js App Router (`output: "export"`) + TypeScript estrito + Tailwind v4 (toke
 
 ## Comandos
 
-`pnpm dev | build | preview | lint | format | typecheck | test | test:e2e` (ver README). Node 24, pnpm 12. Rode `pnpm lint && pnpm typecheck && pnpm test && pnpm test:e2e` antes de dizer que terminou.
+`pnpm dev | build | preview | lint | format | typecheck | test | test:e2e` (ver README). Node 24, pnpm 12. `pnpm i18n:check` verifica as traduções. Rode `pnpm lint && pnpm typecheck && pnpm test && pnpm test:e2e` antes de dizer que terminou.
 
 ## Regras de segurança
 

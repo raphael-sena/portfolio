@@ -1,20 +1,16 @@
 import Link from 'next/link';
 
-const LINKS = [
-  { href: '/', label: 'Início' },
-  { href: '/sobre/', label: 'Sobre' },
-  { href: '/experiencia/', label: 'Experiência' },
-  { href: '/projetos/', label: 'Projetos' },
-  { href: '/tecnologias/', label: 'Tecnologias' },
-  { href: '/linha-do-tempo/', label: 'Linha do tempo' },
-  { href: '/contato/', label: 'Contato' },
-];
+export interface FooterLink {
+  href: string;
+  label: string;
+}
 
-export function Footer() {
+/** Nome e links do rodapé, separados por `|` (decorativo, escondido de leitores de tela). */
+export function Footer({ siteName, links }: { siteName: string; links: FooterLink[] }) {
   return (
     <footer className="mt-11 border-t-4 border-double border-ink pt-3.5 text-center text-base leading-8">
-      <span>Raphael Sena</span>
-      {LINKS.map((link) => (
+      <span>{siteName}</span>
+      {links.map((link) => (
         <span key={link.href}>
           <span aria-hidden="true" className="mx-2">
             |

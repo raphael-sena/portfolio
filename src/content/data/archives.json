@@ -1,0 +1,29 @@
+[
+  {
+    "year": 2024,
+    "tag": "site/2024",
+    "sha": "8303d121cc2bdaacdbf36fff23b5d3ae8ac4a360",
+    "node": "20",
+    "build": "next-export",
+    "basePath": "/2024",
+    "archived": false
+  },
+  {
+    "year": 2025,
+    "tag": "site/2025",
+    "sha": "8235c76e65a47d50b4e0748890e1088301d5c13c",
+    "node": "20",
+    "build": "next-export",
+    "basePath": "/2025",
+    "archived": false
+  },
+  {
+    "year": 2026,
+    "tag": "site/2026",
+    "sha": "d30b96fd5270028b3344253b1af43db88c86cdc1",
+    "node": "20",
+    "build": "next-export",
+    "basePath": "/2026",
+    "archived": false
+  }
+]
