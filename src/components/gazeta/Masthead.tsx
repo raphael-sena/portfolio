@@ -12,8 +12,8 @@ function TitleWithMark({ title }: { title: string }) {
         src="/art/linotype-mark.webp"
         alt=""
         aria-hidden="true"
-        width={240}
-        height={280}
+        width={180}
+        height={210}
         decoding="async"
         className="inline-block h-[1.05em] w-auto align-[-0.525em] group-hover:invert"
       />{' '}
