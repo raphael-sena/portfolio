@@ -66,10 +66,10 @@ export function PageEarCurl({
       </div>
       {size >= 160 && (
         <div className="absolute right-[22px] bottom-3.5 text-right">
-          <p className="font-label text-[22px] tracking-[0.2em] uppercase">
+          <p className="font-label text-[1.375rem] tracking-[0.2em] uppercase">
             {pageLabel} {nextPage}
           </p>
-          <p className="font-headline text-[32px] leading-[1.1] font-extrabold">{nextLabel}</p>
+          <p className="font-headline text-[2rem] leading-[1.1] font-extrabold">{nextLabel}</p>
         </div>
       )}
     </div>

@@ -29,7 +29,7 @@ export function NavBar({ items, label = 'Principal', current }: NavBarProps) {
                 aria-current={isCurrent ? 'page' : undefined}
                 data-track="menu_click"
                 data-track-item={item.id ?? item.label}
-                className={`flex min-h-12 items-center px-4 font-label text-[23px] tracking-[0.14em] uppercase no-underline visited:text-ink hover:bg-ink hover:text-paper ${
+                className={`flex min-h-12 items-center px-4 font-label text-[1.4375rem] tracking-[0.14em] uppercase no-underline visited:text-ink hover:bg-ink hover:text-paper ${
                   isCurrent ? 'bg-ink !text-paper' : ''
                 }`}
               >

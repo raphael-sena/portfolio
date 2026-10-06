@@ -25,8 +25,8 @@ export function ProjectsPage({ locale }: { locale: Locale }) {
                   alt={fill(texts.figureAlt, { name: project.name })}
                 />
               </figure>
-              <h2 className="mt-4 font-headline text-[28px] leading-[1.1] font-bold">{project.name}</h2>
-              <p className="mt-1 font-label text-[21px] tracking-[0.14em] uppercase">
+              <h2 className="mt-4 font-headline text-[1.75rem] leading-[1.1] font-bold">{project.name}</h2>
+              <p className="mt-1 font-label text-[1.3125rem] tracking-[0.14em] uppercase">
                 {texts.stack}: {(project.stack ?? project.languages ?? []).join(' · ')}
               </p>
               <p className="prose-gazeta mt-2">{texts.descriptions[project.slug]}</p>

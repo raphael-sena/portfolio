@@ -12,7 +12,9 @@ type ButtonProps =
 export function Button(props: ButtonProps) {
   const size = props.size ?? 'md';
   const sizing =
-    size === 'md' ? 'min-h-12 px-[22px] text-[22px] tracking-[0.14em]' : 'min-h-11 px-4 text-[21px] tracking-[0.12em]';
+    size === 'md'
+      ? 'min-h-12 px-[22px] text-[1.375rem] tracking-[0.14em]'
+      : 'min-h-11 px-4 text-[1.3125rem] tracking-[0.12em]';
   if (props.href !== undefined) {
     const { href, size: _size, children, className = '', ...rest } = props;
     void _size;

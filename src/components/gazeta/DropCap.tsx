@@ -3,7 +3,7 @@ export function DropCap({ letter }: { letter: string }) {
   return (
     <span
       aria-hidden="true"
-      className="float-left pt-1.5 pr-2.5 font-headline text-[80px] leading-[0.78] font-extrabold"
+      className="float-left pt-1.5 pr-2.5 font-headline text-[5rem] leading-[0.78] font-extrabold"
     >
       {letter}
     </span>

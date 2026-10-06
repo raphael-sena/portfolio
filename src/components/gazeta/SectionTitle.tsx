@@ -11,7 +11,7 @@ export function SectionTitle({
 }) {
   return (
     <Tag
-      className={`border-y border-ink py-1.5 font-label text-[30px] font-normal tracking-[0.16em] uppercase first:border-t-4 first:border-double ${
+      className={`border-y border-ink py-1.5 font-label text-[1.875rem] font-normal tracking-[0.16em] uppercase first:border-t-4 first:border-double ${
         align === 'center' ? 'text-center' : 'text-left'
       }`}
     >

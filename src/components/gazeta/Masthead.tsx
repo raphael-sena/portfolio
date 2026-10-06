@@ -36,7 +36,7 @@ export function Masthead({
       <header className="flex flex-wrap items-center justify-center gap-x-7 gap-y-3 py-4.5 text-center">
         <SideBox lines={boxes.left} />
         <div>
-          <h1 className="font-masthead text-[clamp(52px,9vw,112px)] leading-[1.05] font-normal">{title}</h1>
+          <h1 className="font-masthead text-[clamp(3.25rem,9vw,7rem)] leading-[1.05] font-normal">{title}</h1>
           <p className="text-xl italic">{subtitle}</p>
         </div>
         <SideBox lines={boxes.right} />
@@ -45,12 +45,12 @@ export function Masthead({
   }
   return (
     <header className="py-3.5 text-center">
-      <p className="font-masthead text-[clamp(44px,6.5vw,72px)] leading-[1.05]">
+      <p className="font-masthead text-[clamp(2.75rem,6.5vw,4.5rem)] leading-[1.05]">
         <Link prefetch={false} href={homeHref} className="no-underline visited:text-ink hover:bg-ink hover:text-paper">
           {title}
         </Link>
       </p>
-      <p className="text-[19px] italic">{subtitle}</p>
+      <p className="text-[1.1875rem] italic">{subtitle}</p>
     </header>
   );
 }

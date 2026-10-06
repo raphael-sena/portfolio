@@ -13,7 +13,7 @@ export function HomePage({ locale }: { locale: Locale }) {
     <div className="flex flex-wrap gap-y-9">
       <article className="min-w-0 flex-[1_1_260px] lg:pr-7">
         <p className="font-label text-xl tracking-[0.22em] uppercase">{home.kicker}</p>
-        <h2 className="font-headline text-[clamp(24px,2.5vw,34px)] leading-[1.1] font-extrabold [overflow-wrap:anywhere] hyphens-auto">
+        <h2 className="font-headline text-[clamp(1.5rem,2.5vw,2.125rem)] leading-[1.1] font-extrabold [overflow-wrap:anywhere] hyphens-auto">
           {home.headline}
         </h2>
         <p className="mt-3 text-xl italic">{home.lead}</p>
@@ -37,7 +37,7 @@ export function HomePage({ locale }: { locale: Locale }) {
         <SectionTitle>
           <span id="destaque">{home.aside.title}</span>
         </SectionTitle>
-        <h3 className="mt-3 font-headline text-[26px] leading-[1.1] font-bold">{home.aside.timeline.title}</h3>
+        <h3 className="mt-3 font-headline text-[1.625rem] leading-[1.1] font-bold">{home.aside.timeline.title}</h3>
         <p className="prose-gazeta mt-1">{home.aside.timeline.text}</p>
         <p className="mt-2">
           <Link prefetch={false} href={pathFor(locale, 'timeline')} className="inline-flex min-h-11 items-center">
@@ -45,7 +45,7 @@ export function HomePage({ locale }: { locale: Locale }) {
           </Link>
         </p>
         <Ornament />
-        <h3 className="font-headline text-[26px] leading-[1.1] font-bold">{home.aside.resume.title}</h3>
+        <h3 className="font-headline text-[1.625rem] leading-[1.1] font-bold">{home.aside.resume.title}</h3>
         <p className="prose-gazeta mt-1">{home.aside.resume.text}</p>
         <p className="mt-2">
           <a href={RESUME_FILES[locale]} data-track="resume_download" className="inline-flex min-h-11 items-center">
