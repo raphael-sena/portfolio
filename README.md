@@ -1,107 +1,50 @@
-# Personal Portfolio - [raphaelsena.com](https://www.raphaelsena.com)
+# Portfólio de Raphael Sena: "Gazeta de 1900"
 
-This repository contains the source code for my personal portfolio website. It showcases my professional experience, education, projects, skills, and hobbies. The website is fully responsive and designed to provide a clean and engaging user experience.
+Código do site [raphaelsena.com](https://www.raphaelsena.com): um portfólio no formato de um jornal de 1900, em preto e branco, com páginas empilhadas, orelha de página para virar e um computador compacto em 3D.
 
-## 🌐 Live Preview
-You can view the live website here: [https://www.raphaelsena.com](https://www.raphaelsena.com)
+> **Em reconstrução.** A versão atual de produção continua no ar pela Vercel; este `main` é a nova versão em construção (fase G1, fundação). As versões antigas ficam nas tags `site/<ANO>` (`site/2024`, `site/2025`, `site/2026`) e alimentam a futura página "Linha do tempo".
 
-## 🗂️ Project Structure
-``` 
-  portfolio
-  ├── README.md
-  ├── code
-  │   ├── README.md
-  │   ├── app
-  │   │   ├── favicon.ico
-  │   │   ├── favicon_io
-  │   │   ├── fonts
-  │   │   ├── globals.css
-  │   │   ├── layout.tsx
-  │   │   ├── metadata.tsx
-  │   │   └── page.tsx
-  │   ├── components
-  │   │   ├── Chess.tsx
-  │   │   ├── LanguageToggle.tsx
-  │   │   ├── LoadingCards.tsx
-  │   │   ├── MainContent.tsx
-  │   │   ├── Spotify.tsx
-  │   │   ├── ThemeToggle.tsx
-  │   │   ├── ThemeToggle2.tsx
-  │   │   ├── WhatsAppButton.tsx
-  │   │   ├── navigation
-  │   │   │   ├── Navigation.tsx
-  │   │   │   └── NavigationItem.tsx
-  │   │   └── sections
-  │   │       ├── Education.tsx
-  │   │       ├── Experience.tsx
-  │   │       ├── Extracurricular.tsx
-  │   │       ├── FeaturedProjects.tsx
-  │   │       ├── Footer.tsx
-  │   │       ├── Header.tsx
-  │   │       ├── Hobbies.tsx
-  │   │       ├── Intro.tsx
-  │   │       ├── Resume.tsx
-  │   │       ├── Technologies.tsx
-  │   │       └── extracurricular
-  │   │           ├── alura
-  │   │           │   ├── AluraJava.tsx
-  │   │           │   └── AluraJavascript.tsx
-  │   │           ├── redhat
-  │   │           │   └── SysAdminI.tsx
-  │   │           └── udemy
-  │   │               └── UdemyJava.tsx
-  │   ├── next.config.mjs
-  │   ├── package-lock.json
-  │   ├── package.json
-  │   ├── postcss.config.mjs
-  │   ├── public
-  │   │   ├── extracurricular
-  │   │   │   ├── alura
-  │   │   │   ├── redhat
-  │   │   │   └── udemy
-  │   │   └── images
-  │   │       ├── *
-  │   ├── services
-  │   │   ├── chessService.ts
-  │   │   ├── githubService.ts
-  │   │   └── translations.ts
-  │   ├── tailwind.config.ts
-  │   └── tsconfig.json
-```
+## Stack
 
-## 🚀 Getting Started
+Next.js (App Router, `output: "export"`) · TypeScript estrito · Tailwind CSS v4 (tokens em `@theme`) · Cloudflare Workers com static assets e um Worker pequeno (`worker/index.ts`) · Vitest · Playwright · pnpm.
 
-### Prerequisites
-Make sure you have the following installed:
-- [Node.js](https://nodejs.org/) (LTS version recommended)
-- [npm](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com/)
+## Requisitos
 
-### 📦 Installation
+Node 24 (`.nvmrc`) e pnpm 12 (campo `packageManager`; ative com `corepack enable pnpm`).
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/raphael-sena/portfolio
-2. Navigate to the project code directory:
-   ```bash
-   cd portfolio/code/
-3. Install the dependecies: 
-    ```bash
-    npm install
-    or
-    yarn install
+## Comandos
 
-### 🚧 Running the Development Server
-To start the development server, run:
-  ```bash
-  npm run dev
-  ```
-This will start the server at http://localhost:3000/. Open the URL in your browser to see the live version of the portfolio.
+| Comando               | O que faz                                                                  |
+| --------------------- | -------------------------------------------------------------------------- |
+| `pnpm dev`            | Next em modo de desenvolvimento (sem o Worker)                             |
+| `pnpm build`          | `next build` (gera `out/`) + `out/_headers`                                |
+| `pnpm preview`        | `wrangler dev` servindo o build real em `http://127.0.0.1:8787`            |
+| `pnpm lint`           | ESLint + `prettier --check`                                                |
+| `pnpm format`         | `prettier --write`                                                         |
+| `pnpm typecheck`      | `tsc --noEmit` do app e do Worker                                          |
+| `pnpm test`           | Vitest (`test/`)                                                           |
+| `pnpm test:e2e`       | Playwright (`tests/`), sobe `build` + `wrangler dev`; `PW_MATRIZ=completa` |
+| `pnpm test:publicado` | Smoke contra um site publicado (`PLAYWRIGHT_BASE_URL`)                     |
 
-### 🛠️ Technologies Used
-* **Frontend**: HTML5, CSS3, JavaScript, React, Next.js, TailwindCSS, TypeScript
-* **Framework**: Next.js 
-* **Version Control**: Git
+## Variáveis de ambiente
 
-### 📝 License
-This project is licensed under the MIT License. See the LICENSE file for details.
+| Variável               | Onde             | Uso                                                                                  |
+| ---------------------- | ---------------- | ------------------------------------------------------------------------------------ |
+| `NEXT_PUBLIC_SITE_URL` | build            | URL canônica (padrão `https://www.raphaelsena.com`)                                  |
+| `SITE_ENV`             | build            | `production` remove o `noindex` global do `_headers`; qualquer outro valor = preview |
+| `UMAMI_HOST`           | secret do Worker | Servidor Umami (G5). Use `.dev.vars` local e `wrangler secret put`                   |
+| `PLAYWRIGHT_BASE_URL`  | testes           | Roda o Playwright contra uma URL já publicada                                        |
 
+Segredos nunca entram no repositório: só `.dev.vars.example` é versionado.
+
+## Deploy
+
+GitHub Actions (`.github/workflows/ci.yml`): lint, typecheck, testes, build, `wrangler deploy --dry-run` e e2e em cada PR. Cada merge no `main` publica o Worker **apenas em workers.dev** (e com `noindex`), quando `DEPLOY_ENABLED=true` e os secrets `CLOUDFLARE_API_TOKEN` e `CLOUDFLARE_ACCOUNT_ID` existem. O domínio de produção só é anexado no cutover.
+
+## Documentação
+
+A documentação de planejamento fica em [`docs/`](docs/): `BRIEF.md` (fonte de verdade), `PLAN.md`, `PROGRESS.md`, `DECISIONS.md`, `CONVENTIONS.md`, `DESIGN-SPEC.md`, `LEGACY.md`, `INFRA.md`, `ARCHIVE.md`, `CONTENT-TODO.md` e `INPUTS-NEEDED.md`.
+
+## Licença
+
+[MIT](LICENSE)

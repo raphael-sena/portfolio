@@ -1,0 +1,53 @@
+@import 'tailwindcss';
+
+/* Tokens da "Gazeta de 1900" (BRIEF seção 3; extras do protótipo em docs/DESIGN-SPEC.md seção 2). */
+@theme {
+  --color-paper: #f5f3ec;
+  --color-ink: #111111;
+  --color-visited: #555555;
+  --color-grey-1: #f2f0e8;
+  --color-grey-2: #e6e3d8;
+  --color-grey-3: #d9d6cb;
+  --color-grey-4: #cfccc0;
+  --color-stage: #161616;
+  /* Extras usados pelo protótipo (pilha de folhas, orelha) */
+  --color-sheet-4: #efede3;
+  --color-ear-back: #e4e1d5;
+  --color-fold-dark: #a9a597;
+  --color-fold-light: #e7e4d8;
+
+  --font-masthead: var(--font-unifraktur), 'Old English Text MT', serif;
+  --font-headline: var(--font-bodoni), 'Bodoni 72', Didot, serif;
+  --font-label: var(--font-pathway), 'Arial Narrow', sans-serif;
+  --font-text: var(--font-ptserif), Georgia, serif;
+
+  --shadow-sheet: 0 6px 18px rgb(0 0 0 / 0.55);
+  --shadow-sheet-back: 0 1px 2px rgb(0 0 0 / 0.5);
+}
+
+@layer base {
+  html {
+    background: var(--color-stage);
+    color: var(--color-ink);
+  }
+  body {
+    min-height: 100dvh;
+    background: var(--color-stage);
+    font-family: var(--font-text);
+    font-size: 18px;
+    line-height: 1.6;
+    font-synthesis: none; /* sem negrito/itálico sintético: PT Serif Caption só tem regular e itálico */
+  }
+  a {
+    color: var(--color-ink);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  a:visited {
+    color: var(--color-visited);
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-ink);
+    outline-offset: 3px;
+  }
+}

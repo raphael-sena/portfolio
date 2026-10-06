@@ -1,0 +1,2 @@
+# Copie para .dev.vars (gitignored) e preencha. Em produção use `wrangler secret put`.
+UMAMI_HOST=

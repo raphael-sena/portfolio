@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Raphael Sena — Guia de estilo da Gazeta</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda+SC:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=PT+Serif+Caption:ital@0;1&amp;family=Pathway+Gothic+One&amp;family=UnifrakturMaguntia&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#111111;text-decoration:underline;text-underline-offset:3px}
+a:visited{color:#555555}
+a:hover{background:#111111;color:#F5F3EC}
+a.nav,a.nav:visited{color:#111111;text-decoration:none}
+a.nav:hover{background:#111111;color:#F5F3EC}
+a:focus-visible,button:focus-visible{outline:3px solid #111111;outline-offset:3px}
+.ctl{background:#F5F3EC;color:#111111}
+.ctl:hover{background:#111111;color:#F5F3EC}
+@media (prefers-reduced-motion: no-preference){
+.pulse{animation:earHint 3.2s ease-in-out infinite}
+}
+@keyframes earHint{0%,70%,100%{transform:scale(1)}85%{transform:scale(1.35)}}
+</style>
+</helmet>
+<div style="background:#161616 repeating-linear-gradient(45deg,rgba(255,255,255,0.045) 0 1px,transparent 1px 8px);padding:28px 44px 52px 24px;overflow:hidden">
+<div style="position:relative;max-width:1180px;margin:0 auto">
+<div aria-hidden="true" style="position:absolute;top:0;right:0;bottom:0;left:0;background:#CFCCC0;border:1px solid #111111;box-shadow:0 1px 2px rgba(0,0,0,0.5);transform:translate(26px,24px) rotate(-0.35deg)"></div>
+<div aria-hidden="true" style="position:absolute;top:0;right:0;bottom:0;left:0;background:#D9D6CB;border:1px solid #111111;box-shadow:0 1px 2px rgba(0,0,0,0.5);transform:translate(19px,17px) rotate(0.4deg)"></div>
+<div aria-hidden="true" style="position:absolute;top:0;right:0;bottom:0;left:0;background:#E6E3D8;border:1px solid #111111;box-shadow:0 1px 2px rgba(0,0,0,0.5);transform:translate(12px,11px) rotate(-0.25deg)"></div>
+<div aria-hidden="true" style="position:absolute;top:0;right:0;bottom:0;left:0;background:#EFEDE3;border:1px solid #111111;box-shadow:0 1px 2px rgba(0,0,0,0.5);transform:translate(6px,5px) rotate(0.2deg)"></div>
+<div style="position:relative;z-index:5;background:linear-gradient(to right,rgba(0,0,0,0.10),rgba(0,0,0,0) 28px) #F5F3EC;color:#111111;font-family:'PT Serif Caption',Georgia,serif;font-size:18px;line-height:1.6;border:1px solid #111111;box-shadow:0 6px 18px rgba(0,0,0,0.55);overflow:hidden;padding:0 0 32px">
+<svg aria-hidden="true" focusable="false" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;mix-blend-mode:multiply;z-index:3">
+<defs>
+<filter id="paperGrain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="4" stitchTiles="stitch"></feTurbulence><feColorMatrix type="matrix" values="0 0 0 0 0.12 0 0 0 0 0.12 0 0 0 0 0.12 1.6 0 0 0 -0.72"></feColorMatrix></filter>
+<filter id="paperMottle" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.006" numOctaves="3" seed="11" stitchTiles="stitch"></feTurbulence><feColorMatrix type="matrix" values="0 0 0 0 0.25 0 0 0 0 0.25 0 0 0 0 0.25 0.9 0 0 0 -0.3"></feColorMatrix></filter>
+<pattern id="paperGrainTile" width="300" height="300" patternUnits="userSpaceOnUse"><rect width="300" height="300" filter="url(#paperGrain)"></rect></pattern>
+<pattern id="paperMottleTile" width="900" height="900" patternUnits="userSpaceOnUse"><rect width="900" height="900" filter="url(#paperMottle)"></rect></pattern>
+<radialGradient id="paperVig" cx="50%" cy="50%" r="75%"><stop offset="60%" stop-color="#000000" stop-opacity="0"></stop><stop offset="100%" stop-color="#000000" stop-opacity="0.2"></stop></radialGradient>
+</defs>
+<rect width="100%" height="100%" fill="url(#paperMottleTile)" opacity="0.3"></rect>
+<rect width="100%" height="100%" fill="url(#paperGrainTile)" opacity="0.7"></rect>
+<rect width="100%" height="100%" fill="url(#paperVig)"></rect>
+</svg>
+<div style="max-width:1120px;margin:0 auto;padding:20px 20px 0;box-sizing:border-box">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;padding-bottom:6px;border-bottom:1px solid #111111;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:19px;letter-spacing:.14em;text-transform:uppercase"><span>Belo Horizonte, Minas Gerais</span><span>Edição de 2026</span><span>Guia de estilo · Página —</span></div>
+<header style="text-align:center;padding:14px 0">
+<a class="nav" href="Gazeta.dc.html" style="display:inline-block;font-family:'UnifrakturMaguntia','Old English Text MT',serif;font-size:clamp(44px,6.5vw,72px);line-height:1.05">Raphael Sena</a>
+<p style="margin:2px 0 0;font-size:19px;font-style:italic">Gazeta de um desenvolvedor de software</p>
+</header>
+<nav aria-label="Principal" style="border-top:4px double #111111;border-bottom:4px double #111111">
+<ul style="list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:0 6px">
+<li><a class="nav" href="Sobre.dc.html" style="display:flex;align-items:center;min-height:48px;padding:0 16px;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:23px;letter-spacing:.14em;text-transform:uppercase">Sobre</a></li>
+<li><a class="nav" href="Experiencia.dc.html" style="display:flex;align-items:center;min-height:48px;padding:0 16px;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:23px;letter-spacing:.14em;text-transform:uppercase">Experiência</a></li>
+<li><a class="nav" href="Projetos.dc.html" style="display:flex;align-items:center;min-height:48px;padding:0 16px;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:23px;letter-spacing:.14em;text-transform:uppercase">Projetos</a></li>
+<li><a class="nav" href="Tecnologias.dc.html" style="display:flex;align-items:center;min-height:48px;padding:0 16px;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:23px;letter-spacing:.14em;text-transform:uppercase">Tecnologias</a></li>
+<li><a class="nav" href="LinhaDoTempo.dc.html" style="display:flex;align-items:center;min-height:48px;padding:0 16px;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:23px;letter-spacing:.14em;text-transform:uppercase">Linha do tempo</a></li>
+<li><a class="nav" href="Contato.dc.html" style="display:flex;align-items:center;min-height:48px;padding:0 16px;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:23px;letter-spacing:.14em;text-transform:uppercase">Contato</a></li>
+
+</ul>
+</nav>
+<main>
+<div style="padding:30px 0 0;text-align:center">
+<p style="margin:0 0 8px;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:20px;letter-spacing:.22em;text-transform:uppercase">Guia de estilo · Página —</p>
+<h1 style="margin:0;font-family:'Bodoni Moda SC','Bodoni 72',Didot,serif;font-weight:800;font-size:clamp(34px,5vw,60px);line-height:1.1">Guia de estilo</h1>
+<p style="margin:12px auto 0;max-width:60ch;font-size:20px;font-style:italic">Paleta, tipografia e componentes da Gazeta de 1900 em preto e branco.</p>
+</div>
+<hr style="height:0;border:0;border-top:4px double #111111;margin:24px 0 0">
+<h2 style="margin:48px 0 20px;padding:6px 0;border-top:4px double #111111;border-bottom:1px solid #111111;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-weight:400;font-size:30px;letter-spacing:.16em;text-transform:uppercase">Paleta</h2>
+<ul style="list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:16px">
+<li style="flex:0 1 170px;min-width:140px;border:2px solid #111111"><div style="height:80px;background:#F5F3EC;color:#111111;display:flex;align-items:flex-end;padding:8px;box-sizing:border-box;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:21px;letter-spacing:.1em">#F5F3EC</div><div style="padding:8px;font-size:16px;background:#F5F3EC">Papel</div></li>
+<li style="flex:0 1 170px;min-width:140px;border:2px solid #111111"><div style="height:80px;background:#111111;color:#F5F3EC;display:flex;align-items:flex-end;padding:8px;box-sizing:border-box;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:21px;letter-spacing:.1em">#111111</div><div style="padding:8px;font-size:16px;background:#F5F3EC">Tinta</div></li>
+<li style="flex:0 1 170px;min-width:140px;border:2px solid #111111"><div style="height:80px;background:#555555;color:#F5F3EC;display:flex;align-items:flex-end;padding:8px;box-sizing:border-box;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:21px;letter-spacing:.1em">#555555</div><div style="padding:8px;font-size:16px;background:#F5F3EC">Link visitado</div></li>
+<li style="flex:0 1 170px;min-width:140px;border:2px solid #111111"><div style="height:80px;background:#F2F0E8;color:#111111;display:flex;align-items:flex-end;padding:8px;box-sizing:border-box;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:21px;letter-spacing:.1em">#F2F0E8</div><div style="padding:8px;font-size:16px;background:#F5F3EC">Cinza 1 (objeto)</div></li>
+<li style="flex:0 1 170px;min-width:140px;border:2px solid #111111"><div style="height:80px;background:#E6E3D8;color:#111111;display:flex;align-items:flex-end;padding:8px;box-sizing:border-box;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:21px;letter-spacing:.1em">#E6E3D8</div><div style="padding:8px;font-size:16px;background:#F5F3EC">Cinza 2 (objeto)</div></li>
+<li style="flex:0 1 170px;min-width:140px;border:2px solid #111111"><div style="height:80px;background:#D9D6CB;color:#111111;display:flex;align-items:flex-end;padding:8px;box-sizing:border-box;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:21px;letter-spacing:.1em">#D9D6CB</div><div style="padding:8px;font-size:16px;background:#F5F3EC">Cinza 3 (objeto)</div></li>
+<li style="flex:0 1 170px;min-width:140px;border:2px solid #111111"><div style="height:80px;background:#CFCCC0;color:#111111;display:flex;align-items:flex-end;padding:8px;box-sizing:border-box;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:21px;letter-spacing:.1em">#CFCCC0</div><div style="padding:8px;font-size:16px;background:#F5F3EC">Cinza 4 (objeto)</div></li>
+</ul>
+<p style="margin:16px 0 0;font-size:16px">Contraste sobre o papel: tinta 17:1 e link visitado 6,7:1. Não há cor de destaque: o destaque vem de inversão (papel sobre tinta), filetes duplos e hachuras.</p>
+
+<h2 style="margin:48px 0 20px;padding:6px 0;border-top:4px double #111111;border-bottom:1px solid #111111;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-weight:400;font-size:30px;letter-spacing:.16em;text-transform:uppercase">Tipografia</h2>
+<div style="padding:16px 0;border-bottom:1px solid #111111"><p style="margin:0 0 6px;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:20px;letter-spacing:.14em;text-transform:uppercase">UnifrakturMaguntia · letreiro</p><p style="margin:0;font-family:'UnifrakturMaguntia','Old English Text MT',serif;font-size:64px;line-height:1.1">Raphael Sena</p></div>
+<div style="padding:16px 0;border-bottom:1px solid #111111"><p style="margin:0 0 6px;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:20px;letter-spacing:.14em;text-transform:uppercase">Bodoni Moda SC · manchetes e títulos (800 e 700)</p><p style="margin:0;font-family:'Bodoni Moda SC','Bodoni 72',Didot,serif;font-weight:800;font-size:44px;line-height:1.1">Obras publicadas ao público</p></div>
+<div style="padding:16px 0;border-bottom:1px solid #111111"><p style="margin:0 0 6px;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:20px;letter-spacing:.14em;text-transform:uppercase">Pathway Gothic One · menu, datas, etiquetas e botões (sempre em maiúsculas, a partir de 19px)</p><p style="margin:0;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:28px;letter-spacing:.14em;text-transform:uppercase">Sobre · Experiência · Projetos</p></div>
+<div style="padding:16px 0;border-bottom:1px solid #111111"><p style="margin:0 0 6px;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:20px;letter-spacing:.14em;text-transform:uppercase">PT Serif Caption · texto corrido e legendas (regular e itálico, sem negrito)</p><p style="margin:0;font-size:20px;max-width:62ch">Raphael Sena estuda Engenharia de Software na PUC Minas e gosta de transformar requisitos em produto. <em>Legenda em itálico.</em></p></div>
+
+<h2 style="margin:48px 0 20px;padding:6px 0;border-top:4px double #111111;border-bottom:1px solid #111111;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-weight:400;font-size:30px;letter-spacing:.16em;text-transform:uppercase">Componentes</h2>
+<div style="display:flex;flex-wrap:wrap;gap:36px 48px;align-items:flex-start">
+<div style="flex:1 1 320px;min-width:0">
+<p style="margin:0 0 10px;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:20px;letter-spacing:.14em;text-transform:uppercase">Item do menu</p>
+<div style="display:flex;flex-wrap:wrap;gap:8px">
+<span style="display:flex;align-items:center;min-height:48px;padding:0 16px;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:23px;letter-spacing:.14em;text-transform:uppercase">Normal</span>
+<span style="display:flex;align-items:center;min-height:48px;padding:0 16px;background:#111111;color:#F5F3EC;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:23px;letter-spacing:.14em;text-transform:uppercase">Atual ou mouse</span>
+</div>
+</div>
+<div style="flex:1 1 320px;min-width:0">
+<p style="margin:0 0 10px;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:20px;letter-spacing:.14em;text-transform:uppercase">Botão</p>
+<a class="nav" href="#" style="display:inline-flex;align-items:center;min-height:48px;padding:0 22px;border:2px solid #111111;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:22px;letter-spacing:.14em;text-transform:uppercase">Baixar currículo</a>
+</div>
+<div style="flex:1 1 320px;min-width:0">
+<p style="margin:0 0 10px;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:20px;letter-spacing:.14em;text-transform:uppercase">Linha com pontilhado</p>
+<div style="display:flex;align-items:baseline;gap:8px;min-height:44px"><span style="font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:22px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap">Cidade</span><span style="flex:1 1 16px;min-width:16px;border-bottom:2px dotted #111111"></span><span style="text-align:right">Belo Horizonte, MG</span></div>
+</div>
+<div style="flex:1 1 320px;min-width:0">
+<p style="margin:0 0 10px;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:20px;letter-spacing:.14em;text-transform:uppercase">Caixa lateral</p>
+<p style="margin:0;padding:10px 12px;border:1px solid #111111;outline:1px solid #111111;outline-offset:4px;text-align:center;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:20px;letter-spacing:.12em;text-transform:uppercase">Belo Horizonte<br>Minas Gerais</p>
+</div>
+<div style="flex:1 1 320px;min-width:0">
+<p style="margin:0 0 10px;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:20px;letter-spacing:.14em;text-transform:uppercase">Placeholder de imagem (gravura)</p>
+<div style="height:140px;display:flex;align-items:center;justify-content:center;text-align:center;padding:12px;box-sizing:border-box;border:3px solid #111111;outline:1px solid #111111;outline-offset:4px;background:repeating-linear-gradient(45deg,#111111 0 1px,#F5F3EC 1px 8px)"><span style="background:#F5F3EC;padding:4px 10px;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:20px;letter-spacing:.14em;text-transform:uppercase">[FIG. 1]</span></div>
+</div>
+<div style="flex:1 1 320px;min-width:0">
+<p style="margin:0 0 10px;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:20px;letter-spacing:.14em;text-transform:uppercase">Citação em destaque</p>
+<blockquote style="margin:0;padding:12px 0;border-top:4px double #111111;border-bottom:4px double #111111;text-align:center;font-family:'Bodoni Moda SC','Bodoni 72',Didot,serif;font-style:italic;font-weight:600;font-size:24px;line-height:1.25">[UMA FRASE PARA DESTACAR]</blockquote>
+</div>
+</div>
+
+<h2 style="margin:48px 0 20px;padding:6px 0;border-top:4px double #111111;border-bottom:1px solid #111111;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-weight:400;font-size:30px;letter-spacing:.16em;text-transform:uppercase">Movimento</h2>
+<p style="margin:0;max-width:62ch">Virada de página ao trocar de seção: a página atual gira em torno da borda esquerda, em 1 s com aceleração, enquanto uma sombra escurece a dobra e a próxima página aparece por baixo. Com preferência por menos movimento, a troca é imediata. O computador do início gira por arraste, por botões ou pelas setas do teclado.</p>
+</main>
+<footer style="margin-top:44px;padding-top:14px;border-top:4px double #111111;text-align:center">
+<p style="margin:0;font-size:16px;line-height:2">Raphael Sena &nbsp;|&nbsp; <a href="Gazeta.dc.html">Início</a> &nbsp;|&nbsp; <a href="Sobre.dc.html">Sobre</a> &nbsp;|&nbsp; <a href="Experiencia.dc.html">Experiência</a> &nbsp;|&nbsp; <a href="Projetos.dc.html">Projetos</a> &nbsp;|&nbsp; <a href="Tecnologias.dc.html">Tecnologias</a> &nbsp;|&nbsp; <a href="LinhaDoTempo.dc.html">Linha do tempo</a> &nbsp;|&nbsp; <a href="Contato.dc.html">Contato</a></p>
+</footer>
+</div>
+
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1950}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

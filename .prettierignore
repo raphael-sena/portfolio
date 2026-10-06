@@ -1,0 +1,13 @@
+out/
+.next/
+.wrangler/
+node_modules/
+pnpm-lock.yaml
+playwright-report/
+test-results/
+lighthouse/
+.lighthouseci/
+archive/
+design/
+docs/.gerado/
+docs/BRIEF.md

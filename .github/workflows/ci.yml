@@ -1,0 +1,99 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm lint
+      - run: pnpm typecheck
+      - run: pnpm test
+      - run: pnpm build
+      # Valida o wrangler.jsonc e o bundle do Worker sem credenciais nem publicação.
+      - run: pnpm exec wrangler deploy --dry-run
+
+  e2e:
+    needs: verificar
+    runs-on: ubuntu-latest
+    env:
+      # Matriz completa (chromium, firefox, webkit, Pixel 7, iPhone 14) só em PR para o main.
+      PW_MATRIZ: ${{ github.base_ref == 'main' && 'completa' || '' }}
+      PW_BROWSERS: ${{ github.base_ref == 'main' && 'chromium firefox webkit' || 'chromium' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Versão do Playwright
+        id: pw
+        run: echo "versao=$(pnpm exec playwright --version | awk '{print $2}')" >> "$GITHUB_OUTPUT"
+      - uses: actions/cache@v4
+        id: pw-cache
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ steps.pw.outputs.versao }}-${{ env.PW_BROWSERS }}
+      - if: steps.pw-cache.outputs.cache-hit != 'true'
+        run: pnpm exec playwright install --with-deps ${{ env.PW_BROWSERS }}
+      - if: steps.pw-cache.outputs.cache-hit == 'true'
+        run: pnpm exec playwright install-deps ${{ env.PW_BROWSERS }}
+      # O Playwright sobe `pnpm build` + `wrangler dev` (build real, nunca next dev).
+      - run: pnpm test:e2e
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-report
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 7
+
+  # Publica o `main` APENAS em workers.dev (o domínio de produção só é anexado no G8).
+  # Ligado pela variável de repositório DEPLOY_ENABLED=true, depois de criar os secrets
+  # CLOUDFLARE_API_TOKEN e CLOUDFLARE_ACCOUNT_ID.
+  deploy:
+    needs: [verificar, e2e]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && vars.DEPLOY_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    environment: workers-dev
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+        env:
+          SITE_ENV: preview
+      - run: pnpm exec wrangler deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
