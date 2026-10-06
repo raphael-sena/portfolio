@@ -1,0 +1,39 @@
+# dependências e builds
+node_modules/
+.next/
+out/
+.wrangler/
+next-env.d.ts
+*.tsbuildinfo
+
+# segredos: nunca commitar
+.env
+.env.*
+!.env.example
+.dev.vars
+.dev.vars.*
+!.dev.vars.example
+
+# testes e relatórios
+playwright-report/
+test-results/
+lighthouse/
+.lighthouseci/
+coverage/
+
+# arquivos temporários de versões antigas
+.worktrees/
+
+# IDE e sistema
+.idea/
+.vscode/
+.DS_Store
+
+# modelo 3D de terceiros: não publicar antes de confirmar fonte e licença
+design/3d/
+
+# Vercel (legado)
+.vercel
+
+# gerado por hook de sessão (manifesto), não faz parte do projeto
+docs/.gerado/

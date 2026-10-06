@@ -1,0 +1,18 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "portfolio",
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-10-01",
+  "send_metrics": false,
+  // workers.dev fica ligado até o G8. Domínio customizado só no cutover (G8).
+  "workers_dev": true,
+  "preview_urls": true,
+  "assets": {
+    "directory": "./out",
+    "binding": "ASSETS",
+    "html_handling": "force-trailing-slash",
+    "not_found_handling": "404-page",
+    // O Worker só roda antes dos assets nestes caminhos; o resto vem direto dos assets.
+    "run_worker_first": ["/stats/*", "/api/*"],
+  },
+}

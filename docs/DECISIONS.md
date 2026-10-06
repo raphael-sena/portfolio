@@ -1,0 +1,51 @@
+# DECISIONS
+
+| Data       | Decisão                                                                                                                  | Motivo                                       |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------- |
+| 2026-10-05 | Tag da versão atual: `site/2026` em d30b96f                                                                              | Pré-condição 1 do BRIEF                      |
+| 2026-10-05 | Confere Nota = `/Users/raphaelsena/Desktop/validador/validator-ibs-cbs` (Astro); só convenções/config são reaproveitadas | Brief cita `../confere-nota`, que não existe |
+| 2026-10-05 | Permissão de negar escrita nos repos de referência fica para o G1                                                        | Antes do G0 só se altera docs/               |
+
+Versões de ferramentas: a registrar após checar a documentação atual (Cloudflare/Wrangler, Next.js, Umami, Playwright, Lighthouse CI).
+| 2026-10-05 | Host canônico atual: `www.raphaelsena.com` (apex 308 para o www na Vercel) | INFRA.md |
+| 2026-10-05 | Registrador e DNS: Namecheap; e-mail por Namecheap Email Forwarding; sem DNSSEC | INFRA.md |
+| 2026-10-05 | Legado é SPA única em 3 idiomas (en/pt/de); BRIEF prevê pt-BR e en | LEGACY.md; decisão pendente do usuário |
+| 2026-10-05 | Histórico sem versões visuais distintas; propostas `site/2024` (8303d12) e `site/2025` (8235c76), NÃO criadas | ARCHIVE.md |
+| 2026-10-05 | G0 APROVADO. BRIEF corrigido relido por inteiro | Usuário |
+| 2026-10-05 | Idiomas pt-BR, en e de; i18n por dicionários tipados próprios; `de` com `reviewed:false` até revisão do usuário | BRIEF seção 6 |
+| 2026-10-05 | Tags `site/2024` (8303d12) e `site/2025` (8235c76) autorizadas; `v1.0.0` e `site/2026` intocadas | Usuário |
+| 2026-10-05 | Deploy por GitHub Actions; lefthook leve (só lint-staged no pre-commit); testes em `tests/<suíte>` e `test/` | Usuário |
+| 2026-10-05 | Spotify placeholder; Chess.com via proxy com cache no Worker; sem Clarity, Vercel Analytics, Speed Insights | Usuário |
+| 2026-10-05 | CSP em Report-Only com hashes do build; orelha: dx+dy ~280px; PageTurn por View Transitions em todas as rotas; menu sem Início | Usuário |
+| 2026-10-05 | Host canônico `www`, apex 301 (mecanismo a documentar); `design/3d/` no `.gitignore` até a licença do `.glb` | Usuário/BRIEF |
+| 2026-10-05 | Currículos: `curriculo-raphael-sena.pdf` (pt), `resume-raphael-sena.pdf` (en, de) + 301 dos nomes antigos | Usuário |
+
+## Versões de ferramentas (G1, confirmadas em 2026-10-05 no npm e na documentação oficial)
+
+| Ferramenta                 | Versão                                  | Observação                                                                                                                                                    |
+| -------------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Node                       | 24 (`.nvmrc`; local v24.16.0)           | Igual ao Confere Nota                                                                                                                                         |
+| pnpm                       | 12.9.1 (`packageManager`, via corepack) | `allowBuilds` só para esbuild, workerd e lefthook; `unrs-resolver` negado                                                                                     |
+| Next.js                    | 16.3.8                                  | Docs "static exports" da v16.3.8 (2026-08-25): `output: "export"`, sem rewrites, redirects, headers nem proxy                                                 |
+| React                      | 19.3.0                                  |                                                                                                                                                               |
+| Tailwind CSS               | 4.3.3 (`@tailwindcss/postcss`)          | Tokens em `@theme`                                                                                                                                            |
+| TypeScript                 | 6.0.3 (fixa)                            | `latest` é 7.0.2, mas typescript-eslint 8.x aceita só `<6.1.0`; mesma escolha do Confere Nota                                                                 |
+| ESLint                     | 9.39.5                                  | **Não 10**: `eslint-plugin-react@7.37.5` (via `eslint-config-next`) quebra no ESLint 10 (`getFilename is not a function`). Reavaliar quando o plugin suportar |
+| eslint-config-next         | 16.3.8                                  | Já inclui typescript-eslint; não duplicar o plugin                                                                                                            |
+| Prettier / plugin Tailwind | 3.9.9 / 0.8.1                           | `singleQuote`, `printWidth: 120` (Confere Nota). `docs/BRIEF.md` fica no `.prettierignore`                                                                    |
+| Vitest                     | 5.0.3                                   |                                                                                                                                                               |
+| Playwright / axe           | 1.63.0 / 4.13.0                         |                                                                                                                                                               |
+| Wrangler                   | 4.147.0                                 | `compatibility_date` 2026-10-01 (workerd 1.20261001.1)                                                                                                        |
+| lefthook / lint-staged     | 2.1.17 / 17.6.0                         | Só lint-staged no pre-commit                                                                                                                                  |
+| Lighthouse CI              | 0.15.1 (`pnpm dlx`, fora do lockfile)   | Entra no G6                                                                                                                                                   |
+
+## Decisões técnicas do G1 (2026-10-05)
+
+| Decisão                                                                                                         | Motivo                                                                                                                                                                               |
+| --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `trailingSlash: true` no Next + `html_handling: "force-trailing-slash"` no Cloudflare                           | Next emite `/rota/index.html`; a URL canônica passa a ter barra final (também combina com `/<ano>/`). Docs Cloudflare: `force-trailing-slash` serve `/about/` e redireciona `/about` |
+| `_headers` gerado no build (`scripts/gerar-headers.mjs`), noindex global exceto com `SITE_ENV=production`       | workers.dev não pode ser indexado antes do G8. Limites: 100 regras e 2000 caracteres por linha                                                                                       |
+| Cabeçalhos das respostas do Worker (`/api/*`, `/stats/*`) vêm do próprio Worker                                 | Docs Cloudflare: `_headers` NÃO se aplica a respostas geradas pelo Worker                                                                                                            |
+| Next já injeta `noindex` no 404 (`/_not-found`)                                                                 | Não duplicar `robots` na página `not-found`                                                                                                                                          |
+| Deploy: job `deploy` em `ci.yml`, ligado por `vars.DEPLOY_ENABLED` e secrets `CLOUDFLARE_*`                     | O usuário cria os secrets; sem eles o CI não publica                                                                                                                                 |
+| `minimumReleaseAgeExclude` no `pnpm-workspace.yaml` (gerado pelo pnpm 12 para versões fixadas recém-publicadas) | Comportamento do pnpm ao fixar versões novas; revisar periodicamente                                                                                                                 |

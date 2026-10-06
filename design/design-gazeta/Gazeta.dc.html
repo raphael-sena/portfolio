@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Raphael Sena — Início (Gazeta)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda+SC:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=PT+Serif+Caption:ital@0;1&amp;family=Pathway+Gothic+One&amp;family=UnifrakturMaguntia&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#111111;text-decoration:underline;text-underline-offset:3px}
+a:visited{color:#555555}
+a:hover{background:#111111;color:#F5F3EC}
+a.nav,a.nav:visited{color:#111111;text-decoration:none}
+a.nav:hover{background:#111111;color:#F5F3EC}
+a:focus-visible,button:focus-visible{outline:3px solid #111111;outline-offset:3px}
+.ctl{background:#F5F3EC;color:#111111}
+.ctl:hover{background:#111111;color:#F5F3EC}
+
+@media (prefers-reduced-motion: no-preference){
+.turn{animation:pageTurn 1s ease-in forwards}
+.turn .shade{animation:pageShade 1s ease-in forwards}
+.back{animation:pageBack .5s ease-out both}
+}
+@keyframes pageTurn{0%{transform:rotateY(0deg)}100%{transform:rotateY(-180deg)}}
+@keyframes pageShade{0%{opacity:0}100%{opacity:1}}
+@keyframes pageBack{0%{opacity:0}100%{opacity:1}}
+@media (prefers-reduced-motion: no-preference){
+.pulse{animation:earHint 3.2s ease-in-out infinite}
+}
+@keyframes earHint{0%,70%,100%{transform:scale(1)}85%{transform:scale(1.35)}}
+</style>
+</helmet>
+<div style="background:#161616 repeating-linear-gradient(45deg,rgba(255,255,255,0.045) 0 1px,transparent 1px 8px);padding:28px 44px 52px 24px;overflow:hidden">
+<div style="position:relative;perspective:2200px;max-width:1180px;margin:0 auto;color:#111111;font-family:'PT Serif Caption',Georgia,serif;font-size:18px;line-height:1.6">
+<div aria-hidden="true" style="position:absolute;top:0;right:0;bottom:0;left:0;background:#CFCCC0;border:1px solid #111111;box-shadow:0 1px 2px rgba(0,0,0,0.5);transform:translate(26px,24px) rotate(-0.35deg)"></div>
+<div aria-hidden="true" style="position:absolute;top:0;right:0;bottom:0;left:0;background:#D9D6CB;border:1px solid #111111;box-shadow:0 1px 2px rgba(0,0,0,0.5);transform:translate(19px,17px) rotate(0.4deg)"></div>
+<div aria-hidden="true" style="position:absolute;top:0;right:0;bottom:0;left:0;background:#E6E3D8;border:1px solid #111111;box-shadow:0 1px 2px rgba(0,0,0,0.5);transform:translate(12px,11px) rotate(-0.25deg)"></div>
+<div aria-hidden="true" style="position:absolute;top:0;right:0;bottom:0;left:0;background:#EFEDE3;border:1px solid #111111;box-shadow:0 1px 2px rgba(0,0,0,0.5);transform:translate(6px,5px) rotate(0.2deg)"></div>
+
+<sc-if value="{{turning}}" hint-placeholder-val="{{ false }}">
+<div aria-hidden="true" style="position:absolute;top:0;right:0;bottom:0;left:0;z-index:1;background:#F5F3EC;border:1px solid #111111">
+<div style="margin:0 auto;max-width:1120px;padding:260px 20px 0;box-sizing:border-box;text-align:center">
+<p style="margin:0;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:26px;letter-spacing:.3em;text-transform:uppercase">Página {{page}}</p>
+<hr style="height:0;border:0;border-top:4px double #111111;margin:14px auto;max-width:420px">
+<p style="margin:0;font-family:'Bodoni Moda SC','Bodoni 72',Didot,serif;font-weight:800;font-size:clamp(48px,8vw,104px);line-height:1.05">{{label}}</p>
+<hr style="height:0;border:0;border-top:4px double #111111;margin:14px auto;max-width:420px">
+<p style="margin:0;font-size:20px;font-style:italic">Virando a página&hellip;</p>
+</div>
+</div>
+</sc-if>
+
+<div class="{{pageClass}}" style="position:relative;z-index:2;background:#F5F3EC;border:1px solid #111111;box-shadow:0 6px 18px rgba(0,0,0,0.55);padding:0 0 96px;transform-origin:left center;backface-visibility:hidden;-webkit-backface-visibility:hidden">
+<svg aria-hidden="true" focusable="false" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;mix-blend-mode:multiply;z-index:3">
+<defs>
+<filter id="paperGrain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="4" stitchTiles="stitch"></feTurbulence><feColorMatrix type="matrix" values="0 0 0 0 0.12 0 0 0 0 0.12 0 0 0 0 0.12 1.6 0 0 0 -0.72"></feColorMatrix></filter>
+<filter id="paperMottle" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.006" numOctaves="3" seed="11" stitchTiles="stitch"></feTurbulence><feColorMatrix type="matrix" values="0 0 0 0 0.25 0 0 0 0 0.25 0 0 0 0 0.25 0.9 0 0 0 -0.3"></feColorMatrix></filter>
+<pattern id="paperGrainTile" width="300" height="300" patternUnits="userSpaceOnUse"><rect width="300" height="300" filter="url(#paperGrain)"></rect></pattern>
+<pattern id="paperMottleTile" width="900" height="900" patternUnits="userSpaceOnUse"><rect width="900" height="900" filter="url(#paperMottle)"></rect></pattern>
+<radialGradient id="paperVig" cx="50%" cy="50%" r="75%"><stop offset="60%" stop-color="#000000" stop-opacity="0"></stop><stop offset="100%" stop-color="#000000" stop-opacity="0.2"></stop></radialGradient>
+</defs>
+<rect width="100%" height="100%" fill="url(#paperMottleTile)" opacity="0.3"></rect>
+<rect width="100%" height="100%" fill="url(#paperGrainTile)" opacity="0.7"></rect>
+<rect width="100%" height="100%" fill="url(#paperVig)"></rect>
+</svg>
+<svg width="0" height="0" aria-hidden="true" style="position:absolute">
+<defs><pattern id="hatchB" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#111111" stroke-width="1.5"></line></pattern></defs>
+</svg>
+
+<div style="max-width:1120px;margin:0 auto;padding:20px 20px 0;box-sizing:border-box">
+
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;padding-bottom:6px;border-bottom:1px solid #111111;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:19px;letter-spacing:.14em;text-transform:uppercase">
+<span>Belo Horizonte, Minas Gerais</span>
+<span>Edição de 2026</span>
+<span>Preço: um clique</span>
+</div>
+
+<header style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px 28px;padding:18px 0">
+<p style="flex:0 1 150px;margin:0;padding:8px 10px;border:1px solid #111111;outline:1px solid #111111;outline-offset:3px;text-align:center;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:20px;font-weight:400;letter-spacing:.12em;text-transform:uppercase">Engenharia de Software<br>PUC Minas</p>
+<div style="flex:0 1 auto;text-align:center">
+<h1 style="margin:0;font-family:'UnifrakturMaguntia','Old English Text MT',serif;font-weight:400;font-size:clamp(52px,9vw,112px);line-height:1.05">Raphael Sena</h1>
+<p style="margin:4px 0 0;font-size:20px;font-style:italic">Gazeta de um desenvolvedor de software</p>
+</div>
+<p style="flex:0 1 150px;margin:0;padding:8px 10px;border:1px solid #111111;outline:1px solid #111111;outline-offset:3px;text-align:center;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:20px;font-weight:400;letter-spacing:.12em;text-transform:uppercase">Belo Horizonte<br>Minas Gerais</p>
+</header>
+
+<nav aria-label="Principal" style="border-top:4px double #111111;border-bottom:4px double #111111">
+<ul style="list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:0 6px">
+<sc-for list="{{navItems}}" as="item" hint-placeholder-count="6">
+<li><a class="nav" href="{{item.href}}" onClick="{{item.go}}" style="display:flex;align-items:center;min-height:48px;padding:0 16px;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:23px;letter-spacing:.14em;text-transform:uppercase">{{item.label}}</a></li>
+</sc-for>
+</ul>
+</nav>
+
+<main>
+<div style="display:flex;flex-wrap:wrap;gap:36px 0;margin-top:30px">
+
+<section style="flex:1 1 260px;min-width:0;padding-right:28px">
+<p style="margin:0 0 8px;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:20px;font-weight:400;letter-spacing:.22em;text-transform:uppercase">Última edição</p>
+<h2 style="margin:0 0 14px;font-family:'Bodoni Moda SC','Bodoni 72',Didot,serif;font-weight:800;font-size:clamp(30px,3.4vw,40px);line-height:1.12">Desenvolvedor de software apresenta suas obras ao público</h2>
+<p style="margin:0 0 16px;font-style:italic;font-size:20px">Estudante de Engenharia de Software reúne projetos, experiência e uma máquina que gira.</p>
+<hr style="height:0;border:0;border-top:1px solid #111111;margin:0 0 16px">
+<p style="margin:0 0 16px;text-align:justify;hyphens:auto"><span style="float:left;padding:6px 10px 0 0;font-family:'Bodoni Moda SC','Bodoni 72',Didot,serif;font-weight:800;font-size:80px;line-height:.78">R</span>aphael Sena estuda Engenharia de Software na PUC Minas e trabalha com plataformas de bilhetagem eletrônica e gestão de receita de transporte. Gosta de programar, de levantar requisitos e de transformar os dois em produto.</p>
+<a href="Sobre.dc.html" style="display:inline-flex;align-items:center;min-height:44px">Continua em Sobre, página 2 &rarr;</a>
+</section>
+
+<section style="flex:1.4 1 420px;min-width:0;padding:0 28px;border-left:1px solid #111111;border-right:1px solid #111111">
+<figure style="margin:0">
+<div role="group" aria-label="Computador compacto em 3D: arraste para girar ou use os botões abaixo" onPointerDown="{{onDown}}" onPointerMove="{{onMove}}" onPointerUp="{{onUp}}" onPointerCancel="{{onUp}}" style="position:relative;height:500px;overflow:hidden;border:3px solid #111111;box-shadow:0 0 0 6px #F5F3EC,0 0 0 8px #111111;background:#F5F3EC;touch-action:pan-y;user-select:none;cursor:{{cursor}}">
+<div style="position:absolute;top:0;right:0;bottom:0;left:0;background:repeating-conic-gradient(from 0deg at 50% 50%,#111111 0deg 6deg,#F5F3EC 6deg 12deg)"></div>
+<div style="position:absolute;top:0;right:0;bottom:0;left:0;mix-blend-mode:difference;background:repeating-radial-gradient(circle at 50% 50%,#FFFFFF 0 9px,#000000 9px 18px)"></div>
+<div style="position:absolute;left:50%;top:50%;width:330px;height:330px;margin:-165px 0 0 -165px;border-radius:50%;background:#F5F3EC;border:4px solid #111111;box-shadow:0 0 0 8px #F5F3EC,0 0 0 11px #111111"></div>
+<div style="position:absolute;top:0;right:0;bottom:0;left:0;display:flex;align-items:center;justify-content:center;perspective:1000px">
+<div style="position:relative;width:200px;height:240px;transform-style:preserve-3d;transform:rotateX({{rx}}deg) rotateY({{ry}}deg);transition:{{trans}}">
+
+<div style="position:absolute;top:0;left:0;width:200px;height:240px;backface-visibility:hidden;-webkit-backface-visibility:hidden;transform:rotateY(0deg) translateZ(100px)">
+<svg viewBox="0 0 200 240" width="100%" height="100%" aria-hidden="true">
+<rect x="2" y="2" width="196" height="236" rx="12" fill="#F2F0E8" stroke="#111111" stroke-width="4"></rect>
+<rect x="26" y="22" width="148" height="124" rx="16" fill="#111111"></rect>
+<rect x="36" y="32" width="128" height="104" rx="10" fill="#F5F3EC"></rect>
+<g fill="#111111"><rect x="72" y="58" width="12" height="18"></rect><rect x="116" y="58" width="12" height="18"></rect><rect x="66" y="92" width="8" height="8"></rect><rect x="74" y="100" width="8" height="8"></rect><rect x="82" y="108" width="8" height="8"></rect><rect x="90" y="112" width="20" height="8"></rect><rect x="110" y="108" width="8" height="8"></rect><rect x="118" y="100" width="8" height="8"></rect><rect x="126" y="92" width="8" height="8"></rect></g>
+<path d="M16 164 H184" stroke="#111111" stroke-width="2" fill="none"></path>
+<rect x="62" y="186" width="76" height="8" rx="2" fill="#111111"></rect>
+<circle cx="170" cy="190" r="4" fill="#111111"></circle>
+<rect x="176" y="8" width="16" height="224" fill="url(#hatchB)" opacity="0.55"></rect>
+</svg>
+</div>
+
+<div style="position:absolute;top:0;left:0;width:200px;height:240px;backface-visibility:hidden;-webkit-backface-visibility:hidden;transform:rotateY(180deg) translateZ(100px)">
+<svg viewBox="0 0 200 240" width="100%" height="100%" aria-hidden="true">
+<rect x="2" y="2" width="196" height="236" rx="12" fill="#CFCCC0" stroke="#111111" stroke-width="4"></rect>
+<path d="M40 40 H160 M40 52 H160 M40 64 H160 M40 76 H160 M40 88 H160" stroke="#111111" stroke-width="3" fill="none"></path>
+<g fill="none" stroke="#111111" stroke-width="3"><circle cx="60" cy="180" r="10"></circle><circle cx="100" cy="180" r="10"></circle><circle cx="140" cy="180" r="10"></circle></g>
+<rect x="8" y="8" width="16" height="224" fill="url(#hatchB)" opacity="0.55"></rect>
+</svg>
+</div>
+
+<div style="position:absolute;top:0;left:0;width:200px;height:240px;backface-visibility:hidden;-webkit-backface-visibility:hidden;transform:rotateY(90deg) translateZ(100px)">
+<svg viewBox="0 0 200 240" width="100%" height="100%" aria-hidden="true">
+<rect x="2" y="2" width="196" height="236" rx="12" fill="#D9D6CB" stroke="#111111" stroke-width="4"></rect>
+<path d="M60 30 V120 M76 30 V120 M92 30 V120 M108 30 V120 M124 30 V120 M140 30 V120" stroke="#111111" stroke-width="3" fill="none"></path>
+<rect x="8" y="150" width="184" height="80" fill="url(#hatchB)" opacity="0.5"></rect>
+</svg>
+</div>
+
+<div style="position:absolute;top:0;left:0;width:200px;height:240px;backface-visibility:hidden;-webkit-backface-visibility:hidden;transform:rotateY(-90deg) translateZ(100px)">
+<svg viewBox="0 0 200 240" width="100%" height="100%" aria-hidden="true">
+<rect x="2" y="2" width="196" height="236" rx="12" fill="#D9D6CB" stroke="#111111" stroke-width="4"></rect>
+<path d="M60 30 V120 M76 30 V120 M92 30 V120 M108 30 V120 M124 30 V120 M140 30 V120" stroke="#111111" stroke-width="3" fill="none"></path>
+</svg>
+</div>
+
+<div style="position:absolute;top:20px;left:0;width:200px;height:200px;backface-visibility:hidden;-webkit-backface-visibility:hidden;transform:rotateX(90deg) translateZ(120px)">
+<svg viewBox="0 0 200 200" width="100%" height="100%" aria-hidden="true">
+<rect x="2" y="2" width="196" height="196" rx="12" fill="#E6E3D8" stroke="#111111" stroke-width="4"></rect>
+<rect x="56" y="70" width="88" height="24" rx="12" fill="#111111"></rect>
+<rect x="8" y="110" width="184" height="82" fill="url(#hatchB)" opacity="0.4"></rect>
+</svg>
+</div>
+
+<div style="position:absolute;top:20px;left:0;width:200px;height:200px;backface-visibility:hidden;-webkit-backface-visibility:hidden;transform:rotateX(-90deg) translateZ(120px)">
+<svg viewBox="0 0 200 200" width="100%" height="100%" aria-hidden="true">
+<rect x="2" y="2" width="196" height="196" rx="12" fill="#CFCCC0" stroke="#111111" stroke-width="4"></rect>
+<g fill="#111111"><circle cx="30" cy="30" r="8"></circle><circle cx="170" cy="30" r="8"></circle><circle cx="30" cy="170" r="8"></circle><circle cx="170" cy="170" r="8"></circle></g>
+</svg>
+</div>
+
+</div>
+</div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:24px">
+<button type="button" class="ctl" onClick="{{left}}" style="min-height:44px;padding:0 16px;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:21px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;border:2px solid #111111;cursor:pointer">Girar à esquerda</button>
+<button type="button" class="ctl" onClick="{{reset}}" style="min-height:44px;padding:0 16px;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:21px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;border:2px solid #111111;cursor:pointer">Reiniciar</button>
+<button type="button" class="ctl" onClick="{{right}}" style="min-height:44px;padding:0 16px;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:21px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;border:2px solid #111111;cursor:pointer">Girar à direita</button>
+</div>
+<figcaption style="margin-top:12px;font-size:16px;font-style:italic;text-align:center">Fig. 1 — Computador compacto, em vista giratória. Arraste para examinar.</figcaption>
+</figure>
+</section>
+
+<aside style="flex:1 1 240px;min-width:0;padding-left:28px">
+<h2 style="margin:0 0 12px;padding:6px 0;border-top:4px double #111111;border-bottom:1px solid #111111;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-weight:400;font-size:30px;letter-spacing:.16em;text-transform:uppercase;text-align:center">Em destaque</h2>
+<h3 style="margin:0 0 4px;font-family:'Bodoni Moda SC','Bodoni 72',Didot,serif;font-weight:700;font-size:26px;line-height:1.15">Como este site mudou</h3>
+<p style="margin:0 0 6px;text-align:justify">Cada versão do portfólio continua no ar, da mais antiga à mais recente.</p>
+<a href="LinhaDoTempo.dc.html" style="display:inline-flex;align-items:center;min-height:44px">Ver a linha do tempo &rarr;</a>
+
+<svg width="100%" height="24" viewBox="0 0 200 24" preserveAspectRatio="xMidYMid meet" aria-hidden="true" style="display:block;margin:10px 0"><path d="M10 12 H80 M120 12 H190" stroke="#111111" stroke-width="1.5" fill="none"></path><g fill="#111111"><polygon points="100,4 108,12 100,20 92,12"></polygon></g></svg>
+
+<h3 style="margin:0 0 4px;font-family:'Bodoni Moda SC','Bodoni 72',Didot,serif;font-weight:700;font-size:26px;line-height:1.15">Currículo em PDF</h3>
+<p style="margin:0 0 6px;text-align:justify">Para levar, imprimir ou anexar a um e-mail.</p>
+<a href="/curriculo.pdf" style="display:inline-flex;align-items:center;min-height:44px">Baixar o currículo &rarr;</a>
+
+<div style="margin-top:20px;padding:14px 16px;border:1px solid #111111;outline:1px solid #111111;outline-offset:4px;text-align:center">
+<p style="margin:0;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:30px;line-height:1.1;text-transform:uppercase;letter-spacing:.1em">Procura-se conversa</p>
+<p style="margin:6px 0 0;font-size:17px;font-style:italic">Sobre vagas, projetos e xadrez.</p>
+<a href="Contato.dc.html" style="display:inline-flex;align-items:center;min-height:44px">Escrever &rarr;</a>
+</div>
+</aside>
+
+</div>
+</main>
+
+<footer style="margin-top:44px;padding-top:14px;border-top:4px double #111111;text-align:center">
+<p style="margin:0;font-size:16px;line-height:2">Raphael Sena &nbsp;|&nbsp; <a href="Gazeta.dc.html">Início</a> &nbsp;|&nbsp; <a href="Sobre.dc.html">Sobre</a> &nbsp;|&nbsp; <a href="Experiencia.dc.html">Experiência</a> &nbsp;|&nbsp; <a href="Projetos.dc.html">Projetos</a> &nbsp;|&nbsp; <a href="Tecnologias.dc.html">Tecnologias</a> &nbsp;|&nbsp; <a href="LinhaDoTempo.dc.html">Linha do tempo</a> &nbsp;|&nbsp; <a href="Contato.dc.html">Contato</a></p>
+</footer>
+
+</div>
+<div class="shade" aria-hidden="true" style="position:absolute;top:0;right:0;bottom:0;left:0;background:linear-gradient(to right,rgba(0,0,0,0),rgba(0,0,0,0.65));opacity:0;pointer-events:none"></div>
+</div>
+<a class="ear" href="Sobre.dc.html" aria-label="Virar a página: Sobre, página 2" draggable="false" onPointerDown="{{onEarDown}}" onPointerMove="{{onEarMove}}" onPointerUp="{{onEarUp}}" onPointerCancel="{{onEarUp}}" onClick="{{onEarClick}}" style="position:absolute;right:0;bottom:0;width:96px;height:96px;z-index:7;touch-action:none;user-select:none;-webkit-user-drag:none;cursor:grab"></a>
+<div aria-hidden="true" style="position:absolute;top:0;right:0;bottom:0;left:0;overflow:hidden;pointer-events:none;z-index:6">
+<div class="{{earClass}}" style="position:absolute;right:0;bottom:0;width:{{earSize}}px;height:{{earSize}}px;transition:{{earTrans}};transform-origin:100% 100%">
+<div style="position:absolute;top:0;right:0;bottom:0;left:0;clip-path:polygon(100% 100%,0 100%,100% 0);background:#E4E1D5 repeating-linear-gradient(45deg,rgba(17,17,17,0.3) 0 1px,transparent 1px 7px);overflow:hidden">
+<div style="position:absolute;top:0;right:0;bottom:0;left:0;background:linear-gradient(135deg,transparent 50%,rgba(0,0,0,0.38) 50%,rgba(0,0,0,0) 78%)"></div>
+<div style="position:absolute;right:22px;bottom:14px;text-align:right;white-space:nowrap">
+<p style="margin:0;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:22px;letter-spacing:.2em;text-transform:uppercase">Página 2</p>
+<p style="margin:0;font-family:'Bodoni Moda SC','Bodoni 72',Didot,serif;font-weight:800;font-size:32px;line-height:1.1">Sobre</p>
+</div>
+</div>
+<div style="position:absolute;top:0;right:0;bottom:0;left:0;filter:drop-shadow(-3px -3px 5px rgba(0,0,0,0.35))">
+<div style="position:absolute;top:0;right:0;bottom:0;left:0;clip-path:polygon(0 100%,100% 0,0 0);background:linear-gradient(315deg,#A9A597 50%,#E7E4D8 72%,#F5F3EC 100%)"></div>
+</div>
+</div>
+</div>
+<span aria-hidden="true" style="position:absolute;right:72px;bottom:16px;z-index:3;font-family:'Pathway Gothic One','Arial Narrow',sans-serif;font-size:19px;letter-spacing:.16em;text-transform:uppercase">Puxe a orelha &middot; página 2 &rarr;</span>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1250}}'>
+class Component extends DCLogic {
+renderVals() {
+const s = this.state || {};
+const rx = s.rx ?? -10;
+const ry = s.ry ?? 30;
+const dragging = !!s.dragging;
+const phase = s.phase || null;
+const clamp = (v) => Math.max(-80, Math.min(80, v));
+const go = (label, page) => (e) => {
+if (this._pass) { this._pass = false; return; }
+if (e && e.preventDefault) e.preventDefault();
+if (this.state && this.state.phase) return;
+const el = e && e.currentTarget;
+clearTimeout(this._t0); clearTimeout(this._t1); clearTimeout(this._t2);
+this.setState({ phase: 'turning', label: label, page: page });
+this._t0 = setTimeout(() => { this._pass = true; try { if (el) el.click(); } catch (err) { this._pass = false; } }, 1000);
+this._t1 = setTimeout(() => this.setState({ phase: 'returning' }), 1900);
+this._t2 = setTimeout(() => this.setState({ phase: null }), 2500);
+};
+const items = [
+{ label: 'Sobre', href: 'Sobre.dc.html', page: '2' },
+{ label: 'Experiência', href: 'Experiencia.dc.html', page: '3' },
+{ label: 'Projetos', href: 'Projetos.dc.html', page: '4' },
+{ label: 'Tecnologias', href: 'Tecnologias.dc.html', page: '5' },
+{ label: 'Linha do tempo', href: 'LinhaDoTempo.dc.html', page: '6' },
+{ label: 'Contato', href: 'Contato.dc.html', page: '7' }
+];
+return {
+turning: !!phase,
+pageClass: phase === 'turning' ? 'turn' : (phase === 'returning' ? 'back' : ''),
+label: s.label || '',
+page: s.page || '',
+navItems: items.map((it) => ({ label: it.label, href: it.href, go: go(it.label, it.page) })),
+rx: Math.round(rx * 10) / 10,
+ry: Math.round(ry * 10) / 10,
+trans: dragging ? 'none' : 'transform 0.45s ease',
+cursor: dragging ? 'grabbing' : 'grab',
+onDown: (e) => {
+try { e.currentTarget.setPointerCapture(e.pointerId); } catch (err) {}
+const st = this.state || {};
+this.setState({ dragging: true, sx: e.clientX, sy: e.clientY, brx: st.rx ?? -10, bry: st.ry ?? 30 });
+},
+onMove: (e) => {
+const st = this.state || {};
+if (!st.dragging) return;
+this.setState({ ry: st.bry + (e.clientX - st.sx) * 0.6, rx: clamp(st.brx - (e.clientY - st.sy) * 0.6) });
+},
+onUp: () => { this.setState({ dragging: false }); },
+left: () => { const st = this.state || {}; this.setState({ ry: (st.ry ?? 30) - 45 }); },
+right: () => { const st = this.state || {}; this.setState({ ry: (st.ry ?? 30) + 45 }); },
+reset: () => { this.setState({ rx: -10, ry: 30 }); },
+earSize: s.earCompleting ? 1800 : (s.earDragging ? (s.earD ?? 44) : 44),
+earClass: (s.earCompleting || s.earDragging) ? 'curl' : 'curl pulse',
+earTrans: s.earCompleting ? 'width .55s ease-in, height .55s ease-in' : (s.earDragging ? 'none' : 'width .25s ease, height .25s ease'),
+onEarDown: (e) => {
+try { e.currentTarget.setPointerCapture(e.pointerId); } catch (err) {}
+this._moved = false;
+this.setState({ earDragging: true, earSx: e.clientX, earSy: e.clientY, earD: 44 });
+},
+onEarMove: (e) => {
+const st = this.state || {};
+if (!st.earDragging) return;
+const v = Math.max(0, (st.earSx - e.clientX) + (st.earSy - e.clientY));
+if (v > 8) this._moved = true;
+this.setState({ earD: Math.min(700, 44 + v * 0.9) });
+},
+onEarUp: (e) => {
+const st = this.state || {};
+if (!st.earDragging) return;
+if (this._moved && (st.earD ?? 44) >= 300) { this.earFinish(e.currentTarget); }
+else { this.setState({ earDragging: false, earD: 44 }); }
+},
+onEarClick: (e) => {
+if (this._pass) { this._pass = false; return; }
+e.preventDefault();
+if (this._moved) { this._moved = false; return; }
+this.earFinish(e.currentTarget);
+}
+};
+}
+earFinish(el) {
+if (this.state && this.state.earCompleting) return;
+this.setState({ earCompleting: true, earDragging: false });
+setTimeout(() => { this._pass = true; try { if (el) el.click(); } catch (err) { this._pass = false; } }, 650);
+setTimeout(() => this.setState({ earCompleting: false, earD: 44 }), 1500);
+}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+{
+  "name": "portfolio",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build && node scripts/gerar-headers.mjs",
+    "start": "wrangler dev",
+    "preview": "wrangler dev --ip 127.0.0.1 --port 8787",
+    "lint": "eslint . && prettier --check .",
+    "format": "prettier --write .",
+    "typecheck": "tsc --noEmit && tsc --noEmit -p worker",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "test:publicado": "playwright test --project=publicado",
+    "deploy": "wrangler deploy",
+    "prepare": "lefthook install"
+  },
+  "dependencies": {
+    "next": "16.3.8",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "@cloudflare/workers-types": "^5.20261005.1",
+    "@eslint/js": "^9.39.5",
+    "@playwright/test": "1.63.0",
+    "@tailwindcss/postcss": "4.3.3",
+    "@types/node": "^24.19.1",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "16.3.8",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.13.0",
+    "lefthook": "2.1.17",
+    "lint-staged": "17.6.0",
+    "postcss": "^8.5.28",
+    "prettier": "3.9.9",
+    "prettier-plugin-tailwindcss": "0.8.1",
+    "tailwindcss": "4.3.3",
+    "typescript": "6.0.3",
+    "vitest": "5.0.3",
+    "wrangler": "4.147.0"
+  },
+  "packageManager": "pnpm@12.9.1",
+  "lint-staged": {
+    "*.{ts,tsx,js,mjs,cjs,json,jsonc,css,md,yml}": "prettier --write",
+    "*.{ts,tsx,js,mjs}": "eslint --fix"
+  }
+}

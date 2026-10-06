@@ -1,0 +1,5 @@
+# Hooks locais leves: só o que é rápido. Typecheck e testes pesados rodam no CI.
+pre-commit:
+  commands:
+    lint-staged:
+      run: pnpm exec lint-staged
