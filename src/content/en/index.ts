@@ -135,9 +135,10 @@ export const en: Dictionary = {
       p2: 'I started in IT support. After studying in Sydney, I worked in Service Desk and Help Desk roles, building a foundation in troubleshooting, networks, hardware and enterprise support. That customer-facing technical base led me to software engineering: today I build and modernize real-world mobility and ERP systems, while strengthening my fundamentals at PUC Minas (2023–2027).',
       quote: 'Customer support is what led me to software engineering.',
       p3: 'Outside of code, I enjoy chess, which stimulates concentration, logical thinking and strategic decision-making, and helps me develop problem-solving skills. I am also eclectic in music: I listen to a lot of bossa nova, samba and MPB, plus neo-psychedelia, indie, indie rock and jazz.',
-      portrait: '[PORTRAIT]',
-      portraitCaption: 'Fig. 1 — [PORTRAIT CAPTION]',
-      portraitAlt: 'Placeholder for the portrait of Raphael Sena',
+      figureCaption: 'Fig. 1 — “The Newspaper Correspondent”, etching by Edwin Forbes, 1876. Public domain.',
+      figureSource: 'Wikimedia Commons',
+      figureAlt:
+        '1876 etching by Edwin Forbes: a newspaper correspondent galloping on horseback along a road beside dense woods, carrying news of the battle.',
       sheet: {
         title: "The writer's fact sheet",
         city: 'City',

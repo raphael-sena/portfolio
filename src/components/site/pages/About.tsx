@@ -1,4 +1,5 @@
-import { DropCap, HatchPlaceholder, LeaderRow, PageHeader, Pullquote, SectionTitle } from '@/components/gazeta';
+import { DropCap, LeaderRow, PageHeader, Pullquote, SectionTitle } from '@/components/gazeta';
+import { LateImage } from '@/components/site/LateImage';
 import type { Locale } from '@/i18n/config';
 import { t } from '@/i18n/dictionary';
 import { pageNumber } from '@/i18n/routes';
@@ -24,8 +25,20 @@ export function AboutPage({ locale }: { locale: Locale }) {
         </article>
         <aside className="min-w-0 flex-[1_1_280px] lg:border-l lg:border-ink lg:pl-8">
           <figure>
-            <HatchPlaceholder label={about.portrait} height={300} alt={about.portraitAlt} />
-            <figcaption className="mt-2 text-base italic">{about.portraitCaption}</figcaption>
+            <LateImage
+              src="/art/the-newspaper-correspondent.webp"
+              alt={about.figureAlt}
+              width={960}
+              height={678}
+              className="frame-outline block h-auto w-full border-[3px] border-ink mix-blend-multiply"
+            />
+            <figcaption className="mt-3 text-base italic">
+              {about.figureCaption}{' '}
+              <a href="https://commons.wikimedia.org/wiki/File:The_Newspaper_Correspondent.jpg" rel="noopener">
+                {about.figureSource}
+              </a>
+              .
+            </figcaption>
           </figure>
           <div className="mt-8">
             <SectionTitle>{about.sheet.title}</SectionTitle>

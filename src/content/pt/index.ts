@@ -134,9 +134,10 @@ export const pt = {
       p2: 'Comecei pelo suporte de TI. Depois de estudar em Sydney, atuei em Service Desk e Help Desk, onde construí uma base em troubleshooting, redes, hardware e suporte corporativo. Essa base técnica voltada ao cliente me levou à engenharia de software: hoje construo e modernizo sistemas reais de mobilidade e ERP, e sigo fortalecendo meus fundamentos na PUC Minas (2023–2027).',
       quote: 'Foi o suporte ao cliente que me levou à engenharia de software.',
       p3: 'Fora do código, gosto de xadrez, que estimula a concentração, o raciocínio lógico e a tomada de decisões estratégicas, e me ajuda a desenvolver a resolução de problemas. Também sou eclético na música: escuto muita bossa nova, samba e MPB, além de neo-psicodelia, indie, indie rock e jazz.',
-      portrait: '[RETRATO]',
-      portraitCaption: 'Fig. 1 — [LEGENDA DO RETRATO]',
-      portraitAlt: 'Espaço reservado para o retrato de Raphael Sena',
+      figureCaption: 'Fig. 1 — “The Newspaper Correspondent”, gravura de Edwin Forbes, 1876. Domínio público.',
+      figureSource: 'Wikimedia Commons',
+      figureAlt:
+        'Gravura de 1876 de Edwin Forbes: um correspondente de jornal a galope, numa estrada junto a uma mata fechada, levando notícias da batalha.',
       sheet: {
         title: 'Ficha do redator',
         city: 'Cidade',

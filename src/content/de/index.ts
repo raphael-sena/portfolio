@@ -145,9 +145,10 @@ export const de: Dictionary = {
       p2: 'Ich habe im IT-Support angefangen. Nach dem Auslandsaufenthalt in Sydney arbeitete ich im Service Desk und Help Desk und baute eine Grundlage in Troubleshooting, Netzwerken, Hardware und Unternehmenssupport auf. Diese kundennahe technische Basis führte mich zur Softwareentwicklung: Heute baue und modernisiere ich reale Mobilitäts- und ERP-Systeme und stärke meine Grundlagen an der PUC Minas (2023–2027).',
       quote: 'Der Kundensupport hat mich zur Softwareentwicklung geführt.',
       p3: 'Außerhalb des Codes spiele ich gern Schach, das Konzentration, logisches Denken und strategische Entscheidungen fördert und mir hilft, Problemlösung zu üben. Auch in der Musik bin ich vielseitig: Ich höre viel Bossa Nova, Samba und MPB sowie Neo-Psychedelia, Indie, Indie-Rock und Jazz.',
-      portrait: '[PORTRÄT]',
-      portraitCaption: 'Abb. 1 — [PORTRÄTUNTERSCHRIFT]',
-      portraitAlt: 'Platzhalter für das Porträt von Raphael Sena',
+      figureCaption: 'Abb. 1 — „The Newspaper Correspondent“, Radierung von Edwin Forbes, 1876. Gemeinfrei.',
+      figureSource: 'Wikimedia Commons',
+      figureAlt:
+        'Radierung von Edwin Forbes, 1876: ein Zeitungskorrespondent im Galopp auf einer Straße am dichten Wald, mit Nachrichten von der Schlacht.',
       sheet: {
         title: 'Steckbrief der Redaktion',
         city: 'Stadt',
