@@ -67,6 +67,14 @@
   .bg-spine {
     background: linear-gradient(to right, rgb(0 0 0 / 0.1), rgb(0 0 0 / 0) 28px);
   }
+  /* Citação em destaque: usa a fonte de reserva até a página carregar (classe `late-fonts` no <html>, ver LateFonts) e só
+     então baixa o Bodoni itálico, que não deve disputar banda com o que pinta a primeira tela. */
+  .pullquote {
+    font-family: 'Bodoni 72', Didot, serif;
+  }
+  html.late-fonts .pullquote {
+    font-family: var(--font-headline-italic), 'Bodoni 72', Didot, serif;
+  }
   .bg-vignette {
     background: radial-gradient(circle at 50% 50%, rgb(0 0 0 / 0) 60%, rgb(0 0 0 / 0.2) 100%);
   }

@@ -2,6 +2,7 @@ import type { Viewport } from 'next';
 import { AnalyticsClient } from '@/components/analytics/AnalyticsClient';
 import { UmamiScript } from '@/components/analytics/UmamiScript';
 import { SkipLink } from '@/components/gazeta';
+import { LateFonts } from '@/components/site/LateFonts';
 import { PageTurnRouter } from '@/components/site/PageTurnRouter';
 import { DEFAULT_LOCALE, HTML_LANG } from '@/i18n/config';
 import { t } from '@/i18n/dictionary';
@@ -32,6 +33,7 @@ export default async function RootLayout({
         <SkipLink label={t(locale).common.skipLink} />
         <AnalyticsClient />
         <PageTurnRouter />
+        <LateFonts />
         {children}
       </body>
     </html>
