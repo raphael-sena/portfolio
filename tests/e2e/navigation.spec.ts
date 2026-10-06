@@ -5,6 +5,8 @@ const NUMBERS = [1, 2, 3, 4, 5, 6, 7];
 
 for (const locale of LOCALES) {
   test(`${locale}: a orelha percorre 1>2>3>4>5>6>7>1 por clique`, async ({ page }) => {
+    // Este teste confere a ORDEM da sequência; a animação da virada tem teste próprio (interactions.spec.ts).
+    await page.emulateMedia({ reducedMotion: 'reduce' });
     await page.goto(path(locale, ''));
     for (let i = 0; i < PAGES.length; i++) {
       const proxima = PAGES[(i + 1) % PAGES.length]!;

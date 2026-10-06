@@ -63,6 +63,14 @@ export function PageTurnRouter() {
         return pronto;
       });
       void transicao.finished.finally(() => root.classList.remove('turning'));
+      // Vigia: se a transição travar (navegador com suporte parcial), a navegação nunca fica refém dela.
+      window.setTimeout(() => {
+        if (pending.current?.href === href) {
+          pending.current = null;
+          (transicao as { skipTransition?: () => void }).skipTransition?.();
+          router.push(href);
+        }
+      }, TIMEOUT_MS + 1000);
     };
 
     const unregister = registerPageTurn(go);
