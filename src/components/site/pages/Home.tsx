@@ -13,7 +13,9 @@ export function HomePage({ locale }: { locale: Locale }) {
     <div className="flex flex-wrap gap-y-9">
       <article className="min-w-0 flex-[1_1_260px] lg:pr-7">
         <p className="font-label text-xl tracking-[0.22em] uppercase">{home.kicker}</p>
-        <h2 className="font-headline text-[clamp(30px,3.4vw,40px)] leading-[1.1] font-extrabold">{home.headline}</h2>
+        <h2 className="font-headline text-[clamp(24px,2.5vw,34px)] leading-[1.1] font-extrabold [overflow-wrap:anywhere] hyphens-auto">
+          {home.headline}
+        </h2>
         <p className="mt-3 text-xl italic">{home.lead}</p>
         <hr className="my-4 border-0 border-t border-ink" />
         <p className="prose-gazeta">

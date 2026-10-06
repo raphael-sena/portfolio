@@ -1,4 +1,4 @@
-// Gera public/models/apple-ii-poster.webp: o próprio modelo renderizado (ângulo inicial), em tons de cinza, com fundo transparente.
+// Gera public/models/apple-ii-poster.webp: o próprio modelo renderizado (ângulo inicial), colorido, com fundo transparente.
 // Uso: node scripts/gerar-poster.mjs [URL_BASE]   (com o build servido por `pnpm preview`, porta 8787)
 import { chromium } from '@playwright/test';
 import { writeFileSync } from 'node:fs';
@@ -27,7 +27,6 @@ const resultado = await pagina.evaluate(async () => {
   saida.width = canvas.width;
   saida.height = canvas.height;
   const ctx = saida.getContext('2d');
-  ctx.filter = 'grayscale(1) contrast(1.08)';
   ctx.drawImage(canvas, 0, 0);
   return { url: saida.toDataURL('image/webp', 0.85), width: saida.width, height: saida.height };
 });

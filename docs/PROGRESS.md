@@ -2,7 +2,7 @@
 
 ## Fase atual
 
-**Atualização de conteúdo a partir do currículo: PR aberto, aguardando OK.** G1 a G7 mergeados; `main` protegido (PR obrigatório e checks `verificar`, `e2e` e `lighthouse`); `UMAMI_HOST` religado (`/api/health` mostra `umami: ok`). Falta o G8 (cutover).
+**Ajustes do G4: PR aberto, aguardando OK.** Conteúdo do currículo mergeado (PR #33). G1 a G7 mergeados; `main` protegido (PR obrigatório e checks `verificar`, `e2e` e `lighthouse`); `UMAMI_HOST` religado (`/api/health` mostra `umami: ok`). Falta o G8 (cutover).
 
 ## Feito
 
@@ -13,9 +13,9 @@
 - 2026-10-06: G7 mergeado (PR #32): `/2024/`, `/2025/` e `/2026/` no ar, `noindex`. Proteção do `main` aplicada pela API.
 - 2026-10-06: conteúdo atualizado a partir do currículo (`conteudo-curriculo`): Experiência, Formação, Projetos (inclui o TCC), Tecnologias (12 grupos), Sobre, Home e idiomas, nos 3 idiomas.
 
-## Feedback do usuário para corrigir depois (G4)
+## Ajustes do G4 (2026-10-06)
 
-Pontos ruins na passada de página, o tamanho da orelha e bugs ao voltar com a orelha. O usuário vai detalhar; o agente corrige em uma rodada de ajustes.
+Aplicados no PR `g4-ajustes`: rastro da orelha (Safari), página de baixo com a textura do jornal, limiar de 110 px, título da home, 3D maior e colorido, quadriculado girando com o modelo. Falta o autor validar no Safari real e dizer se há outros pontos da passada de página (virada entre rotas) a corrigir.
 
 ## Pendente
 

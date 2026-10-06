@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import {
-  ACESFilmicToneMapping,
+  NeutralToneMapping,
   Box3,
   Group,
   PMREMGenerator,
@@ -72,10 +72,9 @@ export default function MacViewer3D({ rx, ry, dragging, reducedMotion, onReady, 
     }
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     renderer.outputColorSpace = SRGBColorSpace;
-    renderer.toneMapping = ACESFilmicToneMapping;
+    renderer.toneMapping = NeutralToneMapping; // preserva melhor as cores do modelo (o ACES as lavava)
     renderer.domElement.setAttribute('aria-hidden', 'true');
-    renderer.domElement.style.cssText =
-      'position:absolute;inset:0;width:100%;height:100%;display:block;filter:grayscale(1) contrast(1.08)';
+    renderer.domElement.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;display:block';
     host.appendChild(renderer.domElement);
 
     const scene = new Scene();
@@ -138,9 +137,9 @@ export default function MacViewer3D({ rx, ry, dragging, reducedMotion, onReady, 
         const center = box.getCenter(new Vector3());
         model.position.sub(center);
         pivot.add(model);
-        // Enquadra o modelo: a maior dimensão ocupa ~48% da altura visível.
+        // Enquadra o modelo: a maior dimensão ocupa ~66% da altura visível.
         const maior = Math.max(size.x, size.y, size.z);
-        const distancia = maior / 0.48 / 2 / Math.tan((camera.fov * DEG) / 2);
+        const distancia = maior / 0.66 / 2 / Math.tan((camera.fov * DEG) / 2);
         camera.position.set(0, 0, distancia + size.z / 2);
         camera.lookAt(0, 0, 0);
         camera.far = distancia * 6;

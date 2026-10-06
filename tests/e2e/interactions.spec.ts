@@ -32,20 +32,22 @@ async function arrastarOrelha(page: Page, delta: number, soltar = true) {
   if (soltar) await page.mouse.up();
 }
 
-test('arrastar a orelha menos de ~280px e soltar faz o canto voltar (sem trocar de página)', async ({ page }) => {
+test('arrastar a orelha menos de 110px (dx+dy) e soltar faz o canto voltar (sem trocar de página)', async ({
+  page,
+}) => {
   await page.goto('/sobre/');
   const orelha = page.getByRole('link', { name: /Virar a página/ });
-  await arrastarOrelha(page, 200, false);
+  await arrastarOrelha(page, 80, false);
   expect(Number(await orelha.getAttribute('data-ear-size'))).toBeGreaterThan(100); // o canto descolou
   await page.mouse.up();
   await expect(orelha).toHaveAttribute('data-ear-size', '44'); // voltou
   await expect(page).toHaveURL(/\/sobre\/$/);
 });
 
-test('arrastar a orelha 280px ou mais e soltar completa a virada', async ({ page }) => {
+test('arrastar a orelha 110px ou mais (dx+dy) e soltar completa a virada', async ({ page }) => {
   await spyViewTransitions(page);
   await page.goto('/sobre/');
-  await arrastarOrelha(page, 340);
+  await arrastarOrelha(page, 170);
   await expect(page).toHaveURL(/\/experiencia\/$/, { timeout: 10_000 });
   await expect(page.locator('h1')).toHaveText('Experiência e formação');
 });
@@ -168,6 +170,29 @@ test.describe('computador 3D', () => {
     await expect(page.getByRole('figure', { name: /Computador compacto/ })).toBeVisible();
   });
 
+  test('o quadriculado gira junto com o modelo (setas) e o canvas não tem filtro de cinza', async ({
+    page,
+    browserName,
+  }) => {
+    await page.goto('/design-system/');
+    const quadro = page.locator('[data-renderer]').first();
+    await quadro.scrollIntoViewIfNeeded();
+    await expect(quadro).toHaveAttribute('data-renderer', /3d|cube/, { timeout: 45_000 });
+    const raios = page.getByTestId('mac-raios');
+    const antes = await raios.evaluate((el) => getComputedStyle(el).transform);
+    await quadro.focus();
+    await page.keyboard.press('ArrowRight');
+    await expect.poll(() => raios.evaluate((el) => getComputedStyle(el).transform)).not.toBe(antes);
+    if (browserName === 'chromium' && (await quadro.getAttribute('data-renderer')) === '3d') {
+      expect(
+        await page
+          .getByTestId('mac-3d')
+          .locator('canvas')
+          .evaluate((c) => getComputedStyle(c).filter),
+      ).toBe('none');
+    }
+  });
+
   test('a atribuição CC BY 4.0 do modelo está na página', async ({ page }) => {
     await page.goto('/');
     await expect(page.getByRole('link', { name: '«Apple II Computer»' })).toHaveAttribute(
@@ -197,3 +222,58 @@ test('orçamento: JS inicial de uma página sem o 3D fica abaixo de 150 KB gzip'
   await page.waitForLoadState('networkidle');
   expect(total / 1024, `JS inicial: ${(total / 1024).toFixed(1)} KB gzip`).toBeLessThan(150);
 });
+
+test('a orelha não usa filter nem animação de width/height (causa do rastro no Safari) e a página de baixo é papel liso', async ({
+  page,
+}) => {
+  await page.goto('/sobre/');
+  const orelha = page.getByRole('link', { name: /Virar a página/ });
+  await expect(orelha).toHaveAttribute('data-ready', 'true');
+  const auditoria = await orelha.evaluate((link) => {
+    const curl = link.previousElementSibling?.previousElementSibling as HTMLElement;
+    const todos = [curl, ...curl.querySelectorAll<HTMLElement>('*')];
+    return {
+      comFilter: todos.filter((el) => getComputedStyle(el).filter !== 'none').length,
+      comListras: todos.filter((el) => /repeating/.test(getComputedStyle(el).backgroundImage)).length,
+      // Só transições com duração de verdade (o padrão `all 0s` não conta) em width, height ou all.
+      transicoes: todos.filter((el) => {
+        const e = getComputedStyle(el);
+        return (
+          /width|height|all/.test(e.transitionProperty) &&
+          e.transitionDuration.split(',').some((d) => parseFloat(d) > 0)
+        );
+      }).length,
+      z: getComputedStyle(curl).zIndex,
+    };
+  });
+  expect(auditoria.comFilter).toBe(0);
+  expect(auditoria.comListras).toBe(0);
+  expect(auditoria.transicoes).toBe(0);
+  expect(auditoria.z).toBe('2'); // abaixo da textura de papel (z-3): recebe o mesmo grão do jornal
+});
+
+for (const [locale, caminho] of [
+  ['pt', '/'],
+  ['en', '/en/'],
+  ['de', '/de/'],
+] as const) {
+  for (const largura of [1280, 1024, 820]) {
+    test(`o título da home não estoura a coluna (${locale}, ${largura}px)`, async ({ page }) => {
+      await page.setViewportSize({ width: largura, height: 800 });
+      await page.goto(caminho);
+      const medidas = await page
+        .locator('article h2')
+        .first()
+        .evaluate((h) => {
+          const coluna = h.closest('article') as HTMLElement;
+          return {
+            cabe: h.scrollWidth <= h.clientWidth + 1,
+            direita: h.getBoundingClientRect().right,
+            limite: coluna.getBoundingClientRect().right,
+          };
+        });
+      expect(medidas.cabe).toBe(true);
+      expect(medidas.direita).toBeLessThanOrEqual(medidas.limite + 1);
+    });
+  }
+}

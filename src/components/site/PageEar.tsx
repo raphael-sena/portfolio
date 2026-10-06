@@ -6,10 +6,15 @@ import { PageEarCurl } from '@/components/gazeta';
 import { track } from '@/lib/analytics';
 import { turnTo } from '@/lib/page-turn';
 
-/** Arraste diagonal somado (dx + dy) a partir do qual soltar completa a virada (BRIEF seção 4). */
-export const EAR_COMPLETE_AT = 280;
+/**
+ * Arraste diagonal somado (dx + dy) a partir do qual soltar completa a virada. O BRIEF previa ~280 px; o autor achou que
+ * exigia puxar demais (2026-10-06), então caiu para 110 px (o canto já está bem levantado nesse ponto).
+ */
+export const EAR_COMPLETE_AT = 110;
 const REST = 44;
 const MAX = 700;
+/** O canto cresce `ESCALA` px para cada px arrastado na diagonal. */
+const ESCALA = 1.8;
 const MOVED_THRESHOLD = 8;
 
 interface PageEarProps {
@@ -50,7 +55,7 @@ export function PageEar({ href, ariaLabel, nextLabel, nextPage, pageLabel, hint 
     const v = soma(e);
     start.current.v = v;
     if (v > MOVED_THRESHOLD) start.current.moved = true;
-    setSize(Math.min(MAX, REST + v * 0.9));
+    setSize(Math.min(MAX, REST + v * ESCALA));
   }
 
   function finish(e: PointerEvent<HTMLAnchorElement>) {
@@ -94,7 +99,7 @@ export function PageEar({ href, ariaLabel, nextLabel, nextPage, pageLabel, hint 
       />
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute right-[72px] bottom-4 z-[3] hidden font-label text-xl tracking-[0.16em] uppercase sm:block"
+        className={`pointer-events-none absolute right-[72px] bottom-4 z-[3] hidden font-label text-xl tracking-[0.16em] uppercase transition-opacity duration-150 sm:block ${size > REST ? 'opacity-0' : ''}`}
       >
         {hint}
       </span>

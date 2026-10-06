@@ -159,10 +159,17 @@ export function MacViewer({ labels = DEFAULT_LABELS }: { labels?: MacViewerLabel
         className={`relative h-[500px] touch-pan-y overflow-hidden border-[3px] border-ink select-none ${dragging ? 'cursor-grabbing' : 'cursor-grab'}`}
         style={{ boxShadow: '0 0 0 6px #f5f3ec, 0 0 0 8px #111' }}
       >
+        {/* Raios do quadriculado: giram em torno do centro junto com o computador (o cruzamento com os anéis, fixos, faz o
+            quadriculado "andar em círculo"). Maior que o quadro para que os cantos não apareçam ao girar. */}
         <div
           aria-hidden="true"
-          className="absolute inset-0"
-          style={{ background: 'repeating-conic-gradient(from 0 at 50% 50%, #111 0 6deg, #f5f3ec 6deg 12deg)' }}
+          data-testid="mac-raios"
+          className="absolute -inset-[25%]"
+          style={{
+            background: 'repeating-conic-gradient(from 0 at 50% 50%, #111 0 6deg, #f5f3ec 6deg 12deg)',
+            transform: `rotate(${rot.ry}deg)`,
+            transition: dragging || reducedMotion ? 'none' : 'transform 450ms ease-out',
+          }}
         />
         <div
           aria-hidden="true"
