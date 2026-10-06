@@ -20,6 +20,10 @@ describe('gerarHeaders', () => {
     expect(texto).toContain('/_next/static/*\n  Cache-Control: public, max-age=31536000, immutable');
   });
 
+  it('o modelo 3D tem cache de um dia (sem hash no nome)', () => {
+    expect(gerarHeaders({ producao: true })).toContain('/models/*\n  Cache-Control: public, max-age=86400');
+  });
+
   it('respeita os limites do Cloudflare', () => {
     expect(() => validarHeaders(gerarHeaders({ producao: false }))).not.toThrow();
     expect(() => validarHeaders('x'.repeat(2001))).toThrow();

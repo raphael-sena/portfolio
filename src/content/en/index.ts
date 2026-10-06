@@ -36,6 +36,8 @@ export const en: Dictionary = {
       reset: 'Reset',
       right: 'Rotate right',
       angle: 'Horizontal rotation: {angle} degrees',
+      posterAlt: 'Compact computer: an Apple II with a monitor, keyboard and disk drive.',
+      credit: { model: '3D model', by: 'by', modified: 'Modified: textures and mesh compressed for the web.' },
     },
     backHome: 'Back to the home page',
     present: 'present',

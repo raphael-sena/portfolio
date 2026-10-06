@@ -24,7 +24,7 @@ Nunca envie segredos no chat. Use `wrangler secret put` ou `.dev.vars` (gitignor
 
 ## Modelo 3D
 
-`design/3d/cortland_256k_personal_computer_system.glb` está no repo. **[LICENÇA e AUTORIA PENDENTES]**: preciso da fonte e licença (CC-BY exige atribuição). Antes disso, uso o cubo CSS 3D do protótipo.
+**Resolvido (2026-10-06):** o modelo é o "Apple II Computer" (dark_igorek, Sketchfab, CC BY 4.0), com atribuição no site. O arquivo bruto (114 MB) fica fora do git; o otimizado (1 MB) está em `public/models/`.
 
 ## Umami
 
@@ -63,3 +63,11 @@ Trocar nameservers no Namecheap, fornecer secrets, fornecer o modelo 3D e sua li
 | Cargo e período da Modaxo; parágrafos de Sobre; frase de destaque; retrato; capturas dos 5 projetos e das versões  | Placeholders visíveis                                 |
 | Confirmar vínculos atuais (Agência Experimental e Avaso) e o nome de terceira pessoa na descrição do Dress Manager | Experiência e Projetos                                |
 | Proteção do `main` (checks `verificar` e `e2e`)                                                                    | Ainda pendente                                        |
+
+## Atualização do G4 (2026-10-06)
+
+| Item                                                                                                   | Para quê                                                           |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| **Versão em português do currículo** (`curriculo-raphael-sena.pdf` ainda é a antiga)                   | O botão "Baixar o currículo" em pt aponta para ele                 |
+| OK para atualizar Experiência, Formação e Sobre a partir do currículo novo (tabela em CONTENT-TODO.md) | O site ainda mostra Avaso como atual e não cita a Modaxo com cargo |
+| Decisão sobre o telefone do currículo e o WhatsApp                                                     | O PDF é público e tem telefone e e-mail no cabeçalho               |

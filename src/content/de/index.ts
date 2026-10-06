@@ -41,6 +41,8 @@ export const de: Dictionary = {
       reset: 'Zurücksetzen',
       right: 'Nach rechts drehen',
       angle: 'Horizontale Drehung: {angle} Grad',
+      posterAlt: 'Kompakter Computer: ein Apple II mit Monitor, Tastatur und Diskettenlaufwerk.',
+      credit: { model: '3D-Modell', by: 'von', modified: 'Geändert: Texturen und Netz für das Web komprimiert.' },
     },
     backHome: 'Zurück zur Startseite',
     present: 'heute',

@@ -106,3 +106,47 @@
     transform: scale(1.35);
   }
 }
+
+/* Virada de página (View Transitions): a folha atual gira de 0 a -180deg em torno da borda esquerda, 1 s ease-in,
+   com sombra escurecendo a dobra; a próxima página aparece por baixo. O nome só existe durante a transição (html.turning),
+   para não criar bloco de contenção permanente para a orelha fixa no celular. */
+@media (prefers-reduced-motion: no-preference) {
+  html.turning .page-sheet {
+    view-transition-name: page-sheet;
+  }
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+  ::view-transition-group(page-sheet) {
+    animation: none;
+  }
+  ::view-transition-image-pair(page-sheet) {
+    perspective: 2200px;
+  }
+  ::view-transition-old(page-sheet),
+  ::view-transition-new(page-sheet) {
+    animation: none;
+    mix-blend-mode: normal;
+  }
+  ::view-transition-old(page-sheet) {
+    z-index: 2;
+    transform-origin: left center;
+    backface-visibility: hidden;
+    animation: page-turn-old 1s ease-in forwards;
+  }
+  ::view-transition-new(page-sheet) {
+    z-index: 1;
+  }
+}
+
+@keyframes page-turn-old {
+  from {
+    transform: rotateY(0deg);
+    filter: brightness(1);
+  }
+  to {
+    transform: rotateY(-180deg);
+    filter: brightness(0.35);
+  }
+}

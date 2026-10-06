@@ -17,6 +17,8 @@ export function gerarHeaders({ producao }) {
   const regras = [
     { padrao: '/*', linhas: [...seguranca, ...(producao ? [] : ['X-Robots-Tag: noindex, nofollow'])] },
     { padrao: '/_next/static/*', linhas: ['Cache-Control: public, max-age=31536000, immutable'] },
+    // Modelo 3D e poster não têm hash no nome: cache de um dia (o poster e o .glb mudam juntos).
+    { padrao: '/models/*', linhas: ['Cache-Control: public, max-age=86400'] },
   ];
   return regras.map((r) => `${r.padrao}\n${r.linhas.map((l) => `  ${l}`).join('\n')}`).join('\n\n') + '\n';
 }

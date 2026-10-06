@@ -26,6 +26,10 @@ Node 24 (`.nvmrc`) e pnpm 12 (campo `packageManager`; ative com `corepack enable
 | `pnpm test:e2e`       | Playwright (`tests/`), sobe `build` + `wrangler dev`; `PW_MATRIZ=completa` |
 | `pnpm test:publicado` | Smoke contra um site publicado (`PLAYWRIGHT_BASE_URL`)                     |
 
+## Computador 3D
+
+O modelo "Apple II Computer", de [dark_igorek](https://sketchfab.com/dark_igorek) no Sketchfab, está sob [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). A versão em `public/models/apple-ii-computer.glb` foi modificada (texturas em WebP e malha comprimida). O original (114 MB) fica em `design/3d/`, fora do git. O poster é gerado por `node scripts/gerar-poster.mjs`.
+
 ## Rotas e idiomas
 
 Português na raiz e inglês e alemão com prefixo, sempre com os mesmos slugs e barra final: `/`, `/sobre/`, `/experiencia/`, `/projetos/`, `/tecnologias/`, `/linha-do-tempo/`, `/contato/`, `/privacidade/`, e o mesmo em `/en/` e `/de/`. O idioma vem sempre da URL. Textos em `src/content/{pt,en,de}`; dados neutros em `src/content/data`. `pnpm i18n:check` falha se uma tradução ficou defasada em relação ao pt-BR.
