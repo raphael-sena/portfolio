@@ -61,6 +61,17 @@ test('cabeçalhos de segurança presentes', async ({ request }) => {
   expect(h['content-security-policy-report-only'] ?? h['content-security-policy']).toBeTruthy();
 });
 
+// Só no domínio de produção: o build de produção é indexável (sem noindex), com HSTS e robots liberado.
+test('produção: indexável, com HSTS e robots liberado', async ({ request, baseURL }) => {
+  test.skip(!/(^|\.)raphaelsena\.com/.test(new URL(baseURL ?? 'http://x').hostname), 'só no domínio de produção');
+  const h = (await request.get('/')).headers();
+  expect(h['x-robots-tag'] ?? '').not.toMatch(/noindex/i);
+  expect(h['strict-transport-security']).toMatch(/max-age=\d+/);
+  const robots = await (await request.get('/robots.txt')).text();
+  expect(robots).toMatch(/Allow: \//);
+  expect(robots).toMatch(/Sitemap: https:\/\/www\.raphaelsena\.com\/sitemap\.xml/);
+});
+
 // Só depois do cutover (G8): o apex deve responder com UM salto 301 para o www, preservando o caminho. SMOKE_APEX=https://raphaelsena.com
 test('apex redireciona para o www com um único 301, preservando o caminho', async ({ request }) => {
   test.skip(!process.env.SMOKE_APEX, 'defina SMOKE_APEX (ex.: https://raphaelsena.com) para testar o redirect do apex');
