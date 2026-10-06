@@ -31,6 +31,7 @@ export const pt = {
     mac: {
       aria: 'Computador compacto em 3D: arraste, use as setas do teclado ou os botões para girar',
       caption: 'Fig. 1 — Computador compacto, em vista giratória. Arraste para examinar.',
+      captionStatic: 'Fig. 1 — Computador compacto (Apple II).',
       left: 'Girar à esquerda',
       reset: 'Reiniciar',
       right: 'Girar à direita',
@@ -40,6 +41,16 @@ export const pt = {
     },
     backHome: 'Voltar ao início',
     present: 'atual',
+    mobile: {
+      menu: 'Menu de seções',
+      sections: 'Seções',
+      prev: 'Anterior',
+      next: 'Próxima',
+      prevAria: 'Página anterior: {section}, página {n}',
+      nextAria: 'Próxima página: {section}, página {n}',
+      of: '{n} de {total}',
+      lastEdition: 'Última edição',
+    },
     openRepo: 'Código no GitHub →',
   },
   meta: {
@@ -87,6 +98,20 @@ export const pt = {
       lead: 'Estudante de Engenharia de Software reúne projetos, experiência e uma máquina que gira.',
       body: 'Engenheiro de software com foco em back-end, entre sistemas de bilhetagem eletrônica em produção na Modaxo e uma plataforma ERP multi-tenant criada do zero, em Java e Spring Boot. Estudante de Engenharia de Software na PUC Minas.',
       continue: 'Continua em Sobre, página 2 →',
+      edition: {
+        title: 'Nesta edição',
+        items: {
+          about: {
+            title: 'Quem escreve esta gazeta',
+            text: 'Um desenvolvedor de software de Belo Horizonte e a ficha do redator.',
+          },
+          experience: { title: 'Experiência e formação', text: 'O que já foi feito, onde e com quais ferramentas.' },
+          projects: { title: 'Obras publicadas', text: 'Projetos em destaque, cada um com a stack e o resultado.' },
+          technologies: { title: 'Ferramentas do ofício', text: 'O que uso no dia a dia, organizado por área.' },
+          timeline: { title: 'Edições anteriores', text: 'Cada versão do portfólio continua no ar.' },
+          contact: { title: 'Cartas à redação', text: 'Maneiras de falar com o autor desta gazeta.' },
+        },
+      },
       aside: {
         title: 'Em destaque',
         timeline: {

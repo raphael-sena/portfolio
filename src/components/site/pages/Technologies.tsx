@@ -12,16 +12,21 @@ export function TechnologiesPage({ locale }: { locale: Locale }) {
   return (
     <>
       <PageHeader kicker={kicker} title={texts.title} lead={texts.lead} />
-      <div className="mt-8 grid gap-x-8 gap-y-9 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-8 grid gap-x-8 gap-y-9 max-md:gap-y-5 sm:grid-cols-2 lg:grid-cols-3">
         {groups.map((group) => (
           <section key={group} aria-labelledby={`tech-${group}`}>
             <SectionTitle>
               <span id={`tech-${group}`}>{texts.groups[group]}</span>
             </SectionTitle>
-            <ul className="mt-3">
+            <ul className="mt-3 max-md:mt-2 max-md:flex max-md:flex-wrap">
               {[...technologies[group], ...((texts.extra as Record<string, string[]>)[group] ?? [])].map((name) => (
-                <li key={name} className="flex min-h-11 items-center gap-3 text-xl">
-                  <DiamondBullet />
+                <li
+                  key={name}
+                  className="flex min-h-11 items-center gap-3 text-xl max-md:min-h-0 max-md:text-base max-md:after:mx-1.5 max-md:after:content-['·'] max-md:last:after:content-none"
+                >
+                  <span className="max-md:hidden">
+                    <DiamondBullet />
+                  </span>
                   {name}
                 </li>
               ))}

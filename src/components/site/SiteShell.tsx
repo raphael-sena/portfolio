@@ -5,6 +5,7 @@ import { t } from '@/i18n/dictionary';
 import { footerLinks, navItems } from '@/i18n/nav';
 import { PAGE_IDS, pageNumber, pathFor, type AnyPageId, type PageId } from '@/i18n/routes';
 import { LangSwitcher } from './LangSwitcher';
+import { MobileTabs, MobileTopBar } from './MobileBars';
 import { PageEarLink } from './PageEarLink';
 
 function isSequencePage(id: AnyPageId): id is PageId {
@@ -23,9 +24,16 @@ export function SiteShell({ locale, id, children }: { locale: Locale; id: AnyPag
   if (id === 'privacy') right = dict.pages.privacy.title;
 
   return (
-    <PageStack earSpace={inSequence} ear={inSequence ? <PageEarLink locale={locale} id={id} /> : undefined}>
-      <Dateline left={common.dateline.place} center={common.dateline.edition} right={right} />
-      <LangSwitcher locale={locale} id={id} label={common.language.label} currentLabel={common.language.current} />
+    <PageStack
+      earSpace={inSequence}
+      ear={inSequence ? <PageEarLink locale={locale} id={id} /> : undefined}
+      top={<MobileTopBar locale={locale} id={id} inSequence={inSequence} />}
+      bottom={inSequence ? <MobileTabs locale={locale} id={id as PageId} /> : undefined}
+    >
+      <div className="max-md:hidden">
+        <Dateline left={common.dateline.place} center={common.dateline.edition} right={right} />
+        <LangSwitcher locale={locale} id={id} label={common.language.label} currentLabel={common.language.current} />
+      </div>
       <Masthead
         variant={isHome ? 'home' : 'inner'}
         title={common.siteName}
@@ -33,8 +41,10 @@ export function SiteShell({ locale, id, children }: { locale: Locale; id: AnyPag
         boxes={{ left: common.mastheadBoxes.left, right: common.mastheadBoxes.right }}
         homeHref={pathFor(locale, 'home')}
       />
-      <NavBar label={common.nav.label} items={navItems(locale, dict)} current={pathFor(locale, id)} />
-      <main id="conteudo" tabIndex={-1} className="mt-6 outline-none">
+      <div className="max-md:hidden">
+        <NavBar label={common.nav.label} items={navItems(locale, dict)} current={pathFor(locale, id)} />
+      </div>
+      <main id="conteudo" tabIndex={-1} className="mt-6 outline-none max-md:mt-5">
         {children}
       </main>
       <Footer siteName={common.siteName} links={footerLinks(locale, dict)} />

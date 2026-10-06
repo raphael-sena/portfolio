@@ -1,6 +1,9 @@
 import { expect, test } from '@playwright/test';
 import { INDEXABLE } from '../support/routes';
 
+// Comportamento do desktop (orelha, virada em 3D, menu horizontal, 3D): o mobile (< 768 px) tem o próprio tests/e2e/mobile.spec.ts.
+test.skip(({ viewport }) => (viewport?.width ?? 1280) < 768, 'desktop apenas');
+
 // A CSP está em Report-Only: antes de promovê-la, nenhuma página (nem o 3D) pode gerar violação.
 test.skip(({ browserName }) => browserName !== 'chromium', 'securitypolicyviolation confiável só no Chromium');
 

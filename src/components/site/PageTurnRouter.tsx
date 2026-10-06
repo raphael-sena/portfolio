@@ -48,7 +48,9 @@ export function PageTurnRouter() {
 
       const doc = document as DocumentWithVT;
       const reduzido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (!doc.startViewTransition || reduzido) {
+      // No mobile (abaixo de 768 px) a troca é imediata: sem folha virando, as barras fixas já dão a sensação de página.
+      const mobile = window.matchMedia('(max-width: 767px)').matches;
+      if (!doc.startViewTransition || reduzido || mobile) {
         router.push(href);
         return;
       }

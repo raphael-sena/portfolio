@@ -8,11 +8,11 @@ export interface FooterLink {
 /** Nome e links do rodapé, separados por `|` (decorativo, escondido de leitores de tela). */
 export function Footer({ siteName, links }: { siteName: string; links: FooterLink[] }) {
   return (
-    <footer className="mt-11 border-t-4 border-double border-ink pt-3.5 text-center text-base leading-8">
+    <footer className="mt-11 border-t-4 border-double border-ink pt-3.5 text-center text-base leading-8 max-md:mt-8 max-md:flex max-md:flex-wrap max-md:justify-start max-md:gap-x-4 max-md:text-left">
       <span>{siteName}</span>
       {links.map((link) => (
         <span key={link.href}>
-          <span aria-hidden="true" className="mx-2">
+          <span aria-hidden="true" className="mx-2 max-md:hidden">
             |
           </span>
           <Link prefetch={false} href={link.href} className="inline-flex min-h-11 items-center">
