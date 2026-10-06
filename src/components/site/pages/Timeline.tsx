@@ -59,7 +59,7 @@ export function TimelinePage({ locale }: { locale: Locale }) {
         {cards.map((card) => (
           <li key={card.key}>
             <article>
-              <h2 className="font-headline text-[56px] leading-none font-extrabold">{card.heading}</h2>
+              <h2 className="font-headline text-[3.5rem] leading-none font-extrabold">{card.heading}</h2>
               {card.current && (
                 <p className="mt-2 inline-block bg-ink px-3 py-0.5 font-label text-xl tracking-[0.2em] text-paper uppercase">
                   {timeline.current}
@@ -77,15 +77,15 @@ export function TimelinePage({ locale }: { locale: Locale }) {
               </div>
               <dl className="mt-4 space-y-2">
                 <div>
-                  <dt className="font-label text-[21px] tracking-[0.12em] uppercase">{timeline.stack}:</dt>
+                  <dt className="font-label text-[1.3125rem] tracking-[0.12em] uppercase">{timeline.stack}:</dt>
                   <dd>{card.stack}</dd>
                 </div>
                 <div>
-                  <dt className="font-label text-[21px] tracking-[0.12em] uppercase">{timeline.changed}:</dt>
+                  <dt className="font-label text-[1.3125rem] tracking-[0.12em] uppercase">{timeline.changed}:</dt>
                   <dd>{card.changed}</dd>
                 </div>
                 <div>
-                  <dt className="font-label text-[21px] tracking-[0.12em] uppercase">{timeline.learned}:</dt>
+                  <dt className="font-label text-[1.3125rem] tracking-[0.12em] uppercase">{timeline.learned}:</dt>
                   <dd>{card.learned}</dd>
                 </div>
               </dl>
@@ -96,7 +96,7 @@ export function TimelinePage({ locale }: { locale: Locale }) {
                       {fill(timeline.open, { year: card.year })}
                     </Button>
                   ) : (
-                    <span className="inline-flex min-h-12 items-center border-2 border-ink px-5 font-label text-[22px] tracking-[0.14em] uppercase">
+                    <span className="inline-flex min-h-12 items-center border-2 border-ink px-5 font-label text-[1.375rem] tracking-[0.14em] uppercase">
                       {timeline.soon}
                     </span>
                   )}

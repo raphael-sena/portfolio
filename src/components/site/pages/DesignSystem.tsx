@@ -104,14 +104,16 @@ export function DesignSystemPage() {
             </SectionTitle>
             <div className="mt-5 space-y-5">
               <Sample label="UnifrakturMaguntia · letreiro">
-                <p className="font-masthead text-[56px] leading-[1.05]">Raphael Sena</p>
+                <p className="font-masthead text-[3.5rem] leading-[1.05]">Raphael Sena</p>
               </Sample>
               <Sample label="Bodoni Moda SC · manchetes e títulos (800 e 700)">
-                <p className="font-headline text-[40px] leading-[1.1] font-extrabold">Obras publicadas ao público</p>
-                <p className="font-headline text-[28px] leading-[1.1] font-bold">Como este site mudou</p>
+                <p className="font-headline text-[2.5rem] leading-[1.1] font-extrabold">Obras publicadas ao público</p>
+                <p className="font-headline text-[1.75rem] leading-[1.1] font-bold">Como este site mudou</p>
               </Sample>
               <Sample label="Pathway Gothic One · menu, datas, etiquetas e botões (maiúsculas, a partir de 19px)">
-                <p className="font-label text-[23px] tracking-[0.14em] uppercase">Sobre · Experiência · Projetos</p>
+                <p className="font-label text-[1.4375rem] tracking-[0.14em] uppercase">
+                  Sobre · Experiência · Projetos
+                </p>
               </Sample>
               <Sample label="PT Serif Caption · texto corrido e legendas (regular e itálico, sem negrito)">
                 <p className="prose-gazeta max-w-[60ch] text-lg">
@@ -233,10 +235,10 @@ export function DesignSystemPage() {
 function NavBarState() {
   return (
     <>
-      <span className="inline-flex min-h-12 items-center px-4 font-label text-[23px] tracking-[0.14em] uppercase">
+      <span className="inline-flex min-h-12 items-center px-4 font-label text-[1.4375rem] tracking-[0.14em] uppercase">
         Normal
       </span>
-      <span className="inline-flex min-h-12 items-center bg-ink px-4 font-label text-[23px] tracking-[0.14em] text-paper uppercase">
+      <span className="inline-flex min-h-12 items-center bg-ink px-4 font-label text-[1.4375rem] tracking-[0.14em] text-paper uppercase">
         Atual ou mouse
       </span>
     </>

@@ -10,7 +10,7 @@ function Highlights({ items }: { items: Array<{ title: string; text: string }> }
     <ul className="mt-2 space-y-2">
       {items.map((item) => (
         <li key={item.title}>
-          <span className="font-label text-[21px] tracking-[0.1em] uppercase">{item.title}.</span>{' '}
+          <span className="font-label text-[1.3125rem] tracking-[0.1em] uppercase">{item.title}.</span>{' '}
           <span className="prose-gazeta">{item.text}</span>
         </li>
       ))}
@@ -35,7 +35,7 @@ function Row({
     <article className={`flex flex-wrap gap-x-6 gap-y-1.5 py-5 ${last ? '' : 'border-b border-ink'}`}>
       <p className="flex-[0_0_150px] font-label text-2xl tracking-widest uppercase">{period}</p>
       <div className="min-w-0 flex-[1_1_260px]">
-        <h3 className="font-headline text-[26px] leading-[1.15] font-bold">{title}</h3>
+        <h3 className="font-headline text-[1.625rem] leading-[1.15] font-bold">{title}</h3>
         {subtitle && <p className="italic">{subtitle}</p>}
         {children}
       </div>
@@ -106,7 +106,7 @@ export function ExperiencePage({ locale }: { locale: Locale }) {
                   {formatMonth(locale, course.date)}
                 </span>
                 <span className="min-w-0 flex-[1_1_260px]">
-                  <strong className="font-headline text-[22px] font-bold">{course.provider}</strong>
+                  <strong className="font-headline text-[1.375rem] font-bold">{course.provider}</strong>
                   <span> · {experience.courses[course.id]}</span>
                   <br />
                   <a href={course.certificate[locale]} rel="noopener" className="inline-flex min-h-11 items-center">

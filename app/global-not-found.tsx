@@ -25,7 +25,7 @@ export default function GlobalNotFound() {
         <TrackNotFound />
         <main id="conteudo" tabIndex={-1} className="mx-auto max-w-295 px-6 py-7 outline-none">
           <div className="border border-ink bg-paper px-5 py-8 text-center text-ink shadow-sheet">
-            <h1 className="font-headline text-[clamp(34px,5vw,60px)] leading-[1.1] font-extrabold">
+            <h1 className="font-headline text-[clamp(2.125rem,5vw,3.75rem)] leading-[1.1] font-extrabold">
               {pt.notFound.heading}
             </h1>
             <p className="mt-3">{pt.notFound.text}</p>
