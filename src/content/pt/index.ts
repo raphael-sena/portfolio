@@ -34,6 +34,8 @@ export const pt = {
       reset: 'Reiniciar',
       right: 'Girar à direita',
       angle: 'Rotação horizontal: {angle} graus',
+      posterAlt: 'Computador compacto: um Apple II com monitor, teclado e unidade de disco.',
+      credit: { model: 'Modelo 3D', by: 'de', modified: 'Modificado: texturas e malha comprimidas para a web.' },
     },
     backHome: 'Voltar ao início',
     present: 'atual',

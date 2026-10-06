@@ -34,7 +34,7 @@ export function PageStack({ children, spine = true, earSpace = true, ear, classN
           />
         ))}
         <div
-          className={`relative z-[5] overflow-hidden border border-ink bg-paper text-ink shadow-sheet ${earSpace ? 'pb-24' : 'pb-8'} ${className}`}
+          className={`page-sheet relative z-[5] overflow-hidden border border-ink bg-paper text-ink shadow-sheet ${earSpace ? 'pb-24' : 'pb-8'} ${className}`}
         >
           {spine && <div aria-hidden="true" className="bg-spine pointer-events-none absolute inset-0" />}
           <div className="relative mx-auto max-w-280 px-5 pt-5">{children}</div>

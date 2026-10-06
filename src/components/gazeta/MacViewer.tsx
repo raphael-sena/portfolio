@@ -1,25 +1,25 @@
 'use client';
 
-import { useId, useRef, useState, type KeyboardEvent, type PointerEvent } from 'react';
+import { useEffect, useRef, useState, type ComponentType, type KeyboardEvent, type PointerEvent } from 'react';
+import { track } from '@/lib/analytics';
 import { Button } from './Button';
+import { MacCube } from './MacCube';
+import type { MacViewer3DProps } from './MacViewer3D';
 
 const INITIAL = { rx: -10, ry: 30 } as const;
 const STEP = 45;
+const POSTER_URL = '/models/apple-ii-poster.webp';
 
-const FACE = 'absolute backface-hidden';
-const STROKE = { stroke: '#111', strokeWidth: 4 } as const;
+/** Atribuição CC BY 4.0 do modelo (título, autor, fonte, licença e aviso de modificação). */
+export const MODEL_CREDIT = {
+  title: 'Apple II Computer',
+  author: 'dark_igorek',
+  authorUrl: 'https://sketchfab.com/dark_igorek',
+  sourceUrl: 'https://sketchfab.com/3d-models/apple-ii-computer-b5d316548d634f16a72dd503db0aa01b',
+  licenseName: 'CC BY 4.0',
+  licenseUrl: 'https://creativecommons.org/licenses/by/4.0/',
+} as const;
 
-function Hatch({ id }: { id: string }) {
-  return (
-    <defs>
-      <pattern id={id} width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-        <line x1="0" y1="0" x2="0" y2="6" stroke="#111" strokeWidth="1.5" />
-      </pattern>
-    </defs>
-  );
-}
-
-/** Computador compacto em CSS 3D: seis faces SVG, arrasto, setas do teclado e botões. Substituído pelo .glb quando a licença for confirmada. */
 export interface MacViewerLabels {
   aria: string;
   caption: string;
@@ -28,6 +28,8 @@ export interface MacViewerLabels {
   right: string;
   /** Texto com `{angle}`, lido por leitores de tela ao girar. */
   angle: string;
+  posterAlt: string;
+  credit: { model: string; by: string; modified: string };
 }
 
 const DEFAULT_LABELS: MacViewerLabels = {
@@ -37,15 +39,79 @@ const DEFAULT_LABELS: MacViewerLabels = {
   reset: 'Reiniciar',
   right: 'Girar à direita',
   angle: 'Rotação horizontal: {angle} graus',
+  posterAlt: 'Computador compacto: um Apple II com monitor, teclado e unidade de disco.',
+  credit: { model: 'Modelo 3D', by: 'de', modified: 'Modificado: texturas e malha comprimidas para a web.' },
 };
 
+type Phase = 'poster' | 'loading' | '3d' | 'cube';
+
+function webglDisponivel(): boolean {
+  try {
+    const canvas = document.createElement('canvas');
+    return Boolean(canvas.getContext('webgl2') ?? canvas.getContext('webgl'));
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Computador compacto. Mostra o poster; só quando o viewer entra na tela carrega o three.js e o .glb (chunk separado).
+ * Se o WebGL ou o modelo falharem, cai para o cubo CSS 3D. Arrasto, setas do teclado e botões giram nos dois modos.
+ */
 export function MacViewer({ labels = DEFAULT_LABELS }: { labels?: MacViewerLabels }) {
-  const hatchId = useId();
+  const frameRef = useRef<HTMLDivElement>(null);
+  const drag = useRef({ x: 0, y: 0, rx: 0, ry: 0 });
   const [rot, setRot] = useState<{ rx: number; ry: number }>({ ...INITIAL });
   const [dragging, setDragging] = useState(false);
-  const drag = useRef({ x: 0, y: 0, rx: 0, ry: 0 });
+  const [phase, setPhase] = useState<Phase>('poster');
+  const [Viewer3D, setViewer3D] = useState<ComponentType<MacViewer3DProps> | null>(null);
+  const [reducedMotion, setReducedMotion] = useState(false);
 
-  const turn = (delta: number) => setRot((r) => ({ ...r, ry: r.ry + delta }));
+  useEffect(() => {
+    const query = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => setReducedMotion(query.matches);
+    update();
+    query.addEventListener('change', update);
+    return () => query.removeEventListener('change', update);
+  }, []);
+
+  useEffect(() => {
+    const frame = frameRef.current;
+    if (!frame) return;
+    let started = false;
+    const iniciar = () => {
+      if (started) return;
+      started = true;
+      const economia = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData;
+      if (economia || !webglDisponivel()) {
+        setPhase('cube');
+        return;
+      }
+      setPhase('loading');
+      import('./MacViewer3D').then((m) => setViewer3D(() => m.default)).catch(() => setPhase('cube'));
+    };
+    if (!('IntersectionObserver' in window)) {
+      iniciar();
+      return;
+    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          iniciar();
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '200px' },
+    );
+    observer.observe(frame);
+    return () => observer.disconnect();
+  }, []);
+
+  const girou = () => track('mac_rotate');
+  const turn = (delta: number) => {
+    setRot((r) => ({ ...r, ry: r.ry + delta }));
+    girou();
+  };
   const reset = () => setRot({ ...INITIAL });
 
   function onPointerDown(e: PointerEvent<HTMLDivElement>) {
@@ -60,26 +126,31 @@ export function MacViewer({ labels = DEFAULT_LABELS }: { labels?: MacViewerLabel
       ry: ry + (e.clientX - x) * 0.6,
       rx: Math.max(-80, Math.min(80, rx - (e.clientY - y) * 0.6)),
     });
+    girou();
   }
   function onKeyDown(e: KeyboardEvent<HTMLDivElement>) {
     if (e.key === 'ArrowLeft') turn(-STEP);
     else if (e.key === 'ArrowRight') turn(STEP);
-    else if (e.key === 'ArrowUp') setRot((r) => ({ ...r, rx: Math.min(80, r.rx + 15) }));
-    else if (e.key === 'ArrowDown') setRot((r) => ({ ...r, rx: Math.max(-80, r.rx - 15) }));
-    else if (e.key === 'Home') reset();
+    else if (e.key === 'ArrowUp') {
+      setRot((r) => ({ ...r, rx: Math.min(80, r.rx + 15) }));
+      girou();
+    } else if (e.key === 'ArrowDown') {
+      setRot((r) => ({ ...r, rx: Math.max(-80, r.rx - 15) }));
+      girou();
+    } else if (e.key === 'Home') reset();
     else return;
     e.preventDefault();
   }
 
   const angle = Math.round(((rot.ry % 360) + 360) % 360);
+  const showPoster = phase === 'poster' || phase === 'loading';
 
   return (
-    <figure
-      role="group"
-      aria-label="Computador compacto em 3D: arraste, use as setas do teclado ou os botões para girar"
-    >
+    <figure role="group" aria-label={labels.aria}>
       <div
+        ref={frameRef}
         tabIndex={0}
+        data-renderer={phase}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={() => setDragging(false)}
@@ -103,92 +174,33 @@ export function MacViewer({ labels = DEFAULT_LABELS }: { labels?: MacViewerLabel
           className="absolute top-1/2 left-1/2 h-[330px] w-[330px] -translate-x-1/2 -translate-y-1/2 rounded-full border-4 border-ink bg-paper"
           style={{ boxShadow: '0 0 0 8px #f5f3ec, 0 0 0 11px #111' }}
         />
-        <div className="absolute inset-0 flex items-center justify-center" style={{ perspective: 1000 }}>
-          <div
-            aria-hidden="true"
-            className="relative h-60 w-[200px] motion-safe:transition-transform motion-safe:duration-[450ms] motion-safe:ease-in-out"
-            style={{
-              transformStyle: 'preserve-3d',
-              transform: `rotateX(${rot.rx}deg) rotateY(${rot.ry}deg)`,
-              transition: dragging ? 'none' : undefined,
-            }}
-          >
-            {/* Frente */}
-            <svg
-              className={FACE}
-              viewBox="0 0 200 240"
-              width="200"
-              height="240"
-              style={{ transform: 'rotateY(0) translateZ(100px)' }}
-            >
-              <Hatch id={`${hatchId}-f`} />
-              <rect x="2" y="2" width="196" height="236" rx="12" fill="#f2f0e8" {...STROKE} />
-              <rect x="170" y="10" width="22" height="220" fill={`url(#${hatchId}-f)`} opacity=".5" />
-              <rect x="28" y="28" width="132" height="108" rx="14" fill="#f5f3ec" {...STROKE} />
-              <rect x="64" y="58" width="10" height="16" fill="#111" />
-              <rect x="114" y="58" width="10" height="16" fill="#111" />
-              <path d="M62 98h8v8h8v8h34v-8h8v-8h8" fill="none" {...STROKE} strokeLinejoin="miter" />
-              <line x1="28" y1="160" x2="172" y2="160" {...STROKE} strokeWidth="2" />
-              <rect x="58" y="184" width="70" height="8" fill="#111" />
-              <circle cx="152" cy="188" r="4" fill="#111" />
-            </svg>
-            {/* Verso */}
-            <svg
-              className={FACE}
-              viewBox="0 0 200 240"
-              width="200"
-              height="240"
-              style={{ transform: 'rotateY(180deg) translateZ(100px)' }}
-            >
-              <rect x="2" y="2" width="196" height="236" rx="12" fill="#cfccc0" {...STROKE} />
-              {[50, 70, 90, 110, 130].map((y) => (
-                <line key={y} x1="40" y1={y} x2="160" y2={y} {...STROKE} strokeWidth="3" />
-              ))}
-              {[60, 100, 140].map((x) => (
-                <circle key={x} cx={x} cy="190" r="10" fill="#f5f3ec" {...STROKE} />
-              ))}
-            </svg>
-            {/* Laterais */}
-            {[90, -90].map((deg) => (
-              <svg
-                key={deg}
-                className={FACE}
-                viewBox="0 0 200 240"
-                width="200"
-                height="240"
-                style={{ transform: `rotateY(${deg}deg) translateZ(100px)` }}
-              >
-                <rect x="2" y="2" width="196" height="236" rx="12" fill="#d9d6cb" {...STROKE} />
-                {[40, 56, 72, 88, 104].map((y) => (
-                  <line key={y} x1="50" y1={y} x2="150" y2={y} {...STROKE} strokeWidth="3" />
-                ))}
-              </svg>
-            ))}
-            {/* Topo e base */}
-            <svg
-              className={FACE}
-              viewBox="0 0 200 200"
-              width="200"
-              height="200"
-              style={{ top: 20, transform: 'rotateX(90deg) translateZ(120px)' }}
-            >
-              <rect x="2" y="2" width="196" height="196" rx="12" fill="#e6e3d8" {...STROKE} />
-              <rect x="30" y="30" width="140" height="140" rx="8" fill="none" {...STROKE} strokeWidth="2" />
-            </svg>
-            <svg
-              className={FACE}
-              viewBox="0 0 200 200"
-              width="200"
-              height="200"
-              style={{ top: 20, transform: 'rotateX(-90deg) translateZ(120px)' }}
-            >
-              <rect x="2" y="2" width="196" height="196" rx="12" fill="#cfccc0" {...STROKE} />
-              {[30, 170].flatMap((x) =>
-                [30, 170].map((y) => <circle key={`${x}-${y}`} cx={x} cy={y} r="8" fill="#111" />),
-              )}
-            </svg>
-          </div>
-        </div>
+        {phase === 'cube' ? (
+          <MacCube rx={rot.rx} ry={rot.ry} dragging={dragging} />
+        ) : (
+          <>
+            {Viewer3D && (
+              <Viewer3D
+                rx={rot.rx}
+                ry={rot.ry}
+                dragging={dragging}
+                reducedMotion={reducedMotion}
+                onReady={() => setPhase('3d')}
+                onError={() => setPhase('cube')}
+              />
+            )}
+            {/* Imagem de espera: some quando o modelo está pronto. Sem JavaScript, é a imagem final. */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={POSTER_URL}
+              alt={labels.posterAlt}
+              width={900}
+              height={1000}
+              decoding="async"
+              draggable={false}
+              className={`pointer-events-none absolute top-0 left-1/2 h-full w-auto max-w-none -translate-x-1/2 transition-opacity duration-300 ${showPoster ? 'opacity-100' : 'opacity-0'}`}
+            />
+          </>
+        )}
       </div>
       <p className="sr-only" aria-live="polite">
         {labels.angle.replace('{angle}', String(angle))}
@@ -205,6 +217,21 @@ export function MacViewer({ labels = DEFAULT_LABELS }: { labels?: MacViewerLabel
         </Button>
       </div>
       <figcaption className="mt-3 text-center text-base italic">{labels.caption}</figcaption>
+      <p className="mt-1 text-center text-base">
+        {labels.credit.model}{' '}
+        <a href={MODEL_CREDIT.sourceUrl} rel="noopener">
+          «{MODEL_CREDIT.title}»
+        </a>{' '}
+        {labels.credit.by}{' '}
+        <a href={MODEL_CREDIT.authorUrl} rel="noopener">
+          {MODEL_CREDIT.author}
+        </a>
+        ,{' '}
+        <a href={MODEL_CREDIT.licenseUrl} rel="license noopener">
+          {MODEL_CREDIT.licenseName}
+        </a>
+        . {labels.credit.modified}
+      </p>
     </figure>
   );
 }

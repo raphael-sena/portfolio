@@ -8,15 +8,24 @@ interface PageEarCurlProps {
   pulse?: boolean;
   /** Palavra "Página" no idioma atual. */
   pageLabel?: string;
+  /** Durante o arraste o canto segue o ponteiro sem transição. */
+  dragging?: boolean;
 }
 
 /** Parte visual da orelha (canto virado). A interação (arrastar, clicar, Enter) entra no G4. */
-export function PageEarCurl({ size = 44, nextLabel, nextPage, pulse = false, pageLabel = 'Página' }: PageEarCurlProps) {
+export function PageEarCurl({
+  size = 44,
+  nextLabel,
+  nextPage,
+  pulse = false,
+  pageLabel = 'Página',
+  dragging = false,
+}: PageEarCurlProps) {
   return (
-    <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-[6] overflow-hidden">
+    <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-[6] overflow-hidden max-sm:fixed">
       <div
         className={`absolute right-0 bottom-0 origin-bottom-right ${pulse ? 'animate-ear-hint' : ''}`}
-        style={{ width: size, height: size }}
+        style={{ width: size, height: size, transition: dragging ? 'none' : 'width .25s ease, height .25s ease' }}
       >
         <div className="absolute inset-0 bg-ear-back" style={{ clipPath: 'polygon(100% 100%, 0 100%, 100% 0)' }}>
           <div
