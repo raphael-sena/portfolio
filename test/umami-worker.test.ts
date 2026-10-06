@@ -131,12 +131,25 @@ describe('POST /stats/api/send', () => {
 });
 
 describe('sem UMAMI_HOST', () => {
-  it.each(['/stats/u.js', '/stats/api/send', '/stats/outra'])('%s é 404 limpo', async (path) => {
+  it('/stats/u.js vira um JS vazio (200), sem chamar a rede', async () => {
     const fetchFn = vi.fn<FetchFn>();
-    const r = await handleStats(pedido(path, { method: path.endsWith('send') ? 'POST' : 'GET' }), {}, fetchFn);
+    const r = await handleStats(pedido('/stats/u.js'), {}, fetchFn);
+    expect(r.status).toBe(200);
+    expect(r.headers.get('content-type')).toContain('javascript');
+    expect(fetchFn).not.toHaveBeenCalled();
+  });
+
+  it('POST em /stats/api/send é 204 silencioso, sem chamar a rede', async () => {
+    const fetchFn = vi.fn<FetchFn>();
+    const r = await handleStats(pedido('/stats/api/send', { method: 'POST' }), {}, fetchFn);
+    expect(r.status).toBe(204);
+    expect(fetchFn).not.toHaveBeenCalled();
+  });
+
+  it('caminho desconhecido é 404 limpo', async () => {
+    const r = await handleStats(pedido('/stats/outra'), {}, vi.fn<FetchFn>());
     expect(r.status).toBe(404);
     expect(await r.json()).toEqual({ error: 'not_found' });
-    expect(fetchFn).not.toHaveBeenCalled();
   });
 
   it('host inválido é tratado como ausente', () => {

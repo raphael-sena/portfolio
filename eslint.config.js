@@ -18,6 +18,7 @@ const config = [
       'design/',
       'docs/',
       'next-env.d.ts',
+      '.claude/',
     ],
   },
   js.configs.recommended,

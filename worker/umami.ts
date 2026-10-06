@@ -149,7 +149,10 @@ async function repassarEnvio(host: string, request: Request, fetchFn: FetchFn): 
   }
 }
 
-/** Trata /stats/*. Qualquer caminho desconhecido, ou Umami não configurado, é um 404 limpo. */
+/**
+ * Trata /stats/*. Caminho desconhecido é 404 limpo. Sem UMAMI_HOST (dev, CI, preview sem secret) o script vira um JS
+ * vazio e o envio um 204: a página nunca mostra erro por causa do analytics.
+ */
 export async function handleStats(
   request: Request,
   env: UmamiEnv,
@@ -157,7 +160,16 @@ export async function handleStats(
 ): Promise<Response> {
   const { pathname } = new URL(request.url);
   const host = hostDoUmami(env);
-  if (!host) return naoEncontrado();
+  if (!host) {
+    if (pathname === '/stats/u.js') {
+      return new Response(request.method === 'HEAD' ? null : '/* analytics nao configurado */', {
+        status: 200,
+        headers: { ...BASE_HEADERS, 'content-type': 'text/javascript; charset=utf-8', 'cache-control': 'no-store' },
+      });
+    }
+    if (pathname === '/stats/api/send') return vazio(request.method === 'POST' ? 204 : 405);
+    return naoEncontrado();
+  }
 
   if (pathname === '/stats/u.js') return servirScript(host, request, fetchFn);
   if (pathname === '/stats/api/send') return repassarEnvio(host, request, fetchFn);

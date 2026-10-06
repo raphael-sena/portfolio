@@ -124,11 +124,9 @@ test('origem estranha no POST é descartada em silêncio', async ({ request, amb
   expect(envios(ambiente.umami)).toEqual([]);
 });
 
-// Dependem do <UmamiScript /> e do <AnalyticsClient /> montados em app/layout.tsx (integração do orquestrador)
-// e dos eventos reais dos componentes (G2/G3). Habilitar quando o layout for integrado.
+// Integração com o layout real (<UmamiScript /> e <AnalyticsClient /> em app/layout.tsx). O build de teste usa
+// NEXT_PUBLIC_UMAMI_WEBSITE_ID=WEBSITE_ID (ver playwright.config.ts).
 test.describe('integração com o layout real', () => {
-  test.fixme(true, 'depende de <UmamiScript /> e <AnalyticsClient /> no app/layout.tsx (integração do orquestrador)');
-
   test('o layout carrega /stats/u.js com os data-attributes do brief', async ({ page, ambiente }) => {
     await page.goto(`${ambiente.baseUrl}/`);
     const script = page.locator('script[src="/stats/u.js"]');
@@ -138,7 +136,8 @@ test.describe('integração com o layout real', () => {
     await expect(script).toHaveAttribute('data-tag', 'preview');
   });
 
-  test('clique em link externo envia outbound_click {host}', async ({ page, ambiente }) => {
+  // A home ainda não tem link externo (conteúdo no G3): habilitar então.
+  test.fixme('clique em link externo envia outbound_click {host}', async ({ page, ambiente }) => {
     await page.goto(`${ambiente.baseUrl}/`);
     await page.route('https://github.com/**', (route) => route.fulfill({ status: 200, body: 'ok' }));
     await page.locator('a[href^="https://github.com"]').first().click();

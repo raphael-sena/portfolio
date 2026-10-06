@@ -51,3 +51,58 @@
     outline-offset: 3px;
   }
 }
+
+/* Hachuras e filetes do protótipo (docs/DESIGN-SPEC.md seção 2) */
+@layer components {
+  .bg-stage-hatch {
+    background: var(--color-stage) repeating-linear-gradient(45deg, rgb(255 255 255 / 0.045) 0 1px, transparent 1px 8px);
+  }
+  .bg-engraving {
+    background: repeating-linear-gradient(45deg, var(--color-ink) 0 1px, var(--color-paper) 1px 8px);
+  }
+  .bg-ear-back {
+    background: repeating-linear-gradient(45deg, rgb(17 17 17 / 0.3) 0 1px, transparent 1px 7px), var(--color-ear-back);
+  }
+  .bg-spine {
+    background: linear-gradient(to right, rgb(0 0 0 / 0.1), rgb(0 0 0 / 0) 28px);
+  }
+  .bg-vignette {
+    background: radial-gradient(circle at 50% 50%, rgb(0 0 0 / 0) 60%, rgb(0 0 0 / 0.2) 100%);
+  }
+  .rule-double {
+    border-top: 4px double var(--color-ink);
+    border-bottom: 4px double var(--color-ink);
+  }
+  /* Moldura de gravura/caixa: 1px + contorno de 1px afastado em 4px */
+  .frame-outline {
+    outline: 1px solid var(--color-ink);
+    outline-offset: 4px;
+  }
+  /* Texto corrido: justificado e hifenizado só quando há largura para isso */
+  .prose-gazeta {
+    text-align: left;
+    hyphens: manual;
+  }
+  @media (min-width: 48rem) {
+    .prose-gazeta {
+      text-align: justify;
+      hyphens: auto;
+    }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .animate-ear-hint {
+      animation: ear-hint 3.2s ease-in-out infinite;
+    }
+  }
+}
+
+@keyframes ear-hint {
+  0%,
+  70%,
+  100% {
+    transform: scale(1);
+  }
+  85% {
+    transform: scale(1.35);
+  }
+}

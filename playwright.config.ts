@@ -16,6 +16,7 @@ export default defineConfig({
     { name: 'e2e', testDir: './tests/e2e', use: { ...devices['Desktop Chrome'] } },
     // Sobe o próprio wrangler dev + Umami falso (tests/umami/fixtures.ts); precisa do build em out/.
     { name: 'umami', testDir: './tests/umami', use: { ...devices['Desktop Chrome'] } },
+    { name: 'a11y', testDir: './tests/a11y', use: { ...devices['Desktop Chrome'] } },
     ...(completa
       ? [
           { name: 'firefox', testDir: './tests/e2e', use: { ...devices['Desktop Firefox'] } },
@@ -29,7 +30,8 @@ export default defineConfig({
   webServer: externo
     ? undefined
     : {
-        command: `pnpm build && pnpm exec wrangler dev --ip 127.0.0.1 --port ${porta}`,
+        // O id de teste habilita o <UmamiScript /> no build; nenhum Umami real é contatado (UMAMI_HOST fica vazio).
+        command: `NEXT_PUBLIC_UMAMI_WEBSITE_ID=00000000-0000-4000-8000-000000000001 pnpm build && pnpm exec wrangler dev --ip 127.0.0.1 --port ${porta}`,
         url: `${baseURL}/api/health`,
         reuseExistingServer: !process.env.CI,
         timeout: 240_000,
