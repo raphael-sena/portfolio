@@ -196,6 +196,8 @@ export function MacViewer({ labels = DEFAULT_LABELS }: { labels?: MacViewerLabel
               width={900}
               height={1000}
               decoding="async"
+              loading="lazy"
+              fetchPriority="low"
               draggable={false}
               className={`pointer-events-none absolute top-0 left-1/2 h-full w-auto max-w-none -translate-x-1/2 transition-opacity duration-300 ${showPoster ? 'opacity-100' : 'opacity-0'}`}
             />
