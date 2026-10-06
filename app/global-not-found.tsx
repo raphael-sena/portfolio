@@ -30,13 +30,25 @@ export default function GlobalNotFound() {
             </h1>
             <p className="mt-3">{pt.notFound.text}</p>
             <p className="mt-4 font-label text-xl tracking-[0.14em] uppercase">
-              <Link href="/" className="inline-flex min-h-11 items-center px-3">
+              <Link prefetch={false} href="/" className="inline-flex min-h-11 items-center px-3">
                 Português
               </Link>
-              <Link href="/en/" hrefLang="en" lang="en" className="inline-flex min-h-11 items-center px-3">
+              <Link
+                prefetch={false}
+                href="/en/"
+                hrefLang="en"
+                lang="en"
+                className="inline-flex min-h-11 items-center px-3"
+              >
                 English
               </Link>
-              <Link href="/de/" hrefLang="de" lang="de" className="inline-flex min-h-11 items-center px-3">
+              <Link
+                prefetch={false}
+                href="/de/"
+                hrefLang="de"
+                lang="de"
+                className="inline-flex min-h-11 items-center px-3"
+              >
                 Deutsch
               </Link>
             </p>

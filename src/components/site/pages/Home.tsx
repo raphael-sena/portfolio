@@ -21,7 +21,7 @@ export function HomePage({ locale }: { locale: Locale }) {
           {body.slice(1)}
         </p>
         <p className="mt-4">
-          <Link href={pathFor(locale, 'about')} className="inline-flex min-h-11 items-center">
+          <Link prefetch={false} href={pathFor(locale, 'about')} className="inline-flex min-h-11 items-center">
             {home.continue}
           </Link>
         </p>
@@ -38,7 +38,7 @@ export function HomePage({ locale }: { locale: Locale }) {
         <h3 className="mt-3 font-headline text-[26px] leading-[1.1] font-bold">{home.aside.timeline.title}</h3>
         <p className="prose-gazeta mt-1">{home.aside.timeline.text}</p>
         <p className="mt-2">
-          <Link href={pathFor(locale, 'timeline')} className="inline-flex min-h-11 items-center">
+          <Link prefetch={false} href={pathFor(locale, 'timeline')} className="inline-flex min-h-11 items-center">
             {home.aside.timeline.link}
           </Link>
         </p>
@@ -53,7 +53,11 @@ export function HomePage({ locale }: { locale: Locale }) {
         <div className="mt-6">
           <Callout title={home.aside.ad.title}>
             <p>{home.aside.ad.text}</p>
-            <Link href={pathFor(locale, 'contact')} className="inline-flex min-h-11 items-center not-italic">
+            <Link
+              prefetch={false}
+              href={pathFor(locale, 'contact')}
+              className="inline-flex min-h-11 items-center not-italic"
+            >
               {home.aside.ad.link}
             </Link>
           </Callout>

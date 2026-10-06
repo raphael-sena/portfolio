@@ -17,7 +17,7 @@ export function Button(props: ButtonProps) {
     const { href, size: _size, children, className = '', ...rest } = props;
     void _size;
     return (
-      <Link href={href} className={`${BASE} ${sizing} ${className}`} {...rest}>
+      <Link href={href} prefetch={false} className={`${BASE} ${sizing} ${className}`} {...rest}>
         {children}
       </Link>
     );
