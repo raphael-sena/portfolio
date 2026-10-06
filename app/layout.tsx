@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Bodoni_Moda_SC, Pathway_Gothic_One, PT_Serif_Caption, UnifrakturMaguntia } from 'next/font/google';
+import { AnalyticsClient } from '@/components/analytics/AnalyticsClient';
+import { UmamiScript } from '@/components/analytics/UmamiScript';
 import { SkipLink } from '@/components/gazeta';
 import './globals.css';
 
@@ -47,8 +49,12 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="pt-BR" className={`${unifraktur.variable} ${bodoni.variable} ${pathway.variable} ${ptSerif.variable}`}>
+      <head>
+        <UmamiScript />
+      </head>
       <body>
         <SkipLink />
+        <AnalyticsClient />
         {children}
       </body>
     </html>

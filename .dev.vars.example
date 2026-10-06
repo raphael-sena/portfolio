@@ -1,2 +1,4 @@
 # Copie para .dev.vars (gitignored) e preencha. Em produção use `wrangler secret put`.
+# Origem do servidor Umami (secret do Worker; nunca aparece em respostas). Ex.: https://umami.seu-dominio.tld
 UMAMI_HOST=
+# Variáveis NEXT_PUBLIC_* (ex.: NEXT_PUBLIC_UMAMI_WEBSITE_ID) não são secrets: entram no build, ver docs/umami.md.
