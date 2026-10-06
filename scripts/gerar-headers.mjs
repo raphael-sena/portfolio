@@ -21,6 +21,15 @@ export function gerarHeaders({ producao }) {
   return regras.map((r) => `${r.padrao}\n${r.linhas.map((l) => `  ${l}`).join('\n')}`).join('\n\n') + '\n';
 }
 
+/** Redirects 301 das URLs antigas (currículos com nomes antigos e acento). Sintaxe `_redirects` da Cloudflare: origem destino status. */
+export function gerarRedirects() {
+  const regras = [
+    ['/Resume_Raphael_Sena.pdf', '/resume-raphael-sena.pdf'],
+    ['/Curr%C3%ADculo_Raphael_Sena.pdf', '/curriculo-raphael-sena.pdf'],
+  ];
+  return regras.map(([de, para]) => `${de} ${para} 301`).join('\n') + '\n';
+}
+
 export function validarHeaders(texto) {
   const linhas = texto.split('\n');
   const regras = linhas.filter((l) => l.length > 0 && !l.startsWith(' ')).length;
@@ -34,5 +43,6 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const texto = gerarHeaders({ producao: process.env.SITE_ENV === 'production' });
   validarHeaders(texto);
   writeFileSync(join(raiz, 'out', '_headers'), texto);
+  writeFileSync(join(raiz, 'out', '_redirects'), gerarRedirects());
   console.log(`out/_headers gerado (${process.env.SITE_ENV === 'production' ? 'production' : 'preview, noindex'})`);
 }

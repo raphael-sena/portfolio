@@ -19,12 +19,16 @@
     "test:e2e": "playwright test",
     "test:publicado": "playwright test --project=publicado",
     "deploy": "wrangler deploy",
-    "prepare": "lefthook install"
+    "prepare": "lefthook install",
+    "i18n:check": "node scripts/i18n.mjs check",
+    "i18n:lock": "node scripts/i18n.mjs lock",
+    "i18n:translate": "node scripts/i18n.mjs translate"
   },
   "dependencies": {
     "next": "16.3.8",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "zod": "4.6.5"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.13.0",

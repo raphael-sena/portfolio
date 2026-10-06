@@ -26,6 +26,7 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm lint
+      - run: pnpm i18n:check
       - run: pnpm typecheck
       - run: pnpm test
       - run: pnpm build
@@ -93,6 +94,8 @@ jobs:
       - run: pnpm build
         env:
           SITE_ENV: preview
+          # Id público do site no Umami (variável de repositório; o UMAMI_HOST é secret do Worker).
+          NEXT_PUBLIC_UMAMI_WEBSITE_ID: ${{ vars.NEXT_PUBLIC_UMAMI_WEBSITE_ID }}
       - run: pnpm exec wrangler deploy
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}

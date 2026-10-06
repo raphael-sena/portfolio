@@ -136,9 +136,8 @@ test.describe('integração com o layout real', () => {
     await expect(script).toHaveAttribute('data-tag', 'preview');
   });
 
-  // A home ainda não tem link externo (conteúdo no G3): habilitar então.
-  test.fixme('clique em link externo envia outbound_click {host}', async ({ page, ambiente }) => {
-    await page.goto(`${ambiente.baseUrl}/`);
+  test('clique em link externo envia outbound_click {host}', async ({ page, ambiente }) => {
+    await page.goto(`${ambiente.baseUrl}/contato/`);
     await page.route('https://github.com/**', (route) => route.fulfill({ status: 200, body: 'ok' }));
     await page.locator('a[href^="https://github.com"]').first().click();
     await expect.poll(() => envios(ambiente.umami).some((e) => e.payload.name === 'outbound_click')).toBe(true);

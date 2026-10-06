@@ -1,4 +1,3 @@
-import type { Metadata } from 'next';
 import {
   Button,
   Callout,
@@ -19,12 +18,9 @@ import {
   Pullquote,
   SectionTitle,
 } from '@/components/gazeta';
-
-export const metadata: Metadata = {
-  title: 'Guia de estilo | Raphael Sena',
-  description: 'Paleta, tipografia e componentes da Gazeta de 1900 (página interna de revisão).',
-  robots: { index: false, follow: false },
-};
+import { footerLinks, navItems } from '@/i18n/nav';
+import { pathFor } from '@/i18n/routes';
+import { t } from '@/i18n/dictionary';
 
 const PALETTE = [
   { hex: '#F5F3EC', name: 'Papel', swatch: 'bg-paper', dark: false },
@@ -66,13 +62,14 @@ function Sample({ label, children }: { label: string; children: React.ReactNode 
   );
 }
 
-export default function DesignSystemPage() {
+export function DesignSystemPage() {
+  const dict = t('pt');
   return (
     <>
       <PageStack>
         <Dateline right="Guia de estilo · Página —" />
-        <Masthead />
-        <NavBar />
+        <Masthead homeHref={pathFor('pt', 'home')} />
+        <NavBar items={navItems('pt', dict)} label={dict.common.nav.label} />
         <main id="conteudo" tabIndex={-1} className="mt-6 outline-none">
           <PageHeader
             kicker="Guia de estilo · Página —"
@@ -226,7 +223,7 @@ export default function DesignSystemPage() {
             </p>
           </section>
 
-          <Footer />
+          <Footer siteName={dict.common.siteName} links={footerLinks('pt', dict)} />
         </main>
       </PageStack>
     </>

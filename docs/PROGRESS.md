@@ -2,21 +2,23 @@
 
 ## Fase atual
 
-**G1 concluído** (PR #26 mergeado; site em https://portfolio.raphael-116.workers.dev, noindex). **G2 Design system: PR aberto, aguardando OK.** **G5 Umami: subagente em worktree próprio (`g5-umami`), em andamento.**
+**G3 Páginas e conteúdo: PR aberto, aguardando OK.** G1, G2 e G5 estão mergeados (`main` em produção só em workers.dev, noindex). G4, G6, G7 e G8 pendentes.
 
 ## Feito
 
-- 2026-10-05: G0 aprovado; tags `site/2024` e `site/2025` criadas e enviadas (com `site/2026` e `v1.0.0` intactas).
-- 2026-10-05: G1: scaffold, CI e Worker "hello". PR #26 mergeado em `2254f53`; deploy do `main` em workers.dev pelo GitHub Actions (secrets e `DEPLOY_ENABLED` criados pelo usuário); smoke contra a URL publicada: 6 de 6.
-- 2026-10-05: G2 (`g2-design-system`): componentes em `src/components/gazeta/`, rota `/design-system` (noindex), textura de papel WebP 256 px (`scripts/gerar-textura.mjs`), skip link no layout, `scripts/comparar-design.mjs` e comparações em `docs/design-system/`. Verificação: lint, typecheck, 7 testes unitários e 11 e2e (seo, e2e, a11y com axe) verdes.
+- 2026-10-05: G0 aprovado; tags `site/2024`, `site/2025`, `site/2026` e `v1.0.0` intactas.
+- 2026-10-05: G1 (PR #26), G2 (PR #27) e G5 (PR #28) mergeados; CI verde; deploy do `main` em workers.dev por GitHub Actions.
+- 2026-10-06: Umami ligado pelo usuário (`UMAMI_HOST` como secret do Worker; `NEXT_PUBLIC_UMAMI_WEBSITE_ID` como variável do repositório; `/api/health` respondeu `umami: ok`). Integração Git "Workers Builds" da Cloudflare desconectada pelo usuário.
+- 2026-10-06: G3 (`g3-paginas`): 7 páginas × 3 idiomas + privacidade × 3 + guia de estilo, dicionários tipados (pt, en, de), Zod, metadata e hreflang por rota, 404 global, orelha como link real, seletor de idioma, currículos com 301 das URLs antigas, `i18n:check` no CI. Verificação: lint, typecheck, 72 testes unitários e 154 e2e (seo, e2e, a11y, umami) verdes.
 
 ## Pendente
 
-- Usuário: proteger o `main` (CI obrigatório: `verificar` e `e2e`); cadastrar o `raphaelsena.com` no Umami e fornecer `UMAMI_HOST` e o website ID só no G5.
-- G5: integrar `<UmamiScript />` no layout quando a branch `g5-umami` chegar.
-- Abertas, sem bloquear: slugs, `x-default`, Instagram/WhatsApp, zona Cloudflare, renovação do domínio.
-- G3 em diante só após o OK do G2.
+- Usuário: revisar o alemão (`src/content/de/index.ts`, `reviewed.json`); responder Instagram e WhatsApp; fornecer cargo e data da Modaxo, parágrafos de Sobre, capturas e retrato; licença do `.glb`; decidir o provedor de tradução (DeepL ou LLM).
+- Usuário: proteger o `main` (CI obrigatório: `verificar` e `e2e`).
+- G4: arraste da orelha, View Transitions entre rotas, `.glb` lazy.
+- G6: OG por página (satori), JSON-LD, sitemap e robots, redirect apex para www, CSP, Lighthouse.
+- G7: `archive/<ano>/` e `/<ano>/` (hoje "Em breve").
 
 ## Regras vivas
 
-Sem commit direto no `main`. Nunca ler nem imprimir `code/.env`. Sem ação na Vercel nem em DNS. O check da Vercel falha nos PRs (Root Directory `code` não existe mais): esperado.
+Sem commit direto no `main`. Nunca ler nem imprimir `code/.env`. Sem ação na Vercel nem em DNS.

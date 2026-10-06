@@ -51,3 +51,15 @@ Nunca envie segredos no chat. Use `wrangler secret put` ou `.dev.vars` (gitignor
 ## Ações que só você pode fazer
 
 Trocar nameservers no Namecheap, fornecer secrets, fornecer o modelo 3D e sua licença, configurar proteções de branch, qualquer ação na Vercel.
+
+## Atualização do G3 (2026-10-06)
+
+| Item                                                                                                               | Para quê                                              |
+| ------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------- |
+| **Revisão do alemão**: `src/content/de/index.ts` (diff do PR); depois eu mudo `reviewed.de` para `true`            | Texto em alemão no ar sem revisão                     |
+| Glossário e registro do alemão (tabela em CONTENT-TODO.md)                                                         | "bilhetagem eletrônica" e "desenvolvedor de software" |
+| Provedor de tradução para `pnpm i18n:translate`: DeepL ou modelo de linguagem                                      | Hoje o script só lista as chaves defasadas            |
+| Instagram e WhatsApp: manter ou remover                                                                            | Contato (hoje não publicados)                         |
+| Cargo e período da Modaxo; parágrafos de Sobre; frase de destaque; retrato; capturas dos 5 projetos e das versões  | Placeholders visíveis                                 |
+| Confirmar vínculos atuais (Agência Experimental e Avaso) e o nome de terceira pessoa na descrição do Dress Manager | Experiência e Projetos                                |
+| Proteção do `main` (checks `verificar` e `e2e`)                                                                    | Ainda pendente                                        |

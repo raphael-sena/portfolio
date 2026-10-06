@@ -1,0 +1,54 @@
+{
+  "noTranslate": [
+    "Raphael Sena",
+    "PUC Minas",
+    "Modaxo",
+    "Avaso Technology Solutions",
+    "Kogarah High School",
+    "Alura",
+    "Udemy",
+    "Red Hat",
+    "Remediar",
+    "Dress Manager",
+    "Recipes & Flavors",
+    "Eletronet",
+    "New Energy",
+    "CEMIG",
+    "Cuido Bem",
+    "GitHub",
+    "LinkedIn",
+    "Next.js",
+    "TypeScript",
+    "Tailwind CSS",
+    "Spring Boot",
+    "Java",
+    "Docker",
+    "Umami"
+  ],
+  "terms": {
+    "bilhetagem eletrônica": {
+      "en": "electronic ticketing",
+      "de": "elektronisches Fahrgeldmanagement (EFM)"
+    },
+    "gestão de receita de transporte": {
+      "en": "transit revenue management",
+      "de": "Einnahmenverwaltung im Nahverkehr"
+    },
+    "Engenharia de Software": {
+      "en": "Software Engineering",
+      "de": "Softwaretechnik"
+    },
+    "desenvolvedor de software": {
+      "en": "software developer",
+      "de": "Softwareentwickler"
+    },
+    "gazeta": {
+      "en": "gazette",
+      "de": "Gazette"
+    }
+  },
+  "styleNotes": {
+    "de": "Registro neutro e profissional, sem 'du' nem 'Sie': frases impessoais ou 'ich'. Sem pronomes sobre a pessoa retratada.",
+    "en": "Professional and neutral; avoid gendered pronouns about the person described (use they or rephrase)."
+  }
+}
