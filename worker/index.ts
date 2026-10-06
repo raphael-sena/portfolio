@@ -1,12 +1,13 @@
-interface Env {
+import { BASE_HEADERS, handleHealth, handleStats, type UmamiEnv } from './umami';
+
+interface Env extends UmamiEnv {
   ASSETS: Fetcher;
 }
 
 const JSON_HEADERS = {
+  ...BASE_HEADERS,
   'content-type': 'application/json; charset=utf-8',
   'cache-control': 'no-store',
-  'x-content-type-options': 'nosniff',
-  'x-robots-tag': 'noindex',
 };
 
 function json(body: unknown, status = 200): Response {
@@ -17,11 +18,14 @@ export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const { pathname } = new URL(request.url);
 
-    // Fase "hello" (G1): só o health. /stats/* (G5), /api/chess e /api/spotify (G3 e depois) entram nas próximas fases.
     if (pathname === '/api/health') {
-      return json({ status: 'ok' });
+      return handleHealth(env);
     }
-    if (pathname.startsWith('/api/') || pathname.startsWith('/stats/')) {
+    // /api/chess e /api/spotify entram no G3.
+    if (pathname.startsWith('/stats/')) {
+      return handleStats(request, env);
+    }
+    if (pathname.startsWith('/api/')) {
       return json({ error: 'not_found' }, 404);
     }
 

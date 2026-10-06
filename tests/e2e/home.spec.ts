@@ -17,7 +17,7 @@ test('sem erros no console', async ({ page }) => {
 test('/api/health responde ok pelo Worker', async ({ request }) => {
   const resposta = await request.get('/api/health');
   expect(resposta.status()).toBe(200);
-  expect(await resposta.json()).toEqual({ status: 'ok' });
+  expect(await resposta.json()).toMatchObject({ status: 'ok' });
 });
 
 test('preview/workers.dev é noindex', async ({ request }) => {
