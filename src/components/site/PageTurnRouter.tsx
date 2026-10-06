@@ -54,9 +54,21 @@ export function PageTurnRouter() {
       }
       const root = document.documentElement;
       root.classList.add('turning');
+      const alvo = comBarra(new URL(href, window.location.href).pathname);
       const pronto = new Promise<void>((resolve) => {
         pending.current = { href, resolve };
         window.setTimeout(resolve, TIMEOUT_MS);
+        // Enquanto a página está congelada pela transição, os efeitos passivos do React ficam presos (o `useEffect` abaixo
+        // só roda no timeout). O Next já atualiza a URL no commit da nova rota: sondá-la resolve em ~1 quadro.
+        const sonda = window.setInterval(() => {
+          if (comBarra(window.location.pathname) !== alvo) return;
+          window.clearInterval(sonda);
+          window.setTimeout(() => {
+            if (pending.current?.href === href) pending.current = null;
+            resolve();
+          }, 30);
+        }, 8);
+        window.setTimeout(() => window.clearInterval(sonda), TIMEOUT_MS);
       });
       const transicao = doc.startViewTransition(() => {
         router.push(href);
