@@ -25,6 +25,7 @@ export function JsonLd({ locale, id }: { locale: Locale; id: AnyPageId }) {
       jobTitle: dict.common.jobTitle,
       alumniOf: { '@type': 'CollegeOrUniversity', name: 'PUC Minas' },
       sameAs: [CONTACT.github, CONTACT.linkedin],
+      knowsLanguage: ['pt', 'en', 'es', 'de'],
     },
     {
       '@type': 'WebSite',

@@ -19,7 +19,7 @@ export function TechnologiesPage({ locale }: { locale: Locale }) {
               <span id={`tech-${group}`}>{texts.groups[group]}</span>
             </SectionTitle>
             <ul className="mt-3">
-              {technologies[group].map((name) => (
+              {[...technologies[group], ...((texts.extra as Record<string, string[]>)[group] ?? [])].map((name) => (
                 <li key={name} className="flex min-h-11 items-center gap-3 text-xl">
                   <DiamondBullet />
                   {name}

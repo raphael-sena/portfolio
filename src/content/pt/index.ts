@@ -41,7 +41,6 @@ export const pt = {
     backHome: 'Voltar ao início',
     present: 'atual',
     openRepo: 'Código no GitHub →',
-    placeholder: { role: '[CARGO]', period: '[PERÍODO]' },
   },
   meta: {
     home: {
@@ -86,7 +85,7 @@ export const pt = {
       kicker: 'Última edição',
       headline: 'Desenvolvedor de software apresenta suas obras ao público',
       lead: 'Estudante de Engenharia de Software reúne projetos, experiência e uma máquina que gira.',
-      body: 'Raphael Sena estuda Engenharia de Software na PUC Minas e trabalha com plataformas de bilhetagem eletrônica e gestão de receita de transporte. Gosta de programar, de levantar requisitos e de transformar os dois em produto.',
+      body: 'Engenheiro de software com foco em back-end, entre sistemas de bilhetagem eletrônica em produção na Modaxo e uma plataforma ERP multi-tenant criada do zero, em Java e Spring Boot. Estudante de Engenharia de Software na PUC Minas.',
       continue: 'Continua em Sobre, página 2 →',
       aside: {
         title: 'Em destaque',
@@ -106,7 +105,7 @@ export const pt = {
     about: {
       title: 'Quem escreve esta gazeta',
       lead: 'Um desenvolvedor de software de Belo Horizonte, em poucos parágrafos e uma ficha.',
-      p1: 'Raphael Sena estuda Engenharia de Software na PUC Minas e trabalha com plataformas de bilhetagem eletrônica e gestão de receita de transporte. Gosta de programar, de levantar requisitos e de transformar os dois em produto.',
+      p1: 'Engenheiro de software com foco em back-end, atuando em duas bases de código Java/Spring Boot ao mesmo tempo: sistemas de bilhetagem em produção, com mais de 177 mil usuários, na Modaxo e, como desenvolvedor backend freelance, uma plataforma ERP/tributária multi-tenant criada do zero com Java 21, PostgreSQL, Flyway e arquitetura orientada a eventos. À vontade para assumir uma funcionalidade do modelo de dados e da persistência com JPA/Hibernate ao desenho da API REST, aos testes e à entrega. Estudante de Engenharia de Software na PUC Minas.',
       p2: '[PARÁGRAFO SOBRE VOCÊ: como começou a programar, o que te move e o que você procura agora.]',
       quote: '[UMA FRASE SUA PARA DESTACAR]',
       p3: '[SEGUNDO PARÁGRAFO: um jeito de trabalhar, um valor, algo que o leitor deva lembrar.]',
@@ -123,6 +122,8 @@ export const pt = {
         interestsValue: 'Arquitetura de software e requisitos',
         outside: 'Fora do código',
         outsideValue: 'Xadrez',
+        languages: 'Idiomas',
+        languagesValue: 'Português (nativo), inglês (C1), espanhol (A2), alemão (B1)',
       },
     },
     experience: {
@@ -130,32 +131,94 @@ export const pt = {
       lead: 'O que já foi feito, onde e com quais ferramentas.',
       jobsTitle: 'Experiência',
       jobs: {
-        modaxo: {
-          role: '[CARGO]',
-          text: 'Plataformas de bilhetagem eletrônica e gestão de receita de transporte.',
+        newenergy: {
+          role: 'Desenvolvedor backend (freelance, remoto)',
+          items: [
+            {
+              title: 'Precifique: motor de preços e impostos (do zero)',
+              text: 'Construí do zero um sistema comercial de precificação e cálculo de tributos brasileiros, em Java 21, Spring Boot 3.2, PostgreSQL e migrações Flyway, no lugar de um fluxo antigo baseado em planilhas Excel. Modelei a classificação fiscal por NCM com relacionamentos JPA/Hibernate e integrei a API de dados tributários do IBPT.',
+            },
+            {
+              title: 'Kvaris: plataforma ERP multi-tenant',
+              text: 'Evoluí o Precifique para um ERP multi-tenant que atende duas pessoas jurídicas em um banco compartilhado, com isolamento de tenants por um TenantContext/TenantInterceptor no escopo da requisição. Projetei o pipeline de Vendas, Compras, WMS, Fiscal e Financeiro como um monólito modular, com comunicação interna orientada a eventos (Spring ApplicationEventPublisher) e uma máquina de estados dedicada que controla o status dos pedidos.',
+            },
+            {
+              title: 'Autenticação e integrações',
+              text: 'Implementei login único (SSO) com OAuth2/OIDC via Microsoft Entra ID (Azure AD), com papéis de aplicação (App Roles), e jobs agendados de sincronização com APIs de ERPs externos para as duas empresas.',
+            },
+            {
+              title: 'Critério de engenharia',
+              text: 'Tomei decisões de arquitetura conscientes para evitar excesso de engenharia: escolhi uma hospedagem econômica em VPS/PaaS no lugar de serviços gerenciados em nuvem e um padrão Outbox interno simplificado no lugar de um pipeline de eventos com Kafka/Debezium. O sistema está em desenvolvimento ativo, em ambiente de homologação, com demonstração disponível.',
+            },
+          ],
         },
-        agencia: {
-          role: 'Líder do time de back-end no projeto Cuido Bem',
-          text: 'Revisão de código, testes unitários da estrutura MVC e um GlobalExceptionHandler para tratar as exceções do back-end.',
+        modaxo: {
+          role: 'Engenheiro de Software',
+          items: [
+            {
+              title: 'Sigom Cloud: relatório de pagamentos (Java)',
+              text: 'Reconstruí a geração do relatório de pagamentos, em Java/Spring Boot, numa plataforma de gestão de receita de transporte, reduzindo o esforço computacional estimado de 20 milhões a 1 trilhão de operações para 1 milhão com grandes volumes de dados, e entreguei os endpoints REST de apoio de ponta a ponta.',
+            },
+            {
+              title: 'Manutenção corretiva e evolutiva (SIGO)',
+              text: 'Desenvolvo e mantenho serviços Java/Spring Boot por trás de um produto de bilhetagem eletrônica implantado em 47 cidades, com mais de 695 mil downloads: investigo e resolvo incidentes de produção, evoluo funcionalidades e mantenho integrações REST em um back-end distribuído e orientado a serviços.',
+            },
+            {
+              title: 'Integridade de dados entre sistemas',
+              text: 'Automatizei o versionamento e as migrações de banco de dados em 120 sistemas de produção com Liquibase, eliminando a divergência manual de SQL e reduzindo o risco de implantação de serviços Java legados.',
+            },
+            {
+              title: 'Forma de trabalhar',
+              text: 'Trabalho em squads Scrum: refinamentos técnicos e estimativas, code review, acompanhamento e documentação no Jira/Confluence e entrega incremental junto às pessoas de produto.',
+            },
+          ],
         },
         avaso: {
-          role: 'Field Support Engineer (Service Desk, freelance)',
-          text: 'Suporte em inglês a uma base de usuários multicultural: diagnóstico e solução de problemas em desktops, notebooks, máquinas virtuais, smartphones, servidores, backup, telefonia VoIP e periféricos, com registro em sistema de chamados.',
+          role: 'Field Support Engineer',
+          items: [
+            {
+              title: 'Service Desk (freelance)',
+              text: 'Resolvi incidentes de hardware e software em desktops, notebooks, máquinas virtuais, servidores, sistemas de backup, dispositivos VoIP e periféricos, mantendo 95% de cumprimento de SLA para uma base multicultural de usuários de língua inglesa, como engenheiro alocado para clientes internacionais.',
+            },
+          ],
         },
         puc: {
-          role: 'Técnico de TI (Service Desk e Help Desk)',
-          text: 'Configuração e verificação de redes, instalação de hardware, manutenção de computadores e suporte de nível 1 com Active Directory, sistema de chamados, VPN e mapeamento de diretórios e impressoras, dentro dos acordos de nível de serviço. Participação em um projeto de migração de telefonia.',
+          role: 'Técnico de TI',
+          items: [
+            {
+              title: 'Migração de telefonia',
+              text: 'Conduzi a migração para VoIP de mais de 100 usuários, reconfigurando a topologia lógica da rede e instalando o hardware dos pontos finais durante a virada.',
+            },
+            {
+              title: 'Service Desk e Help Desk',
+              text: 'Prestei suporte técnico de nível 1 com Active Directory, sistema de chamados (CSC), VPN e plataformas de mapeamento de diretórios e impressoras, dentro dos acordos de nível de serviço estabelecidos.',
+            },
+          ],
         },
       },
+      pucNote: 'mantenedora da PUC Minas',
       educationTitle: 'Formação',
       education: {
         puc: {
           title: 'Bacharelado em Engenharia de Software',
           place: 'Belo Horizonte, MG, Brasil',
-          text: 'Desenvolvimento de sistemas, análise de requisitos e arquitetura de software, com ênfase em back-end e metodologias ágeis.',
+          items: [
+            {
+              title: 'Agência Experimental de Software (PMMG)',
+              text: 'Tech Lead da plataforma de recrutamento de RH da Polícia Militar de Minas Gerais, que atende mais de 40 mil candidatos por ciclo de seleção, responsável pelo escopo até a entrega.',
+            },
+            {
+              title: 'Campeão de Projeto Interdisciplinar (2x)',
+              text: 'Liderei duas equipes premiadas que entregaram software de produção para clientes externos.',
+            },
+            {
+              title: 'Projeto de pesquisa',
+              text: 'Integrante de um grupo de pesquisa orientado pela Profa. Lucila Ishitani, com publicação de um artigo sobre produtividade em engenharia de software.',
+            },
+          ],
         },
         kogarah: {
-          title: 'Intercâmbio no ensino médio (2º ano)',
+          title: 'Intercâmbio no ensino médio',
           place: 'Sydney, NSW, Austrália',
           text: 'Intercâmbio de ensino médio em Sydney, na Austrália.',
         },
@@ -183,11 +246,13 @@ export const pt = {
       figureAlt: 'Espaço reservado para a captura do projeto {name}',
       descriptions: {
         remediar:
-          'Plataforma web que organiza doações, estoque e distribuição de medicamentos da ONG Remediar, feita com microsserviços Spring Boot, Next.js e Docker.',
+          'Plataforma ERP premiada, construída e implantada para a ONG Remediar, organização que atua com doação de medicamentos: estoque, doações e relatórios. Microsserviços Spring Boot, Next.js, PostgreSQL, Docker, Nginx e CI/CD.',
         'dress-manager':
           'Aplicativo de gestão de vestidos para Renata Senna: software fullstack em Java, Spring Boot, Next.js e TypeScript, estilizado com Tailwind CSS.',
         'recipes-and-flavors':
           'Aplicação web para compartilhar receitas de culinária, com back-end em Java e Spring Boot e front-end em Next.js, TypeScript e Tailwind CSS.',
+        'rural-erp':
+          'Projeto de conclusão de curso: ERP modular para pequenos produtores, com módulo de controle de irrigação, projetado com DDD e validado pelo método ATAM. Inclui um copiloto agrônomo com LLM e RAG sobre bases públicas agrícolas e detecção de anomalias em dados de sensores.',
         portfolio: 'Portfólio pessoal.',
         'relatorio-fotografico':
           'Gerenciador de Relatório Fotográfico: aplicação para Windows, com Java JRE, desenvolvida para as empresas Eletronet e New Energy. Gera relatórios em PDF com os itens e o cliente, para a inspeção do REI exigido pela CEMIG, cliente das empresas.',
@@ -198,14 +263,23 @@ export const pt = {
       lead: 'Linguagens, frameworks e ferramentas do trabalho e dos projetos.',
       groups: {
         languages: 'Linguagens',
+        backend: 'Back-end',
+        architecture: 'Arquitetura',
+        databases: 'Bancos de dados',
+        auth: 'Autenticação e integração',
+        devops: 'DevOps e nuvem',
+        testing: 'Testes e qualidade',
+        observability: 'Observabilidade e mensageria',
         frontend: 'Front-end',
         mobile: 'Mobile',
-        backend: 'Back-end e frameworks',
-        databases: 'Bancos de dados',
-        devops: 'DevOps e nuvem',
-        observability: 'Observabilidade',
-        messaging: 'Mensageria e cache',
-        tools: 'Ferramentas de desenvolvimento',
+        practices: 'Práticas',
+        domain: 'Domínio',
+      },
+      extra: {
+        auth: ['Integrações de API de terceiros'],
+        testing: ['Testes automatizados', 'Code review'],
+        practices: ['Colaboração remota'],
+        domain: ['Fintech e tributação brasileira (ICMS, IPI, PIS/COFINS, NCM)', 'Produtos com IA'],
       },
     },
     timeline: {

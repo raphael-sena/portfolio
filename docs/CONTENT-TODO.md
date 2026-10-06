@@ -33,7 +33,6 @@ Estes textos vieram do protótipo (`design/design-gazeta`) e foram publicados co
 - Agência Experimental de Software (09/2024 até hoje) e Avaso (09/2023 até hoje) como vínculos atuais; PUC Minas, técnico de TI (09/2021 a 09/2023).
 - Formação: PUC Minas 07/2023 a 07/2027; Kogarah High School 07/2017 a 01/2018.
 - Cursos: Red Hat RH124 (mai/2024), Udemy Java (dez/2023), Alura Java POO (dez/2023), Alura JavaScript back-end (nov/2021), com os links de certificado do Google Drive do legado.
-- **Removidos de propósito** (números que o usuário mandou não publicar sem confirmação): 42,6% (Sigom Cloud), 177K (SIGO), 40000 candidatos (PMMG), além de "mais de 100 usuários" (migração de telefonia). Também não entrou o cargo "Software Engineer" da Modaxo nem os projetos Sigom Cloud, SIGO e SIGO 2.0.
 - Chaves do legado sem uso aparente (`intern`, `technician_assistant`): não migradas.
 
 ## Corrigido ao migrar (erros do legado)
@@ -56,18 +55,22 @@ Registro neutro e profissional, sem "du" nem "Sie". Termos propostos (em `src/co
 
 Sem provedor definido para `pnpm i18n:translate`: DeepL ou um modelo de linguagem (decisão do usuário). Hoje o script lista as chaves defasadas por hash; en e de foram traduzidos nesta fase e o lock está em dia.
 
-## Currículo novo (2026-10-06): o que difere do site
+## Currículo novo (2026-10-06): aplicado ao site
 
-O usuário enviou o currículo atualizado (em inglês, agora em `public/resume-raphael-sena.pdf`). Ele traz informações **mais novas do que o site**; nada disso foi publicado nas páginas, aguardando o OK do usuário:
+O currículo em inglês (`public/resume-raphael-sena.pdf`) virou a fonte do conteúdo de **Experiência, Formação, Projetos, Tecnologias, Sobre e Home**, em pt (fonte), en (texto do próprio currículo) e de (tradução, `reviewed: false`). O autor liberou o uso dos números e datas que constam do currículo.
 
-| Tema                                                                                                                                                                                   | Currículo novo                                                                                                        | Site hoje                           |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
-| Modaxo                                                                                                                                                                                 | Software Engineer, mai/2025 a hoje; números do próprio currículo (usuários, cidades, downloads, sistemas)             | `[CARGO]` e `[PERÍODO]`             |
-| New Energy Soluções Elétricas                                                                                                                                                          | Backend Developer (freelance), mar/2026 a hoje: Precifique (motor de preços e impostos) e plataforma ERP multi-tenant | Não consta                          |
-| Avaso Technology Solutions                                                                                                                                                             | set/2023 a **mai/2025** (encerrado)                                                                                   | "set/2023 a atual" (desatualizado)  |
-| Empregador de TI da PUC                                                                                                                                                                | Sociedade Mineira de Cultura (mantenedora da PUC Minas), set/2021 a set/2023                                          | "PUC Minas"                         |
-| Agência Experimental de Software                                                                                                                                                       | Aparece na formação (Tech Lead, PMMG), não como emprego                                                               | "set/2024 a atual" como emprego     |
-| Projetos                                                                                                                                                                               | Remediar (premiado) e "Rural ERP with AI Copilot" (TCC)                                                               | 5 repositórios do GitHub, sem o TCC |
-| Idiomas                                                                                                                                                                                | inglês C1, português nativo, espanhol A2, alemão B1                                                                   | não consta                          |
-| Contato no PDF                                                                                                                                                                         | e-mail e telefone no cabeçalho                                                                                        | WhatsApp ainda não decidido         |
-| Proposta: atualizar Experiência, Formação e o perfil do Sobre a partir do currículo, em pt, en e de. Falta o OK do usuário, a versão em português do PDF e a decisão sobre o telefone. |
+| Tema         | Aplicado                                                                                                                                                                                                                                                              |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Experiência  | New Energy Soluções Elétricas (freelance, mar/2026 a hoje), Modaxo (Software Engineer, mai/2025 a hoje), AVASO (set/2023 a mai/2025, encerrado), Sociedade Mineira de Cultura / PUC Minas (técnico de TI, set/2021 a set/2023), cada um com os destaques do currículo |
+| Formação     | PUC Minas com Agência Experimental de Software (PMMG, Tech Lead), Campeão de Projeto Interdisciplinar (2x) e projeto de pesquisa; Kogarah High School agora set/2017 a dez/2017, como no currículo                                                                    |
+| Projetos     | Remediar (texto e stack do currículo) e **Rural ERP + AI Copilot** (TCC, sem link de código); os outros quatro seguem dos repositórios do GitHub                                                                                                                      |
+| Tecnologias  | 12 grupos a partir da seção "Skills" do currículo (acrescentados Arquitetura, Autenticação e integração, Testes e qualidade, Práticas e Domínio)                                                                                                                      |
+| Sobre e Home | Perfil do currículo; ficha ganhou "Idiomas" (português nativo, inglês C1, espanhol A2, alemão B1); JSON-LD ganhou `knowsLanguage`                                                                                                                                     |
+| Removido     | "Agência Experimental de Software (Cuido Bem)" como emprego atual e "Cursos extras" continuam como estavam (os cursos não aparecem no currículo novo, mas também não o contradizem). O **telefone** do cabeçalho do PDF não foi levado para o site                    |
+
+### Ainda a confirmar com o autor
+
+- Se a Agência Experimental (set/2024, projeto Cuido Bem, do legado) deve voltar como experiência: o currículo novo só a cita na formação.
+- Os números do currículo estão no ar (177 mil usuários, 47 cidades, 695 mil downloads, 120 sistemas, 40 mil candidatos, 95% de SLA, 100+ usuários, 20 milhões a 1 trilhão para 1 milhão de operações). Qualquer ajuste deve ser feito no currículo e nos dicionários.
+- A Profa. Lucila Ishitani é citada pelo nome no projeto de pesquisa (como no currículo).
+- Versão em português do currículo em PDF (`curriculo-raphael-sena.pdf` ainda é a antiga).

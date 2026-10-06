@@ -34,6 +34,7 @@ export function AboutPage({ locale }: { locale: Locale }) {
               <LeaderRow label={about.sheet.education}>{about.sheet.educationValue}</LeaderRow>
               <LeaderRow label={about.sheet.interests}>{about.sheet.interestsValue}</LeaderRow>
               <LeaderRow label={about.sheet.outside}>{about.sheet.outsideValue}</LeaderRow>
+              <LeaderRow label={about.sheet.languages}>{about.sheet.languagesValue}</LeaderRow>
             </div>
           </div>
         </aside>
