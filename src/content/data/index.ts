@@ -13,6 +13,8 @@ export interface ArchiveEntry {
   label: string;
   /** `true` só depois que o G7 gerar archive/<ano>/ e a rota /<ano>/ existir. */
   archived: boolean;
+  /** `false`: a versão continua em /<ano>/ (noindex), mas não aparece como cartão da linha do tempo. */
+  timeline?: boolean;
 }
 export const archives: ArchiveEntry[] = archivesJson as ArchiveEntry[];
 
@@ -114,7 +116,7 @@ export const extraCourses: ExtraCourse[] = [
  * não tem link de código.
  */
 export interface Project {
-  slug: 'remediar' | 'rural-erp' | 'dress-manager' | 'recipes-and-flavors' | 'portfolio' | 'relatorio-fotografico';
+  slug: 'remediar' | 'rural-erp' | 'dress-manager' | 'portfolio';
   name: string;
   repo?: string;
   languages?: string[];
@@ -139,22 +141,10 @@ export const projects: Project[] = [
     languages: ['TypeScript', 'Java'],
   },
   {
-    slug: 'recipes-and-flavors',
-    name: 'Recipes & Flavors',
-    repo: 'https://github.com/raphael-sena/recipes-and-flavors',
-    languages: ['TypeScript', 'Java', 'HTML'],
-  },
-  {
     slug: 'portfolio',
     name: 'Portfolio',
     repo: 'https://github.com/raphael-sena/portfolio',
     languages: ['HTML', 'TypeScript'],
-  },
-  {
-    slug: 'relatorio-fotografico',
-    name: 'Relatório Fotográfico',
-    repo: 'https://github.com/raphael-sena/relatorio-fotografico',
-    languages: ['Java'],
   },
 ];
 

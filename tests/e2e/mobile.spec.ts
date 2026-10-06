@@ -3,9 +3,9 @@ import { expect, test } from '@playwright/test';
 // Mobile (< 768 px): faixa superior com menu <details>, barra inferior "N de 7", home enxuta e sem three.js.
 test.use({ viewport: { width: 390, height: 844 } });
 
-test('home: faixa superior, sem menu horizontal, sem rolagem lateral e 3D só como poster', async ({ page }) => {
-  const baixados: string[] = [];
-  page.on('request', (r) => baixados.push(r.url()));
+test('home: faixa superior, sem menu horizontal, sem rolagem lateral e o 3D também gira no celular', async ({
+  page,
+}) => {
   await page.goto('/');
   await expect(
     page.getByRole('button', { name: 'Menu de seções' }).or(page.locator('summary[aria-label="Menu de seções"]')),
@@ -13,10 +13,8 @@ test('home: faixa superior, sem menu horizontal, sem rolagem lateral e 3D só co
   await expect(page.getByRole('navigation', { name: 'Principal' })).toBeHidden();
   await expect(page.locator('h1')).toHaveText('Raphael Sena');
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
-  await page.locator('[data-renderer]').scrollIntoViewIfNeeded();
-  await page.waitForTimeout(1200);
-  await expect(page.locator('[data-renderer]')).toHaveAttribute('data-renderer', 'poster');
-  expect(baixados.filter((u) => u.endsWith('.glb'))).toEqual([]);
+  // O 3D (ou o cubo CSS, sem WebGL) carrega depois do load, com o navegador ocioso.
+  await expect(page.locator('[data-renderer]')).toHaveAttribute('data-renderer', /3d|cube/, { timeout: 45_000 });
   await expect(page.getByRole('link', { name: /Quem escreve esta gazeta/ })).toBeVisible();
 });
 

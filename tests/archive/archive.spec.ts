@@ -6,6 +6,7 @@ const entradas: Array<{ year: number; tag: string; basePath: string; archived: b
   readFileSync(new URL('../../src/content/data/archives.json', import.meta.url), 'utf8'),
 );
 const anos = entradas.filter((e) => e.archived);
+const listadas = anos.filter((e) => (e as { timeline?: boolean }).timeline !== false); // cartões da linha do tempo
 
 test('há versões arquivadas e todas vêm de uma tag site/<ANO>', () => {
   expect(anos.length).toBeGreaterThanOrEqual(3);
@@ -81,7 +82,7 @@ for (const { year } of anos) {
 
 test('/linha-do-tempo/ lista as versões arquivadas com link para /<ano>/ e capturas reais', async ({ page }) => {
   await page.goto('/linha-do-tempo/');
-  for (const { year } of anos) {
+  for (const { year } of listadas) {
     await expect(page.getByRole('link', { name: `Abrir /${year}` })).toHaveAttribute('href', `/${year}/`);
     const captura = page.locator(`img[alt*="${year}"]`).first();
     await expect(captura).toHaveAttribute('src', `/timeline/${year}.jpg`); // a imagem entra depois do load

@@ -22,7 +22,18 @@ export function AboutPage({ locale }: { locale: Locale }) {
             />
             {about.p1.slice(1)}
           </p>
-          <p className="prose-gazeta mt-4">{about.p2}</p>
+          <div className="flow-root">
+            <p className="prose-gazeta mt-4">
+              <DropCapImage
+                letter={about.p2.charAt(0)}
+                src="/art/barset-initial-s.webp"
+                width={640}
+                height={850}
+                className="h-[14rem] w-[10.5rem] max-md:h-[10.5rem] max-md:w-[7.9rem]"
+              />
+              {about.p2.slice(1)}
+            </p>
+          </div>
           <div className="my-6">
             <Pullquote>{about.quote}</Pullquote>
           </div>

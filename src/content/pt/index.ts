@@ -20,14 +20,20 @@ export const pt = {
       timeline: 'Linha do tempo',
       contact: 'Contato',
     },
-    footer: { privacy: 'Privacidade' },
+    footer: {
+      privacy: 'Privacidade',
+      mark: 'Vinheta do letreiro: diagrama de uma linotipo, a máquina que compunha o texto dos jornais. De Vinne, 1904. Domínio público.',
+      markSource: 'Wikimedia Commons',
+      initial:
+        'Capitular do Sobre: ilustração de “The Last Chronicle of Barset”, vol. 1, de Anthony Trollope. Domínio público.',
+    },
     skipLink: 'Pular para o conteúdo',
     language: { label: 'Idioma', current: 'idioma atual' },
     ear: { hint: 'Puxe a orelha · página {n} →', aria: 'Virar a página: {section}, página {n}' },
     mac: {
       aria: 'Computador compacto em 3D: arraste, use as setas do teclado ou os botões para girar',
       caption: 'Fig. 1 — Computador compacto, em vista giratória. Arraste para examinar.',
-      captionStatic: 'Fig. 1 — Computador compacto (Apple II).',
+      captionStatic: 'Fig. 1 — Computador compacto, em vista giratória.',
       left: 'Girar à esquerda',
       reset: 'Reiniciar',
       right: 'Girar à direita',
@@ -127,7 +133,7 @@ export const pt = {
       title: 'Quem escreve esta gazeta',
       lead: 'Um desenvolvedor de software de Belo Horizonte, em poucos parágrafos e uma ficha.',
       p1: 'Raphael Sena é engenheiro de software com foco em back-end, atuando em duas bases de código Java/Spring Boot ao mesmo tempo: sistemas de bilhetagem em produção, com mais de 177 mil usuários, na Modaxo e, como desenvolvedor backend freelance, uma plataforma ERP/tributária multi-tenant criada do zero com Java 21, PostgreSQL, Flyway e arquitetura orientada a eventos. À vontade para assumir uma funcionalidade do modelo de dados e da persistência com JPA/Hibernate ao desenho da API REST, aos testes e à entrega. Em ambos os projetos, atuo também como responsável direto pelo levantamento de requisitos e pela tradução de necessidades de negócio em solução técnica, sem camada de Product/BA entre mim e quem decide. Estudante de Engenharia de Software na PUC Minas. Inglês C1, espanhol A2.',
-      p2: 'Comecei pelo suporte de TI. Depois de estudar em Sydney, atuei em Service Desk e Help Desk, onde construí uma base em troubleshooting, redes, hardware e suporte corporativo. Essa base técnica voltada ao cliente me levou à engenharia de software: hoje construo e modernizo sistemas reais de mobilidade e ERP, e sigo fortalecendo meus fundamentos na PUC Minas (2023–2027).',
+      p2: 'Sou desenvolvedor de software, mas comecei pelo suporte de TI. Depois de estudar em Sydney, atuei em Service Desk e Help Desk, onde construí uma base em troubleshooting, redes, hardware e suporte corporativo. Essa base técnica voltada ao cliente me levou à engenharia de software: hoje construo e modernizo sistemas reais de mobilidade e ERP, e sigo fortalecendo meus fundamentos na PUC Minas (2023–2027).',
       quote: 'Foi o suporte ao cliente que me levou à engenharia de software.',
       p3: 'Fora do código, gosto de xadrez, que estimula a concentração, o raciocínio lógico e a tomada de decisões estratégicas, e me ajuda a desenvolver a resolução de problemas. Também sou eclético na música: escuto muita bossa nova, samba e MPB, além de neo-psicodelia, indie, indie rock e jazz.',
       figureCaption: 'Fig. 1 — “The Newspaper Correspondent”, gravura de Edwin Forbes, 1876. Domínio público.',
@@ -275,13 +281,9 @@ export const pt = {
           'Plataforma ERP premiada, construída e implantada para a ONG Remediar, organização que atua com doação de medicamentos: estoque, doações e relatórios, com os requisitos levantados diretamente com a equipe da ONG. Microsserviços Spring Boot, Next.js, PostgreSQL, Docker, Nginx e CI/CD.',
         'dress-manager':
           'Aplicativo de gestão de vestidos para Renata Senna: software fullstack em Java, Spring Boot, Next.js e TypeScript, estilizado com Tailwind CSS.',
-        'recipes-and-flavors':
-          'Aplicação web para compartilhar receitas de culinária, com back-end em Java e Spring Boot e front-end em Next.js, TypeScript e Tailwind CSS.',
         'rural-erp':
           'Projeto de conclusão de curso: ERP modular para pequenos produtores, com módulo de controle de irrigação, projetado com DDD e validado pelo método ATAM. Requisitos levantados diretamente com um agrônomo real, cliente do projeto. Inclui um copiloto agrônomo com LLM e RAG sobre bases públicas agrícolas e detecção de anomalias em dados de sensores.',
         portfolio: 'Portfólio pessoal.',
-        'relatorio-fotografico':
-          'Gerenciador de Relatório Fotográfico: aplicação para Windows, com Java JRE, desenvolvida para as empresas Eletronet e New Energy. Gera relatórios em PDF com os itens e o cliente, para a inspeção do REI exigido pela CEMIG, cliente das empresas.',
       },
     },
     technologies: {
@@ -321,7 +323,6 @@ export const pt = {
       lead: 'Cada versão do portfólio continua no ar, da mais antiga à mais recente.',
       stack: 'Stack',
       changed: 'O que mudou',
-      learned: 'O que aprendi',
       now: 'Agora',
       current: 'Edição atual',
       open: 'Abrir /{year}',
@@ -329,19 +330,20 @@ export const pt = {
       backCurrent: 'Voltar à edição atual',
       figureAlt: 'Captura de tela da versão de {year} do portfólio',
       figureAltCurrent: 'Captura de tela da edição atual do portfólio',
+      engravingAlt:
+        'Gravura de um homem de fraque e gravata-borboleta, de perfil, segurando uma corrente; à frente dele, em destaque, um grande relógio de bolso.',
+      engravingCaption:
+        'Fig. 1 — “Left-handed watches for left-handed people”, Popular Science Monthly, vol. 88 (1916). Domínio público.',
+      engravingSource: 'Wikimedia Commons',
       changedByYear: {
-        '2024':
-          'Primeira edição: página única com tema claro e escuro, em inglês, português e alemão, com xadrez e música.',
         '2025':
           'Ganha a seção de cursos extras, com certificados, e a seção do currículo; a lista de tecnologias é refeita.',
         '2026':
           'Apresentação reescrita, experiência atualizada (Modaxo, AVASO, Agência Experimental) e capturas dos projetos.',
       },
       placeholderChanged: '[UMA FRASE SOBRE O DESIGN E O CÓDIGO]',
-      placeholderLearned: '[UMA FRASE SOBRE O APRENDIZADO]',
       currentStack: 'Next.js 16, React 19, TypeScript, Tailwind CSS 4 e Cloudflare Workers',
       currentChanged: 'Gazeta de 1900 em preto e branco, com virada de página e um computador que gira.',
-      currentLearned: '[UMA FRASE SOBRE O APRENDIZADO]',
     },
     contact: {
       title: 'Cartas à redação',

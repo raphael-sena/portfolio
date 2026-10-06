@@ -27,14 +27,20 @@ export const de: Dictionary = {
       timeline: 'Zeitleiste',
       contact: 'Kontakt',
     },
-    footer: { privacy: 'Datenschutz' },
+    footer: {
+      privacy: 'Datenschutz',
+      mark: 'Vignette im Titel: Diagramm einer Linotype, der Maschine, die den Text der Zeitungen setzte. De Vinne, 1904. Gemeinfrei.',
+      markSource: 'Wikimedia Commons',
+      initial:
+        'Initiale auf der Seite „Über mich“: Illustration aus „The Last Chronicle of Barset“, Band 1, von Anthony Trollope. Gemeinfrei.',
+    },
     skipLink: 'Zum Inhalt springen',
     language: { label: 'Sprache', current: 'aktuelle Sprache' },
     ear: { hint: 'Ecke ziehen · Seite {n} →', aria: 'Seite umblättern: {section}, Seite {n}' },
     mac: {
       aria: 'Kompakter Computer in 3D: zum Drehen ziehen, die Pfeiltasten oder die Schaltflächen verwenden',
       caption: 'Abb. 1 — Kompakter Computer, drehbare Ansicht. Zum Betrachten ziehen.',
-      captionStatic: 'Abb. 1 — Kompakter Computer (Apple II).',
+      captionStatic: 'Abb. 1 — Kompakter Computer, drehbare Ansicht.',
       left: 'Nach links drehen',
       reset: 'Zurücksetzen',
       right: 'Nach rechts drehen',
@@ -138,7 +144,7 @@ export const de: Dictionary = {
       title: 'Wer diese Gazette schreibt',
       lead: 'Ein Softwareentwickler aus Belo Horizonte, in wenigen Absätzen und einem Steckbrief.',
       p1: 'Raphael Sena ist Softwareentwickler mit Schwerpunkt Back-End und arbeitet parallel in zwei Java/Spring-Boot-Codebasen: Ticketing-Systeme im Produktivbetrieb mit über 177.000 Nutzenden bei Modaxo und, als freiberufliche Backend-Entwicklung, eine von Grund auf gebaute mandantenfähige ERP- und Steuerplattform mit Java 21, PostgreSQL, Flyway und ereignisgesteuerter Architektur. Sicher darin, ein Feature vom Datenmodell und der Persistenz mit JPA/Hibernate über das REST-API-Design und die Tests bis zum Release zu verantworten. In beiden Projekten bin ich außerdem direkt für die Anforderungserhebung und die Übersetzung fachlicher Bedürfnisse in technische Lösungen verantwortlich, ohne Product-/BA-Ebene zwischen mir und den Entscheidenden. Studium der Softwaretechnik an der PUC Minas. Englisch C1, Spanisch A2.',
-      p2: 'Ich habe im IT-Support angefangen. Nach dem Auslandsaufenthalt in Sydney arbeitete ich im Service Desk und Help Desk und baute eine Grundlage in Troubleshooting, Netzwerken, Hardware und Unternehmenssupport auf. Diese kundennahe technische Basis führte mich zur Softwareentwicklung: Heute baue und modernisiere ich reale Mobilitäts- und ERP-Systeme und stärke meine Grundlagen an der PUC Minas (2023–2027).',
+      p2: 'Softwareentwickler bin ich heute, angefangen habe ich im IT-Support. Nach dem Auslandsaufenthalt in Sydney arbeitete ich im Service Desk und Help Desk und baute eine Grundlage in Troubleshooting, Netzwerken, Hardware und Unternehmenssupport auf. Diese kundennahe technische Basis führte mich zur Softwareentwicklung: Heute baue und modernisiere ich reale Mobilitäts- und ERP-Systeme und stärke meine Grundlagen an der PUC Minas (2023–2027).',
       quote: 'Der Kundensupport hat mich zur Softwareentwicklung geführt.',
       p3: 'Außerhalb des Codes spiele ich gern Schach, das Konzentration, logisches Denken und strategische Entscheidungen fördert und mir hilft, Problemlösung zu üben. Auch in der Musik bin ich vielseitig: Ich höre viel Bossa Nova, Samba und MPB sowie Neo-Psychedelia, Indie, Indie-Rock und Jazz.',
       figureCaption: 'Abb. 1 — „The Newspaper Correspondent“, Radierung von Edwin Forbes, 1876. Gemeinfrei.',
@@ -286,13 +292,9 @@ export const de: Dictionary = {
           'Preisgekrönte ERP-Plattform, gebaut und eingeführt für die NGO Remediar, eine Organisation für Medikamentenspenden: Bestand, Spenden und Berichte, mit Anforderungen, die direkt mit dem Team der NGO erhoben wurden. Spring-Boot-Microservices, Next.js, PostgreSQL, Docker, Nginx und CI/CD.',
         'dress-manager':
           'Anwendung zur Verwaltung von Kleidern für Renata Senna: Fullstack-Software mit Java, Spring Boot, Next.js und TypeScript, gestaltet mit Tailwind CSS.',
-        'recipes-and-flavors':
-          'Webanwendung zum Teilen von Kochrezepten, mit Back-End in Java und Spring Boot und Front-End in Next.js, TypeScript und Tailwind CSS.',
         'rural-erp':
           'Abschlussprojekt: modulares ERP für Kleinerzeuger mit einem Modul zur Bewässerungssteuerung, entworfen mit DDD und mit ATAM validiert. Anforderungen direkt bei einem echten Agronomen, dem Kunden des Projekts, erhoben. Es umfasst einen agronomischen Copiloten mit LLM und RAG über öffentliche Agrardaten sowie Anomalieerkennung in Sensordaten.',
         portfolio: 'Persönliches Portfolio.',
-        'relatorio-fotografico':
-          'Verwaltung für Fotoberichte: Windows-Anwendung auf Basis der Java JRE, entwickelt für die Unternehmen Eletronet und New Energy. Sie erzeugt PDF-Berichte mit den Positionen und Kundendaten für die von CEMIG geforderte REI-Inspektion; CEMIG ist Kunde beider Unternehmen.',
       },
     },
     technologies: {
@@ -332,7 +334,6 @@ export const de: Dictionary = {
       lead: 'Jede Version des Portfolios bleibt online, von der ältesten bis zur neuesten.',
       stack: 'Stack',
       changed: 'Was sich geändert hat',
-      learned: 'Was gelernt wurde',
       now: 'Jetzt',
       current: 'Aktuelle Ausgabe',
       open: '/{year} öffnen',
@@ -340,19 +341,20 @@ export const de: Dictionary = {
       backCurrent: 'Zurück zur aktuellen Ausgabe',
       figureAlt: 'Screenshot der Version {year} des Portfolios',
       figureAltCurrent: 'Screenshot der aktuellen Ausgabe des Portfolios',
+      engravingAlt:
+        'Stich eines Mannes im Frack mit Fliege, im Profil, der eine Uhrkette hält; vor ihm, im Vordergrund, eine große Taschenuhr.',
+      engravingCaption:
+        'Abb. 1 — „Left-handed watches for left-handed people“, Popular Science Monthly, Band 88 (1916). Gemeinfrei.',
+      engravingSource: 'Wikimedia Commons',
       changedByYear: {
-        '2024':
-          'Erste Ausgabe: eine einzelne Seite mit hellem und dunklem Thema, auf Englisch, Portugiesisch und Deutsch, mit Schach und Musik.',
         '2025':
           'Ergänzt den Bereich mit zusätzlichen Kursen samt Zertifikaten und den Lebenslauf-Bereich; die Technologieliste wird neu aufgebaut.',
         '2026':
           'Vorstellung neu geschrieben, Erfahrung aktualisiert (Modaxo, AVASO, Experimentelle Softwareagentur) und Projekt-Screenshots ergänzt.',
       },
       placeholderChanged: '[EIN SATZ ZU DESIGN UND CODE]',
-      placeholderLearned: '[EIN SATZ ZUM GELERNTEN]',
       currentStack: 'Next.js 16, React 19, TypeScript, Tailwind CSS 4 und Cloudflare Workers',
       currentChanged: 'Gazette von 1900 in Schwarz-Weiß, mit Seitenumblättern und einem Computer, der sich dreht.',
-      currentLearned: '[EIN SATZ ZUM GELERNTEN]',
     },
     contact: {
       title: 'Leserbriefe',

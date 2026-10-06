@@ -46,7 +46,26 @@ export function SiteShell({ locale, id, children }: { locale: Locale; id: AnyPag
       <main id="conteudo" tabIndex={-1} className="mt-6 outline-none max-md:mt-5">
         {children}
       </main>
-      <Footer siteName={common.siteName} links={footerLinks(locale, dict)} />
+      <Footer
+        siteName={common.siteName}
+        links={footerLinks(locale, dict)}
+        credits={[
+          {
+            text: common.footer.mark,
+            source: common.footer.markSource,
+            href: 'https://commons.wikimedia.org/wiki/File:De_Vinne_1904_-_Linotype_machine_diagram.png',
+          },
+          ...(id === 'about'
+            ? [
+                {
+                  text: common.footer.initial,
+                  source: common.footer.markSource,
+                  href: 'https://commons.wikimedia.org/wiki/File:The_Last_Chronicle_of_Barset_Vol_1._Decorative_Initial_Chapter_15.png',
+                },
+              ]
+            : []),
+        ]}
+      />
     </PageStack>
   );
 }
