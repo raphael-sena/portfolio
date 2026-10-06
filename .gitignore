@@ -40,3 +40,6 @@ docs/.gerado/
 
 # worktrees de subagentes
 .claude/worktrees/
+
+# imagens Open Graph geradas no build (scripts/gerar-og.mjs)
+public/og/

@@ -31,7 +31,7 @@ test('foco por teclado visível nos itens do menu', async ({ page }) => {
 
 test('MacViewer gira pelas setas do teclado e reinicia com Home', async ({ page }) => {
   await page.goto('/design-system/');
-  const viewer = page.getByRole('group', { name: /Computador compacto em 3D/ });
+  const viewer = page.getByRole('figure', { name: /Computador compacto em 3D/ });
   const area = viewer.locator('[tabindex="0"]');
   const angulo = () => viewer.locator('[aria-live="polite"]').textContent();
   expect(await angulo()).toContain('30 graus');

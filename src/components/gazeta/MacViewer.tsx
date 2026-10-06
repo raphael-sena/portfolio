@@ -146,7 +146,7 @@ export function MacViewer({ labels = DEFAULT_LABELS }: { labels?: MacViewerLabel
   const showPoster = phase === 'poster' || phase === 'loading';
 
   return (
-    <figure role="group" aria-label={labels.aria}>
+    <figure aria-label={labels.aria}>
       <div
         ref={frameRef}
         tabIndex={0}

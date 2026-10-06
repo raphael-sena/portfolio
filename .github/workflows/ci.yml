@@ -73,6 +73,37 @@ jobs:
             test-results/
           retention-days: 7
 
+  # Lighthouse CI (mobile) contra o build real servido pelo `wrangler dev`: só em PR para o main.
+  # Orçamentos do BRIEF: Performance >= 95, Acessibilidade 100, SEO 100, Boas práticas >= 95 (lighthouserc.cjs).
+  lighthouse:
+    needs: verificar
+    if: github.event_name == 'pull_request' && github.base_ref == 'main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec playwright install --with-deps chromium
+      - name: Chromium do Playwright como CHROME_PATH
+        run: echo "CHROME_PATH=$(node -e "console.log(require('@playwright/test').chromium.executablePath())")" >> "$GITHUB_ENV"
+      # SITE_ENV=production: o noindex do preview faria o audit `is-crawlable` falhar de propósito.
+      - run: pnpm build
+        env:
+          SITE_ENV: production
+      - run: pnpm lighthouse
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lighthouse
+          path: lighthouse/
+          retention-days: 7
+
   # Publica o `main` APENAS em workers.dev (o domínio de produção só é anexado no G8).
   # Ligado pela variável de repositório DEPLOY_ENABLED=true, depois de criar os secrets
   # CLOUDFLARE_API_TOKEN e CLOUDFLARE_ACCOUNT_ID.
@@ -81,6 +112,9 @@ jobs:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main' && vars.DEPLOY_ENABLED == 'true'
     runs-on: ubuntu-latest
     environment: workers-dev
+    permissions:
+      contents: read
+      issues: write
     steps:
       - uses: actions/checkout@v4
         with:
@@ -100,3 +134,20 @@ jobs:
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      # Smoke somente leitura contra o site recém-publicado (Umami interceptado). Se falhar: rollback e issue.
+      - run: pnpm exec playwright install --with-deps chromium
+      - name: Smoke pós-deploy
+        id: smoke
+        run: pnpm test:publicado
+        env:
+          PLAYWRIGHT_BASE_URL: ${{ vars.SMOKE_BASE_URL || 'https://portfolio.raphael-116.workers.dev' }}
+      - name: Rollback do Worker e issue (smoke falhou)
+        if: failure() && steps.smoke.outcome == 'failure'
+        run: |
+          pnpm exec wrangler rollback --message "smoke pos-deploy falhou em ${GITHUB_SHA}" --yes
+          gh issue create --title "Smoke pós-deploy falhou em ${GITHUB_SHA::7} (rollback feito)" \
+            --body "O smoke de produção falhou depois do deploy do commit ${GITHUB_SHA}. O Worker voltou para a versão anterior com \`wrangler rollback\`. Execução: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          GH_TOKEN: ${{ github.token }}

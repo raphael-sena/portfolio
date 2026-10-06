@@ -2,6 +2,7 @@
 export const pt = {
   common: {
     siteName: 'Raphael Sena',
+    jobTitle: 'Engenheiro de Software',
     tagline: 'Gazeta de um desenvolvedor de software',
     dateline: {
       place: 'Belo Horizonte, Minas Gerais',

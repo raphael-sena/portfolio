@@ -18,7 +18,7 @@ export function PrivacyPage({ locale }: { locale: Locale }) {
           ))}
         </ul>
         <p>
-          <Link href={pathFor(locale, 'home')} className="inline-flex min-h-11 items-center">
+          <Link prefetch={false} href={pathFor(locale, 'home')} className="inline-flex min-h-11 items-center">
             {dict.common.backHome}
           </Link>
         </p>

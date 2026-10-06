@@ -46,7 +46,7 @@ export function Masthead({
   return (
     <header className="py-3.5 text-center">
       <p className="font-masthead text-[clamp(44px,6.5vw,72px)] leading-[1.05]">
-        <Link href={homeHref} className="no-underline visited:text-ink hover:bg-ink hover:text-paper">
+        <Link prefetch={false} href={homeHref} className="no-underline visited:text-ink hover:bg-ink hover:text-paper">
           {title}
         </Link>
       </p>

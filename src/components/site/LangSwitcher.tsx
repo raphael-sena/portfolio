@@ -33,6 +33,7 @@ export function LangSwitcher({
               </span>
             ) : (
               <Link
+                prefetch={false}
                 href={pathFor(l, id)}
                 lang={HREFLANG[l]}
                 hrefLang={HREFLANG[l]}

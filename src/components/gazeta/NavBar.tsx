@@ -24,6 +24,7 @@ export function NavBar({ items, label = 'Principal', current }: NavBarProps) {
           return (
             <li key={item.href}>
               <Link
+                prefetch={false}
                 href={item.href}
                 aria-current={isCurrent ? 'page' : undefined}
                 data-track="menu_click"

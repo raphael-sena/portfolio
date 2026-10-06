@@ -9,6 +9,7 @@ import type { Dictionary } from '../dictionary';
 export const de: Dictionary = {
   common: {
     siteName: 'Raphael Sena',
+    jobTitle: 'Softwareentwickler',
     tagline: 'Gazette eines Softwareentwicklers',
     dateline: {
       place: 'Belo Horizonte, Minas Gerais',
@@ -22,7 +23,7 @@ export const de: Dictionary = {
     },
     nav: {
       label: 'Hauptmenü',
-      home: 'Start',
+      home: 'Startseite',
       about: 'Über mich',
       experience: 'Erfahrung',
       projects: 'Projekte',

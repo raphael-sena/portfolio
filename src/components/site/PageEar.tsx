@@ -99,6 +99,7 @@ export function PageEar({ href, ariaLabel, nextLabel, nextPage, pageLabel, hint 
         {hint}
       </span>
       <Link
+        prefetch={false}
         href={href}
         aria-label={ariaLabel}
         data-turn-via="ear"

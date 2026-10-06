@@ -149,7 +149,7 @@ test.describe('computador 3D', () => {
     if (modo === '3d') await expect(page.getByTestId('mac-3d').locator('canvas')).toHaveCount(1);
     const angulo = () =>
       page
-        .getByRole('group', { name: /Computador compacto/ })
+        .getByRole('figure', { name: /Computador compacto/ })
         .locator('[aria-live]')
         .textContent();
     await quadro.focus();
@@ -165,7 +165,7 @@ test.describe('computador 3D', () => {
     const quadro = page.locator('[data-renderer]').first();
     await quadro.scrollIntoViewIfNeeded();
     await expect(quadro).toHaveAttribute('data-renderer', 'cube', { timeout: 30_000 });
-    await expect(page.getByRole('group', { name: /Computador compacto/ })).toBeVisible();
+    await expect(page.getByRole('figure', { name: /Computador compacto/ })).toBeVisible();
   });
 
   test('a atribuição CC BY 4.0 do modelo está na página', async ({ page }) => {

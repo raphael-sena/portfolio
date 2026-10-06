@@ -15,7 +15,7 @@ export function Footer({ siteName, links }: { siteName: string; links: FooterLin
           <span aria-hidden="true" className="mx-2">
             |
           </span>
-          <Link href={link.href} className="inline-flex min-h-11 items-center">
+          <Link prefetch={false} href={link.href} className="inline-flex min-h-11 items-center">
             {link.label}
           </Link>
         </span>

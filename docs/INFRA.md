@@ -75,3 +75,12 @@ Observação: não há TXT de verificação do Search Console no apex. A proprie
 - Lista completa de registros e regras de Email Forwarding no Namecheap.
 - Método de verificação do Search Console e outros serviços que dependam de DNS.
 - Renovação automática e contato do registrante.
+
+## Redirect do apex para o www (decisão do G6, 2026-10-06)
+
+Mecanismo escolhido: **Redirect Rule (Single Redirect) da Cloudflare**, criada na zona no G8, no lugar de código no Worker. Motivo: o Worker só roda antes dos assets em `/stats/*` e `/api/*` (`run_worker_first`); tratar o apex no Worker exigiria rodá-lo em todas as requisições. A regra executa antes do Worker.
+
+- Quando: `http.host eq "raphaelsena.com"`.
+- Então: redirecionamento dinâmico para `concat("https://www.raphaelsena.com", http.request.uri.path)`, status **301**, preservando a query string.
+- O apex e o `www` precisam existir como registros proxied (ou como custom domains do Worker) para a regra ser alcançada.
+- Teste: `SMOKE_APEX=https://raphaelsena.com PLAYWRIGHT_BASE_URL=https://www.raphaelsena.com pnpm test:publicado` (um único 301 e `Location` com o caminho). Hoje a Vercel responde 308 em duas etapas no http; o novo comportamento é um salto só.

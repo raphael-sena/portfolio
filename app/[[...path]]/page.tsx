@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { JsonLd } from '@/components/site/JsonLd';
 import { SiteShell } from '@/components/site/SiteShell';
 import { AboutPage } from '@/components/site/pages/About';
 import { ContactPage } from '@/components/site/pages/Contact';
@@ -58,8 +59,11 @@ export default async function Page({ params }: Props) {
   // O guia de estilo tem o próprio cabeçalho; as demais páginas usam o shell comum.
   if (route.id === 'design-system') return <Body locale={route.locale} id={route.id} />;
   return (
-    <SiteShell locale={route.locale} id={route.id}>
-      <Body locale={route.locale} id={route.id} />
-    </SiteShell>
+    <>
+      <JsonLd locale={route.locale} id={route.id} />
+      <SiteShell locale={route.locale} id={route.id}>
+        <Body locale={route.locale} id={route.id} />
+      </SiteShell>
+    </>
   );
 }
