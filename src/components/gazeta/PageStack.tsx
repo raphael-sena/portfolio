@@ -34,7 +34,7 @@ export function PageStack({
   bottom,
 }: PageStackProps) {
   return (
-    <div className="bg-stage-hatch overflow-hidden py-7 pr-11 pb-13 pl-6 max-md:[overflow:clip] max-md:bg-paper max-md:p-0">
+    <div className="overflow-hidden py-7 pr-11 pb-13 pl-6 max-md:[overflow:clip] max-md:p-0">
       {top}
       <div className="relative mx-auto max-w-295">
         {BACK_SHEETS.map((sheet) => (

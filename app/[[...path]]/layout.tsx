@@ -1,4 +1,4 @@
-import type { Viewport } from 'next';
+import type {} from 'next';
 import { AnalyticsClient } from '@/components/analytics/AnalyticsClient';
 import { UmamiScript } from '@/components/analytics/UmamiScript';
 import { SkipLink } from '@/components/gazeta';
@@ -9,10 +9,6 @@ import { t } from '@/i18n/dictionary';
 import { resolveSegments } from '@/i18n/routes';
 import { fontClassName } from '@/lib/fonts';
 import '../globals.css';
-
-export const viewport: Viewport = {
-  themeColor: '#161616',
-};
 
 /**
  * Layout raiz único: o idioma vem sempre da URL (`/`, `/en/...`, `/de/...`), nunca de localStorage nem de middleware
