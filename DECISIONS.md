@@ -13,3 +13,7 @@
 - **Linha do tempo**: 2024 deixa de ser cartão (`"timeline": false` em `archives.json`; `/2024/` continua no ar, noindex). "O que aprendi" removido. Gravura do homem com relógio (Popular Science Monthly, vol. 88, 1916) na quarta coluna.
 - **Projetos**: removidos Recipes & Flavors e Relatório Fotográfico.
 - **Computador**: gira sozinho a 8°/s e o quadriculado no sentido oposto, no celular e no desktop; sem giro com `prefers-reduced-motion`; arrasto só com mouse. No celular o 3D começa na primeira interação ou 5 s após o `load` (a versão sem adiamento derrubava a home para 0,88–0,91 no Lighthouse). Poster `eager` (está na primeira tela do celular).
+
+## 2026-10-06 — Fundo da página: o navegador decide
+
+- O fundo escuro `#161616` com listras (`.bg-stage-hatch`) foi removido de `html`, `body` e da pilha de folhas: o fundo passa a ser o do navegador (transparente). Também saíram o token `--color-stage`, o `themeColor` escuro do `<head>` e o "Fundo escuro" da paleta do `/design-system/`; o `manifest` usa o papel (`#F3EEDF`). A imagem OG e o resto do conteúdo não mudam.

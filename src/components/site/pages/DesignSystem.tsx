@@ -33,7 +33,6 @@ const PALETTE = [
 ];
 
 const EXTRA_TOKENS = [
-  { hex: '#161616', name: 'Fundo escuro', swatch: 'bg-stage' },
   { hex: '#EFEDE3', name: 'Folha 4 da pilha', swatch: 'bg-sheet-4' },
   { hex: '#E4E1D5', name: 'Verso da orelha', swatch: 'bg-ear-back' },
   { hex: '#A9A597', name: 'Dobra (escuro)', swatch: 'bg-fold-dark' },
@@ -93,7 +92,7 @@ export function DesignSystemPage() {
             <h3 className="mt-6 mb-2 font-label text-xl tracking-[0.14em] uppercase">Tokens de apoio (do protótipo)</h3>
             <ul className="flex flex-wrap gap-3.5">
               {EXTRA_TOKENS.map((c) => (
-                <Swatch key={c.hex} {...c} dark={c.hex === '#161616'} />
+                <Swatch key={c.hex} {...c} />
               ))}
             </ul>
           </section>
